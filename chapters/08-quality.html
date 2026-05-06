@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>12&nbsp; Quality Management – Project Management for Engineering Students</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/09-agile.html" rel="next">
+<link href="../chapters/07-cost.html" rel="prev">
+<link href="../cover.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-635fd99ad7eb0a14c2a6f1021f898f13.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="mermaid-theme" content="default">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">PM for Engineers</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> <i class="bi bi-house-fill" role="img" aria-label="Home">
+</i> 
+<span class="menu-text">Project Management for Engineering Students</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/06-risk.html">PART IV — EXECUTION &amp; CONTROL</a></li><li class="breadcrumb-item"><a href="../chapters/08-quality.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quality Management</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/HusseinYounis/pm" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Project Management for Engineering Students</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">PART I — FOUNDATIONS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Project Management and Engineering Context</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-process-groups.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Management Process Groups</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">PART II — INITIATION &amp; INTEGRATION</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-initiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Project Initiation &amp; Selection</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">PART III — PLANNING</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-planning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Project Planning &amp; Work Breakdown Structure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-scheduling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Project Scheduling &amp; Critical Path Method</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Resource Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-msproject.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Microsoft Project — Practical Tool Guide</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">PART IV — EXECUTION &amp; CONTROL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-risk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Risk Management &amp; Project Audit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-cost.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Cost Management &amp; Earned Value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-quality.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quality Management</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">PART V — MODERN APPROACHES</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-agile.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Agile Project Management &amp; Scrum</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-closure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Project Closure &amp; Lessons Learned</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">References</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning Outcomes</a></li>
+  <li><a href="#what-is-quality-in-engineering-projects" id="toc-what-is-quality-in-engineering-projects" class="nav-link" data-scroll-target="#what-is-quality-in-engineering-projects"><span class="header-section-number">12.1</span> What is Quality in Engineering Projects?</a>
+  <ul class="collapse">
+  <li><a href="#grade-vs.-quality" id="toc-grade-vs.-quality" class="nav-link" data-scroll-target="#grade-vs.-quality"><span class="header-section-number">12.1.1</span> Grade vs.&nbsp;Quality</a></li>
+  </ul></li>
+  <li><a href="#the-quality-management-process" id="toc-the-quality-management-process" class="nav-link" data-scroll-target="#the-quality-management-process"><span class="header-section-number">12.2</span> The Quality Management Process</a></li>
+  <li><a href="#the-deming-pdca-cycle" id="toc-the-deming-pdca-cycle" class="nav-link" data-scroll-target="#the-deming-pdca-cycle"><span class="header-section-number">12.3</span> The Deming PDCA Cycle</a></li>
+  <li><a href="#the-quality-management-plan" id="toc-the-quality-management-plan" class="nav-link" data-scroll-target="#the-quality-management-plan"><span class="header-section-number">12.4</span> The Quality Management Plan</a></li>
+  <li><a href="#quality-control-tools" id="toc-quality-control-tools" class="nav-link" data-scroll-target="#quality-control-tools"><span class="header-section-number">12.5</span> Quality Control Tools</a>
+  <ul class="collapse">
+  <li><a href="#control-charts" id="toc-control-charts" class="nav-link" data-scroll-target="#control-charts"><span class="header-section-number">12.5.1</span> 1. Control Charts</a></li>
+  <li><a href="#pareto-analysis-8020-rule" id="toc-pareto-analysis-8020-rule" class="nav-link" data-scroll-target="#pareto-analysis-8020-rule"><span class="header-section-number">12.5.2</span> 2. Pareto Analysis (80/20 Rule)</a></li>
+  <li><a href="#cause-and-effect-fishbone-ishikawa-diagram" id="toc-cause-and-effect-fishbone-ishikawa-diagram" class="nav-link" data-scroll-target="#cause-and-effect-fishbone-ishikawa-diagram"><span class="header-section-number">12.5.3</span> 3. Cause-and-Effect (Fishbone / Ishikawa) Diagram</a></li>
+  <li><a href="#checklist-inspection-checklist" id="toc-checklist-inspection-checklist" class="nav-link" data-scroll-target="#checklist-inspection-checklist"><span class="header-section-number">12.5.4</span> 4. Checklist (Inspection Checklist)</a></li>
+  </ul></li>
+  <li><a href="#iso-9001-and-quality-systems" id="toc-iso-9001-and-quality-systems" class="nav-link" data-scroll-target="#iso-9001-and-quality-systems"><span class="header-section-number">12.6</span> ISO 9001 and Quality Systems</a></li>
+  <li><a href="#cost-of-quality" id="toc-cost-of-quality" class="nav-link" data-scroll-target="#cost-of-quality"><span class="header-section-number">12.7</span> Cost of Quality</a></li>
+  <li><a href="#case-study-jeddah-floods-2009-the-hidden-cost-of-quality-failure" id="toc-case-study-jeddah-floods-2009-the-hidden-cost-of-quality-failure" class="nav-link" data-scroll-target="#case-study-jeddah-floods-2009-the-hidden-cost-of-quality-failure">Case Study — Jeddah Floods 2009: The Hidden Cost of Quality Failure</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/06-risk.html">PART IV — EXECUTION &amp; CONTROL</a></li><li class="breadcrumb-item"><a href="../chapters/08-quality.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quality Management</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quality Management</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 8 · Execution &amp; Control</div>
+  <h1>Quality Management</h1>
+  <p class="chapter-desc">Planning, assuring, and controlling quality to deliver engineering projects that meet specifications and client expectations.</p>
+</div>
+<section id="learning-outcomes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="learning-outcomes">Learning Outcomes</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🎯 Learning Outcomes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the end of this chapter, you will be able to:</p>
+<ol type="1">
+<li><strong>Distinguish</strong> between quality planning, quality assurance, and quality control</li>
+<li><strong>Develop</strong> a Quality Management Plan for an engineering project</li>
+<li><strong>Apply</strong> quality tools: inspection plans, control charts, Pareto analysis, fishbone diagrams</li>
+<li><strong>Explain</strong> ISO 9001 and its role in project quality management</li>
+<li><strong>Describe</strong> the Deming Cycle (PDCA) and its application to project QM</li>
+<li><strong>Analyse</strong> the cost of quality (prevention vs.&nbsp;appraisal vs.&nbsp;failure costs)</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="what-is-quality-in-engineering-projects" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="what-is-quality-in-engineering-projects"><span class="header-section-number">12.1</span> What is Quality in Engineering Projects?</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>📖 Two Dimensions of Quality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Quality of Design (Fitness for Purpose):</strong><br>
+Does the delivered product meet the intended purpose? Did we deliver what the client NEEDED?</p>
+<p><strong>Quality of Conformance (Conformance to Specifications):</strong><br>
+Was the product built exactly to the approved specifications, drawings, and standards?</p>
+<p><em>Example:</em> A bridge designed for 40-tonne trucks but only used by cars is HIGH quality of conformance (built as designed) but potentially POOR quality of design (over-engineered = waste). A bridge designed for 100-tonne loads but built with B-grade steel is HIGH quality of design but POOR quality of conformance.</p>
+</div>
+</div>
+<section id="grade-vs.-quality" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="grade-vs.-quality"><span class="header-section-number">12.1.1</span> Grade vs.&nbsp;Quality</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 52%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>High Grade</th>
+<th>Low Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>High Quality</strong></td>
+<td>Premium product built to spec</td>
+<td>Budget product built to spec</td>
+</tr>
+<tr class="even">
+<td><strong>Low Quality</strong></td>
+<td>Premium product with defects</td>
+<td>Budget product with defects</td>
+</tr>
+</tbody>
+</table>
+<p><em>Grade is the level of performance requirements; Quality is whether those requirements are met.</em></p>
+<hr>
+</section>
+</section>
+<section id="the-quality-management-process" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="the-quality-management-process"><span class="header-section-number">12.2</span> The Quality Management Process</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    subgraph PL["📋 PLAN QUALITY&lt;br/&gt;MANAGEMENT"]
+        P1["Identify quality&lt;br/&gt;standards relevant&lt;br/&gt;to the project"]
+        P2["Define quality&lt;br/&gt;metrics and&lt;br/&gt;acceptance criteria"]
+        P3["Develop Quality&lt;br/&gt;Management Plan&lt;br/&gt;(QMP)"]
+        P1 --&gt; P2 --&gt; P3
+    end
+
+    subgraph QA["🔍 MANAGE QUALITY&lt;br/&gt;(Quality Assurance)"]
+        Q1["Audit processes&lt;br/&gt;to ensure they&lt;br/&gt;are being followed"]
+        Q2["Process improvement&lt;br/&gt;and corrective&lt;br/&gt;action"]
+        Q3["Quality audits&lt;br/&gt;and reviews"]
+        Q1 --&gt; Q2 --&gt; Q3
+    end
+
+    subgraph QC["🧪 CONTROL QUALITY&lt;br/&gt;(Quality Control)"]
+        C1["Inspect deliverables&lt;br/&gt;against specifications"]
+        C2["Test and verify&lt;br/&gt;outputs meet&lt;br/&gt;criteria"]
+        C3["Accept or reject&lt;br/&gt;and rework&lt;br/&gt;deliverables"]
+        C1 --&gt; C2 --&gt; C3
+    end
+
+    PL --&gt; |"QMP guides&lt;br/&gt;QA and QC"| QA
+    PL --&gt; QC
+    QA --&gt; |"Process audit&lt;br/&gt;findings"| QC
+    QC --&gt; |"Inspection results&lt;br/&gt;feed back to&lt;br/&gt;process improvement"| QA
+
+    style PL fill:#dbeafe,stroke:#3b82f6
+    style QA fill:#dcfce7,stroke:#22c55e
+    style QC fill:#fef9c3,stroke:#eab308
+</pre>
+</div>
+<p></p><figcaption> The three processes of project quality management</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>📖 QA vs.&nbsp;QC — The Critical Distinction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Quality Assurance (QA):</strong> Focuses on <em>processes</em> — “Are we doing the right things the right way?” - Proactive and process-oriented - Performed DURING the project - Examples: Process audits, design reviews, peer checks, construction supervision</p>
+<p><strong>Quality Control (QC):</strong> Focuses on <em>outputs</em> — “Does the product meet requirements?” - Reactive and product-oriented - Applied to completed work - Examples: Material testing, dimensional surveys, pressure testing, functional testing</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="the-deming-pdca-cycle" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="the-deming-pdca-cycle"><span class="header-section-number">12.3</span> The Deming PDCA Cycle</h2>
+<p>The <strong>Plan-Do-Check-Act (PDCA)</strong> cycle, developed by W. Edwards Deming, is the foundation of continuous quality improvement:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'flowchart': {'nodeSpacing': 40, 'rankSpacing': 60}}}%%
+flowchart LR
+    P["📋 PLAN&lt;br/&gt;Define objectives&lt;br/&gt;Set quality standards&lt;br/&gt;Plan inspections"]
+    D["⚙️ DO&lt;br/&gt;Execute project work&lt;br/&gt;Conduct inspections&lt;br/&gt;Document results"]
+    C["🔍 CHECK&lt;br/&gt;Analyse results&lt;br/&gt;Compare to specs&lt;br/&gt;Identify defects"]
+    A["🔄 ACT&lt;br/&gt;Implement corrections&lt;br/&gt;Root cause analysis&lt;br/&gt;Update procedures"]
+
+    P --&gt; D --&gt; C --&gt; A --&gt; P
+
+    style P fill:#4f46e5,color:#fff
+    style D fill:#0f766e,color:#fff
+    style C fill:#b45309,color:#fff
+    style A fill:#b91c1c,color:#fff
+</pre>
+</div>
+<p></p><figcaption> The Deming PDCA Cycle applied to engineering projects</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="the-quality-management-plan" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="the-quality-management-plan"><span class="header-section-number">12.4</span> The Quality Management Plan</h2>
+<p>A <strong>Quality Management Plan (QMP)</strong> defines how quality will be managed throughout the project:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">QMP Contents</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Inspection and Test Plan (ITP)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Non-Conformance Management</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ol type="1">
+<li><strong>Quality objectives</strong> — measurable quality targets linked to project scope</li>
+<li><strong>Quality standards</strong> — applicable codes, standards, specifications (e.g., AS/NZS, ISO, ASTM)</li>
+<li><strong>Quality responsibilities</strong> — who is accountable for quality activities</li>
+<li><strong>Inspection and Test Plan (ITP)</strong> — what will be tested, by whom, and when</li>
+<li><strong>Non-conformance procedure</strong> — how defects are identified, documented, and resolved</li>
+<li><strong>Document control</strong> — version control and distribution of quality documents</li>
+<li><strong>Audit schedule</strong> — when QA audits will be conducted</li>
+</ol>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>The ITP is the core QC tool — it specifies every inspection and test:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 16%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th>Test/Inspection</th>
+<th>Standard</th>
+<th>Frequency</th>
+<th>Inspector</th>
+<th>Hold/Witness/Review</th>
+<th>Acceptance Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Concrete pour</td>
+<td>Slump test</td>
+<td>AS 1012.3</td>
+<td>Each truck</td>
+<td>Site Engineer</td>
+<td>Hold (H)</td>
+<td>80-120mm</td>
+</tr>
+<tr class="even">
+<td>Concrete</td>
+<td>28-day cylinder test</td>
+<td>AS 1012.9</td>
+<td>1 set per 50m³</td>
+<td>NATA Lab</td>
+<td>Review (R)</td>
+<td>≥ N32 (32MPa)</td>
+</tr>
+<tr class="odd">
+<td>Structural steel weld</td>
+<td>Visual inspection</td>
+<td>AS/NZS 1554</td>
+<td>100%</td>
+<td>Inspector</td>
+<td>Witness (W)</td>
+<td>No visible defects</td>
+</tr>
+<tr class="even">
+<td>Steel weld</td>
+<td>NDT (ultrasonic)</td>
+<td>AS 2205</td>
+<td>10% random</td>
+<td>Certified UT tech</td>
+<td>Review (R)</td>
+<td>Class B</td>
+</tr>
+<tr class="odd">
+<td>Pipeline hydrostatic test</td>
+<td>Pressure test</td>
+<td>AS 2885</td>
+<td>Each segment</td>
+<td>Engineer</td>
+<td>Witness (W)</td>
+<td>1.5× operating pressure, 1 hour</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hold/Witness/Review Codes:</strong> - <strong>H = Hold Point:</strong> Work CANNOT proceed without inspector present and signing off - <strong>W = Witness Point:</strong> Inspector should attend; notified 24 hours in advance; can proceed if not present - <strong>R = Review:</strong> Documentation reviewed by inspector; work can proceed</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>When a defect is found, it must be formally managed:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    D["🔍 Defect&lt;br/&gt;Discovered"] --&gt; NCR
+    NCR["📝 Non-Conformance&lt;br/&gt;Report (NCR) Raised&lt;br/&gt;&lt;br/&gt;Document:&lt;br/&gt;• What was found&lt;br/&gt;• Where/when&lt;br/&gt;• Who found it&lt;br/&gt;• Photos"] --&gt; HOLD
+    HOLD["🛑 Work&lt;br/&gt;Held"] --&gt; RCA
+    RCA["🔬 Root Cause&lt;br/&gt;Analysis"] --&gt; OPTIONS
+    OPTIONS{"Disposition&lt;br/&gt;Options"}
+    OPTIONS --&gt; REJ["❌ REJECT&lt;br/&gt;Remove and&lt;br/&gt;replace"] --&gt; VP
+    OPTIONS --&gt; REW["🔄 REWORK&lt;br/&gt;Repair to&lt;br/&gt;specification"] --&gt; VP
+    OPTIONS --&gt; UAI["⚠️ USE AS IS&lt;br/&gt;Engineer assessment&lt;br/&gt;and client approval"] --&gt; VP
+    VP["✅ Verification&lt;br/&gt;Inspection&lt;br/&gt;Passed?"] --&gt; |"YES"| CLOSE
+    VP --&gt; |"NO"| NCR
+    CLOSE["✅ NCR&lt;br/&gt;Closed&lt;br/&gt;&lt;br/&gt;Record lessons&lt;br/&gt;learned"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="quality-control-tools" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="quality-control-tools"><span class="header-section-number">12.5</span> Quality Control Tools</h2>
+<section id="control-charts" class="level3" data-number="12.5.1">
+<h3 data-number="12.5.1" class="anchored" data-anchor-id="control-charts"><span class="header-section-number">12.5.1</span> 1. Control Charts</h3>
+<p><strong>Statistical Process Control (SPC)</strong> uses control charts to monitor process stability:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">xychart-beta
+    title "Concrete 28-Day Strength Control Chart (MPa)"
+    x-axis ["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S10", "S11", "S12"]
+    y-axis "Strength (MPa)" 25 --&gt; 50
+    line [38, 36, 40, 35, 42, 33, 44, 37, 38, 41, 29, 36]
+    line [45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45]
+    line [32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32]
+</pre>
+</div>
+<p></p><figcaption> Control chart concept for concrete compressive strength monitoring</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p><em>Upper control limit = 45 MPa (UCL); Lower control limit = 32 MPa (LCL).</em><br>
+<em>Sample 11 (29 MPa) is below the LCL — indicates an out-of-control process. Investigation required.</em></p>
+</section>
+<section id="pareto-analysis-8020-rule" class="level3" data-number="12.5.2">
+<h3 data-number="12.5.2" class="anchored" data-anchor-id="pareto-analysis-8020-rule"><span class="header-section-number">12.5.2</span> 2. Pareto Analysis (80/20 Rule)</h3>
+<p>Pareto analysis identifies the <strong>vital few causes</strong> that account for most quality problems:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>📖 Pareto Principle
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p><em>“80% of problems come from 20% of causes.”</em></p>
+</blockquote>
+<p>By focusing QC efforts on the 20% of causes driving 80% of defects, quality can be dramatically improved with limited resources.</p>
+</div>
+</div>
+</section>
+<section id="cause-and-effect-fishbone-ishikawa-diagram" class="level3" data-number="12.5.3">
+<h3 data-number="12.5.3" class="anchored" data-anchor-id="cause-and-effect-fishbone-ishikawa-diagram"><span class="header-section-number">12.5.3</span> 3. Cause-and-Effect (Fishbone / Ishikawa) Diagram</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    subgraph METHOD
+        M1[Poor vibration&lt;br/&gt;technique]
+        M2[Incorrect pour&lt;br/&gt;sequence]
+        M3[No slump test&lt;br/&gt;before pour]
+    end
+    subgraph MATERIAL
+        MA1[High water/cement&lt;br/&gt;ratio]
+        MA2[Wrong cement&lt;br/&gt;type delivered]
+        MA3[Aggregate&lt;br/&gt;segregation]
+    end
+    subgraph MACHINE
+        MC1[Faulty batch&lt;br/&gt;plant calibration]
+        MC2[Old mixer drums&lt;br/&gt;not cleaned]
+    end
+    subgraph MANMETHODS
+        P1[Untrained&lt;br/&gt;labour]
+        P2[Site engineer&lt;br/&gt;not present]
+    end
+    METHOD --&gt; FAILURE
+    MATERIAL --&gt; FAILURE
+    MACHINE --&gt; FAILURE
+    MANMETHODS --&gt; FAILURE
+    FAILURE["❌ Concrete&lt;br/&gt;Strength&lt;br/&gt;Failure&lt;br/&gt;(Below N32)"]
+
+    style FAILURE fill:#b91c1c,color:#fff
+</pre>
+</div>
+<p></p><figcaption> Fishbone diagram for concrete strength failures</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="checklist-inspection-checklist" class="level3" data-number="12.5.4">
+<h3 data-number="12.5.4" class="anchored" data-anchor-id="checklist-inspection-checklist"><span class="header-section-number">12.5.4</span> 4. Checklist (Inspection Checklist)</h3>
+<p>Standardised checklists ensure consistent inspection:</p>
+<p><strong>Reinforcement Inspection Checklist:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 31%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Check</th>
+<th>Pass/Fail</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bar size matches drawings</td>
+<td>All specified bar sizes confirmed on site</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>Bar spacing within tolerance</td>
+<td>±10mm of specified spacing</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>Cover to formwork correct</td>
+<td>±5mm of specified cover</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>Laps and splices correct</td>
+<td>Per drawing detail</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>Chair supports (bottom bars)</td>
+<td>1 per m² minimum</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>No rust or contaminants</td>
+<td>Clean reinforcement</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>Starter bars location correct</td>
+<td>Per foundation drawings</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>RFI responses incorporated</td>
+<td>All raised issues resolved</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>Engineer sign-off</td>
+<td>Structural engineer approval</td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="iso-9001-and-quality-systems" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="iso-9001-and-quality-systems"><span class="header-section-number">12.6</span> ISO 9001 and Quality Systems</h2>
+<p><strong>ISO 9001:2015</strong> is the world’s most widely adopted quality management system standard. It defines requirements for a QMS based on:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">mindmap
+  root((ISO 9001&lt;br/&gt;:2015&lt;br/&gt;QMS))
+    Context of the Organisation
+      Understanding the organisation
+      Needs of interested parties
+      QMS scope
+      Processes
+    Leadership
+      Leadership commitment
+      Quality policy
+      Roles &amp; responsibilities
+    Planning
+      Risk and opportunities
+      Quality objectives
+      Planning for change
+    Support
+      Resources
+      Competence
+      Awareness
+      Communication
+      Documented information
+    Operation
+      Operational planning
+      Customer requirements
+      Design and development
+      Control of processes
+      Release of products
+      Control of nonconformities
+    Performance Evaluation
+      Monitoring and measurement
+      Internal audit
+      Management review
+    Improvement
+      Nonconformity &amp; corrective action
+      Continual improvement
+</pre>
+</div>
+<p></p><figcaption> ISO 9001:2015 structure — the process approach</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="cost-of-quality" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="cost-of-quality"><span class="header-section-number">12.7</span> Cost of Quality</h2>
+<p>The <strong>Cost of Quality (CoQ)</strong> model recognises that ALL quality activities have a cost — and that investing in prevention is far cheaper than paying for failures:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Prevention Costs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Appraisal Costs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Internal Failure Costs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false" href="">External Failure Costs</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p><strong>Costs to prevent defects (proactive):</strong> - Quality planning and QMP development - Staff training and competency assessment - Design reviews and peer checks - Process standardisation and procedure writing - Supplier qualification programmes - Quality audits</p>
+<p><em>Cost: Low-medium; Returns: Very high</em></p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p><strong>Costs to detect defects (inspection):</strong> - Material testing (concrete tests, weld inspections) - Site inspections and surveys - Software testing - Third-party audits and certifications - Equipment calibration</p>
+<p><em>Cost: Medium; Returns: Medium-high</em></p>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p><strong>Defects found BEFORE delivery:</strong> - Rework (fixing defects before client sees them) - Scrap (material wasted due to errors) - Redesign required - Re-testing after rework</p>
+<p><em>Cost: High; Avoided by prevention and appraisal</em></p>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<p><strong>Defects found AFTER delivery:</strong> - Warranty claims and rectification - Legal liability - Lost future business - Regulatory fines - Brand damage - Property damage or personal injury</p>
+<p><em>Cost: Extremely high; Avoided by good QA/QC</em></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>⚠️ The 1-10-100 Rule of Quality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The cost of fixing a defect multiplies with how late it is discovered:</p>
+<ul>
+<li><strong>Cost to prevent</strong> (design stage): <strong>$1</strong></li>
+<li><strong>Cost to detect and fix</strong> (during construction): <strong>$10</strong></li>
+<li><strong>Cost to fix after handover</strong> (warranty claim): <strong>$100</strong></li>
+</ul>
+<p>This is why front-end investment in quality planning and design reviews has the highest ROI in engineering projects.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="case-study-jeddah-floods-2009-the-hidden-cost-of-quality-failure" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="case-study-jeddah-floods-2009-the-hidden-cost-of-quality-failure">Case Study — Jeddah Floods 2009: The Hidden Cost of Quality Failure</h2>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>🏭 Case Study: Jeddah Flooding — When Quality Assurance Is the First Budget Cut
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Background:</strong><br>
+On 25 November 2009, a single rainstorm struck Jeddah, Saudi Arabia — <strong>90 mm of rain in 3 hours</strong>, equivalent to the city’s entire annual average rainfall in one event. The results were catastrophic: <strong>161 officially confirmed deaths</strong> (independent estimates suggest over 500), thousands of vehicles swept away, and entire residential districts submerged under metres of water. The Saudi government subsequently spent over <strong>SAR 35 billion (~$9 billion)</strong> in disaster response and infrastructure reconstruction.</p>
+<p>The engineering tragedy was not the rainfall — extreme flash floods are a known geological risk in the Hejaz region. <strong>The tragedy was the absence of drainage infrastructure that should have been built and inspected years earlier.</strong></p>
+<p><strong>What the Post-Disaster Investigation Found:</strong><br>
+A Saudi Control and Investigation Board inquiry revealed systematic quality management failure across decades of city infrastructure development:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 19%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Infrastructure Element</th>
+<th>Required</th>
+<th>Actually Built</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Primary storm drainage network</td>
+<td>500 km specified in master plan</td>
+<td>~200 km built; much of it blocked by sediment and illegal connections</td>
+</tr>
+<tr class="even">
+<td>Retention ponds</td>
+<td>15 major retention basins required</td>
+<td>3 completed; 8 plot allocations reassigned to housing developers</td>
+</tr>
+<tr class="odd">
+<td>Road drainage channels</td>
+<td>Minimum 600 mm kerb drainage on all major roads</td>
+<td>Most roads had 200–300 mm drainage; many had none</td>
+</tr>
+<tr class="even">
+<td>Construction inspections</td>
+<td>All drainage works inspected before roadway overlay</td>
+<td>Independent estimates: 60%+ of roads paved without drainage inspection sign-off</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Quality Management Failures:</strong></p>
+<p><em>1. Paper-Based QA Without Field Verification:</em><br>
+Contractors routinely submitted quality inspection certificates for works that had not been completed to specification. No independent inspector challenged the certificates. The “quality assurance system” was form completion — not field verification.</p>
+<p><em>2. Cost of Quality Inversion:</em><br>
+Prevention cost (installing the missing drainage correctly): estimated at SAR 1.3 billion.<br>
+Failure cost paid (disaster response, reconstruction, compensation): <strong>SAR 35+ billion</strong>.<br>
+This is a <strong>27:1 ratio</strong> — a textbook demonstration of how eliminating quality investment creates catastrophic failure costs.</p>
+<p><em>3. Conflict of Interest in QA Oversight:</em><br>
+The municipal authority, urban development office, and construction contractors were linked through business and family relationships — structural compromises to QA independence that allowed systemic non-conformance to persist undetected.</p>
+<p><em>4. Accumulation of “Acceptable” Non-Conformances:</em><br>
+Individual drainage shortfalls in each development project were classified as “non-material NCRs” and signed off. Over 20 years of rapid city growth, thousands of individually approved NCRs accumulated into a completely broken citywide drainage system.</p>
+<p><strong>The True Cost of Quality — Jeddah 2009:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 27%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Cost Category</th>
+<th>Amount</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Emergency response</td>
+<td>SAR 4.8 billion</td>
+<td>Immediate</td>
+</tr>
+<tr class="even">
+<td>Road and drainage reconstruction</td>
+<td>SAR 6.2 billion</td>
+<td>Multi-year programme</td>
+</tr>
+<tr class="odd">
+<td>Compensation to bereaved families</td>
+<td>SAR 0.3 billion</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Lost business and private property</td>
+<td>SAR 12+ billion</td>
+<td>Estimated</td>
+</tr>
+<tr class="odd">
+<td><strong>Prevention cost if QA had functioned</strong></td>
+<td><strong>SAR 1.3 billion</strong></td>
+<td><em>Full drainage system cost</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Quality Lessons:</strong> 1. <strong>QA independence is not a luxury</strong> — when the inspector and contractor share financial interests, there is no quality assurance 2. <strong>The cost of preventing quality failure is always a fraction of the failure cost</strong> — quality is never the line to cut in a budget overrun 3. <strong>Individual NCRs accumulate systemic risk</strong> — no single non-conformance appears catastrophic in isolation; the pattern of non-conformances is 4. <strong>Paper-based QA systems are not quality systems</strong> — quality assurance requires field verification and independent sign-off, not form completion 5. <strong>Quality culture requires consequences</strong> — if contractors face no accountability for non-conformance, non-conformance will be universal</p>
+<p><strong>Discussion Questions:</strong> 1. Which quality management process (Planning, QA, or QC) failed most catastrophically in this case? 2. Design a quality audit programme that would have detected the drainage infrastructure failures before they became a crisis 3. How does this case illustrate the relationship between procurement governance, stakeholder independence, and quality outcomes in rapidly developing Arab cities?</p>
+<p><em>Sources: <span class="citation" data-cites="jeddah2009floods">Saudi Geological Survey (<a href="references.html#ref-jeddah2009floods" role="doc-biblioref">2010</a>)</span>; <span class="citation" data-cites="arab2010infra">Arab Fund for Economic and Social Development (<a href="references.html#ref-arab2010infra" role="doc-biblioref">2010</a>)</span></em></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>✏️ Exercise 8.1 — Quality Management Plan
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You are managing the design and construction of a <strong>new pedestrian cable-stayed bridge</strong> (120m main span, stainless steel cables, glass-fibre reinforced concrete deck).</p>
+<p>Develop a <strong>Quality Management Plan outline</strong> that includes:</p>
+<ol type="1">
+<li>Quality objectives (4 measurable objectives)</li>
+<li>Applicable standards and specifications (minimum 6 standards)</li>
+<li>Quality responsibilities (RACI for quality activities)</li>
+<li>Overview of the ITP (at least 8 inspections/tests for the construction phase)</li>
+<li>Non-conformance procedure (flow diagram)</li>
+<li>Quality audit schedule (frequency and scope)</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>✏️ Exercise 8.2 — Inspection and Test Plan
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Develop a detailed <strong>ITP</strong> for the <strong>structural steel installation</strong> phase of a multi-storey building. Include:</p>
+<ol type="1">
+<li>At least 10 inspection/test items</li>
+<li>For each item: Activity, Test/Inspection, Standard, Frequency, Hold/Witness/Review, Acceptance Criteria</li>
+<li>Identify 3 items that should be Hold Points and justify your selection</li>
+<li>What qualifications should the inspection personnel have for structural steel?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>✏️ Exercise 8.3 — Root Cause Analysis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>During construction of a water retaining structure, 6 of 20 concrete cylinders from a single pour failed the 28-day compressive strength test (required: 40 MPa; actual: 24-31 MPa).</p>
+<ol type="1">
+<li>Draw a <strong>fishbone diagram</strong> identifying all potential causes (categorise by: Method, Material, Machine, Man, Environment, Measurement)</li>
+<li>Based on your fishbone, list 5 most likely root causes</li>
+<li>What <strong>immediate actions</strong> should be taken (this week)?</li>
+<li>What <strong>corrective action</strong> should be implemented to prevent recurrence?</li>
+<li>What clause in a typical concrete specification would apply, and what are the consequences?</li>
+<li>If the structure cannot be demolished and replaced, what engineering options exist to demonstrate structural adequacy despite the low-strength concrete?</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>✏️ Exercise 8.4 — Cost of Quality Analysis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An engineering consultancy analysed its quality costs for the previous financial year:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Cost Item</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Staff training</td>
+<td>$48,000</td>
+</tr>
+<tr class="even">
+<td>Design peer reviews</td>
+<td>$72,000</td>
+</tr>
+<tr class="odd">
+<td>Site inspection (during construction)</td>
+<td>$125,000</td>
+</tr>
+<tr class="even">
+<td>Software testing and verification</td>
+<td>$35,000</td>
+</tr>
+<tr class="odd">
+<td>Design rework (errors found internally)</td>
+<td>$95,000</td>
+</tr>
+<tr class="even">
+<td>Construction rework (errors found before handover)</td>
+<td>$210,000</td>
+</tr>
+<tr class="odd">
+<td>Post-handover defect rectification</td>
+<td>$340,000</td>
+</tr>
+<tr class="even">
+<td>Client legal claim (design defect)</td>
+<td>$500,000</td>
+</tr>
+<tr class="odd">
+<td>Third-party audit fees</td>
+<td>$28,000</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>Categorise each cost into: Prevention, Appraisal, Internal Failure, External Failure</li>
+<li>Calculate the total cost in each category and the percentage of total quality costs</li>
+<li>What is the total Cost of Quality as a percentage of total project revenue ($8.5M)?</li>
+<li>Based on the analysis, where should the consultancy invest to reduce total quality costs?</li>
+<li>The management team wants to cut the training budget ($48,000) to reduce costs. Analyse this decision using the 1-10-100 rule and the cost of quality data.</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="summary" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="summary">Summary</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>📚 Further Reading
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="citation" data-cites="pmbok2021">Project Management Institute (<a href="references.html#ref-pmbok2021" role="doc-biblioref">2021</a>)</span> — Section 8: Quality Management</li>
+<li><span class="citation" data-cites="juran2010">Juran and Godfrey (<a href="references.html#ref-juran2010" role="doc-biblioref">2010</a>)</span> — Classic reference on quality planning and control</li>
+<li><span class="citation" data-cites="kerzner2017">Kerzner (<a href="references.html#ref-kerzner2017" role="doc-biblioref">2017</a>)</span> — Chapter 20: Quality Management</li>
+<li><span class="citation" data-cites="larson2021">Larson and Gray (<a href="references.html#ref-larson2021" role="doc-biblioref">2021</a>)</span> — Chapter 8: Monitoring and Controlling Quality</li>
+</ul>
+</div>
+</div>
+<p><strong>Next Chapter →</strong> <a href="../chapters/09-agile.html">Agile Project Management</a> — Learn how Agile and Scrum are transforming engineering project delivery.</p>
+
+
+<!-- -->
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-arab2010infra" class="csl-entry" role="listitem">
+Arab Fund for Economic and Social Development. 2010. <em><span class="nocase">Infrastructure Investment in the Arab World: A Decade of Progress</span></em>. Arab Fund for Economic; Social Development.
+</div>
+<div id="ref-juran2010" class="csl-entry" role="listitem">
+Juran, Joseph M, and A Blanton Godfrey. 2010. <em><span class="nocase">Juran’s Quality Handbook: The Complete Guide to Performance Excellence</span></em>. 6th ed. McGraw-Hill Education.
+</div>
+<div id="ref-kerzner2017" class="csl-entry" role="listitem">
+Kerzner, Harold. 2017. <em><span class="nocase">Project Management: A Systems Approach to Planning, Scheduling, and Controlling</span></em>. 12th ed. John Wiley &amp; Sons.
+</div>
+<div id="ref-larson2021" class="csl-entry" role="listitem">
+Larson, Erik W, and Clifford F Gray. 2021. <em><span>Project Management: The Managerial Process</span></em>. 8th ed. McGraw-Hill Education.
+</div>
+<div id="ref-pmbok2021" class="csl-entry" role="listitem">
+Project Management Institute. 2021. <em><span class="nocase">A Guide to the Project Management Body of Knowledge (PMBOK® Guide)</span></em>. 7th ed. Project Management Institute.
+</div>
+<div id="ref-jeddah2009floods" class="csl-entry" role="listitem">
+Saudi Geological Survey. 2010. <em><span class="nocase">Jeddah Flooding 2009: Infrastructure Failure Analysis and Lessons Learned</span></em>. Saudi Geological Survey, Ministry of Petroleum; Mineral Resources.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/husseinyounis\.github\.io\/pm");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/07-cost.html" class="pagination-link" aria-label="Cost Management &amp; Earned Value">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Cost Management &amp; Earned Value</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/09-agile.html" class="pagination-link" aria-label="Agile Project Management &amp; Scrum">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Agile Project Management &amp; Scrum</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Quality Management"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="chapter-banner"&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="chapter-num"&gt;Chapter 8 · Execution &amp; Control&lt;/div&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;h1&gt;Quality Management&lt;/h1&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;p class="chapter-desc"&gt;Planning, assuring, and controlling quality to deliver engineering projects that meet specifications and client expectations.&lt;/p&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Outcomes {.unnumbered}</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip icon="false"}</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Learning Outcomes</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>By the end of this chapter, you will be able to:</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Distinguish** between quality planning, quality assurance, and quality control</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Develop** a Quality Management Plan for an engineering project</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Apply** quality tools: inspection plans, control charts, Pareto analysis, fishbone diagrams</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Explain** ISO 9001 and its role in project quality management</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Describe** the Deming Cycle (PDCA) and its application to project QM</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Analyse** the cost of quality (prevention vs. appraisal vs. failure costs)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is Quality in Engineering Projects?</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>::: {.callout-note icon="false"}</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Two Dimensions of Quality</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>**Quality of Design (Fitness for Purpose):**  </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>Does the delivered product meet the intended purpose? Did we deliver what the client NEEDED?</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>**Quality of Conformance (Conformance to Specifications):**  </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>Was the product built exactly to the approved specifications, drawings, and standards?</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>*Example:* A bridge designed for 40-tonne trucks but only used by cars is HIGH quality of conformance (built as designed) but potentially POOR quality of design (over-engineered = waste). A bridge designed for 100-tonne loads but built with B-grade steel is HIGH quality of design but POOR quality of conformance.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Grade vs. Quality</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="pp">|</span> High Grade <span class="pp">|</span> Low Grade <span class="pp">|</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>-<span class="pp">|-----------|---------|</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **High Quality** <span class="pp">|</span> Premium product built to spec <span class="pp">|</span> Budget product built to spec <span class="pp">|</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Low Quality** <span class="pp">|</span> Premium product with defects <span class="pp">|</span> Budget product with defects <span class="pp">|</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>*Grade is the level of performance requirements; Quality is whether those requirements are met.*</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Quality Management Process</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">The three processes of project quality management</span><span class="ot">"</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    subgraph PL[<span class="ot">"</span><span class="st">📋 PLAN QUALITY&lt;br/&gt;MANAGEMENT</span><span class="ot">"</span>]</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>        P1[<span class="ot">"</span><span class="st">Identify quality&lt;br/&gt;standards relevant&lt;br/&gt;to the project</span><span class="ot">"</span>]</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>        P2[<span class="ot">"</span><span class="st">Define quality&lt;br/&gt;metrics and&lt;br/&gt;acceptance criteria</span><span class="ot">"</span>]</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>        P3[<span class="ot">"</span><span class="st">Develop Quality&lt;br/&gt;Management Plan&lt;br/&gt;(QMP)</span><span class="ot">"</span>]</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>        P1 --&gt; P2 --&gt; P3</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    subgraph QA[<span class="ot">"</span><span class="st">🔍 MANAGE QUALITY&lt;br/&gt;(Quality Assurance)</span><span class="ot">"</span>]</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>        Q1[<span class="ot">"</span><span class="st">Audit processes&lt;br/&gt;to ensure they&lt;br/&gt;are being followed</span><span class="ot">"</span>]</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>        Q2[<span class="ot">"</span><span class="st">Process improvement&lt;br/&gt;and corrective&lt;br/&gt;action</span><span class="ot">"</span>]</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>        Q3[<span class="ot">"</span><span class="st">Quality audits&lt;br/&gt;and reviews</span><span class="ot">"</span>]</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>        Q1 --&gt; Q2 --&gt; Q3</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    subgraph QC[<span class="ot">"</span><span class="st">🧪 CONTROL QUALITY&lt;br/&gt;(Quality Control)</span><span class="ot">"</span>]</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>        C1[<span class="ot">"</span><span class="st">Inspect deliverables&lt;br/&gt;against specifications</span><span class="ot">"</span>]</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>        C2[<span class="ot">"</span><span class="st">Test and verify&lt;br/&gt;outputs meet&lt;br/&gt;criteria</span><span class="ot">"</span>]</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>        C3[<span class="ot">"</span><span class="st">Accept or reject&lt;br/&gt;and rework&lt;br/&gt;deliverables</span><span class="ot">"</span>]</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>        C1 --&gt; C2 --&gt; C3</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>    PL --&gt; |<span class="ot">"</span><span class="st">QMP guides&lt;br/&gt;QA and QC</span><span class="ot">"</span>| QA</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    PL --&gt; QC</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>    QA --&gt; |<span class="ot">"</span><span class="st">Process audit&lt;br/&gt;findings</span><span class="ot">"</span>| QC</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    QC --&gt; |<span class="ot">"</span><span class="st">Inspection results&lt;br/&gt;feed back to&lt;br/&gt;process improvement</span><span class="ot">"</span>| QA</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>    style PL fill:<span class="co">#dbeafe,stroke:#3b82f6</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>    style QA fill:<span class="co">#dcfce7,stroke:#22c55e</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>    style QC fill:<span class="co">#fef9c3,stroke:#eab308</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 QA vs. QC — The Critical Distinction</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>**Quality Assurance (QA):** Focuses on *processes* — "Are we doing the right things the right way?"</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Proactive and process-oriented</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Performed DURING the project</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Examples: Process audits, design reviews, peer checks, construction supervision</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>**Quality Control (QC):** Focuses on *outputs* — "Does the product meet requirements?"</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Reactive and product-oriented</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Applied to completed work</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Examples: Material testing, dimensional surveys, pressure testing, functional testing</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Deming PDCA Cycle</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>The **Plan-Do-Check-Act (PDCA)** cycle, developed by W. Edwards Deming, is the foundation of continuous quality improvement:</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">The Deming PDCA Cycle applied to engineering projects</span><span class="ot">"</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>%<span class="dt">%</span>{init: {<span class="ot">'</span><span class="ss">flowchart</span><span class="ot">'</span>: {<span class="ot">'</span><span class="ss">nodeSpacing</span><span class="ot">'</span>: <span class="dv">40</span>, <span class="ot">'</span><span class="ss">rankSpacing</span><span class="ot">'</span>: <span class="dv">60</span>}}}%%</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>    P[<span class="ot">"</span><span class="st">📋 PLAN&lt;br/&gt;Define objectives&lt;br/&gt;Set quality standards&lt;br/&gt;Plan inspections</span><span class="ot">"</span>]</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>    D[<span class="ot">"</span><span class="st">⚙️ DO&lt;br/&gt;Execute project work&lt;br/&gt;Conduct inspections&lt;br/&gt;Document results</span><span class="ot">"</span>]</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>    C[<span class="ot">"</span><span class="st">🔍 CHECK&lt;br/&gt;Analyse results&lt;br/&gt;Compare to specs&lt;br/&gt;Identify defects</span><span class="ot">"</span>]</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>    A[<span class="ot">"</span><span class="st">🔄 ACT&lt;br/&gt;Implement corrections&lt;br/&gt;Root cause analysis&lt;br/&gt;Update procedures</span><span class="ot">"</span>]</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>    P --&gt; D --&gt; C --&gt; A --&gt; P</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>    style P fill:<span class="co">#4f46e5,color:#fff</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>    style D fill:<span class="co">#0f766e,color:#fff</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>    style C fill:<span class="co">#b45309,color:#fff</span></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>    style A fill:<span class="co">#b91c1c,color:#fff</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Quality Management Plan</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>A **Quality Management Plan (QMP)** defines how quality will be managed throughout the project:</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="fu">## QMP Contents</span></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Quality objectives** — measurable quality targets linked to project scope</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Quality standards** — applicable codes, standards, specifications (e.g., AS/NZS, ISO, ASTM)</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Quality responsibilities** — who is accountable for quality activities</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Inspection and Test Plan (ITP)** — what will be tested, by whom, and when</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Non-conformance procedure** — how defects are identified, documented, and resolved</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Document control** — version control and distribution of quality documents</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>**Audit schedule** — when QA audits will be conducted</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inspection and Test Plan (ITP)</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>The ITP is the core QC tool — it specifies every inspection and test:</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Activity <span class="pp">|</span> Test/Inspection <span class="pp">|</span> Standard <span class="pp">|</span> Frequency <span class="pp">|</span> Inspector <span class="pp">|</span> Hold/Witness/Review <span class="pp">|</span> Acceptance Criteria <span class="pp">|</span></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|----------------|---------|---------|-----------|--------------------|--------------------|</span></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Concrete pour <span class="pp">|</span> Slump test <span class="pp">|</span> AS 1012.3 <span class="pp">|</span> Each truck <span class="pp">|</span> Site Engineer <span class="pp">|</span> Hold (H) <span class="pp">|</span> 80-120mm <span class="pp">|</span></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Concrete <span class="pp">|</span> 28-day cylinder test <span class="pp">|</span> AS 1012.9 <span class="pp">|</span> 1 set per 50m³ <span class="pp">|</span> NATA Lab <span class="pp">|</span> Review (R) <span class="pp">|</span> ≥ N32 (32MPa) <span class="pp">|</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Structural steel weld <span class="pp">|</span> Visual inspection <span class="pp">|</span> AS/NZS 1554 <span class="pp">|</span> 100% <span class="pp">|</span> Inspector <span class="pp">|</span> Witness (W) <span class="pp">|</span> No visible defects <span class="pp">|</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Steel weld <span class="pp">|</span> NDT (ultrasonic) <span class="pp">|</span> AS 2205 <span class="pp">|</span> 10% random <span class="pp">|</span> Certified UT tech <span class="pp">|</span> Review (R) <span class="pp">|</span> Class B <span class="pp">|</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Pipeline hydrostatic test <span class="pp">|</span> Pressure test <span class="pp">|</span> AS 2885 <span class="pp">|</span> Each segment <span class="pp">|</span> Engineer <span class="pp">|</span> Witness (W) <span class="pp">|</span> 1.5× operating pressure, 1 hour <span class="pp">|</span></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>**Hold/Witness/Review Codes:**</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**H = Hold Point:** Work CANNOT proceed without inspector present and signing off</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**W = Witness Point:** Inspector should attend; notified 24 hours in advance; can proceed if not present</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**R = Review:** Documentation reviewed by inspector; work can proceed</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="fu">## Non-Conformance Management</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>When a defect is found, it must be formally managed:</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>    D[<span class="ot">"</span><span class="st">🔍 Defect&lt;br/&gt;Discovered</span><span class="ot">"</span>] --&gt; NCR</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>    NCR[<span class="ot">"</span><span class="st">📝 Non-Conformance&lt;br/&gt;Report (NCR) Raised&lt;br/&gt;&lt;br/&gt;Document:&lt;br/&gt;• What was found&lt;br/&gt;• Where/when&lt;br/&gt;• Who found it&lt;br/&gt;• Photos</span><span class="ot">"</span>] --&gt; HOLD</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>    HOLD[<span class="ot">"</span><span class="st">🛑 Work&lt;br/&gt;Held</span><span class="ot">"</span>] --&gt; RCA</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>    RCA[<span class="ot">"</span><span class="st">🔬 Root Cause&lt;br/&gt;Analysis</span><span class="ot">"</span>] --&gt; OPTIONS</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>    OPTIONS{<span class="ot">"</span><span class="st">Disposition&lt;br/&gt;Options</span><span class="ot">"</span>}</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>    OPTIONS --&gt; REJ[<span class="ot">"</span><span class="st">❌ REJECT&lt;br/&gt;Remove and&lt;br/&gt;replace</span><span class="ot">"</span>] --&gt; VP</span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>    OPTIONS --&gt; REW[<span class="ot">"</span><span class="st">🔄 REWORK&lt;br/&gt;Repair to&lt;br/&gt;specification</span><span class="ot">"</span>] --&gt; VP</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>    OPTIONS --&gt; UAI[<span class="ot">"</span><span class="st">⚠️ USE AS IS&lt;br/&gt;Engineer assessment&lt;br/&gt;and client approval</span><span class="ot">"</span>] --&gt; VP</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>    VP[<span class="ot">"</span><span class="st">✅ Verification&lt;br/&gt;Inspection&lt;br/&gt;Passed?</span><span class="ot">"</span>] --&gt; |<span class="ot">"</span><span class="st">YES</span><span class="ot">"</span>| CLOSE</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>    VP --&gt; |<span class="ot">"</span><span class="st">NO</span><span class="ot">"</span>| NCR</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>    CLOSE[<span class="ot">"</span><span class="st">✅ NCR&lt;br/&gt;Closed&lt;br/&gt;&lt;br/&gt;Record lessons&lt;br/&gt;learned</span><span class="ot">"</span>]</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quality Control Tools</span></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Control Charts</span></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>**Statistical Process Control (SPC)** uses control charts to monitor process stability:</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">Control chart concept for concrete compressive strength monitoring</span><span class="ot">"</span></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>xychart-beta</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>    title <span class="ot">"</span><span class="st">Concrete 28-Day Strength Control Chart (MPa)</span><span class="ot">"</span></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>    x-axis [<span class="ot">"</span><span class="st">S1</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">S2</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">S3</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">S4</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">S5</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">S6</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">S7</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">S8</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">S9</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">S10</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">S11</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">S12</span><span class="ot">"</span>]</span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>    <span class="ot">y-axis "Strength (MPa)" 25 --</span>&gt; <span class="dv">50</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>    line [<span class="dv">38</span>, <span class="dv">36</span>, <span class="dv">40</span>, <span class="dv">35</span>, <span class="dv">42</span>, <span class="dv">33</span>, <span class="dv">44</span>, <span class="dv">37</span>, <span class="dv">38</span>, <span class="dv">41</span>, <span class="dv">29</span>, <span class="dv">36</span>]</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>    line [<span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">45</span>, <span class="dv">45</span>]</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>    line [<span class="dv">32</span>, <span class="dv">32</span>, <span class="dv">32</span>, <span class="dv">32</span>, <span class="dv">32</span>, <span class="dv">32</span>, <span class="dv">32</span>, <span class="dv">32</span>, <span class="dv">32</span>, <span class="dv">32</span>, <span class="dv">32</span>, <span class="dv">32</span>]</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="ot">```</span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="st">*Upper control limit = 45 MPa (UCL); Lower control limit = 32 MPa (LCL).*  </span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="st">*Sample 11 (29 MPa) is below the LCL — indicates an out-of-control process. Investigation required.*</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="st">### 2. Pareto Analysis (80/20 Rule)</span></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="st">Pareto analysis identifies the **vital few causes** that account for most quality problems:</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-note icon="false"}</span></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="st">## 📖 Pareto Principle</span></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="st">&gt; *"80% of problems come from 20% of causes."*</span></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="st">By focusing QC efforts on the 20% of causes driving 80% of defects, quality can be dramatically improved with limited resources.</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="st">### 3. Cause-and-Effect (Fishbone / Ishikawa) Diagram</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">Fishbone diagram for concrete strength failures</span><span class="ot">"</span></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>    subgraph METHOD</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>        M1[Poor vibration&lt;br/&gt;technique]</span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>        M2[Incorrect pour&lt;br/&gt;sequence]</span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>        M3[No slump test&lt;br/&gt;before pour]</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a>    subgraph MATERIAL</span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>        MA1[High water/cement&lt;br/&gt;ratio]</span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>        MA2[Wrong cement&lt;br/&gt;type delivered]</span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>        MA3[Aggregate&lt;br/&gt;segregation]</span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a>    subgraph MACHINE</span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>        MC1[Faulty batch&lt;br/&gt;plant calibration]</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a>        MC2[Old mixer drums&lt;br/&gt;<span class="ot">not</span> cleaned]</span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>    subgraph MANMETHODS</span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>        P1[Untrained&lt;br/&gt;labour]</span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a>        P2[Site engineer&lt;br/&gt;<span class="ot">not</span> present]</span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>    METHOD --&gt; FAILURE</span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>    MATERIAL --&gt; FAILURE</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>    MACHINE --&gt; FAILURE</span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>    MANMETHODS --&gt; FAILURE</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>    FAILURE[<span class="ot">"</span><span class="st">❌ Concrete&lt;br/&gt;Strength&lt;br/&gt;Failure&lt;br/&gt;(Below N32)</span><span class="ot">"</span>]</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>    style FAILURE fill:<span class="co">#b91c1c,color:#fff</span></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="ot">```</span></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a><span class="st">### 4. Checklist (Inspection Checklist)</span></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="st">Standardised checklists ensure consistent inspection:</span></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a><span class="st">**Reinforcement Inspection Checklist:**</span></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a><span class="st">| Item | Check | Pass/Fail |</span></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="st">|------|-------|---------|</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="st">| Bar size matches drawings | All specified bar sizes confirmed on site | ☐ |</span></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a><span class="st">| Bar spacing within tolerance | ±10mm of specified spacing | ☐ |</span></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="st">| Cover to formwork correct | ±5mm of specified cover | ☐ |</span></span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="st">| Laps and splices correct | Per drawing detail | ☐ |</span></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="st">| Chair supports (bottom bars) | 1 per m² minimum | ☐ |</span></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="st">| No rust or contaminants | Clean reinforcement | ☐ |</span></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="st">| Starter bars location correct | Per foundation drawings | ☐ |</span></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a><span class="st">| RFI responses incorporated | All raised issues resolved | ☐ |</span></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="st">| Engineer sign-off | Structural engineer approval | ☐ |</span></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="st">## ISO 9001 and Quality Systems</span></span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="st">**ISO 9001:2015** is the world's most widely adopted quality management system standard. It defines requirements for a QMS based on:</span></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">ISO 9001:2015 structure — the process approach</span><span class="ot">"</span></span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>mindmap</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>  root((ISO <span class="dv">9001</span>&lt;br/&gt;:<span class="dv">2015</span>&lt;br/&gt;QMS))</span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>    Context of the Organisation</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>      Understanding the organisation</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>      Needs of interested parties</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a>      QMS scope</span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a>      Processes</span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a>    Leadership</span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>      Leadership commitment</span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a>      Quality policy</span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a>      Roles &amp; responsibilities</span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>    Planning</span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a>      Risk <span class="ot">and</span> opportunities</span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>      Quality objectives</span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>      Planning <span class="cf">for</span> change</span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a>    Support</span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a>      Resources</span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a>      Competence</span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>      Awareness</span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a>      Communication</span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>      Documented information</span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>    Operation</span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>      Operational planning</span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>      Customer requirements</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>      Design <span class="ot">and</span> development</span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>      Control of processes</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>      Release of products</span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a>      Control of nonconformities</span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a>    Performance Evaluation</span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>      Monitoring <span class="ot">and</span> measurement</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a>      Internal audit</span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a>      Management review</span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>    Improvement</span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a>      Nonconformity &amp; corrective action</span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a>      Continual improvement</span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="ot">```</span></span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a><span class="st">## Cost of Quality</span></span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="st">The **Cost of Quality (CoQ)** model recognises that ALL quality activities have a cost — and that investing in prevention is far cheaper than paying for failures:</span></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.panel-tabset}</span></span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="st">## Prevention Costs</span></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="st">**Costs to prevent defects (proactive):**</span></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="st">- Quality planning and QMP development</span></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="st">- Staff training and competency assessment</span></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="st">- Design reviews and peer checks</span></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="st">- Process standardisation and procedure writing</span></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="st">- Supplier qualification programmes</span></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="st">- Quality audits</span></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="st">*Cost: Low-medium; Returns: Very high*</span></span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a><span class="st">## Appraisal Costs</span></span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="st">**Costs to detect defects (inspection):**</span></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a><span class="st">- Material testing (concrete tests, weld inspections)</span></span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a><span class="st">- Site inspections and surveys</span></span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="st">- Software testing</span></span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="st">- Third-party audits and certifications</span></span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="st">- Equipment calibration</span></span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a><span class="st">*Cost: Medium; Returns: Medium-high*</span></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a><span class="st">## Internal Failure Costs</span></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="st">**Defects found BEFORE delivery:**</span></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a><span class="st">- Rework (fixing defects before client sees them)</span></span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="st">- Scrap (material wasted due to errors)</span></span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a><span class="st">- Redesign required</span></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="st">- Re-testing after rework</span></span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a><span class="st">*Cost: High; Avoided by prevention and appraisal*</span></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a><span class="st">## External Failure Costs</span></span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a><span class="st">**Defects found AFTER delivery:**</span></span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a><span class="st">- Warranty claims and rectification</span></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a><span class="st">- Legal liability</span></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="st">- Lost future business</span></span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a><span class="st">- Regulatory fines</span></span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a><span class="st">- Brand damage</span></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a><span class="st">- Property damage or personal injury</span></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a><span class="st">*Cost: Extremely high; Avoided by good QA/QC*</span></span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-warning icon="false"}</span></span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="st">## ⚠️ The 1-10-100 Rule of Quality</span></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a><span class="st">The cost of fixing a defect multiplies with how late it is discovered:</span></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a><span class="st">- **Cost to prevent** (design stage): **</span><span class="wa">$1</span><span class="st">**</span></span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a><span class="st">- **Cost to detect and fix** (during construction): **</span><span class="wa">$10</span><span class="st">**</span></span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a><span class="st">- **Cost to fix after handover** (warranty claim): **</span><span class="wa">$100</span><span class="st">**</span></span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a><span class="st">This is why front-end investment in quality planning and design reviews has the highest ROI in engineering projects.</span></span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a><span class="st">## Case Study — Jeddah Floods 2009: The Hidden Cost of Quality Failure {.unnumbered}</span></span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-important icon="false"}</span></span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a><span class="st">## 🏭 Case Study: Jeddah Flooding — When Quality Assurance Is the First Budget Cut</span></span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a><span class="st">**Background:**  </span></span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a><span class="st">On 25 November 2009, a single rainstorm struck Jeddah, Saudi Arabia — **90 mm of rain in 3 hours**, equivalent to the city's entire annual average rainfall in one event. The results were catastrophic: **161 officially confirmed deaths** (independent estimates suggest over 500), thousands of vehicles swept away, and entire residential districts submerged under metres of water. The Saudi government subsequently spent over **SAR 35 billion (~</span><span class="wa">$9</span><span class="st"> billion)** in disaster response and infrastructure reconstruction.</span></span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a><span class="st">The engineering tragedy was not the rainfall — extreme flash floods are a known geological risk in the Hejaz region. **The tragedy was the absence of drainage infrastructure that should have been built and inspected years earlier.**</span></span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a><span class="st">**What the Post-Disaster Investigation Found:**  </span></span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a><span class="st">A Saudi Control and Investigation Board inquiry revealed systematic quality management failure across decades of city infrastructure development:</span></span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a><span class="st">| Infrastructure Element | Required | Actually Built |</span></span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a><span class="st">|----------------------|---------|---------------|</span></span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a><span class="st">| Primary storm drainage network | 500 km specified in master plan | ~200 km built; much of it blocked by sediment and illegal connections |</span></span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a><span class="st">| Retention ponds | 15 major retention basins required | 3 completed; 8 plot allocations reassigned to housing developers |</span></span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a><span class="st">| Road drainage channels | Minimum 600 mm kerb drainage on all major roads | Most roads had 200–300 mm drainage; many had none |</span></span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a><span class="st">| Construction inspections | All drainage works inspected before roadway overlay | Independent estimates: 60</span><span class="wa">%+</span><span class="st"> of roads paved without drainage inspection sign-off |</span></span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a><span class="st">**Quality Management Failures:**</span></span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a><span class="st">*1. Paper-Based QA Without Field Verification:*  </span></span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a><span class="st">Contractors routinely submitted quality inspection certificates for works that had not been completed to specification. No independent inspector challenged the certificates. The "quality assurance system" was form completion — not field verification.</span></span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a><span class="st">*2. Cost of Quality Inversion:*  </span></span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="st">Prevention cost (installing the missing drainage correctly): estimated at SAR 1.3 billion.  </span></span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a><span class="st">Failure cost paid (disaster response, reconstruction, compensation): **SAR 35+ billion**.  </span></span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a><span class="st">This is a **27:1 ratio** — a textbook demonstration of how eliminating quality investment creates catastrophic failure costs.</span></span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="st">*3. Conflict of Interest in QA Oversight:*  </span></span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a><span class="st">The municipal authority, urban development office, and construction contractors were linked through business and family relationships — structural compromises to QA independence that allowed systemic non-conformance to persist undetected.</span></span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="st">*4. Accumulation of "Acceptable" Non-Conformances:*  </span></span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a><span class="st">Individual drainage shortfalls in each development project were classified as "non-material NCRs" and signed off. Over 20 years of rapid city growth, thousands of individually approved NCRs accumulated into a completely broken citywide drainage system.</span></span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a><span class="st">**The True Cost of Quality — Jeddah 2009:**</span></span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a><span class="st">| Cost Category | Amount | Notes |</span></span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a><span class="st">|--------------|--------|-------|</span></span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a><span class="st">| Emergency response | SAR 4.8 billion | Immediate |</span></span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a><span class="st">| Road and drainage reconstruction | SAR 6.2 billion | Multi-year programme |</span></span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a><span class="st">| Compensation to bereaved families | SAR 0.3 billion | |</span></span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a><span class="st">| Lost business and private property | SAR 12+ billion | Estimated |</span></span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a><span class="st">| **Prevention cost if QA had functioned** | **SAR 1.3 billion** | *Full drainage system cost* |</span></span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a><span class="st">**Quality Lessons:**</span></span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a><span class="st">1. **QA independence is not a luxury** — when the inspector and contractor share financial interests, there is no quality assurance</span></span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a><span class="st">2. **The cost of preventing quality failure is always a fraction of the failure cost** — quality is never the line to cut in a budget overrun</span></span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a><span class="st">3. **Individual NCRs accumulate systemic risk** — no single non-conformance appears catastrophic in isolation; the pattern of non-conformances is</span></span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a><span class="st">4. **Paper-based QA systems are not quality systems** — quality assurance requires field verification and independent sign-off, not form completion</span></span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a><span class="st">5. **Quality culture requires consequences** — if contractors face no accountability for non-conformance, non-conformance will be universal</span></span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a><span class="st">**Discussion Questions:**</span></span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a><span class="st">1. Which quality management process (Planning, QA, or QC) failed most catastrophically in this case?</span></span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a><span class="st">2. Design a quality audit programme that would have detected the drainage infrastructure failures before they became a crisis</span></span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a><span class="st">3. How does this case illustrate the relationship between procurement governance, stakeholder independence, and quality outcomes in rapidly developing Arab cities?</span></span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a><span class="st">*Sources: </span><span class="dt">@jeddah2009floods</span><span class="st">; </span><span class="dt">@arab2010infra</span><span class="st">*</span></span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a><span class="st">## Exercises {.unnumbered}</span></span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-caution icon="false"}</span></span>
+<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 8.1 — Quality Management Plan</span></span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a><span class="st">You are managing the design and construction of a **new pedestrian cable-stayed bridge** (120m main span, stainless steel cables, glass-fibre reinforced concrete deck).</span></span>
+<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a><span class="st">Develop a **Quality Management Plan outline** that includes:</span></span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a><span class="st">1. Quality objectives (4 measurable objectives)</span></span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a><span class="st">2. Applicable standards and specifications (minimum 6 standards)</span></span>
+<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a><span class="st">3. Quality responsibilities (RACI for quality activities)</span></span>
+<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a><span class="st">4. Overview of the ITP (at least 8 inspections/tests for the construction phase)</span></span>
+<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a><span class="st">5. Non-conformance procedure (flow diagram)</span></span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a><span class="st">6. Quality audit schedule (frequency and scope)</span></span>
+<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-caution icon="false"}</span></span>
+<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 8.2 — Inspection and Test Plan</span></span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a><span class="st">Develop a detailed **ITP** for the **structural steel installation** phase of a multi-storey building. Include:</span></span>
+<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a><span class="st">1. At least 10 inspection/test items</span></span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a><span class="st">2. For each item: Activity, Test/Inspection, Standard, Frequency, Hold/Witness/Review, Acceptance Criteria</span></span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a><span class="st">3. Identify 3 items that should be Hold Points and justify your selection</span></span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a><span class="st">4. What qualifications should the inspection personnel have for structural steel?</span></span>
+<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-caution icon="false"}</span></span>
+<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 8.3 — Root Cause Analysis</span></span>
+<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a><span class="st">During construction of a water retaining structure, 6 of 20 concrete cylinders from a single pour failed the 28-day compressive strength test (required: 40 MPa; actual: 24-31 MPa).</span></span>
+<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a><span class="st">1. Draw a **fishbone diagram** identifying all potential causes (categorise by: Method, Material, Machine, Man, Environment, Measurement)</span></span>
+<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a><span class="st">2. Based on your fishbone, list 5 most likely root causes</span></span>
+<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a><span class="st">3. What **immediate actions** should be taken (this week)?</span></span>
+<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a><span class="st">4. What **corrective action** should be implemented to prevent recurrence?</span></span>
+<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a><span class="st">5. What clause in a typical concrete specification would apply, and what are the consequences?</span></span>
+<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a><span class="st">6. If the structure cannot be demolished and replaced, what engineering options exist to demonstrate structural adequacy despite the low-strength concrete?</span></span>
+<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-caution icon="false"}</span></span>
+<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 8.4 — Cost of Quality Analysis</span></span>
+<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a><span class="st">An engineering consultancy analysed its quality costs for the previous financial year:</span></span>
+<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a><span class="st">| Cost Item | Amount |</span></span>
+<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a><span class="st">|-----------|--------|</span></span>
+<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a><span class="st">| Staff training | </span><span class="wa">$48</span><span class="st">,000 |</span></span>
+<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a><span class="st">| Design peer reviews | </span><span class="wa">$72</span><span class="st">,000 |</span></span>
+<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a><span class="st">| Site inspection (during construction) | </span><span class="wa">$125</span><span class="st">,000 |</span></span>
+<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a><span class="st">| Software testing and verification | </span><span class="wa">$35</span><span class="st">,000 |</span></span>
+<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a><span class="st">| Design rework (errors found internally) | </span><span class="wa">$95</span><span class="st">,000 |</span></span>
+<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a><span class="st">| Construction rework (errors found before handover) | </span><span class="wa">$210</span><span class="st">,000 |</span></span>
+<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a><span class="st">| Post-handover defect rectification | </span><span class="wa">$340</span><span class="st">,000 |</span></span>
+<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a><span class="st">| Client legal claim (design defect) | </span><span class="wa">$500</span><span class="st">,000 |</span></span>
+<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a><span class="st">| Third-party audit fees | </span><span class="wa">$28</span><span class="st">,000 |</span></span>
+<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a><span class="st">1. Categorise each cost into: Prevention, Appraisal, Internal Failure, External Failure</span></span>
+<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a><span class="st">2. Calculate the total cost in each category and the percentage of total quality costs</span></span>
+<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a><span class="st">3. What is the total Cost of Quality as a percentage of total project revenue (</span><span class="wa">$8</span><span class="st">.5M)?</span></span>
+<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a><span class="st">4. Based on the analysis, where should the consultancy invest to reduce total quality costs?</span></span>
+<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a><span class="st">5. The management team wants to cut the training budget (</span><span class="wa">$48</span><span class="st">,000) to reduce costs. Analyse this decision using the 1-10-100 rule and the cost of quality data.</span></span>
+<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a><span class="st">## Summary {.unnumbered}</span></span>
+<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-note}</span></span>
+<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a><span class="st">## 📚 Further Reading</span></span>
+<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a><span class="st">- </span><span class="dt">@pmbok2021</span><span class="st"> — Section 8: Quality Management</span></span>
+<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a><span class="st">- </span><span class="dt">@juran2010</span><span class="st"> — Classic reference on quality planning and control</span></span>
+<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a><span class="st">- </span><span class="dt">@kerzner2017</span><span class="st"> — Chapter 20: Quality Management</span></span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a><span class="st">- </span><span class="dt">@larson2021</span><span class="st"> — Chapter 8: Monitoring and Controlling Quality</span></span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a><span class="st">**Next Chapter →** [Agile Project Management](09-agile.qmd) — Learn how Agile and Scrum are transforming engineering project delivery.</span></span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Engineering Department, Arab American University — Project Management Course</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org">
+<p>Built with Quarto</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

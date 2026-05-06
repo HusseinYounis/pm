@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; The Project Management Process Groups – Project Management for Engineering Students</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/02-initiation.html" rel="next">
+<link href="../chapters/02-context.html" rel="prev">
+<link href="../cover.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-635fd99ad7eb0a14c2a6f1021f898f13.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="mermaid-theme" content="default">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">PM for Engineers</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> <i class="bi bi-house-fill" role="img" aria-label="Home">
+</i> 
+<span class="menu-text">Project Management for Engineering Students</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-introduction.html">PART I — FOUNDATIONS</a></li><li class="breadcrumb-item"><a href="../chapters/03-process-groups.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Management Process Groups</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/HusseinYounis/pm" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Project Management for Engineering Students</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">PART I — FOUNDATIONS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to Project Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Project Management and Engineering Context</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-process-groups.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Management Process Groups</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">PART II — INITIATION &amp; INTEGRATION</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-initiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Project Initiation &amp; Selection</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">PART III — PLANNING</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-planning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Project Planning &amp; Work Breakdown Structure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-scheduling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Project Scheduling &amp; Critical Path Method</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Resource Management</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-msproject.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Microsoft Project — Practical Tool Guide</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">PART IV — EXECUTION &amp; CONTROL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-risk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Risk Management &amp; Project Audit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-cost.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Cost Management &amp; Earned Value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-quality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quality Management</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">PART V — MODERN APPROACHES</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-agile.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Agile Project Management &amp; Scrum</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-closure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Project Closure &amp; Lessons Learned</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">References</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning Outcomes</a></li>
+  <li><a href="#overview-of-the-process-groups" id="toc-overview-of-the-process-groups" class="nav-link" data-scroll-target="#overview-of-the-process-groups"><span class="header-section-number">4.1</span> Overview of the Process Groups</a>
+  <ul class="collapse">
+  <li><a href="#level-of-activity-across-process-groups" id="toc-level-of-activity-across-process-groups" class="nav-link" data-scroll-target="#level-of-activity-across-process-groups"><span class="header-section-number">4.1.1</span> Level of Activity Across Process Groups</a></li>
+  </ul></li>
+  <li><a href="#the-initiating-process-group" id="toc-the-initiating-process-group" class="nav-link" data-scroll-target="#the-initiating-process-group"><span class="header-section-number">4.2</span> The Initiating Process Group</a>
+  <ul class="collapse">
+  <li><a href="#key-activities" id="toc-key-activities" class="nav-link" data-scroll-target="#key-activities"><span class="header-section-number">4.2.1</span> Key Activities</a></li>
+  </ul></li>
+  <li><a href="#the-planning-process-group" id="toc-the-planning-process-group" class="nav-link" data-scroll-target="#the-planning-process-group"><span class="header-section-number">4.3</span> The Planning Process Group</a>
+  <ul class="collapse">
+  <li><a href="#key-activities-1" id="toc-key-activities-1" class="nav-link" data-scroll-target="#key-activities-1"><span class="header-section-number">4.3.1</span> Key Activities</a></li>
+  <li><a href="#the-project-management-plan" id="toc-the-project-management-plan" class="nav-link" data-scroll-target="#the-project-management-plan"><span class="header-section-number">4.3.2</span> The Project Management Plan</a></li>
+  <li><a href="#the-three-baselines" id="toc-the-three-baselines" class="nav-link" data-scroll-target="#the-three-baselines"><span class="header-section-number">4.3.3</span> The Three Baselines</a></li>
+  </ul></li>
+  <li><a href="#the-executing-process-group" id="toc-the-executing-process-group" class="nav-link" data-scroll-target="#the-executing-process-group"><span class="header-section-number">4.4</span> The Executing Process Group</a>
+  <ul class="collapse">
+  <li><a href="#key-activities-2" id="toc-key-activities-2" class="nav-link" data-scroll-target="#key-activities-2"><span class="header-section-number">4.4.1</span> Key Activities</a></li>
+  </ul></li>
+  <li><a href="#the-monitoring-and-controlling-process-group" id="toc-the-monitoring-and-controlling-process-group" class="nav-link" data-scroll-target="#the-monitoring-and-controlling-process-group"><span class="header-section-number">4.5</span> The Monitoring and Controlling Process Group</a>
+  <ul class="collapse">
+  <li><a href="#key-activities-3" id="toc-key-activities-3" class="nav-link" data-scroll-target="#key-activities-3"><span class="header-section-number">4.5.1</span> Key Activities</a></li>
+  </ul></li>
+  <li><a href="#the-closing-process-group" id="toc-the-closing-process-group" class="nav-link" data-scroll-target="#the-closing-process-group"><span class="header-section-number">4.6</span> The Closing Process Group</a>
+  <ul class="collapse">
+  <li><a href="#key-activities-4" id="toc-key-activities-4" class="nav-link" data-scroll-target="#key-activities-4"><span class="header-section-number">4.6.1</span> Key Activities</a></li>
+  </ul></li>
+  <li><a href="#mapping-process-groups-to-knowledge-areas" id="toc-mapping-process-groups-to-knowledge-areas" class="nav-link" data-scroll-target="#mapping-process-groups-to-knowledge-areas"><span class="header-section-number">4.7</span> Mapping Process Groups to Knowledge Areas</a></li>
+  <li><a href="#developing-a-pm-methodology" id="toc-developing-a-pm-methodology" class="nav-link" data-scroll-target="#developing-a-pm-methodology"><span class="header-section-number">4.8</span> Developing a PM Methodology</a>
+  <ul class="collapse">
+  <li><a href="#elements-of-an-engineering-pm-methodology" id="toc-elements-of-an-engineering-pm-methodology" class="nav-link" data-scroll-target="#elements-of-an-engineering-pm-methodology"><span class="header-section-number">4.8.1</span> Elements of an Engineering PM Methodology</a></li>
+  </ul></li>
+  <li><a href="#case-study-al-maktoum-international-airport-expansion-dubai" id="toc-case-study-al-maktoum-international-airport-expansion-dubai" class="nav-link" data-scroll-target="#case-study-al-maktoum-international-airport-expansion-dubai">Case Study — Al-Maktoum International Airport Expansion, Dubai</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-introduction.html">PART I — FOUNDATIONS</a></li><li class="breadcrumb-item"><a href="../chapters/03-process-groups.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Management Process Groups</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Project Management Process Groups</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 3 · Foundations</div>
+  <h1>The Project Management Process Groups</h1>
+  <p class="chapter-desc">A systematic walkthrough of the five process groups — from initiating through closing — applied to an engineering case study.</p>
+</div>
+<section id="learning-outcomes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="learning-outcomes">Learning Outcomes</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🎯 Learning Outcomes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the end of this chapter, you will be able to:</p>
+<ol type="1">
+<li><strong>Describe</strong> each of the five project management process groups in detail</li>
+<li><strong>Map</strong> the process groups to the ten PMBOK knowledge areas</li>
+<li><strong>Explain</strong> the key inputs, tools, and outputs of each process group</li>
+<li><strong>Apply</strong> all five process groups to an engineering project scenario</li>
+<li><strong>Develop</strong> a PM methodology appropriate for an engineering organisation</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="overview-of-the-process-groups" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="overview-of-the-process-groups"><span class="header-section-number">4.1</span> Overview of the Process Groups</h2>
+<p>The PMI defines <strong>five process groups</strong> that organise all project management activities. These are not sequential phases — they overlap and interact throughout the project:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base'}}%%
+flowchart LR
+    I["🚀 INITIATING&lt;br/&gt;Define &amp; authorise&lt;br/&gt;the project"]
+    P["📋 PLANNING&lt;br/&gt;Define objectives &amp;&lt;br/&gt;plan the work"]
+    E["⚙️ EXECUTING&lt;br/&gt;Do the work &amp;&lt;br/&gt;manage the team"]
+    MC["📊 MONITORING&lt;br/&gt;&amp; CONTROLLING&lt;br/&gt;Track, review &amp;&lt;br/&gt;regulate progress"]
+    C["🏁 CLOSING&lt;br/&gt;Formalise acceptance&lt;br/&gt;&amp; close the project"]
+
+    I --&gt; P
+    P --&gt; E
+    E --&gt; C
+    P &lt;--&gt; MC
+    E &lt;--&gt; MC
+    MC --&gt; C
+
+    style I fill:#4f46e5,color:#fff,stroke:#4f46e5
+    style P fill:#0f766e,color:#fff,stroke:#0f766e
+    style E fill:#15803d,color:#fff,stroke:#15803d
+    style MC fill:#b45309,color:#fff,stroke:#b45309
+    style C fill:#b91c1c,color:#fff,stroke:#b91c1c
+</pre>
+</div>
+<p></p><figcaption> The five process groups and their interactions</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>📖 Key Concept — Process Groups vs.&nbsp;Phases
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Process Groups</strong> are <em>management activities</em> — they happen in every phase. <strong>Phases</strong> are <em>divisions of work</em> specific to the project type.</p>
+<p>In a construction project:</p>
+<ul>
+<li>The <strong>Design Phase</strong> involves initiating (approve the design scope), planning (design schedule), executing (produce drawings), monitoring (design reviews), and closing (design freeze sign-off).</li>
+<li>The <strong>Construction Phase</strong> then repeats all five process groups for the build work.</li>
+</ul>
+</div>
+</div>
+<section id="level-of-activity-across-process-groups" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="level-of-activity-across-process-groups"><span class="header-section-number">4.1.1</span> Level of Activity Across Process Groups</h3>
+<p>The amount of effort varies across the process groups. Planning and executing overlap significantly, with monitoring &amp; controlling running continuously:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base'}}%%
+xychart-beta
+    title "Level of Activity Through the Project"
+    x-axis ["Start", "20%", "40%", "60%", "80%", "End"]
+    y-axis "Activity Level" 0 --&gt; 100
+    line "Initiating" [60, 20, 5, 0, 0, 0]
+    line "Planning" [30, 80, 50, 30, 15, 5]
+    line "Executing" [0, 20, 70, 90, 60, 10]
+    line "M&amp;C" [5, 30, 50, 60, 50, 20]
+    line "Closing" [0, 0, 0, 5, 40, 80]
+</pre>
+</div>
+<p></p><figcaption> Relative effort across process groups over time</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="the-initiating-process-group" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="the-initiating-process-group"><span class="header-section-number">4.2</span> The Initiating Process Group</h2>
+<p>The Initiating process group <strong>authorises the project</strong> (or a new phase) and provides the high-level direction.</p>
+<section id="key-activities" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="key-activities"><span class="header-section-number">4.2.1</span> Key Activities</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    BN["💡 Business Need&lt;br/&gt;or Opportunity"] --&gt; BC["📄 Develop&lt;br/&gt;Business Case"]
+    BC --&gt; CH["📜 Develop&lt;br/&gt;Project Charter"]
+    CH --&gt; SH["👥 Identify&lt;br/&gt;Stakeholders"]
+    SH --&gt; GO["✅ Authorise the&lt;br/&gt;Project to Proceed"]
+
+    style BN fill:#e0e7ff,stroke:#4f46e5,color:#312e81
+    style BC fill:#e0e7ff,stroke:#4f46e5,color:#312e81
+    style CH fill:#e0e7ff,stroke:#4f46e5,color:#312e81
+    style SH fill:#e0e7ff,stroke:#4f46e5,color:#312e81
+    style GO fill:#4f46e5,color:#fff,stroke:#4f46e5
+</pre>
+</div>
+<p></p><figcaption> Initiating process group — key activities</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<table class="table-striped table-hover caption-top table">
+<caption>Initiating process group activities</caption>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 37%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th>Description</th>
+<th>Key Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Develop Business Case</strong></td>
+<td>Justify the project — why is it needed? What’s the expected return?</td>
+<td>Business case document</td>
+</tr>
+<tr class="even">
+<td><strong>Develop Project Charter</strong></td>
+<td>Formally authorise the project; name the PM; define high-level scope, budget, timeline</td>
+<td>Project charter</td>
+</tr>
+<tr class="odd">
+<td><strong>Identify Stakeholders</strong></td>
+<td>Determine who is affected by or can influence the project</td>
+<td>Stakeholder register</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>📖 Key Concept — The Project Charter
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>project charter</strong> is the document that formally <em>authorises</em> the project and gives the PM the authority to apply organisational resources. Without a signed charter, the project does not officially exist.</p>
+<p>Key elements: project purpose, measurable objectives, high-level requirements, summary budget, milestone schedule, PM name and authority level, sponsor name and approval.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="the-planning-process-group" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="the-planning-process-group"><span class="header-section-number">4.3</span> The Planning Process Group</h2>
+<p>Planning is the <strong>largest process group</strong>, encompassing 24 of the 49 PMBOK processes. It defines <em>what</em> needs to be done, <em>how</em>, <em>when</em>, and <em>by whom</em>.</p>
+<section id="key-activities-1" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="key-activities-1"><span class="header-section-number">4.3.1</span> Key Activities</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    PMP["📋 Develop Project&lt;br/&gt;Management Plan"]
+    
+    SC["📐 Plan Scope&lt;br/&gt;Collect Requirements&lt;br/&gt;Define Scope&lt;br/&gt;Create WBS"]
+    
+    TM["⏱️ Plan Schedule&lt;br/&gt;Define Activities&lt;br/&gt;Sequence Activities&lt;br/&gt;Estimate Durations&lt;br/&gt;Develop Schedule"]
+    
+    CM["💰 Plan Cost&lt;br/&gt;Estimate Costs&lt;br/&gt;Determine Budget"]
+    
+    QM["✅ Plan Quality"]
+    RM["👥 Plan Resources"]
+    CO["📢 Plan Communications"]
+    RK["⚠️ Plan Risk&lt;br/&gt;Identify Risks&lt;br/&gt;Analyse Risks&lt;br/&gt;Plan Responses"]
+    PR["📦 Plan Procurement"]
+    SM["🤝 Plan Stakeholder&lt;br/&gt;Engagement"]
+
+    PMP --&gt; SC &amp; TM &amp; CM &amp; QM &amp; RM &amp; CO &amp; RK &amp; PR &amp; SM
+
+    style PMP fill:#0f766e,color:#fff,stroke:#0f766e
+    style SC fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style TM fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style CM fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style QM fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style RM fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style CO fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style RK fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style PR fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style SM fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+</pre>
+</div>
+<p></p><figcaption> Planning process group — core planning activities</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>⚠️ Common Mistake — Rushing to Execute
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Many engineers are eager to “start building” and treat planning as bureaucracy. But poor planning is the #1 cause of project failure. The rule of thumb: <strong>every hour spent planning saves 3–5 hours during execution</strong>.</p>
+</div>
+</div>
+</section>
+<section id="the-project-management-plan" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="the-project-management-plan"><span class="header-section-number">4.3.2</span> The Project Management Plan</h3>
+<p>The <strong>Project Management Plan (PMP)</strong> is the master document that integrates all subsidiary plans:</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Components of the integrated Project Management Plan</caption>
+<colgroup>
+<col style="width: 64%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Subsidiary Plan</th>
+<th>Defines</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Scope Management Plan</strong></td>
+<td>How scope will be defined, validated, and controlled</td>
+</tr>
+<tr class="even">
+<td><strong>Schedule Management Plan</strong></td>
+<td>How the schedule will be developed, managed, and controlled</td>
+</tr>
+<tr class="odd">
+<td><strong>Cost Management Plan</strong></td>
+<td>How costs will be estimated, budgeted, and controlled</td>
+</tr>
+<tr class="even">
+<td><strong>Quality Management Plan</strong></td>
+<td>Quality standards and how they will be assured and controlled</td>
+</tr>
+<tr class="odd">
+<td><strong>Resource Management Plan</strong></td>
+<td>How resources will be identified, acquired, and managed</td>
+</tr>
+<tr class="even">
+<td><strong>Communications Management Plan</strong></td>
+<td>Who needs what information, when, and in what format</td>
+</tr>
+<tr class="odd">
+<td><strong>Risk Management Plan</strong></td>
+<td>How risks will be identified, analysed, and responded to</td>
+</tr>
+<tr class="even">
+<td><strong>Procurement Management Plan</strong></td>
+<td>What to procure, how, and from whom</td>
+</tr>
+<tr class="odd">
+<td><strong>Stakeholder Engagement Plan</strong></td>
+<td>How stakeholders will be engaged throughout the project</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-three-baselines" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="the-three-baselines"><span class="header-section-number">4.3.3</span> The Three Baselines</h3>
+<p>The PMP includes three <strong>baselines</strong> that serve as the reference points for measuring project performance:</p>
+<ol type="1">
+<li><strong>Scope Baseline</strong> = Scope Statement + WBS + WBS Dictionary</li>
+<li><strong>Schedule Baseline</strong> = Approved project schedule</li>
+<li><strong>Cost Baseline</strong> = Time-phased project budget</li>
+</ol>
+<p>Changes to any baseline require formal <strong>change control</strong> — you cannot simply move the goalposts.</p>
+<hr>
+</section>
+</section>
+<section id="the-executing-process-group" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="the-executing-process-group"><span class="header-section-number">4.4</span> The Executing Process Group</h2>
+<p>Executing is where the <strong>actual work gets done</strong>. The PM’s focus shifts from planning to coordinating resources, managing the team, and ensuring quality.</p>
+<section id="key-activities-2" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="key-activities-2"><span class="header-section-number">4.4.1</span> Key Activities</h3>
+<table class="table-striped table-hover caption-top table">
+<caption>Executing process group activities</caption>
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Direct and Manage Project Work</strong></td>
+<td>Lead the team in producing deliverables according to the plan</td>
+</tr>
+<tr class="even">
+<td><strong>Manage Project Knowledge</strong></td>
+<td>Capture and share lessons learned and organisational knowledge</td>
+</tr>
+<tr class="odd">
+<td><strong>Manage Quality</strong></td>
+<td>Perform quality assurance — audit processes and standards compliance</td>
+</tr>
+<tr class="even">
+<td><strong>Acquire Resources</strong></td>
+<td>Obtain the people, equipment, and materials needed</td>
+</tr>
+<tr class="odd">
+<td><strong>Develop Team</strong></td>
+<td>Build team competence and cohesion (training, team-building)</td>
+</tr>
+<tr class="even">
+<td><strong>Manage Team</strong></td>
+<td>Track performance, resolve conflicts, provide feedback</td>
+</tr>
+<tr class="odd">
+<td><strong>Manage Communications</strong></td>
+<td>Distribute information per the communications plan</td>
+</tr>
+<tr class="even">
+<td><strong>Implement Risk Responses</strong></td>
+<td>Execute the planned risk response strategies</td>
+</tr>
+<tr class="odd">
+<td><strong>Conduct Procurements</strong></td>
+<td>Select sellers, negotiate contracts, issue purchase orders</td>
+</tr>
+<tr class="even">
+<td><strong>Manage Stakeholder Engagement</strong></td>
+<td>Work with stakeholders to meet their needs and address issues</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>💡 Practical Tip — Where Time and Money Are Spent
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The executing process group consumes <strong>the most time and the most budget</strong> of any process group — typically 60–80% of total project resources. Effective planning and monitoring make this investment efficient; poor planning wastes it.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="the-monitoring-and-controlling-process-group" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="the-monitoring-and-controlling-process-group"><span class="header-section-number">4.5</span> The Monitoring and Controlling Process Group</h2>
+<p>This process group runs <strong>continuously</strong> throughout the project. It tracks performance against the plan and takes corrective action when deviations occur.</p>
+<section id="key-activities-3" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="key-activities-3"><span class="header-section-number">4.5.1</span> Key Activities</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    M["📊 Measure&lt;br/&gt;Performance"] --&gt; C["🔍 Compare to&lt;br/&gt;Baselines"]
+    C --&gt; V["📉 Identify&lt;br/&gt;Variances"]
+    V --&gt; D{Acceptable?}
+    D --&gt;|Yes| M
+    D --&gt;|No| A["🔧 Take Corrective&lt;br/&gt;or Preventive Action"]
+    A --&gt; CH["📝 Update Plan&lt;br/&gt;(Change Control)"]
+    CH --&gt; M
+
+    style M fill:#fef3c7,stroke:#d97706,color:#92400e
+    style C fill:#fef3c7,stroke:#d97706,color:#92400e
+    style V fill:#fef3c7,stroke:#d97706,color:#92400e
+    style D fill:#fff,stroke:#d97706,color:#92400e
+    style A fill:#fecaca,stroke:#ef4444,color:#991b1b
+    style CH fill:#fef3c7,stroke:#d97706,color:#92400e
+</pre>
+</div>
+<p></p><figcaption> The monitoring and controlling cycle</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<table class="table-striped table-hover caption-top table">
+<caption>Monitoring and controlling processes by knowledge area</caption>
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th>Knowledge Area</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Monitor and Control Project Work</strong></td>
+<td>Integration</td>
+</tr>
+<tr class="even">
+<td><strong>Perform Integrated Change Control</strong></td>
+<td>Integration</td>
+</tr>
+<tr class="odd">
+<td><strong>Validate Scope</strong></td>
+<td>Scope</td>
+</tr>
+<tr class="even">
+<td><strong>Control Scope</strong></td>
+<td>Scope</td>
+</tr>
+<tr class="odd">
+<td><strong>Control Schedule</strong></td>
+<td>Schedule</td>
+</tr>
+<tr class="even">
+<td><strong>Control Costs</strong></td>
+<td>Cost</td>
+</tr>
+<tr class="odd">
+<td><strong>Control Quality</strong></td>
+<td>Quality</td>
+</tr>
+<tr class="even">
+<td><strong>Control Resources</strong></td>
+<td>Resources</td>
+</tr>
+<tr class="odd">
+<td><strong>Monitor Communications</strong></td>
+<td>Communications</td>
+</tr>
+<tr class="even">
+<td><strong>Monitor Risks</strong></td>
+<td>Risk</td>
+</tr>
+<tr class="odd">
+<td><strong>Control Procurements</strong></td>
+<td>Procurement</td>
+</tr>
+<tr class="even">
+<td><strong>Monitor Stakeholder Engagement</strong></td>
+<td>Stakeholder</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>📖 Key Concept — Integrated Change Control
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>All changes</strong> to project baselines (scope, schedule, cost) must go through a formal <strong>change control process</strong>:</p>
+<ol type="1">
+<li><strong>Request</strong> — Document the change request (CR)</li>
+<li><strong>Evaluate</strong> — Assess the impact on scope, schedule, cost, quality, and risk</li>
+<li><strong>Decide</strong> — Change Control Board (CCB) approves, defers, or rejects</li>
+<li><strong>Implement</strong> — If approved, update the plan and baselines</li>
+<li><strong>Communicate</strong> — Notify all affected stakeholders</li>
+</ol>
+<p>Uncontrolled changes are <strong>scope creep</strong> — the silent killer of projects.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="the-closing-process-group" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="the-closing-process-group"><span class="header-section-number">4.6</span> The Closing Process Group</h2>
+<p>Closing <strong>formalises acceptance</strong> of the project’s deliverables and brings the project (or phase) to an orderly end.</p>
+<section id="key-activities-4" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="key-activities-4"><span class="header-section-number">4.6.1</span> Key Activities</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    V["✅ Verify all&lt;br/&gt;deliverables complete"] --&gt; A["📝 Obtain formal&lt;br/&gt;acceptance"]
+    A --&gt; F["💰 Complete financial&lt;br/&gt;closure"]
+    F --&gt; C["📦 Close&lt;br/&gt;procurements"]
+    C --&gt; L["📚 Capture lessons&lt;br/&gt;learned"]
+    L --&gt; T["👥 Release team&lt;br/&gt;&amp; resources"]
+    T --&gt; AR["📁 Archive project&lt;br/&gt;documents"]
+    AR --&gt; R["📊 Final project&lt;br/&gt;report"]
+
+    style V fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style A fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style F fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style C fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style L fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style T fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style AR fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style R fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+</pre>
+</div>
+<p></p><figcaption> The closing process group — systematic project completion</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>⚠️ Common Mistake — Skipping Closure
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Many projects drift to an end without formal closure. This means:</p>
+<ul>
+<li>No lessons learned captured → same mistakes repeated</li>
+<li>No formal acceptance → disputes about what was delivered</li>
+<li>Resources not released → they remain allocated but idle</li>
+<li>Contracts not closed → lingering financial liabilities</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="mapping-process-groups-to-knowledge-areas" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="mapping-process-groups-to-knowledge-areas"><span class="header-section-number">4.7</span> Mapping Process Groups to Knowledge Areas</h2>
+<p>The most powerful view of project management is the <strong>Process Group × Knowledge Area matrix</strong>. Each cell represents a specific process:</p>
+<table class="table-striped table-hover caption-top table">
+<caption>The PMBOK Process Group × Knowledge Area matrix (simplified from PMBOK 7th Edition)</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 17%">
+<col style="width: 15%">
+<col style="width: 17%">
+<col style="width: 10%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Knowledge Area</th>
+<th>Initiating</th>
+<th>Planning</th>
+<th>Executing</th>
+<th>M &amp; C</th>
+<th>Closing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Integration</strong></td>
+<td>Develop Charter</td>
+<td>Develop PM Plan</td>
+<td>Direct &amp; Manage Work; Manage Knowledge</td>
+<td>Monitor Work; Integrated Change Control</td>
+<td>Close Project</td>
+</tr>
+<tr class="even">
+<td><strong>Scope</strong></td>
+<td>—</td>
+<td>Plan Scope; Collect Requirements; Define Scope; Create WBS</td>
+<td>—</td>
+<td>Validate Scope; Control Scope</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><strong>Schedule</strong></td>
+<td>—</td>
+<td>Plan Schedule; Define Activities; Sequence; Estimate Durations; Develop Schedule</td>
+<td>—</td>
+<td>Control Schedule</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><strong>Cost</strong></td>
+<td>—</td>
+<td>Plan Cost; Estimate Costs; Determine Budget</td>
+<td>—</td>
+<td>Control Costs</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><strong>Quality</strong></td>
+<td>—</td>
+<td>Plan Quality</td>
+<td>Manage Quality</td>
+<td>Control Quality</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><strong>Resources</strong></td>
+<td>—</td>
+<td>Plan Resources; Estimate Activity Resources</td>
+<td>Acquire; Develop; Manage Team</td>
+<td>Control Resources</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><strong>Communications</strong></td>
+<td>—</td>
+<td>Plan Communications</td>
+<td>Manage Communications</td>
+<td>Monitor Communications</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><strong>Risk</strong></td>
+<td>—</td>
+<td>Plan Risk; Identify; Qualitative Analysis; Quantitative Analysis; Plan Responses</td>
+<td>Implement Responses</td>
+<td>Monitor Risks</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><strong>Procurement</strong></td>
+<td>—</td>
+<td>Plan Procurement</td>
+<td>Conduct Procurements</td>
+<td>Control Procurements</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><strong>Stakeholders</strong></td>
+<td>Identify Stakeholders</td>
+<td>Plan Engagement</td>
+<td>Manage Engagement</td>
+<td>Monitor Engagement</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>📖 Key Concept — The Matrix as a Roadmap
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This matrix is the <strong>roadmap</strong> of project management. When you’re unsure what to do next on a project, find your current process group and knowledge area in the matrix — the cell tells you what process to perform.</p>
+<p>Notice that:</p>
+<ul>
+<li><strong>Planning</strong> has the most processes (24 of 49)</li>
+<li><strong>Integration</strong> is the only knowledge area that spans <em>all five</em> process groups</li>
+<li><strong>Initiating</strong> and <strong>Closing</strong> are the smallest but arguably the most neglected</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="developing-a-pm-methodology" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="developing-a-pm-methodology"><span class="header-section-number">4.8</span> Developing a PM Methodology</h2>
+<p>An organisation’s <strong>PM methodology</strong> defines the standard approach to managing projects. It adapts the generic PMBOK framework to the organisation’s specific context.</p>
+<section id="elements-of-an-engineering-pm-methodology" class="level3" data-number="4.8.1">
+<h3 data-number="4.8.1" class="anchored" data-anchor-id="elements-of-an-engineering-pm-methodology"><span class="header-section-number">4.8.1</span> Elements of an Engineering PM Methodology</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">mindmap
+  root((PM&lt;br/&gt;Methodology))
+    Templates
+      Project Charter
+      PMP Template
+      WBS Template
+      Risk Register
+      Lessons Learned
+    Processes
+      Stage-gate reviews
+      Change control
+      Quality gates
+      Handover procedures
+    Tools
+      Scheduling software
+      Cost management
+      Document control
+      Collaboration platform
+    Standards
+      PMBOK Guide
+      ISO 21500
+      Industry codes
+      Company standards
+    Governance
+      Steering committee
+      PMO oversight
+      Reporting cadence
+      Escalation paths
+</pre>
+</div>
+<p></p><figcaption> Components of an engineering PM methodology</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>💡 Practical Tip — Tailoring
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No methodology should be applied blindly. The PMBOK 7th Edition emphasises <strong>tailoring</strong> — adapting processes, tools, and documentation to the project’s size, complexity, and risk level. A $10M highway widening does not need the same level of documentation as a $2B metro system.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="case-study-al-maktoum-international-airport-expansion-dubai" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="case-study-al-maktoum-international-airport-expansion-dubai">Case Study — Al-Maktoum International Airport Expansion, Dubai</h2>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>🏗️ Case Study — Al-Maktoum International Airport Expansion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Al-Maktoum International Airport</strong> (DWC) in Dubai South is planned to become the world’s largest airport, with an ultimate capacity of 260 million passengers per year. The expansion programme illustrates all five process groups in action.</p>
+<section id="project-overview" class="level3" data-number="4.8.2">
+<h3 data-number="4.8.2" class="anchored" data-anchor-id="project-overview"><span class="header-section-number">4.8.2</span> Project Overview</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 57%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Location</strong></td>
+<td>Dubai South (Jebel Ali), UAE</td>
+</tr>
+<tr class="even">
+<td><strong>Estimated cost</strong></td>
+<td>$35+ billion (full build-out)</td>
+</tr>
+<tr class="odd">
+<td><strong>Phases</strong></td>
+<td>Multi-phase over 20+ years</td>
+</tr>
+<tr class="even">
+<td><strong>Client</strong></td>
+<td>Dubai Aviation Engineering Projects (DAEP)</td>
+</tr>
+<tr class="odd">
+<td><strong>Key challenge</strong></td>
+<td>Phased construction while maintaining existing operations</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="process-groups-in-action" class="level3" data-number="4.8.3">
+<h3 data-number="4.8.3" class="anchored" data-anchor-id="process-groups-in-action"><span class="header-section-number">4.8.3</span> Process Groups in Action</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">🚀 Initiating</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">📋 Planning</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">⚙️ Executing</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">📊 Monitoring &amp; Controlling</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">🏁 Closing</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ul>
+<li><strong>Strategic alignment:</strong> Part of Dubai’s vision to be the world’s aviation hub, aligning with Dubai 2040 Urban Master Plan</li>
+<li><strong>Business case:</strong> Forecast demand exceeding Dubai International Airport’s (DXB) 100M passenger capacity</li>
+<li><strong>Project charter:</strong> Defined scope as a phased expansion — runway, terminals, cargo, ground transportation</li>
+<li><strong>Stakeholder identification:</strong> UAE General Civil Aviation Authority, airlines, Dubai Tourism, neighbouring Expo 2020/District 2040 developments, 200+ airline customers</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ul>
+<li><strong>Scope:</strong> Full WBS developed for each phase — airside (runways, taxiways, ATC tower), landside (terminals, parking, access roads), systems (baggage, security, IT)</li>
+<li><strong>Schedule:</strong> Primavera P6 master schedule with 50,000+ activities; critical path through terminal foundations and runway construction</li>
+<li><strong>Cost:</strong> Class 3 estimate progressing to Class 1; Earned Value Management mandated on all packages</li>
+<li><strong>Quality:</strong> ITP covering all structural, MEP, and ICT systems; BIM Level 2 mandated</li>
+<li><strong>Risk:</strong> 500+ risks in the register; key risks include ground conditions (sabkha soil), extreme heat (50°C+), supply chain disruptions, interface conflicts between packages</li>
+</ul>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<ul>
+<li><strong>Team management:</strong> Peak workforce estimated at 60,000+ workers from 40+ nationalities</li>
+<li><strong>Procurement:</strong> Multiple design-build packages awarded to international joint ventures</li>
+<li><strong>Quality assurance:</strong> Third-party inspection agencies; BIM clash detection before every pour</li>
+<li><strong>Communications:</strong> Weekly dashboards to DAEP leadership; monthly reports to Dubai Executive Council</li>
+<li><strong>Stakeholder engagement:</strong> Regular coordination with existing DWC operations to minimise disruption</li>
+</ul>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<ul>
+<li><strong>Earned Value:</strong> Monthly EVM reporting (CPI, SPI) at programme, package, and activity level</li>
+<li><strong>Change control:</strong> Programme Change Board meets bi-weekly; all changes assessed for impact on schedule, cost, and interfaces</li>
+<li><strong>Schedule monitoring:</strong> 4-week lookahead schedules; delay analysis using Time Impact Analysis (TIA) method</li>
+<li><strong>Risk monitoring:</strong> Monthly risk reviews; risks that materialise become issues tracked in a separate register</li>
+<li><strong>Scope control:</strong> BIM model frozen at stage gates; any post-freeze changes require formal variation order</li>
+</ul>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<ul>
+<li><strong>Phased handover:</strong> Each terminal zone goes through Testing &amp; Commissioning (T&amp;C), Operational Readiness (ORAT), and formal handover</li>
+<li><strong>Lessons learned:</strong> Captured at the end of each phase; fed into the planning of subsequent phases</li>
+<li><strong>Document turnover:</strong> As-built BIM models, O&amp;M manuals, and warranty certificates collected per handover zone</li>
+<li><strong>Benefits realisation:</strong> Passenger capacity and airline satisfaction measured against business case projections</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="lessons-for-process-groups" class="level3" data-number="4.8.4">
+<h3 data-number="4.8.4" class="anchored" data-anchor-id="lessons-for-process-groups"><span class="header-section-number">4.8.4</span> Lessons for Process Groups</h3>
+<ol type="1">
+<li><strong>All five process groups operate in every phase</strong> — initiation happens again when a new terminal phase is authorised; planning is continuous; monitoring never stops</li>
+<li><strong>The planning process group is the backbone</strong> — 50,000+ scheduled activities require meticulous planning to coordinate</li>
+<li><strong>Monitoring &amp; controlling prevents surprises</strong> — EVM and schedule analysis catch deviations early</li>
+<li><strong>Closing is critical in phased projects</strong> — each phase must be formally closed and handed over before the next can fully begin</li>
+<li><strong>Integration is the PM’s core job</strong> — with hundreds of interfaces between packages, the programme management team’s primary role is integration</li>
+</ol>
+</section>
+</div>
+</div>
+<hr>
+</section>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>✏️ Exercise 3.1 — Process Group Identification
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>For each of the following activities, identify which process group it belongs to</strong> (Initiating, Planning, Executing, Monitoring &amp; Controlling, or Closing):</p>
+<ol type="1">
+<li>Preparing the project stakeholder register</li>
+<li>Conducting a concrete pour according to the quality plan</li>
+<li>Comparing actual costs against the cost baseline</li>
+<li>Archiving all project documents in the document management system</li>
+<li>Creating the Work Breakdown Structure</li>
+<li>Obtaining the client’s formal sign-off on completed deliverables</li>
+<li>Holding a kick-off meeting with the project team</li>
+<li>Performing Earned Value Analysis to forecast the Estimate at Completion</li>
+<li>Capturing lessons learned from a completed design phase</li>
+<li>Negotiating a subcontract with a steel fabrication supplier</li>
+<li>Updating the risk register after a monthly risk review meeting</li>
+<li>Writing the project charter</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>✏️ Exercise 3.2 — Process Group Walkthrough
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Scenario:</strong> You are the PM for a <strong>new 5 km urban road construction project</strong> with a budget of $8 million and a timeline of 18 months.</p>
+<p><strong>Tasks:</strong></p>
+<p>For each of the five process groups, list:</p>
+<ol type="1">
+<li>The <strong>three most important activities</strong> you would perform</li>
+<li>The <strong>key deliverable(s)</strong> produced</li>
+<li>The <strong>primary stakeholders</strong> involved</li>
+</ol>
+<p>Present your answer as a table with five rows (one per process group).</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>✏️ Exercise 3.3 — Knowledge Area Mapping
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Scenario:</strong> Consider a project to build a <strong>solar-powered water pumping station</strong> for a rural community.</p>
+<p><strong>Tasks:</strong></p>
+<ol type="1">
+<li>For each of the <strong>ten knowledge areas</strong>, identify <strong>one specific activity</strong> you would perform during the <strong>planning process group</strong></li>
+<li>Identify which three knowledge areas you think are <strong>most critical</strong> for this project and explain why</li>
+<li>Explain how <strong>integration management</strong> connects the other nine knowledge areas in this project</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>✏️ Exercise 3.4 — Change Control Scenario
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Scenario:</strong> You are managing the construction of a <strong>new university library</strong> ($15 million, 24 months). At month 10, the university president requests the addition of a <strong>120-seat auditorium</strong> to the ground floor — a feature not in the original scope.</p>
+<p><strong>Tasks:</strong></p>
+<ol type="1">
+<li>Describe the <strong>change control process</strong> you would follow step by step</li>
+<li>Identify the <strong>impacts</strong> this change would have on scope, schedule, cost, quality, and risk</li>
+<li>What information would you present to the <strong>Change Control Board</strong> to help them decide?</li>
+<li>If the change is <strong>approved</strong>, what project documents would you need to update?</li>
+<li>If the change is <strong>rejected</strong>, how would you communicate this to the university president?</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="summary" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="summary">Summary</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>📝 Chapter Summary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this chapter you learned that:</p>
+<ul>
+<li>The five <strong>process groups</strong> — Initiating, Planning, Executing, Monitoring &amp; Controlling, and Closing — organise all PM activities</li>
+<li>Process groups <strong>overlap and repeat</strong> within each project phase; they are not a once-through sequence</li>
+<li><strong>Planning</strong> is the largest process group with 24 processes; <strong>Integration</strong> is the only knowledge area spanning all five groups</li>
+<li>The <strong>Process Group × Knowledge Area matrix</strong> is the roadmap of project management — 49 processes organised across 10 knowledge areas</li>
+<li><strong>Integrated change control</strong> protects the project baselines from uncontrolled scope creep</li>
+<li><strong>Closing</strong> is essential — formal acceptance, lessons learned, and document archival prevent future disputes and repeated mistakes</li>
+<li>Organisations should develop a <strong>PM methodology</strong> tailored to their specific context, adapting generic best practices to their industry and project types</li>
+</ul>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/husseinyounis\.github\.io\/pm");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/02-context.html" class="pagination-link" aria-label="The Project Management and Engineering Context">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Project Management and Engineering Context</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/02-initiation.html" class="pagination-link" aria-label="Project Initiation &amp; Selection">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Project Initiation &amp; Selection</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "The Project Management Process Groups"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="chapter-banner"&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="chapter-num"&gt;Chapter 3 · Foundations&lt;/div&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;h1&gt;The Project Management Process Groups&lt;/h1&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;p class="chapter-desc"&gt;A systematic walkthrough of the five process groups — from initiating through closing — applied to an engineering case study.&lt;/p&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Outcomes {.unnumbered}</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip icon="false"}</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Learning Outcomes</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>By the end of this chapter, you will be able to:</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Describe** each of the five project management process groups in detail</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Map** the process groups to the ten PMBOK knowledge areas</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Explain** the key inputs, tools, and outputs of each process group</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Apply** all five process groups to an engineering project scenario</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Develop** a PM methodology appropriate for an engineering organisation</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview of the Process Groups</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>The PMI defines **five process groups** that organise all project management activities. These are not sequential phases — they overlap and interact throughout the project:</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">The five process groups and their interactions</span><span class="ot">"</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>%<span class="dt">%</span>{init: {<span class="ot">'</span><span class="ss">theme</span><span class="ot">'</span>: <span class="ot">'</span><span class="ss">base</span><span class="ot">'</span>}}%%</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    I[<span class="ot">"</span><span class="st">🚀 INITIATING&lt;br/&gt;Define &amp; authorise&lt;br/&gt;the project</span><span class="ot">"</span>]</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    P[<span class="ot">"</span><span class="st">📋 PLANNING&lt;br/&gt;Define objectives &amp;&lt;br/&gt;plan the work</span><span class="ot">"</span>]</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    E[<span class="ot">"</span><span class="st">⚙️ EXECUTING&lt;br/&gt;Do the work &amp;&lt;br/&gt;manage the team</span><span class="ot">"</span>]</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    MC[<span class="ot">"</span><span class="st">📊 MONITORING&lt;br/&gt;&amp; CONTROLLING&lt;br/&gt;Track, review &amp;&lt;br/&gt;regulate progress</span><span class="ot">"</span>]</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    C[<span class="ot">"</span><span class="st">🏁 CLOSING&lt;br/&gt;Formalise acceptance&lt;br/&gt;&amp; close the project</span><span class="ot">"</span>]</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    I --&gt; P</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    P --&gt; E</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    E --&gt; C</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    P &lt;--&gt; MC</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    E &lt;--&gt; MC</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    MC --&gt; C</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    style I fill:<span class="co">#4f46e5,color:#fff,stroke:#4f46e5</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    style P fill:<span class="co">#0f766e,color:#fff,stroke:#0f766e</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    style E fill:<span class="co">#15803d,color:#fff,stroke:#15803d</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    style MC fill:<span class="co">#b45309,color:#fff,stroke:#b45309</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    style C fill:<span class="co">#b91c1c,color:#fff,stroke:#b91c1c</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>::: {.callout-note icon="false"}</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Key Concept — Process Groups vs. Phases</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>**Process Groups** are *management activities* — they happen in every phase. **Phases** are *divisions of work* specific to the project type.</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>In a construction project:</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The **Design Phase** involves initiating (approve the design scope), planning (design schedule), executing (produce drawings), monitoring (design reviews), and closing (design freeze sign-off).</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The **Construction Phase** then repeats all five process groups for the build work.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="fu">### Level of Activity Across Process Groups</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>The amount of effort varies across the process groups. Planning and executing overlap significantly, with monitoring &amp; controlling running continuously:</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">Relative effort across process groups over time</span><span class="ot">"</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>%<span class="dt">%</span>{init: {<span class="ot">'</span><span class="ss">theme</span><span class="ot">'</span>: <span class="ot">'</span><span class="ss">base</span><span class="ot">'</span>}}%%</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>xychart-beta</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>    title <span class="ot">"</span><span class="st">Level of Activity Through the Project</span><span class="ot">"</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>    x-axis [<span class="ot">"</span><span class="st">Start</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">20%</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">40%</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">60%</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">80%</span><span class="ot">"</span>, <span class="ot">"</span><span class="st">End</span><span class="ot">"</span>]</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    <span class="ot">y-axis "Activity Level" 0 --</span>&gt; <span class="dv">100</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>    line <span class="ot">"</span><span class="st">Initiating</span><span class="ot">"</span> [<span class="dv">60</span>, <span class="dv">20</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>    line <span class="ot">"</span><span class="st">Planning</span><span class="ot">"</span> [<span class="dv">30</span>, <span class="dv">80</span>, <span class="dv">50</span>, <span class="dv">30</span>, <span class="dv">15</span>, <span class="dv">5</span>]</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>    line <span class="ot">"</span><span class="st">Executing</span><span class="ot">"</span> [<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">70</span>, <span class="dv">90</span>, <span class="dv">60</span>, <span class="dv">10</span>]</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    line <span class="ot">"</span><span class="st">M&amp;C</span><span class="ot">"</span> [<span class="dv">5</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">50</span>, <span class="dv">20</span>]</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>    line <span class="ot">"</span><span class="st">Closing</span><span class="ot">"</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">40</span>, <span class="dv">80</span>]</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="ot">```</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="st">## The Initiating Process Group</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="st">The Initiating process group **authorises the project** (or a new phase) and provides the high-level direction.</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="st">### Key Activities</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">Initiating process group — key activities</span><span class="ot">"</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>    BN[<span class="ot">"</span><span class="st">💡 Business Need&lt;br/&gt;or Opportunity</span><span class="ot">"</span>] --&gt; BC[<span class="ot">"</span><span class="st">📄 Develop&lt;br/&gt;Business Case</span><span class="ot">"</span>]</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>    BC --&gt; CH[<span class="ot">"</span><span class="st">📜 Develop&lt;br/&gt;Project Charter</span><span class="ot">"</span>]</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>    CH --&gt; SH[<span class="ot">"</span><span class="st">👥 Identify&lt;br/&gt;Stakeholders</span><span class="ot">"</span>]</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>    SH --&gt; GO[<span class="ot">"</span><span class="st">✅ Authorise the&lt;br/&gt;Project to Proceed</span><span class="ot">"</span>]</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>    style BN fill:<span class="co">#e0e7ff,stroke:#4f46e5,color:#312e81</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>    style BC fill:<span class="co">#e0e7ff,stroke:#4f46e5,color:#312e81</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>    style CH fill:<span class="co">#e0e7ff,stroke:#4f46e5,color:#312e81</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>    style SH fill:<span class="co">#e0e7ff,stroke:#4f46e5,color:#312e81</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>    style GO fill:<span class="co">#4f46e5,color:#fff,stroke:#4f46e5</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="ot">```</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="st">| Activity | Description | Key Output |</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="st">|----------|-------------|------------|</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="st">| **Develop Business Case** | Justify the project — why is it needed? What's the expected return? | Business case document |</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="st">| **Develop Project Charter** | Formally authorise the project; name the PM; define high-level scope, budget, timeline | Project charter |</span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="st">| **Identify Stakeholders** | Determine who is affected by or can influence the project | Stakeholder register |</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="st">: Initiating process group activities {.striped .hover}</span></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-note icon="false"}</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="st">## 📖 Key Concept — The Project Charter</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="st">The **project charter** is the document that formally *authorises* the project and gives the PM the authority to apply organisational resources. Without a signed charter, the project does not officially exist.</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="st">Key elements: project purpose, measurable objectives, high-level requirements, summary budget, milestone schedule, PM name and authority level, sponsor name and approval.</span></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="st">## The Planning Process Group</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="st">Planning is the **largest process group**, encompassing 24 of the 49 PMBOK processes. It defines *what* needs to be done, *how*, *when*, and *by whom*.</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="st">### Key Activities</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">Planning process group — core planning activities</span><span class="ot">"</span></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>    PMP[<span class="ot">"</span><span class="st">📋 Develop Project&lt;br/&gt;Management Plan</span><span class="ot">"</span>]</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>    SC[<span class="ot">"</span><span class="st">📐 Plan Scope&lt;br/&gt;Collect Requirements&lt;br/&gt;Define Scope&lt;br/&gt;Create WBS</span><span class="ot">"</span>]</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>    TM[<span class="ot">"</span><span class="st">⏱️ Plan Schedule&lt;br/&gt;Define Activities&lt;br/&gt;Sequence Activities&lt;br/&gt;Estimate Durations&lt;br/&gt;Develop Schedule</span><span class="ot">"</span>]</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>    CM[<span class="ot">"</span><span class="st">💰 Plan Cost&lt;br/&gt;Estimate Costs&lt;br/&gt;Determine Budget</span><span class="ot">"</span>]</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>    QM[<span class="ot">"</span><span class="st">✅ Plan Quality</span><span class="ot">"</span>]</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>    RM[<span class="ot">"</span><span class="st">👥 Plan Resources</span><span class="ot">"</span>]</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>    CO[<span class="ot">"</span><span class="st">📢 Plan Communications</span><span class="ot">"</span>]</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>    RK[<span class="ot">"</span><span class="st">⚠️ Plan Risk&lt;br/&gt;Identify Risks&lt;br/&gt;Analyse Risks&lt;br/&gt;Plan Responses</span><span class="ot">"</span>]</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>    PR[<span class="ot">"</span><span class="st">📦 Plan Procurement</span><span class="ot">"</span>]</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>    SM[<span class="ot">"</span><span class="st">🤝 Plan Stakeholder&lt;br/&gt;Engagement</span><span class="ot">"</span>]</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>    PMP --&gt; SC &amp; TM &amp; CM &amp; QM &amp; RM &amp; CO &amp; RK &amp; PR &amp; SM</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>    style PMP fill:<span class="co">#0f766e,color:#fff,stroke:#0f766e</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>    style SC fill:<span class="co">#ccfbf1,stroke:#0d9488,color:#134e4a</span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>    style TM fill:<span class="co">#ccfbf1,stroke:#0d9488,color:#134e4a</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>    style CM fill:<span class="co">#ccfbf1,stroke:#0d9488,color:#134e4a</span></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>    style QM fill:<span class="co">#ccfbf1,stroke:#0d9488,color:#134e4a</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>    style RM fill:<span class="co">#ccfbf1,stroke:#0d9488,color:#134e4a</span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>    style CO fill:<span class="co">#ccfbf1,stroke:#0d9488,color:#134e4a</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>    style RK fill:<span class="co">#ccfbf1,stroke:#0d9488,color:#134e4a</span></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>    style PR fill:<span class="co">#ccfbf1,stroke:#0d9488,color:#134e4a</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>    style SM fill:<span class="co">#ccfbf1,stroke:#0d9488,color:#134e4a</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="ot">```</span></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-important icon="false"}</span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="st">## ⚠️ Common Mistake — Rushing to Execute</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="st">Many engineers are eager to "start building" and treat planning as bureaucracy. But poor planning is the #1 cause of project failure. The rule of thumb: **every hour spent planning saves 3–5 hours during execution**.</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="st">### The Project Management Plan</span></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="st">The **Project Management Plan (PMP)** is the master document that integrates all subsidiary plans:</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="st">| Subsidiary Plan | Defines |</span></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="st">|----------------|---------|</span></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="st">| **Scope Management Plan** | How scope will be defined, validated, and controlled |</span></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="st">| **Schedule Management Plan** | How the schedule will be developed, managed, and controlled |</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="st">| **Cost Management Plan** | How costs will be estimated, budgeted, and controlled |</span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="st">| **Quality Management Plan** | Quality standards and how they will be assured and controlled |</span></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="st">| **Resource Management Plan** | How resources will be identified, acquired, and managed |</span></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="st">| **Communications Management Plan** | Who needs what information, when, and in what format |</span></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="st">| **Risk Management Plan** | How risks will be identified, analysed, and responded to |</span></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="st">| **Procurement Management Plan** | What to procure, how, and from whom |</span></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="st">| **Stakeholder Engagement Plan** | How stakeholders will be engaged throughout the project |</span></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="st">: Components of the integrated Project Management Plan {.striped .hover}</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="st">### The Three Baselines</span></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="st">The PMP includes three **baselines** that serve as the reference points for measuring project performance:</span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="st">1. **Scope Baseline** = Scope Statement + WBS + WBS Dictionary</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="st">2. **Schedule Baseline** = Approved project schedule</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="st">3. **Cost Baseline** = Time-phased project budget</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="st">Changes to any baseline require formal **change control** — you cannot simply move the goalposts.</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="st">## The Executing Process Group</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="st">Executing is where the **actual work gets done**. The PM's focus shifts from planning to coordinating resources, managing the team, and ensuring quality.</span></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="st">### Key Activities</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="st">| Activity | Description |</span></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="st">|----------|-------------|</span></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="st">| **Direct and Manage Project Work** | Lead the team in producing deliverables according to the plan |</span></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="st">| **Manage Project Knowledge** | Capture and share lessons learned and organisational knowledge |</span></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="st">| **Manage Quality** | Perform quality assurance — audit processes and standards compliance |</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="st">| **Acquire Resources** | Obtain the people, equipment, and materials needed |</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="st">| **Develop Team** | Build team competence and cohesion (training, team-building) |</span></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="st">| **Manage Team** | Track performance, resolve conflicts, provide feedback |</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="st">| **Manage Communications** | Distribute information per the communications plan |</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="st">| **Implement Risk Responses** | Execute the planned risk response strategies |</span></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="st">| **Conduct Procurements** | Select sellers, negotiate contracts, issue purchase orders |</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a><span class="st">| **Manage Stakeholder Engagement** | Work with stakeholders to meet their needs and address issues |</span></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a><span class="st">: Executing process group activities {.striped .hover}</span></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-tip icon="false"}</span></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="st">## 💡 Practical Tip — Where Time and Money Are Spent</span></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="st">The executing process group consumes **the most time and the most budget** of any process group — typically 60–80% of total project resources. Effective planning and monitoring make this investment efficient; poor planning wastes it.</span></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a><span class="st">## The Monitoring and Controlling Process Group</span></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="st">This process group runs **continuously** throughout the project. It tracks performance against the plan and takes corrective action when deviations occur.</span></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="st">### Key Activities</span></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">The monitoring and controlling cycle</span><span class="ot">"</span></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>    M[<span class="ot">"</span><span class="st">📊 Measure&lt;br/&gt;Performance</span><span class="ot">"</span>] --&gt; C[<span class="ot">"</span><span class="st">🔍 Compare to&lt;br/&gt;Baselines</span><span class="ot">"</span>]</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>    C --&gt; V[<span class="ot">"</span><span class="st">📉 Identify&lt;br/&gt;Variances</span><span class="ot">"</span>]</span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>    V --&gt; D{Acceptable?}</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>    D --&gt;|Yes| M</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a>    D --&gt;|No| A[<span class="ot">"</span><span class="st">🔧 Take Corrective&lt;br/&gt;or Preventive Action</span><span class="ot">"</span>]</span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>    A --&gt; CH[<span class="ot">"</span><span class="st">📝 Update Plan&lt;br/&gt;(Change Control)</span><span class="ot">"</span>]</span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>    CH --&gt; M</span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>    style M fill:<span class="co">#fef3c7,stroke:#d97706,color:#92400e</span></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>    style C fill:<span class="co">#fef3c7,stroke:#d97706,color:#92400e</span></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>    style V fill:<span class="co">#fef3c7,stroke:#d97706,color:#92400e</span></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>    style D fill:<span class="co">#fff,stroke:#d97706,color:#92400e</span></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>    style A fill:<span class="co">#fecaca,stroke:#ef4444,color:#991b1b</span></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>    style CH fill:<span class="co">#fef3c7,stroke:#d97706,color:#92400e</span></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a><span class="ot">```</span></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="st">| Activity | Knowledge Area |</span></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a><span class="st">|----------|---------------|</span></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="st">| **Monitor and Control Project Work** | Integration |</span></span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="st">| **Perform Integrated Change Control** | Integration |</span></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="st">| **Validate Scope** | Scope |</span></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a><span class="st">| **Control Scope** | Scope |</span></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="st">| **Control Schedule** | Schedule |</span></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a><span class="st">| **Control Costs** | Cost |</span></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="st">| **Control Quality** | Quality |</span></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="st">| **Control Resources** | Resources |</span></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="st">| **Monitor Communications** | Communications |</span></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="st">| **Monitor Risks** | Risk |</span></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="st">| **Control Procurements** | Procurement |</span></span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="st">| **Monitor Stakeholder Engagement** | Stakeholder |</span></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a><span class="st">: Monitoring and controlling processes by knowledge area {.striped .hover}</span></span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-note icon="false"}</span></span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a><span class="st">## 📖 Key Concept — Integrated Change Control</span></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a><span class="st">**All changes** to project baselines (scope, schedule, cost) must go through a formal **change control process**:</span></span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a><span class="st">1. **Request** — Document the change request (CR)</span></span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a><span class="st">2. **Evaluate** — Assess the impact on scope, schedule, cost, quality, and risk</span></span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a><span class="st">3. **Decide** — Change Control Board (CCB) approves, defers, or rejects</span></span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="st">4. **Implement** — If approved, update the plan and baselines</span></span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="st">5. **Communicate** — Notify all affected stakeholders</span></span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="st">Uncontrolled changes are **scope creep** — the silent killer of projects.</span></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a><span class="st">## The Closing Process Group</span></span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="st">Closing **formalises acceptance** of the project's deliverables and brings the project (or phase) to an orderly end.</span></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a><span class="st">### Key Activities</span></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">The closing process group — systematic project completion</span><span class="ot">"</span></span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>    V[<span class="ot">"</span><span class="st">✅ Verify all&lt;br/&gt;deliverables complete</span><span class="ot">"</span>] --&gt; A[<span class="ot">"</span><span class="st">📝 Obtain formal&lt;br/&gt;acceptance</span><span class="ot">"</span>]</span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>    A --&gt; F[<span class="ot">"</span><span class="st">💰 Complete financial&lt;br/&gt;closure</span><span class="ot">"</span>]</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>    F --&gt; C[<span class="ot">"</span><span class="st">📦 Close&lt;br/&gt;procurements</span><span class="ot">"</span>]</span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a>    C --&gt; L[<span class="ot">"</span><span class="st">📚 Capture lessons&lt;br/&gt;learned</span><span class="ot">"</span>]</span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a>    L --&gt; T[<span class="ot">"</span><span class="st">👥 Release team&lt;br/&gt;&amp; resources</span><span class="ot">"</span>]</span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>    T --&gt; AR[<span class="ot">"</span><span class="st">📁 Archive project&lt;br/&gt;documents</span><span class="ot">"</span>]</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a>    AR --&gt; R[<span class="ot">"</span><span class="st">📊 Final project&lt;br/&gt;report</span><span class="ot">"</span>]</span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>    style V fill:<span class="co">#fecaca,stroke:#b91c1c,color:#7f1d1d</span></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a>    style A fill:<span class="co">#fecaca,stroke:#b91c1c,color:#7f1d1d</span></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a>    style F fill:<span class="co">#fecaca,stroke:#b91c1c,color:#7f1d1d</span></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>    style C fill:<span class="co">#fecaca,stroke:#b91c1c,color:#7f1d1d</span></span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a>    style L fill:<span class="co">#fecaca,stroke:#b91c1c,color:#7f1d1d</span></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>    style T fill:<span class="co">#fecaca,stroke:#b91c1c,color:#7f1d1d</span></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>    style AR fill:<span class="co">#fecaca,stroke:#b91c1c,color:#7f1d1d</span></span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>    style R fill:<span class="co">#fecaca,stroke:#b91c1c,color:#7f1d1d</span></span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a><span class="ot">```</span></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-important icon="false"}</span></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a><span class="st">## ⚠️ Common Mistake — Skipping Closure</span></span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="st">Many projects drift to an end without formal closure. This means:</span></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="st">- No lessons learned captured → same mistakes repeated</span></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="st">- No formal acceptance → disputes about what was delivered</span></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="st">- Resources not released → they remain allocated but idle</span></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="st">- Contracts not closed → lingering financial liabilities</span></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a><span class="st">## Mapping Process Groups to Knowledge Areas</span></span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="st">The most powerful view of project management is the **Process Group × Knowledge Area matrix**. Each cell represents a specific process:</span></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a><span class="st">| Knowledge Area | Initiating | Planning | Executing | M &amp; C | Closing |</span></span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="st">|----------------|-----------|----------|-----------|-------|---------|</span></span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="st">| **Integration** | Develop Charter | Develop PM Plan | Direct &amp; Manage Work; Manage Knowledge | Monitor Work; Integrated Change Control | Close Project |</span></span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="st">| **Scope** | — | Plan Scope; Collect Requirements; Define Scope; Create WBS | — | Validate Scope; Control Scope | — |</span></span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="st">| **Schedule** | — | Plan Schedule; Define Activities; Sequence; Estimate Durations; Develop Schedule | — | Control Schedule | — |</span></span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a><span class="st">| **Cost** | — | Plan Cost; Estimate Costs; Determine Budget | — | Control Costs | — |</span></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="st">| **Quality** | — | Plan Quality | Manage Quality | Control Quality | — |</span></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a><span class="st">| **Resources** | — | Plan Resources; Estimate Activity Resources | Acquire; Develop; Manage Team | Control Resources | — |</span></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="st">| **Communications** | — | Plan Communications | Manage Communications | Monitor Communications | — |</span></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a><span class="st">| **Risk** | — | Plan Risk; Identify; Qualitative Analysis; Quantitative Analysis; Plan Responses | Implement Responses | Monitor Risks | — |</span></span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="st">| **Procurement** | — | Plan Procurement | Conduct Procurements | Control Procurements | — |</span></span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a><span class="st">| **Stakeholders** | Identify Stakeholders | Plan Engagement | Manage Engagement | Monitor Engagement | — |</span></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="st">: The PMBOK Process Group × Knowledge Area matrix (simplified from PMBOK 7th Edition) {.striped .hover}</span></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-note icon="false"}</span></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a><span class="st">## 📖 Key Concept — The Matrix as a Roadmap</span></span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a><span class="st">This matrix is the **roadmap** of project management. When you're unsure what to do next on a project, find your current process group and knowledge area in the matrix — the cell tells you what process to perform.</span></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="st">Notice that:</span></span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a><span class="st">- **Planning** has the most processes (24 of 49)</span></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a><span class="st">- **Integration** is the only knowledge area that spans *all five* process groups</span></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="st">- **Initiating** and **Closing** are the smallest but arguably the most neglected</span></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="st">## Developing a PM Methodology</span></span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a><span class="st">An organisation's **PM methodology** defines the standard approach to managing projects. It adapts the generic PMBOK framework to the organisation's specific context.</span></span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="st">### Elements of an Engineering PM Methodology</span></span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">Components of an engineering PM methodology</span><span class="ot">"</span></span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a>mindmap</span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>  root((PM&lt;br/&gt;Methodology))</span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>    Templates</span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>      Project Charter</span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>      PMP Template</span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>      WBS Template</span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>      Risk Register</span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>      Lessons Learned</span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>    Processes</span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>      Stage-gate reviews</span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>      Change control</span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>      Quality gates</span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>      Handover procedures</span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>    Tools</span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a>      Scheduling software</span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a>      Cost management</span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a>      Document control</span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>      Collaboration platform</span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>    Standards</span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>      PMBOK Guide</span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>      ISO <span class="dv">21500</span></span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>      Industry codes</span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>      Company standards</span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>    Governance</span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>      Steering committee</span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>      PMO oversight</span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>      Reporting cadence</span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a>      Escalation paths</span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="ot">```</span></span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-tip icon="false"}</span></span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a><span class="st">## 💡 Practical Tip — Tailoring</span></span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a><span class="st">No methodology should be applied blindly. The PMBOK 7th Edition emphasises **tailoring** — adapting processes, tools, and documentation to the project's size, complexity, and risk level. A </span><span class="wa">$10</span><span class="dt">M</span><span class="st"> highway widening does not need the same level of documentation as a </span><span class="wa">$2</span><span class="dt">B</span><span class="st"> metro system.</span></span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a><span class="st">## Case Study — Al-Maktoum International Airport Expansion, Dubai {.unnumbered}</span></span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-caution icon="false"}</span></span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a><span class="st">## 🏗️ Case Study — Al-Maktoum International Airport Expansion</span></span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a><span class="st">**Al-Maktoum International Airport** (DWC) in Dubai South is planned to become the world's largest airport, with an ultimate capacity of 260 million passengers per year. The expansion programme illustrates all five process groups in action.</span></span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a><span class="st">### Project Overview</span></span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a><span class="st">| Attribute | Detail |</span></span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a><span class="st">|-----------|--------|</span></span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a><span class="st">| **Location** | Dubai South (Jebel Ali), UAE |</span></span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a><span class="st">| **Estimated cost** | </span><span class="wa">$35</span><span class="st">+ billion (full build-out) |</span></span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a><span class="st">| **Phases** | Multi-phase over 20+ years |</span></span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a><span class="st">| **Client** | Dubai Aviation Engineering Projects (DAEP) |</span></span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a><span class="st">| **Key challenge** | Phased construction while maintaining existing operations |</span></span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a><span class="st">### Process Groups in Action</span></span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.panel-tabset}</span></span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🚀 Initiating</span></span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a><span class="st">- **Strategic alignment:** Part of Dubai's vision to be the world's aviation hub, aligning with Dubai 2040 Urban Master Plan</span></span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a><span class="st">- **Business case:** Forecast demand exceeding Dubai International Airport's (DXB) 100M passenger capacity</span></span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a><span class="st">- **Project charter:** Defined scope as a phased expansion — runway, terminals, cargo, ground transportation</span></span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a><span class="st">- **Stakeholder identification:** UAE General Civil Aviation Authority, airlines, Dubai Tourism, neighbouring Expo 2020/District 2040 developments, 200+ airline customers</span></span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a><span class="st">#### 📋 Planning</span></span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a><span class="st">- **Scope:** Full WBS developed for each phase — airside (runways, taxiways, ATC tower), landside (terminals, parking, access roads), systems (baggage, security, IT)</span></span>
+<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a><span class="st">- **Schedule:** Primavera P6 master schedule with 50,000+ activities; critical path through terminal foundations and runway construction</span></span>
+<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a><span class="st">- **Cost:** Class 3 estimate progressing to Class 1; Earned Value Management mandated on all packages</span></span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a><span class="st">- **Quality:** ITP covering all structural, MEP, and ICT systems; BIM Level 2 mandated</span></span>
+<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a><span class="st">- **Risk:** 500+ risks in the register; key risks include ground conditions (sabkha soil), extreme heat (50°C+), supply chain disruptions, interface conflicts between packages</span></span>
+<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a><span class="st">#### ⚙️ Executing</span></span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a><span class="st">- **Team management:** Peak workforce estimated at 60,000+ workers from 40+ nationalities</span></span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a><span class="st">- **Procurement:** Multiple design-build packages awarded to international joint ventures</span></span>
+<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a><span class="st">- **Quality assurance:** Third-party inspection agencies; BIM clash detection before every pour</span></span>
+<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a><span class="st">- **Communications:** Weekly dashboards to DAEP leadership; monthly reports to Dubai Executive Council</span></span>
+<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a><span class="st">- **Stakeholder engagement:** Regular coordination with existing DWC operations to minimise disruption</span></span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a><span class="st">#### 📊 Monitoring &amp; Controlling</span></span>
+<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a><span class="st">- **Earned Value:** Monthly EVM reporting (CPI, SPI) at programme, package, and activity level</span></span>
+<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a><span class="st">- **Change control:** Programme Change Board meets bi-weekly; all changes assessed for impact on schedule, cost, and interfaces</span></span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a><span class="st">- **Schedule monitoring:** 4-week lookahead schedules; delay analysis using Time Impact Analysis (TIA) method</span></span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a><span class="st">- **Risk monitoring:** Monthly risk reviews; risks that materialise become issues tracked in a separate register</span></span>
+<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a><span class="st">- **Scope control:** BIM model frozen at stage gates; any post-freeze changes require formal variation order</span></span>
+<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🏁 Closing</span></span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a><span class="st">- **Phased handover:** Each terminal zone goes through Testing &amp; Commissioning (T&amp;C), Operational Readiness (ORAT), and formal handover</span></span>
+<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a><span class="st">- **Lessons learned:** Captured at the end of each phase; fed into the planning of subsequent phases</span></span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a><span class="st">- **Document turnover:** As-built BIM models, O&amp;M manuals, and warranty certificates collected per handover zone</span></span>
+<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a><span class="st">- **Benefits realisation:** Passenger capacity and airline satisfaction measured against business case projections</span></span>
+<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a><span class="st">### Lessons for Process Groups</span></span>
+<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a><span class="st">1. **All five process groups operate in every phase** — initiation happens again when a new terminal phase is authorised; planning is continuous; monitoring never stops</span></span>
+<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a><span class="st">2. **The planning process group is the backbone** — 50,000+ scheduled activities require meticulous planning to coordinate</span></span>
+<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a><span class="st">3. **Monitoring &amp; controlling prevents surprises** — EVM and schedule analysis catch deviations early</span></span>
+<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a><span class="st">4. **Closing is critical in phased projects** — each phase must be formally closed and handed over before the next can fully begin</span></span>
+<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a><span class="st">5. **Integration is the PM's core job** — with hundreds of interfaces between packages, the programme management team's primary role is integration</span></span>
+<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a><span class="st">## Exercises {.unnumbered}</span></span>
+<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-warning icon="false"}</span></span>
+<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 3.1 — Process Group Identification</span></span>
+<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a><span class="st">**For each of the following activities, identify which process group it belongs to** (Initiating, Planning, Executing, Monitoring &amp; Controlling, or Closing):</span></span>
+<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a><span class="st">1. Preparing the project stakeholder register</span></span>
+<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a><span class="st">2. Conducting a concrete pour according to the quality plan</span></span>
+<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a><span class="st">3. Comparing actual costs against the cost baseline</span></span>
+<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a><span class="st">4. Archiving all project documents in the document management system</span></span>
+<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a><span class="st">5. Creating the Work Breakdown Structure</span></span>
+<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a><span class="st">6. Obtaining the client's formal sign-off on completed deliverables</span></span>
+<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a><span class="st">7. Holding a kick-off meeting with the project team</span></span>
+<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a><span class="st">8. Performing Earned Value Analysis to forecast the Estimate at Completion</span></span>
+<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a><span class="st">9. Capturing lessons learned from a completed design phase</span></span>
+<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a><span class="st">10. Negotiating a subcontract with a steel fabrication supplier</span></span>
+<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a><span class="st">11. Updating the risk register after a monthly risk review meeting</span></span>
+<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a><span class="st">12. Writing the project charter</span></span>
+<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-warning icon="false"}</span></span>
+<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 3.2 — Process Group Walkthrough</span></span>
+<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a><span class="st">**Scenario:** You are the PM for a **new 5 km urban road construction project** with a budget of </span><span class="wa">$8</span><span class="st"> million and a timeline of 18 months.</span></span>
+<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a><span class="st">**Tasks:**</span></span>
+<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a><span class="st">For each of the five process groups, list:</span></span>
+<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a><span class="st">1. The **three most important activities** you would perform</span></span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a><span class="st">2. The **key deliverable(s)** produced</span></span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a><span class="st">3. The **primary stakeholders** involved</span></span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a><span class="st">Present your answer as a table with five rows (one per process group).</span></span>
+<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-warning icon="false"}</span></span>
+<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 3.3 — Knowledge Area Mapping</span></span>
+<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a><span class="st">**Scenario:** Consider a project to build a **solar-powered water pumping station** for a rural community.</span></span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a><span class="st">**Tasks:**</span></span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a><span class="st">1. For each of the **ten knowledge areas**, identify **one specific activity** you would perform during the **planning process group**</span></span>
+<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a><span class="st">2. Identify which three knowledge areas you think are **most critical** for this project and explain why</span></span>
+<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a><span class="st">3. Explain how **integration management** connects the other nine knowledge areas in this project</span></span>
+<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-warning icon="false"}</span></span>
+<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 3.4 — Change Control Scenario</span></span>
+<span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a><span class="st">**Scenario:** You are managing the construction of a **new university library** (</span><span class="wa">$15</span><span class="st"> million, 24 months). At month 10, the university president requests the addition of a **120-seat auditorium** to the ground floor — a feature not in the original scope.</span></span>
+<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a><span class="st">**Tasks:**</span></span>
+<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a><span class="st">1. Describe the **change control process** you would follow step by step</span></span>
+<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a><span class="st">2. Identify the **impacts** this change would have on scope, schedule, cost, quality, and risk</span></span>
+<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a><span class="st">3. What information would you present to the **Change Control Board** to help them decide?</span></span>
+<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a><span class="st">4. If the change is **approved**, what project documents would you need to update?</span></span>
+<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a><span class="st">5. If the change is **rejected**, how would you communicate this to the university president?</span></span>
+<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a><span class="st">## Summary {.unnumbered}</span></span>
+<span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-note icon="false"}</span></span>
+<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a><span class="st">## 📝 Chapter Summary</span></span>
+<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a><span class="st">In this chapter you learned that:</span></span>
+<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a><span class="st">- The five **process groups** — Initiating, Planning, Executing, Monitoring &amp; Controlling, and Closing — organise all PM activities</span></span>
+<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a><span class="st">- Process groups **overlap and repeat** within each project phase; they are not a once-through sequence</span></span>
+<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a><span class="st">- **Planning** is the largest process group with 24 processes; **Integration** is the only knowledge area spanning all five groups</span></span>
+<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a><span class="st">- The **Process Group × Knowledge Area matrix** is the roadmap of project management — 49 processes organised across 10 knowledge areas</span></span>
+<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a><span class="st">- **Integrated change control** protects the project baselines from uncontrolled scope creep</span></span>
+<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a><span class="st">- **Closing** is essential — formal acceptance, lessons learned, and document archival prevent future disputes and repeated mistakes</span></span>
+<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a><span class="st">- Organisations should develop a **PM methodology** tailored to their specific context, adapting generic best practices to their industry and project types</span></span>
+<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Engineering Department, Arab American University — Project Management Course</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org">
+<p>Built with Quarto</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
