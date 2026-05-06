@@ -1,0 +1,632 @@
+---
+title: "Microsoft Project — Practical Tool Guide"
+---
+
+```{=html}
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 6 · Planning — Practical Tool</div>
+  <h1>Microsoft Project</h1>
+  <p class="chapter-desc">From blank file to managed project: a step-by-step guide using Microsoft Project 2021 / Microsoft 365, applied to a real engineering case study.</p>
+</div>
+```
+
+## Learning Outcomes {.unnumbered}
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+
+By the end of this chapter, you will be able to:
+
+1. **Identify** all information and documents needed before opening MS Project
+2. **Create** a project from scratch — calendar, tasks, durations, and dependencies
+3. **Add and assign** resources (people and equipment) with correct availability and cost rates
+4. **Read** the Gantt Chart, Network Diagram, and Resource Sheet views
+5. **Set** a project baseline and track actual progress against it
+6. **Generate** schedule, resource, and cost reports
+7. **Save and share** MS Project files in appropriate formats
+:::
+
+---
+
+## Why Use MS Project?
+
+Manual scheduling (spreadsheets, sticky notes, hand-drawn Gantt charts) becomes unmanageable once a project has more than 20–30 activities and multiple resources. **Microsoft Project 2021 / Microsoft Project for Microsoft 365** automates:
+
+- Critical path calculation (updated instantly when you change a duration)
+- Resource allocation and over-allocation detection
+- Cost tracking against baseline
+- Earned Value analysis
+- Professional reporting
+
+::: {.callout-note icon="false"}
+## 🖥️ Which Version Does This Chapter Target?
+
+This chapter targets **Microsoft Project 2021** (desktop, perpetual licence) and **Microsoft Project Plan 3 / Plan 5** (Microsoft 365 subscription). The interface and ribbon are identical in both. Screenshots reference the **dark ribbon theme** but all steps apply to any colour theme.
+
+**Do NOT confuse with:** Microsoft Planner (task management only, no scheduling engine) or Microsoft Project Online (web-only, simplified features).
+:::
+
+---
+
+## Before You Open MS Project — What You Need
+
+Opening MS Project without preparation is like starting construction without drawings. Before you create a single task, you must have the following documents ready.
+
+```{mermaid}
+%%| fig-cap: "Information and documents required before starting MS Project"
+%%{init: {'flowchart': {'nodeSpacing': 15, 'rankSpacing': 45}}}%%
+flowchart TD
+    subgraph DOCS ["📁 Documents You Must Have"]
+        A["📄 Project Charter\n– Project name, sponsor, PM\n– Objectives and scope statement\n– High-level milestones\n– Approved budget range"]
+        B["📋 Requirements Document\n– Functional requirements\n– Technical specifications\n– Acceptance criteria"]
+        C["🗂️ WBS (Work Breakdown Structure)\n– All deliverables decomposed\n– Work packages identified\n– WBS dictionary (descriptions)"]
+        D["📅 Activity List\n– Activity name per work package\n– Estimated duration (days)\n– Predecessor dependencies"]
+        E["👥 Resource Register\n– Names of team members\n– Roles and skills\n– Availability (% per day)\n– Cost rate (if tracking costs)"]
+        F["📆 Project Constraints\n– Start date\n– Fixed deadlines/milestones\n– Non-working days (holidays)"]
+    end
+    DOCS --> G["✅ Ready to Open MS Project"]
+
+    style G fill:#15803d,color:#fff
+```
+
+### 1. Project Charter
+
+The charter gives MS Project its identity. From the charter you extract:
+
+| Charter Element | Where It Goes in MS Project |
+|---|---|
+| Project name | File → Info → Project Name |
+| Project start date | Project tab → Project Information → Start Date |
+| Approved end date | Becomes a deadline constraint on the final milestone |
+| Project sponsor / PM | Custom fields or Notes |
+| High-level budget | Budget resource (if using cost tracking) |
+
+### 2. Requirements Document
+
+Requirements define what the project must produce. They feed into your **WBS** — each major requirement typically becomes a WBS Level-2 element (a summary task in MS Project).
+
+### 3. Work Breakdown Structure (WBS)
+
+Your WBS is the **skeleton** of your MS Project schedule. Before entering tasks:
+
+- Number every work package (e.g. 1.1.1, 1.1.2, …)
+- Decide the level of detail you will schedule (typically Level 3–4)
+- Write a one-sentence description for each work package (WBS dictionary)
+
+::: {.callout-important}
+**Rule:** Never enter tasks into MS Project that are not in the WBS. If the work is not in the WBS, it is out of scope.
+:::
+
+### 4. Activity List with Durations
+
+For each WBS work package, list the **schedule activities** with:
+
+- Duration estimate (from analogous, parametric, or three-point estimation — Chapter 4)
+- Type: Fixed Duration / Fixed Work / Fixed Units
+- Predecessor activity numbers and dependency type (FS, SS, FF, SF) with any lags
+
+### 5. Resource Register
+
+Every person, piece of equipment, or material cost that will be assigned to a task must be in your resource register before you begin assigning. Collect:
+
+| Resource Field | Example |
+|---|---|
+| Resource name | Ahmed Al-Khalidi |
+| Resource type | Work (human) / Material / Cost |
+| Max units (availability) | 100% = full time; 50% = half time |
+| Standard rate | ₪ 150 / hour |
+| Overtime rate | ₪ 225 / hour |
+| Cost/use (fixed fee per use) | ₪ 500 per site visit |
+| Calendar | Standard / Night Shift / custom |
+
+### 6. Project Calendar and Constraints
+
+Define:
+- **Working days**: e.g., Sunday–Thursday (Palestinian / regional calendar)
+- **Non-working days**: public holidays, Eid, Ramadan considerations
+- **Fixed date constraints**: contractual milestones, permit expiry dates
+
+---
+
+## The MS Project Interface
+
+```{=html}
+<div class="callout callout-style-default callout-note">
+<div class="callout-header">🖥️ Main Interface Areas</div>
+<div class="callout-body">
+<p>MS Project 2021 has five main interface zones:</p>
+<ol>
+  <li><strong>Ribbon (top)</strong> — Task, Resource, Report, Project, View, Format tabs</li>
+  <li><strong>View Bar / Timeline (below ribbon)</strong> — optional high-level summary bar</li>
+  <li><strong>Entry Table (left panel)</strong> — spreadsheet of tasks/resources/assignments</li>
+  <li><strong>Chart/Diagram (right panel)</strong> — Gantt bars, network nodes, or histograms</li>
+  <li><strong>Status Bar (bottom)</strong> — mode, zoom slider, new task mode indicator</li>
+</ol>
+</div>
+</div>
+```
+
+### Key Views
+
+| View | How to Open | Best Used For |
+|---|---|---|
+| **Gantt Chart** | View → Gantt Chart | Day-to-day task entry and schedule review |
+| **Network Diagram** | View → Network Diagram | Visualising dependencies and critical path |
+| **Resource Sheet** | View → Resource Sheet | Entering and editing all resources |
+| **Resource Usage** | View → Resource Usage | Detecting over-allocation |
+| **Task Usage** | View → Task Usage | Seeing assignments per task |
+| **Tracking Gantt** | View → Tracking Gantt | Comparing actual vs. baseline |
+| **Reports** | Report tab | Generating printable reports |
+
+---
+
+## Step-by-Step: Creating a Project from Scratch
+
+The following steps follow a **logical sequence** — do not skip steps or change the order, especially steps 5–6 (tasks before resources).
+
+### Step 1 — Create a New File
+
+1. Open MS Project → **File → New → Blank Project**
+2. Immediately save: **File → Save As** → choose location → name the file (e.g., `CampusWiFi_v1.mpp`)
+
+::: {.callout-tip}
+**File naming convention:** `[ProjectCode]_[Description]_v[version].mpp`  
+Example: `AAUP-IT-01_WiFiUpgrade_v1.mpp`
+:::
+
+### Step 2 — Set Project Information
+
+Go to **Project tab → Project Information**:
+
+| Field | Action |
+|---|---|
+| Start Date | Enter the project start date (e.g., 01 Sep 2025) |
+| Schedule From | Leave as "Project Start Date" (forward scheduling) |
+| Current Date | Today's date (auto-filled) |
+| Calendar | Select or create (see Step 3) |
+| Priority | Leave at 500 (used for resource levelling) |
+
+Click **Statistics** button at any time to see summary: start, finish, duration, work, cost.
+
+### Step 3 — Create a Custom Calendar
+
+**Project tab → Change Working Time → Create New Calendar**
+
+1. Name it (e.g., "Palestine Standard")
+2. Set working days: **Sunday to Thursday, 08:00–17:00** (with 1-hour lunch break)
+3. Set Friday and Saturday as non-working days
+4. Add exceptions (public holidays):
+   - Select the date on the calendar
+   - Click **Exceptions** tab → enter name → set as non-working
+
+### Step 4 — Set Up the WBS / Summary Tasks
+
+In the **Gantt Chart** view, enter your WBS phases as **Summary Tasks**:
+
+1. Type the Phase 1 name (e.g., `Initiation`) in the Task Name column → press Enter
+2. Type sub-tasks below it
+3. Select the sub-tasks → **Task tab → Indent Task** (or press Alt+Shift+Right arrow)
+4. The parent row becomes a summary task (bold, with a collapse arrow)
+
+::: {.callout-tip}
+**Keyboard shortcut:** Alt+Shift+→ to indent (make child), Alt+Shift+← to outdent (make parent)
+:::
+
+Structure your task list to mirror the WBS numbering:
+
+```
+1. Project: Smart Campus Wi-Fi Upgrade          ← Project Summary (auto)
+   1. Initiation                                 ← Summary Task
+      1.1 Develop Project Charter
+      1.2 Stakeholder Register
+      1.3 Kick-off Meeting                       ← Milestone
+   2. Planning                                   ← Summary Task
+      2.1 Network Site Survey
+      2.2 Equipment Specification
+      ...
+```
+
+### Step 5 — Enter Durations
+
+Click the **Duration** column next to each task and type:
+- `5d` = 5 days
+- `3w` = 3 weeks
+- `0d` = milestone (diamond on Gantt)
+- `1w 2d` = 1 week + 2 days = 7 days
+
+::: {.callout-important}
+**Task Mode:** Check the Task Mode column. Set to **Manually Scheduled** only for tasks with fixed dates (e.g., contractual milestones). All other tasks should be **Auto Scheduled** so MS Project recalculates the schedule automatically when dependencies change.
+:::
+
+### Step 6 — Set Dependencies (Predecessors)
+
+In the **Predecessors** column, type the row number of the predecessor task:
+
+| To create this | Type in Predecessors column |
+|---|---|
+| Finish-to-Start (default) | `3` (task 3 must finish before this starts) |
+| Finish-to-Start + 2 day lag | `3FS+2d` |
+| Start-to-Start | `3SS` |
+| Finish-to-Finish | `3FF` |
+| Start-to-Start + 1 week lag | `3SS+1w` |
+| Multiple predecessors | `3,5,7` |
+
+Alternatively, in **Gantt Chart view**, drag from the end of one task bar to the start of another to create a FS dependency.
+
+::: {.callout-warning}
+**Critical Path Check:** After entering all dependencies, go to **View → Gantt Chart** and check **Format → Critical Tasks** (check the box). All critical path tasks will turn red. If your entire project is red, you likely have no dependencies set.
+:::
+
+### Step 7 — Enter Resources
+
+Switch to **Resource Sheet** view (View tab → Resource Sheet):
+
+Fill in one row per resource:
+
+| Column | Guidance |
+|---|---|
+| Resource Name | Full name or role (e.g., "Network Engineer") |
+| Type | Work / Material / Cost |
+| Material Label | (for materials only, e.g., "m²", "units") |
+| Initials | Auto-filled; can customise |
+| Group | Department or team (e.g., "IT", "Civil") |
+| Max. Units | 100% = full time; 50% = part time |
+| Std. Rate | e.g., ₪120/h |
+| Ovt. Rate | e.g., ₪180/h |
+| Cost/Use | Fixed cost each time resource is used |
+| Accrue At | Start / End / Prorated (how cost is recorded) |
+| Base Calendar | Which working calendar applies to this person |
+
+### Step 8 — Assign Resources to Tasks
+
+Switch back to **Gantt Chart** view. For each task:
+
+1. Double-click the task → **Task Information** dialog → **Resources** tab
+2. Select the resource name from the dropdown
+3. Set **Units** (e.g., 100% for full time on this task, 50% for half time)
+4. Click OK
+
+Or use the **Assign Resources** button (Resource tab) to drag and assign multiple resources at once.
+
+::: {.callout-note}
+**Over-allocation indicator:** A red person icon appears in the Indicators column when a resource is assigned more than their Max. Units. Fix with: **Resource tab → Level Resources** or manually adjust assignments.
+:::
+
+### Step 9 — Set the Baseline
+
+Before any work begins, **freeze** the plan:
+
+**Project tab → Set Baseline → Set Baseline**
+
+This saves the current schedule as **Baseline 0**. You can compare actual progress against this later. MS Project allows up to 11 baselines (Baseline 0–10).
+
+::: {.callout-important}
+**Set the baseline only when the plan is approved.** Once work begins, do not reset the baseline unless formally approved through change control.
+:::
+
+### Step 10 — Track Progress
+
+As work proceeds, update the schedule:
+
+1. **Mark % complete:** Click a task → Task tab → **Mark on Track** (sets 100% on track) or type % in the % Complete column
+2. **Enter actual dates:** Double-click task → Advanced tab → enter Actual Start / Actual Finish
+3. **Update remaining duration:** In the Tracking Gantt, right-click a task → Update Task → enter remaining work
+
+To see schedule variance: **View → Tracking Gantt** — the black baseline bar appears below the blue (current) bar.
+
+---
+
+## MS Project Files — Types and Usage
+
+| Extension | Name | When to Use |
+|---|---|---|
+| `.mpp` | MS Project file | Primary working file — always keep this |
+| `.mpt` | MS Project template | Save a blank configured project as a reusable template |
+| `.mpx` | MS Project Exchange | Legacy export for older systems (rarely needed) |
+| `.xml` | XML export | Share with non-MS Project tools |
+| `.pdf` | PDF export | Share Gantt charts / reports with stakeholders |
+| `.xlsx` | Excel export | Share task lists or cost data with Excel users |
+| `.csv` | CSV export | Import/export task or resource data |
+
+::: {.callout-tip}
+**Best practice:** Maintain three file versions:
+1. `ProjectName_Working.mpp` — your live planning file (updated daily/weekly)
+2. `ProjectName_Baseline_v1.mpp` — locked copy taken at project approval
+3. `ProjectName_Reports/` — folder of exported PDFs for stakeholder distribution
+:::
+
+---
+
+## Case Study — Smart Campus Wi-Fi Infrastructure Upgrade
+
+> **Organisation:** Arab American University (AAUP), Jenin, Palestine  
+> **Project:** Upgrade the campus Wi-Fi to a fully managed 802.11ax (Wi-Fi 6) network across all buildings  
+> **Budget:** ₪ 420,000  
+> **Duration:** 16 weeks  
+> **PM:** Eng. Lina Barakat  
+> **Sponsor:** Vice President for Information Technology
+
+### Project Charter Summary
+
+| Element | Detail |
+|---|---|
+| **Project Title** | AAUP Smart Campus Wi-Fi Upgrade — Phase 1 |
+| **Project Code** | AAUP-IT-2025-01 |
+| **Start Date** | 1 September 2025 |
+| **Target Completion** | 21 December 2025 (end of semester) |
+| **Scope** | Replace 180 access points; install new core switches; configure NMS; train IT staff |
+| **Out of Scope** | Student devices, wired network backbone, off-campus connections |
+| **Key Constraint** | No network disruption during final exams (10–20 Nov and 10–20 Dec) |
+
+### Resource Register
+
+| # | Name / Role | Type | Max Units | Std. Rate | Calendar |
+|---|---|---|---|---|---|
+| 1 | Eng. Lina Barakat (PM) | Work | 50% | ₪ 180/h | Palestine Std |
+| 2 | Network Engineer (Senior) | Work | 100% | ₪ 150/h | Palestine Std |
+| 3 | Network Engineer (Junior) | Work | 100% | ₪ 100/h | Palestine Std |
+| 4 | IT Technician (x2) | Work | 200% | ₪ 75/h | Palestine Std |
+| 5 | Vendor Technician (Cisco) | Work | 50% | ₪ 200/h | Standard |
+| 6 | Access Points (180 units) | Material | — | ₪ 1,200/unit | — |
+| 7 | Core Switches (6 units) | Material | — | ₪ 8,500/unit | — |
+| 8 | Cabling & Misc. | Cost | — | ₪ 15,000 fixed | — |
+
+### WBS and Activity List
+
+| WBS | Task | Duration | Predecessors | Resources |
+|---|---|---|---|---|
+| **1** | **Initiation** | *Summary* | — | — |
+| 1.1 | Develop Project Charter | 3d | — | PM |
+| 1.2 | Identify Stakeholders | 2d | 1.1 | PM |
+| 1.3 | Kick-off Meeting | 0d | 1.2 | PM, Sr. Net. Eng. |
+| **2** | **Planning** | *Summary* | — | — |
+| 2.1 | Network Site Survey | 5d | 1.3 | Sr. Net. Eng., Jr. Net. Eng. |
+| 2.2 | Prepare Technical Specification | 4d | 2.1 | Sr. Net. Eng. |
+| 2.3 | Procurement (AP & Switches) | 10d | 2.2 | PM |
+| 2.4 | IP Addressing & VLAN Design | 3d | 2.2 | Sr. Net. Eng. |
+| 2.5 | NMS Configuration Plan | 3d | 2.4 | Sr. Net. Eng., Vendor Tech |
+| **3** | **Execution — Core Infrastructure** | *Summary* | — | — |
+| 3.1 | Receive & Inspect Equipment | 2d | 2.3 | Jr. Net. Eng., Technicians |
+| 3.2 | Install Core Switches (6 buildings) | 5d | 3.1 | Sr. Net. Eng., Technicians |
+| 3.3 | Configure Core Switches | 4d | 3.2 | Sr. Net. Eng., Vendor Tech |
+| 3.4 | NMS Server Setup | 3d | 3.3SS | Sr. Net. Eng. |
+| **4** | **Execution — Access Points** | *Summary* | — | — |
+| 4.1 | Mount APs — Engineering Building | 4d | 3.2 | Technicians |
+| 4.2 | Mount APs — Science Building | 4d | 4.1SS+1d | Technicians |
+| 4.3 | Mount APs — Administration | 3d | 4.1SS+2d | Technicians |
+| 4.4 | Mount APs — Library & Student Union | 3d | 4.2 | Technicians |
+| 4.5 | AP Configuration & Testing | 5d | 4.1,4.2,4.3,4.4 | Sr. Net. Eng., Jr. Net. Eng. |
+| **5** | **Testing & Handover** | *Summary* | — | — |
+| 5.1 | End-to-End Network Testing | 3d | 3.4,4.5 | Sr. Net. Eng., Vendor Tech |
+| 5.2 | Performance Benchmarking | 2d | 5.1 | Jr. Net. Eng. |
+| 5.3 | IT Staff Training | 2d | 5.1 | Vendor Tech |
+| 5.4 | Documentation & As-Built Records | 3d | 5.2,5.3 | Jr. Net. Eng., PM |
+| 5.5 | Project Handover (Milestone) | 0d | 5.4 | PM |
+
+### Entering This Project in MS Project — Walk-Through
+
+::: {.panel-tabset}
+
+## Step 1–3: File & Calendar
+
+1. **File → New → Blank Project**. Save as `AAUP-IT-2025-01_WiFiUpgrade_v1.mpp`
+2. **Project → Project Information**: Start Date = `01/09/2025`, Calendar = `Palestine Standard`
+3. **Project → Change Working Time**: Create calendar `Palestine Standard`  
+   - Working days: Sun–Thu 08:00–17:00 (1h lunch 13:00–14:00 → 8h/day)
+   - Exceptions: Eid Al-Adha (5–8 Jun), Palestinian Independence Day (15 Nov), Christmas (25 Dec)
+
+## Step 4–6: Tasks & Dependencies
+
+1. In **Gantt Chart** view, enter the 25 tasks from the WBS table above
+2. Indent sub-tasks under each phase header (Alt+Shift+→)
+3. Set task mode to **Auto Scheduled** for all tasks; milestones (0d) auto-set as milestones
+4. Enter durations and predecessors exactly as in the WBS table  
+   - Note task 3.4: predecessor is `3.3SS` (Start-to-Start — switch config and NMS setup begin together)
+   - Note tasks 4.2 and 4.3: SS+1d and SS+2d lags (staggered AP installation teams)
+
+**After this step:** Check the project finish date. It should show approximately **21 December 2025**.
+
+## Step 7–8: Resources & Assignment
+
+1. Switch to **Resource Sheet**: enter all 8 resources from the Resource Register table
+2. For material resources (APs, switches): set Type = Material, Material Label = "units", leave rates blank (enter as cost resources) or enter unit cost
+3. Return to **Gantt Chart**
+4. Assign resources via **Task Information → Resources tab** for each task
+
+**Key assignments to verify:**
+- Task 2.3 (Procurement): PM at 50% only — she coordinates, does not do the physical work
+- Task 3.2: Both Sr. Engineer and Technicians — check for over-allocation in weeks 7–8
+- Tasks 4.1–4.4: Technicians (200%) — two technicians working in parallel on different buildings
+
+## Step 9–10: Baseline & Tracking
+
+1. Once the plan is reviewed and approved: **Project → Set Baseline → Set Baseline (Baseline 0)**
+2. Print / export the baseline Gantt: **File → Print → Gantt Chart** or **File → Export → Save as PDF**
+
+**Week 1 of execution update example:**
+- Task 1.1 (Charter): Actual Start = 01/09/2025, % Complete = 100%
+- Task 1.2 (Stakeholders): % Complete = 50%
+- View **Tracking Gantt** to see variance: if baseline bar and current bar are aligned, the project is on track
+
+:::
+
+### Expected Gantt Chart (Weeks Overview)
+
+```{mermaid}
+%%| fig-cap: "High-level Gantt — AAUP Wi-Fi Upgrade (16 weeks)"
+gantt
+    dateFormat  YYYY-MM-DD
+    axisFormat  %d %b
+
+    section Initiation
+    Project Charter           :done,    t1, 2025-09-01, 3d
+    Stakeholder Register      :done,    t2, after t1, 2d
+    Kick-off Meeting          :milestone, m1, 2025-09-08, 0d
+
+    section Planning
+    Site Survey               :active,  t3, after m1, 5d
+    Technical Specification   :         t4, after t3, 4d
+    Procurement               :         t5, after t4, 10d
+    IP & VLAN Design          :         t6, after t4, 3d
+    NMS Config Plan           :         t7, after t6, 3d
+
+    section Core Infrastructure
+    Receive Equipment         :         t8, after t5, 2d
+    Install Core Switches     :crit,    t9, after t8, 5d
+    Configure Switches        :crit,    t10, after t9, 4d
+    NMS Server Setup          :crit,    t11, after t10, 3d
+
+    section Access Points
+    Mount APs - Engineering   :crit,    t12, after t9, 4d
+    Mount APs - Science       :         t13, 2025-10-20, 4d
+    Mount APs - Admin         :         t14, 2025-10-21, 3d
+    Mount APs - Library       :         t15, after t13, 3d
+    AP Config & Testing       :crit,    t16, after t12, 5d
+
+    section Testing & Handover
+    End-to-End Testing        :crit,    t17, after t11, 3d
+    Performance Benchmark     :         t18, after t17, 2d
+    IT Staff Training         :         t19, after t17, 2d
+    Documentation             :         t20, after t18, 3d
+    Project Handover          :milestone, m2, 2025-12-21, 0d
+```
+
+---
+
+## Reports in MS Project
+
+MS Project generates professional reports directly from the schedule data. Access via the **Report tab**.
+
+| Report | Location | What It Shows |
+|---|---|---|
+| **Project Overview** | Report → Dashboards | % complete, milestones, upcoming tasks |
+| **Work Overview** | Report → Dashboards | Planned vs. actual work per resource |
+| **Cost Overview** | Report → Dashboards | Budget vs. actual cost, EV indicators |
+| **Upcoming Tasks** | Report → In Progress | Next 28 days of work |
+| **Slipping Tasks** | Report → In Progress | Tasks running late vs. baseline |
+| **Critical Tasks** | Report → In Progress | Critical path tasks only |
+| **Resource Overview** | Report → Resources | Hours by resource — over-allocation |
+| **Earned Value** | Report → Costs | PV, EV, AC, CPI, SPI, EAC |
+| **Milestone Report** | Report → In Progress | All milestones and their status |
+
+::: {.callout-tip}
+**For stakeholder reporting:** Use **Report → Dashboards → Project Overview** and export as PDF. This gives a clean, one-page summary without exposing the full schedule detail.
+:::
+
+---
+
+## Common Mistakes to Avoid
+
+::: {.callout-warning icon="false"}
+## ⚠️ Top 10 MS Project Mistakes
+
+1. **Starting without a WBS** — tasks entered randomly, no structure, impossible to track
+2. **All tasks manually scheduled** — MS Project cannot recalculate; schedule is just a static table
+3. **No dependencies set** — tasks float freely; critical path cannot be calculated
+4. **Assigning resources before entering all tasks** — resource data becomes inconsistent
+5. **Never setting a baseline** — no way to compare actual vs. planned
+6. **Ignoring over-allocation warnings** — red resource icons are serious; they mean your plan is unrealistic
+7. **Updating % complete without entering actual dates** — creates misleading tracking data
+8. **Not using a custom calendar** — default calendar is Mon–Fri, which is wrong for regional projects
+9. **Using MS Project as a spreadsheet** — typing static dates instead of letting the scheduling engine calculate them
+10. **One file for all versions** — always version your file; never overwrite the baseline file
+:::
+
+---
+
+## Exercises
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 6.1 — Pre-Project Checklist
+
+Before building a schedule in MS Project, a project manager must collect specific information. For the following project scenario, complete all six preparation documents:
+
+**Scenario:** Your company has won a contract to design and install a solar power system (50 kW) on the roof of a hospital in Ramallah. The project runs for 12 weeks starting 1 March 2026, budget ₪ 280,000.
+
+1. Write a **one-page Project Charter** with: objectives, scope, out-of-scope items, key milestones, sponsor, PM, and approved budget
+2. Create a **WBS** with at least 3 levels (minimum 20 work packages)
+3. Develop an **Activity List** with durations and dependencies for all Level-3 WBS items
+4. Create a **Resource Register** for at least 6 resources (mix of people, equipment, material)
+5. List the **project calendar exceptions** (holidays) for the project period
+6. Identify **3 fixed-date constraints** and explain how you would model each in MS Project
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 6.2 — Build the Schedule in MS Project
+
+Using the preparation documents from Exercise 6.1 (or the template provided by your instructor):
+
+1. Create a new MS Project file with a custom calendar (Sunday–Thursday, 08:00–17:00)
+2. Enter all tasks with correct WBS indentation (summary tasks and sub-tasks)
+3. Set all tasks to **Auto Scheduled** mode
+4. Enter durations and predecessor dependencies
+5. Enter all resources in the Resource Sheet (at least 6 resources with correct types and rates)
+6. Assign resources to all tasks
+7. Identify the **critical path** (Format → Critical Tasks). List all critical tasks and the total project duration
+8. Check for resource over-allocation and **resolve at least one conflict** using resource levelling
+9. Set the **baseline** (Project → Set Baseline → Baseline 0)
+10. Export the Gantt Chart as a **PDF** and the resource cost summary as an **Excel file**
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 6.3 — Progress Tracking
+
+Using the schedule you built in Exercise 6.2, simulate 4 weeks of execution:
+
+**Week 1 actual data:**
+- All initiation tasks completed on time (100%)
+- Site survey started 2 days late (actual start = Day 3)
+
+**Week 2 actual data:**
+- Site survey completed (3 days instead of planned 5 days — ahead of schedule)
+- Procurement task started as planned
+
+**Week 3 actual data:**
+- Procurement delayed: expected to take 14 days instead of 10 (vendor delayed delivery)
+
+**Week 4 actual data:**
+- Procurement still in progress (60% complete)
+- IP & VLAN Design completed on time
+
+1. Enter all actual data using the **Update Tasks** feature and % Complete column
+2. View the **Tracking Gantt** — which tasks show schedule variance?
+3. Calculate **SPI and CPI** using the Earned Value report
+4. Identify which activity is now on the **critical path** due to the procurement delay
+5. Propose a recovery plan: what can be done to bring the project back on track?
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 6.4 — Reports and Communication
+
+Using your completed MS Project file:
+
+1. Generate the **Project Overview Dashboard** report — export as PDF
+2. Generate the **Slipping Tasks** report — identify all tasks currently behind baseline
+3. Generate the **Resource Overview** report — identify the most over-allocated resource
+4. Generate the **Earned Value** report — extract PV, EV, AC, CPI, SPI values for Week 4
+5. Create a **custom one-page stakeholder report** using the Report Designer (Report tab → New Report → Table) that shows: Task name, Baseline Start, Actual Start, Baseline Finish, % Complete, Cost Variance
+6. Export the task list (File → Save As → Excel Workbook) and format it as a **progress table** suitable for a weekly status meeting
+:::
+
+---
+
+## Summary {.unnumbered}
+
+::: {.callout-note}
+## 📚 Further Reading
+
+- Microsoft Support — Project Help Center: [support.microsoft.com/project](https://support.microsoft.com/project)
+- @pmbok2021 — Section 6: Schedule Management (for the theory behind the tool)
+- @kerzner2017 — Chapter 12: Scheduling (network diagrams and CPM)
+- @larson2021 — Appendix: Using MS Project
+:::
+
+**Key Takeaways:**
+
+- MS Project is a **scheduling engine**, not just a Gantt drawing tool — let it calculate; do not manually type dates
+- **Prepare before you open the software**: charter, WBS, activity list, and resource register must be ready
+- **Auto-scheduled tasks + dependencies** = the schedule recalculates automatically when anything changes
+- **Set the baseline** before work begins; update progress weekly; use the Tracking Gantt to spot variance early
+- **Files**: always keep `.mpp` as the working file; export `.pdf` for stakeholders and `.xlsx` for cost reports
+
+**Next Chapter →** [Risk Management](06-risk.qmd) — Identify, analyse, and respond to project threats and opportunities.

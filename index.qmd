@@ -1,0 +1,225 @@
+---
+title: "Project Management for Engineering Students"
+subtitle: "From Concept to Completion — A Practical Engineering Course"
+---
+
+```{=html}
+<div class="hero-banner">
+  <div class="hero-content">
+    <h1>🏗️ Project Management</h1>
+    <h2>For Engineering Students</h2>
+    <p class="hero-sub">Master the tools, techniques, and mindset to deliver engineering projects on time, within budget, and to specification.</p>
+    <div class="hero-badges">
+      <span class="badge">12 Modules</span>
+      <span class="badge">Real-World Case Studies</span>
+      <span class="badge">Hands-On Exercises</span>
+      <span class="badge">Industry Standards</span>
+    </div>
+  </div>
+</div>
+```
+
+## Welcome to the Course {.unnumbered}
+
+This course introduces engineering students to the principles, tools, and practices of **professional project management**. Whether you are building a bridge, developing software, or managing a manufacturing plant upgrade, the ability to plan, execute, and control projects is one of the most valuable skills an engineer can possess.
+
+::: {.callout-note icon="false"}
+## 🎯 Course Philosophy
+
+This course is built on a simple idea: **Project Management is an engineering discipline**. It requires systematic thinking, quantitative analysis, and structured problem solving — the same skills you use in your technical courses, applied to the management of complex, real-world endeavours.
+:::
+
+---
+
+## Course Structure {.unnumbered}
+
+```{mermaid}
+%%| fig-cap: "Course learning journey"
+%%| fig-align: center
+flowchart LR
+    A([🏠 Welcome]) --> B
+    subgraph FOUND["📚 FOUNDATIONS"]
+        B[Ch.1<br/>Introduction] --> B2[Ch.2<br/>PM Context]
+        B2 --> B3[Ch.3<br/>Process Groups]
+    end
+    subgraph INIT["📜 INITIATION & INTEGRATION"]
+        C[Ch.4<br/>Initiation &<br/>Selection]
+    end
+    subgraph PLAN["📋 PLANNING"]
+        D[Ch.5<br/>Planning & WBS] --> E[Ch.6<br/>Scheduling & CPM]
+        E --> F[Ch.7<br/>Resource Mgmt]
+    end
+    subgraph EXEC["⚙️ EXECUTION & CONTROL"]
+        G[Ch.8<br/>Risk Mgmt] --> H[Ch.9<br/>Cost Mgmt]
+        H --> I[Ch.10<br/>Quality Mgmt]
+    end
+    subgraph MOD["🚀 MODERN APPROACHES"]
+        J[Ch.11<br/>Agile & Scrum] --> K[Ch.12<br/>Project Closure]
+    end
+    FOUND --> INIT
+    INIT --> PLAN
+    PLAN --> EXEC
+    EXEC --> MOD
+    MOD --> L([🎓 Certified!])
+
+    style FOUND fill:#dbeafe,stroke:#3b82f6,color:#1e40af
+    style INIT fill:#e0e7ff,stroke:#6366f1,color:#312e81
+    style PLAN fill:#dcfce7,stroke:#22c55e,color:#166534
+    style EXEC fill:#fef9c3,stroke:#eab308,color:#854d0e
+    style MOD fill:#fce7f3,stroke:#ec4899,color:#9d174d
+```
+
+---
+
+## What You Will Learn {.unnumbered}
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### Part I — Foundations
+- ✅ Understand what projects are and why they fail
+- ✅ Analyse projects using the systems view and three-sphere model
+- ✅ Navigate the five process groups and ten knowledge areas
+- ✅ Understand organisational structures, culture, and their impact on PM
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Part II — Planning
+- ✅ Build Work Breakdown Structures (WBS)
+- ✅ Schedule projects using Gantt charts and CPM
+- ✅ Allocate and level resources efficiently
+- ✅ Develop realistic project budgets
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Part III — Execution & Control
+- ✅ Identify, analyse, and respond to risks
+- ✅ Monitor costs using Earned Value Management
+- ✅ Implement quality assurance and control processes
+- ✅ Manage change and handle project crises
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Part IV — Modern Approaches
+- ✅ Apply Agile and Scrum to engineering projects
+- ✅ Lead high-performance project teams
+- ✅ Close projects professionally and capture lessons learned
+- ✅ Build a personal PM toolkit for your career
+:::
+
+:::
+
+---
+
+## Course Modules at a Glance {.unnumbered}
+
+
+| # | Module | Key Topics | Key Tool |
+|---|--------|-----------|---------|
+| 1 | Introduction to PM | Triple Constraint, PMBOK, Why Projects Fail | PM Framework |
+| 2 | PM & Engineering Context | Systems View, Four Frames, Org Structures, Culture | Three-Sphere Model |
+| 3 | PM Process Groups | 5 Process Groups × 10 Knowledge Areas, PM Methodology | Process–KA Matrix |
+| 4 | Project Initiation & Selection | **PV, FV, NPV, IRR, Break-even**, Charter, Stakeholders, Weighted Scoring | Financial Models |
+| 5 | Planning & WBS | Scope, Requirements, Deliverables, Change Control | WBS Diagram |
+| 6 | Scheduling | Gantt, CPM, PERT, Schedule Compression | Network Diagram |
+| 7 | Resource Management | RACI, Levelling, Tuckman, Leadership | Resource Histogram |
+| 8 | Risk Management | Identification, FMEA, EMV, Risk Register | Risk Matrix |
+| 9 | Cost Management | **EVM (PV, EV, AC, CPI, SPI, EAC)**, Budgeting, Bottom-Up Estimates | EVM S-Curve |
+| 10 | Quality Management | QA/QC, PDCA, Ishikawa, ISO 9001 | Control Charts |
+| 11 | Agile & Scrum | Sprints, Kanban, Hybrid Approaches | Scrum Board |
+| 12 | Project Closure | Handover, Lessons Learned, Benefits Realisation | Closure Report |
+
+: {.striped .hover}
+
+---
+
+## Real-World Case Studies {.unnumbered}
+
+Throughout this course, you will analyse **ten real-world engineering projects** spanning multiple industries:
+
+```{mermaid}
+%%| fig-cap: "Case studies covered in this course"
+mindmap
+  root((Real-World<br/>Case Studies))
+    Civil Engineering
+      Burj Khalifa<br/>Construction
+      Sydney Opera House<br/>Cost Overruns
+    Software & IT
+      NASA Mars Rover<br/>Software Pipeline
+      Healthcare IT<br/>System Migration
+    Energy & Infrastructure
+      Offshore Wind Farm<br/>Installation
+      Oil Pipeline<br/>Risk Management
+    Manufacturing
+      Tesla Gigafactory<br/>Ramp-Up
+      Airbus A380<br/>Schedule Delays
+    Environmental
+      Thames Tideway Tunnel
+    Urban Infrastructure
+      Dubai Metro<br/>Project
+```
+
+---
+
+## Course Conventions {.unnumbered}
+
+Throughout this course, you will encounter the following interactive elements:
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+These boxes appear at the start of each chapter and list exactly what you will be able to **do** after completing the chapter.
+:::
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept
+Blue boxes highlight **important definitions and concepts** you must understand.
+:::
+
+::: {.callout-warning icon="false"}
+## ⚠️ Common Mistake
+Yellow boxes warn you about **frequent errors** that engineering students (and even professionals) make.
+:::
+
+::: {.callout-important icon="false"}
+## 🏭 Real-World Case Study
+Orange boxes present **industry case studies** with analysis questions.
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise
+Green exercise boxes contain **practice problems** to test your understanding.
+:::
+
+---
+
+## Prerequisites {.unnumbered}
+
+::: {.callout-note}
+This course assumes you are comfortable with:
+
+- Basic mathematics (algebra, statistics)
+- Reading and interpreting charts and diagrams
+- General engineering problem solving
+- Spreadsheet software (Excel / Google Sheets)
+
+No prior project management knowledge is required.
+:::
+
+---
+
+## References & Standards {.unnumbered}
+
+This course draws on internationally recognised standards and frameworks:
+
+- **PMBOK® Guide** (7th Edition) — Project Management Institute [@pmbok2021]
+- **ISO 21500:2021** — Project Management Standard  
+- **APM Body of Knowledge** (7th Edition) [@apm2019]
+- **Agile Manifesto** [@beck2001agile]
+- **PRINCE2** — Projects in Controlled Environments [@prince22017]
+
+---
+
+> *"The strength of the team is each individual member. The strength of each member is the team."*
+> — Phil Jackson
+
+**Let's get started. Turn to Chapter 1. →**

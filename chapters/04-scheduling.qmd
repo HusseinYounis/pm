@@ -1,0 +1,676 @@
+---
+title: "Project Scheduling & Critical Path Method"
+---
+
+```{=html}
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 4 · Planning</div>
+  <h1>Project Scheduling & Critical Path Method</h1>
+  <p class="chapter-desc">From WBS to timeline: activity sequencing, Gantt charts, network diagrams, CPM, and PERT analysis.</p>
+</div>
+```
+
+## Learning Outcomes {.unnumbered}
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+
+By the end of this chapter, you will be able to:
+
+1. **Define** activities from a WBS and estimate their durations
+2. **Sequence** activities using precedence relationships (FS, SS, FF, SF)
+3. **Draw** a network diagram (AON) for a project
+4. **Calculate** the Critical Path** using forward and backward pass
+5. **Compute** total float and free float for all activities
+6. **Develop** a Gantt chart from a network analysis
+7. **Apply** PERT three-point estimation to handle uncertainty
+8. **Explain** schedule compression techniques (crashing and fast-tracking)
+:::
+
+---
+
+## The Scheduling Process
+
+```{mermaid}
+%%| fig-cap: "The project scheduling process — from WBS to baseline"
+%%{init: {'flowchart': {'nodeSpacing': 20, 'rankSpacing': 50}}}%%
+flowchart LR
+    WBS["🗂️ WBS<br/>Work Packages"] --> DA
+    DA["📝 Define Activities<br/>Break work packages<br/>into schedule activities"] --> SA
+    SA["🔗 Sequence Activities<br/>Determine logical order<br/>and dependencies"] --> ED
+    ED["⏱️ Estimate Durations<br/>How long will each<br/>activity take?"] --> DS
+    DS["📊 Develop Schedule<br/>CPM, Gantt &<br/>resource analysis"] --> SB
+    SB["✅ Schedule Baseline<br/>Approved schedule<br/>for tracking"]
+    SB --> |"Change<br/>Control"| DS
+
+    style WBS fill:#4f46e5,color:#fff
+    style DA fill:#0f766e,color:#fff
+    style SA fill:#15803d,color:#fff
+    style ED fill:#b45309,color:#fff
+    style DS fill:#7c3aed,color:#fff
+    style SB fill:#b91c1c,color:#fff
+```
+
+---
+
+## Activity Definition and Duration Estimating
+
+### From Work Packages to Activities
+
+Work packages from the WBS must be further broken down into **schedule activities** — the individual tasks that can be tracked on a daily/weekly basis.
+
+| WBS Work Package | Schedule Activities |
+|-----------------|-------------------|
+| 1.3.1 Foundation Design | A1: Geotechnical data review; A2: Foundation type analysis; A3: Structural calculations; A4: Foundation drawings; A5: Specification writing |
+| 1.4.2 Concrete Structures | B1: Formwork fabrication; B2: Reinforcement fixing; B3: Concrete pouring; B4: Curing; B5: Formwork striking; B6: Surface finishing |
+
+### Duration Estimation Methods
+
+::: {.panel-tabset}
+
+## Analogous Estimating
+**Use historical data from similar projects**
+
+- Fast and low effort
+- Less accurate
+- Best for early-stage estimates
+
+*Example:* "Our last 50MW substation took 18 months, so this 60MW substation will take about 21 months"
+
+Accuracy: ±25% to ±50%
+
+## Parametric Estimating
+**Use statistical relationships between variables**
+
+- Uses unit rates or formulas
+- More accurate than analogous
+- Requires reliable data
+
+*Example:* "Excavation rate for this soil type is 120m³/day with a 20-tonne excavator. We have 2,400m³ to excavate, so: 2,400 ÷ 120 = 20 days"
+
+Accuracy: ±10% to ±25%
+
+## Three-Point (PERT) Estimating
+**Use optimistic, most likely, and pessimistic estimates**
+
+Three estimates for each activity:
+- **Optimistic (O):** Best case, everything goes right
+- **Most Likely (M):** Most realistic estimate
+- **Pessimistic (P):** Worst case, everything goes wrong
+
+**PERT Expected Duration:**
+$$t_E = \frac{O + 4M + P}{6}$$
+
+**PERT Standard Deviation:**
+$$\sigma = \frac{P - O}{6}$$
+
+**PERT Variance:**
+$$\sigma^2 = \left(\frac{P - O}{6}\right)^2$$
+
+## Bottom-Up Estimating
+**Estimate each activity individually, then aggregate**
+
+- Most accurate method
+- Most time-consuming
+- Best for detailed planning
+
+*Process:*
+1. Identify all activities
+2. Estimate each individually with subject matter experts
+3. Sum all activities for total project duration
+4. Add buffer/contingency
+
+Accuracy: ±5% to ±15%
+
+:::
+
+---
+
+## Activity Sequencing — Dependency Types
+
+Activities must be sequenced based on their **logical dependencies**:
+
+```{mermaid}
+%%| fig-cap: "The four types of activity dependencies (PDM)"
+flowchart TB
+    subgraph ROW1[" "]
+        direction LR
+        subgraph FS["⬛ Finish-to-Start (FS) — Most Common"]
+            A1[Activity A] -->|"B cannot start until A finishes"| B1[Activity B]
+        end
+        subgraph SS["⬛ Start-to-Start (SS)"]
+            A2[Activity A] -->|"B cannot start until A starts"| B2[Activity B]
+        end
+    end
+    subgraph ROW2[" "]
+        direction LR
+        subgraph FF["⬛ Finish-to-Finish (FF)"]
+            A3[Activity A] -->|"B cannot finish until A finishes"| B3[Activity B]
+        end
+        subgraph SF["⬛ Start-to-Finish (SF) — Rare"]
+            A4[Activity A] -->|"B cannot finish until A starts"| B4[Activity B]
+        end
+    end
+
+    style ROW1 fill:none,stroke:none
+    style ROW2 fill:none,stroke:none
+    style FS fill:#dbeafe,stroke:#3b82f6
+    style SS fill:#dcfce7,stroke:#22c55e
+    style FF fill:#fef9c3,stroke:#eab308
+    style SF fill:#fee2e2,stroke:#ef4444
+```
+
+### Lag and Lead Time
+
+- **Lag:** A delay after a dependency is satisfied
+  - *Example:* Concrete curing — next activity starts 7 days after pouring finishes (FS + 7 days lag)
+- **Lead:** An overlap — the successor activity starts before the predecessor finishes
+  - *Example:* Begin procurement drawings while detailed design is still 80% complete (FS - 2 weeks lead)
+
+---
+
+## Network Diagrams — Activity on Node (AON)
+
+The **Activity on Node (AON)** method represents activities as boxes (nodes) and dependencies as arrows:
+
+```{mermaid}
+%%| fig-cap: "Sample AON network diagram for a bridge design project"
+graph LR
+    START(["START"])
+    A["A<br/>Site Survey<br/>5 days"]
+    B["B<br/>Geotechnical<br/>Investigation<br/>10 days"]
+    C["C<br/>Hydraulic<br/>Study<br/>7 days"]
+    D["D<br/>Conceptual<br/>Design<br/>8 days"]
+    E["E<br/>Foundation<br/>Design<br/>12 days"]
+    F["F<br/>Structural<br/>Design<br/>15 days"]
+    G["G<br/>Drainage<br/>Design<br/>6 days"]
+    H["H<br/>Drawings<br/>Production<br/>10 days"]
+    I["I<br/>Spec Writing<br/>5 days"]
+    END(["END"])
+
+    START --> A
+    A --> B & C
+    B --> D
+    C --> D & G
+    D --> E & F
+    E --> H
+    F --> H
+    G --> H
+    H --> I
+    I --> END
+
+    style START fill:#1d4ed8,color:#fff,stroke:#1d4ed8
+    style END fill:#b91c1c,color:#fff,stroke:#b91c1c
+```
+
+---
+
+## Critical Path Method (CPM)
+
+The **Critical Path Method (CPM)** identifies the **longest path through the network** — the sequence of activities that determines the minimum project duration.
+
+::: {.callout-note icon="false"}
+## 📖 Key CPM Definitions
+
+| Term | Definition |
+|------|-----------|
+| **Critical Path** | The longest path through the network; determines project end date |
+| **Float (Slack)** | Amount of time an activity can be delayed without delaying the project |
+| **Total Float** | Delay allowed without delaying project end date |
+| **Free Float** | Delay allowed without delaying the NEXT activity |
+| **Critical Activity** | An activity on the critical path (Float = 0) |
+| **Early Start (ES)** | Earliest time an activity can start |
+| **Early Finish (EF)** | Earliest time an activity can finish; EF = ES + Duration |
+| **Late Start (LS)** | Latest time an activity can start without delaying the project |
+| **Late Finish (LF)** | Latest time an activity can finish without delaying project |
+:::
+
+### Step-by-Step CPM Calculation
+
+**Example Network:**
+
+| Activity | Duration (days) | Predecessors |
+|----------|----------------|-------------|
+| A | 3 | — |
+| B | 5 | A |
+| C | 4 | A |
+| D | 6 | B |
+| E | 3 | B, C |
+| F | 4 | D, E |
+
+**Step 1: Forward Pass (Calculate ES and EF)**
+
+$$ES_A = 0, \quad EF_A = ES_A + Duration_A = 0 + 3 = 3$$
+
+$$ES_B = EF_A = 3, \quad EF_B = 3 + 5 = 8$$
+
+$$ES_C = EF_A = 3, \quad EF_C = 3 + 4 = 7$$
+
+$$ES_D = EF_B = 8, \quad EF_D = 8 + 6 = 14$$
+
+$$ES_E = \max(EF_B, EF_C) = \max(8, 7) = 8, \quad EF_E = 8 + 3 = 11$$
+
+$$ES_F = \max(EF_D, EF_E) = \max(14, 11) = 14, \quad EF_F = 14 + 4 = 18$$
+
+**Project Duration = 18 days**
+
+**Step 2: Backward Pass (Calculate LS and LF)**
+
+$$LF_F = 18, \quad LS_F = LF_F - Duration_F = 18 - 4 = 14$$
+
+$$LF_D = LS_F = 14, \quad LS_D = 14 - 6 = 8$$
+
+$$LF_E = LS_F = 14, \quad LS_E = 14 - 3 = 11$$
+
+$$LF_B = \min(LS_D, LS_E) = \min(8, 11) = 8, \quad LS_B = 8 - 5 = 3$$
+
+$$LF_C = LS_E = 11, \quad LS_C = 11 - 4 = 7$$
+
+$$LF_A = \min(LS_B, LS_C) = \min(3, 7) = 3, \quad LS_A = 3 - 3 = 0$$
+
+**Step 3: Calculate Float**
+
+$$Total\ Float = LS - ES = LF - EF$$
+
+| Activity | ES | EF | LS | LF | Float | Critical? |
+|----------|----|----|----|----|-------|-----------|
+| A | 0 | 3 | 0 | 3 | **0** | ✅ YES |
+| B | 3 | 8 | 3 | 8 | **0** | ✅ YES |
+| C | 3 | 7 | 7 | 11 | **4** | NO |
+| D | 8 | 14 | 8 | 14 | **0** | ✅ YES |
+| E | 8 | 11 | 11 | 14 | **3** | NO |
+| F | 14 | 18 | 14 | 18 | **0** | ✅ YES |
+
+: CPM calculation results {.striped .hover}
+
+**Critical Path: A → B → D → F (18 days)**
+
+```{mermaid}
+%%| fig-cap: "Network with critical path highlighted"
+%%{init: {'flowchart': {'nodeSpacing': 30, 'rankSpacing': 60}}}%%
+graph LR
+    S(["Start — Day 0"]) --> A
+    A["A | Dur:3<br/>ES:0  EF:3 | Float:0"]
+    B["B | Dur:5<br/>ES:3  EF:8 | Float:0"]
+    C["C | Dur:4<br/>ES:3  EF:7 | Float:4"]
+    D["D | Dur:6<br/>ES:8  EF:14 | Float:0"]
+    E["E | Dur:3<br/>ES:8  EF:11 | Float:3"]
+    F["F | Dur:4<br/>ES:14 EF:18 | Float:0"]
+    FN(["End — Day 18"])
+
+    A -->|"CRITICAL"| B
+    A --> C
+    B -->|"CRITICAL"| D
+    B --> E
+    C --> E
+    D -->|"CRITICAL"| F
+    E --> F
+    S -->|"CRITICAL"| A
+    F -->|"CRITICAL"| FN
+
+    style A fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style B fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style D fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style F fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style S fill:#1d4ed8,color:#fff
+    style FN fill:#15803d,color:#fff
+    style C fill:#dcfce7,stroke:#22c55e,color:#166534
+    style E fill:#dcfce7,stroke:#22c55e,color:#166534
+```
+
+---
+
+## Gantt Charts
+
+A **Gantt Chart** is a bar chart that visually represents the project schedule against a timeline.
+
+```{mermaid}
+%%| fig-cap: "Gantt chart for a bridge construction project"
+gantt
+    title Bridge Construction Project Schedule
+    dateFormat  YYYY-MM-DD
+    axisFormat  %b %d
+    
+    section Investigations
+    Site Survey              :done,    survey,   2026-01-05, 5d
+    Geotechnical Drilling    :done,    geotech,  2026-01-12, 15d
+    Hydraulic Study          :active,  hydro,    2026-01-12, 10d
+    
+    section Design
+    Concept Design           :         concept,  after geotech, 10d
+    Foundation Design        :         found,    after concept, 14d
+    Structural Design        :crit,    struct,   after concept, 20d
+    Drainage Design          :         drain,    after hydro, 8d
+    Design Documentation     :crit,    docs,     after struct, 12d
+    
+    section Approvals
+    Client Review            :crit,    review,   after docs, 7d
+    Regulatory Approval      :         reg,      after docs, 21d
+    
+    section Construction
+    Mobilisation             :crit,    mob,      after review, 5d
+    Abutment Excavation      :crit,    excav,    after mob, 15d
+    Abutment Concrete        :crit,    conc,     after excav, 20d
+    Steel Fabrication        :         steel_fab, after struct, 35d
+    Steel Erection           :crit,    erect,    after conc, 10d
+    Deck Construction        :crit,    deck,     after erect, 14d
+    Handrail & Finishes      :         finish,   after deck, 10d
+    
+    section Commissioning
+    Load Testing             :crit,    test,     after deck, 5d
+    Handover                 :milestone, handover, after test, 0d
+```
+
+### Gantt Chart Best Practices
+
+::: {.panel-tabset}
+
+## What to Include
+- All Level 3-4 WBS activities
+- Milestones at key decision points
+- Critical path activities (highlighted in red or marked as critical)
+- Dependencies shown as arrows (where tools allow)
+- Resource allocations (who is responsible for each bar)
+- Planned vs. Actual tracking capability
+- Baseline vs. Current schedule view
+
+## Milestones
+**Milestones** are zero-duration events marking significant project achievements:
+
+Common engineering project milestones:
+- ✓ Project Kick-off
+- ✓ Investigations Complete
+- ✓ 30% Design Issue for Review
+- ✓ 60% Design Issue for Review
+- ✓ 100% Design Issue for Construction
+- ✓ Regulatory Approval Received
+- ✓ Construction Start
+- ✓ Structural Works Complete
+- ✓ Commissioning Complete
+- ✓ Practical Completion
+- ✓ Defects Liability Period End
+
+## Baseline vs. Current
+A well-managed Gantt chart always shows:
+
+1. **Baseline** (original approved schedule) — shown as the lower bar or grey shadow
+2. **Current** (updated actual progress) — shown as the main coloured bar
+3. **% Complete** — progress indicator on each bar
+
+*If Current = Baseline, the project is on track.*  
+*If Current extends beyond Baseline, analysis is needed.*
+
+:::
+
+---
+
+## PERT Analysis — Handling Schedule Uncertainty
+
+**PERT (Programme Evaluation and Review Technique)** extends CPM by acknowledging that activity durations are **uncertain** and modelling them probabilistically.
+
+### PERT Three-Point Estimating
+
+For each activity, obtain three estimates:
+
+| Activity | Optimistic (O) | Most Likely (M) | Pessimistic (P) | Expected ($t_E$) | Std Dev ($\sigma$) | Variance |
+|----------|---------|---------|----------|---------|--------|---------|
+| Foundation Design | 8 | 12 | 22 | **12.67** | **2.33** | 5.44 |
+| Structural Design | 12 | 18 | 30 | **18.67** | **3.00** | 9.00 |
+| Drawing Production | 6 | 9 | 15 | **9.17** | **1.50** | 2.25 |
+| Approvals | 14 | 21 | 56 | **23.33** | **7.00** | 49.00 |
+
+**Project Expected Duration** = Sum of expected durations on critical path
+
+**Project Standard Deviation**: 
+$$\sigma_{project} = \sqrt{\sum \sigma^2_{critical\ activities}}$$
+
+### Probability of Completion by Target Date
+
+Using the normal distribution:
+
+$$Z = \frac{T_{target} - T_{expected}}{\sigma_{project}}$$
+
+Where $T_{target}$ is the desired completion date and $T_{expected}$ is the calculated expected completion.
+
+::: {.callout-note icon="false"}
+## 📖 Example PERT Probability Calculation
+
+**Critical path expected duration:** 65 days  
+**Project standard deviation:** 8.5 days  
+**Client deadline:** 75 days  
+
+$$Z = \frac{75 - 65}{8.5} = 1.18$$
+
+From Z-table: P(Z ≤ 1.18) ≈ **88%**
+
+There is an **88% probability** of completing the project within 75 days.
+
+To achieve 95% probability: Need Z = 1.645 → $T = 65 + (1.645 × 8.5) = 79$ days
+:::
+
+---
+
+## Schedule Compression Techniques
+
+When the calculated schedule exceeds the target date, two primary compression techniques are available:
+
+```{mermaid}
+%%| fig-cap: "Schedule compression strategies — crashing vs. fast-tracking"
+graph LR
+    SC["📅 Schedule<br/>Needs<br/>Compression"] --> CR & FT
+    
+    subgraph CR["💰 CRASHING"]
+        direction TB
+        CR1["Add more resources to<br/>critical path activities"] --> CR2
+        CR2["Increases cost,<br/>may increase risk<br/>but maintains quality"] --> CR3
+        CR3["Cost-slope analysis:<br/>Which activity gives<br/>most time per $?"]
+    end
+    
+    subgraph FT["⚠️ FAST-TRACKING"]
+        direction TB
+        FT1["Run activities in<br/>parallel that were<br/>previously sequential"] --> FT2
+        FT2["Increases risk<br/>(rework if earlier<br/>work changes)"] --> FT3
+        FT3["No additional cost<br/>but needs careful<br/>coordination"]
+    end
+
+    style SC fill:#b91c1c,color:#fff
+    style CR fill:#fef9c3,stroke:#eab308
+    style FT fill:#fee2e2,stroke:#ef4444
+```
+
+### Cost-Slope for Crashing
+
+The **cost-slope** tells you how much it costs to shorten an activity by one unit of time:
+
+$$Cost\ Slope = \frac{Crash\ Cost - Normal\ Cost}{Normal\ Duration - Crash\ Duration}$$
+
+**Crashing priority:** Always crash the critical path activity with the **lowest cost-slope** first, then re-analyse.
+
+| Activity | Normal Duration | Crash Duration | Normal Cost | Crash Cost | Cost Slope |
+|----------|----------------|----------------|-------------|------------|------------|
+| A | 10 days | 7 days | $10,000 | $16,000 | **$2,000/day** |
+| B | 8 days | 6 days | $8,000 | $12,000 | **$2,000/day** |
+| C | 15 days | 11 days | $20,000 | $32,000 | **$3,000/day** |
+| D | 12 days | 9 days | $15,000 | $24,000 | **$3,000/day** |
+
+*To save 2 days: Crash Activity A or B first ($4,000 total), not C or D ($6,000 total)*
+
+---
+
+## Case Study — Qatar FIFA World Cup 2022: Scheduling the Unschedulable {.unnumbered}
+
+::: {.callout-important icon="false"}
+## 🏭 Case Study: Qatar 2022 — When the Deadline Cannot Move
+
+**Background:**  
+On 21 November 2022, the FIFA World Cup opened at Al-Bayt Stadium in Al-Khor, Qatar — the first World Cup hosted by an Arab nation. For Qatar's Supreme Committee for Delivery & Legacy (SC), the scheduling challenge was unique: the tournament date was set in December 2010 and could not shift by even a single day. This created a project scheduling environment where float on the critical path was, ultimately, zero.
+
+**The Scale:**
+- **8 world-class stadiums** built or substantially reconstructed (most World Cup hosts refurbish existing facilities)
+- **Hard deadline:** 21 November 2022 — fixed 12 years in advance
+- **Construction workforce:** 30,000+ workers across stadium sites simultaneously
+- **Largest stadium:** Lusail Stadium (88,966 capacity) — the centrepiece venue for the final
+
+**Scheduling Challenges:**
+
+| Challenge | Response |
+|-----------|----------|
+| Summer temperatures reaching 50°C made daytime work impossible June–September | Shifted all critical construction to **mandatory night shifts** (22:00–06:00); stadium cooling systems tested 18 months early to enable summer commissioning |
+| COVID-19 pandemic (March 2020) halted construction for 4–6 weeks | Critical path reassessed immediately; non-critical works suspended; critical path workers resumed in isolated bubbles within 3 weeks |
+| Lusail Stadium — largest design, started last | Assigned highest resource density of any stadium; 24-hour operations from 2018; Lusail became first stadium to complete trial events in 2021 despite being the last to start |
+| Al-Thumama Stadium required partial structural redesign mid-construction | Design frozen at 60% completion; structural changes fast-tracked through review cycles; construction sequence reordered around the redesigned elements |
+| All 8 stadiums required fully operational cooling systems *before* commissioning began | MEP commissioning placed on the critical path from contract start — 3 months bought back by accelerating installation sequence |
+
+**CPM Application:**  
+The SC's scheduling team used **Oracle Primavera P6 Enterprise** with a master programme of **35,000+ activities**. The critical path ran through Lusail Stadium's seating bowl and roof structure — the most complex and the last to mobilise. Any activity reaching **< 5 days of total float** triggered an automatic Managing Director-level review within 24 hours.
+
+**The Fixed Deadline Strategy:**
+1. Each stadium committed to completion **6 months before the tournament** — allowing full test event cycles
+2. Three rounds of test events per stadium: Fan Experience Tests, Operational Readiness Tests, and FIFA Final Certification
+3. A parallel **maximum acceleration schedule** was pre-approved and ready to activate — with pre-agreed resource profiles and contractor incentive payments — if the primary programme was ever threatened
+
+**Outcome:**  
+All 8 stadiums were delivered on or before their committed test event dates. The tournament opened on its announced date. Qatar Stadium 974 — a temporary venue built from shipping containers — was delivered as a surprise late addition and met its commissioning deadline.
+
+**Key Scheduling Lessons:**
+1. When the deadline is absolute, schedule contingency must be proportionally large — planning to finish "just in time" is planning to fail
+2. External disruptions (COVID, extreme heat) will invalidate sections of any schedule — the organisations that survived maintained pre-developed recovery plans
+3. Risk-driven sequencing: the most complex activities (Lusail's roof) were started earliest and given the most resources
+4. Automatic escalation triggers on critical float are more reliable than human judgment — at 5 days of float with 30,000 workers in play, human review is too slow
+
+*Sources: @fifaqatar2022; @sc2023legacy*
+:::
+
+---
+
+## Exercises {.unnumbered}
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 4.1 — Activity Sequencing
+
+For the following activities in a **pump station construction project**, determine the logical dependencies and draw an AON network diagram:
+
+| Activity | Description | Duration |
+|----------|-------------|---------|
+| A | Site survey and clearance | 5 days |
+| B | Excavation | 8 days |
+| C | Dewatering system installation | 3 days |
+| D | Base slab concrete | 5 days |
+| E | Wall concrete (lift 1) | 4 days |
+| F | Wall concrete (lift 2) | 4 days |
+| G | Mechanical equipment delivery | 15 days |
+| H | Equipment installation | 6 days |
+| I | Pipework installation | 8 days |
+| J | Electrical installation | 7 days |
+| K | Testing and commissioning | 5 days |
+
+**Note:** B requires A; C requires B; D requires B, C; E requires D with 7-day lag (curing); F requires E with 7-day lag; G can start immediately (long lead item); H requires F and G; I requires H; J requires H; K requires I and J.
+
+1. Draw the network diagram
+2. Perform forward and backward pass
+3. Identify the critical path
+4. Calculate total float for all activities
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 4.2 — Critical Path Calculation
+
+Calculate CPM for this 10-activity project:
+
+| Activity | Duration | Predecessors |
+|----------|---------|-------------|
+| A | 4 | — |
+| B | 6 | A |
+| C | 3 | A |
+| D | 8 | B |
+| E | 5 | B, C |
+| F | 4 | C |
+| G | 7 | D, E |
+| H | 3 | E, F |
+| I | 6 | G, H |
+| J | 2 | I |
+
+1. Draw the network diagram
+2. Calculate ES, EF, LS, LF, and Total Float for every activity
+3. Identify the critical path and total project duration
+4. Calculate **free float** for Activity E
+5. If Activity D is delayed by 3 days, what is the new project duration?
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 4.3 — PERT Analysis
+
+An engineering firm is designing a new water reservoir. The critical path activities have the following three-point estimates:
+
+| Activity | Optimistic | Most Likely | Pessimistic |
+|----------|-----------|-------------|-------------|
+| 1: Feasibility | 3 weeks | 5 weeks | 9 weeks |
+| 2: Site Investigation | 4 weeks | 6 weeks | 14 weeks |
+| 3: Concept Design | 5 weeks | 8 weeks | 11 weeks |
+| 4: Detailed Design | 10 weeks | 14 weeks | 24 weeks |
+| 5: Approvals | 8 weeks | 12 weeks | 28 weeks |
+
+1. Calculate the expected duration and standard deviation for each activity
+2. Calculate the total expected project duration and overall standard deviation
+3. What is the probability of completing the project within 50 weeks?
+4. What duration gives you 90% confidence of completion?
+5. The client wants a fixed-price contract with a 50-week deadline. Given the PERT results, what would you advise?
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 4.4 — Schedule Crashing
+
+Your project has a critical path of 30 days, but the contract requires delivery in 26 days. You need to crash 4 days off the schedule.
+
+| Activity | Normal Duration | Crash Duration | Normal Cost | Crash Cost | On Critical Path? |
+|----------|----------------|----------------|-------------|------------|----------|
+| A | 8 | 5 | $12,000 | $18,000 | Yes |
+| B | 10 | 7 | $25,000 | $34,000 | Yes |
+| C | 6 | 4 | $8,000 | $14,000 | Yes |
+| D | 6 | 5 | $10,000 | $13,000 | Yes |
+| E | 7 | 5 | $9,000 | $15,000 | No (Float = 3) |
+
+1. Calculate the cost-slope for each activity
+2. Select the activities to crash and in what order
+3. What is the minimum additional cost to achieve the 26-day schedule?
+4. Draw a **time-cost trade-off curve** for this project (cost vs. project duration from 30 to 26 days)
+5. Should you also consider fast-tracking? Which activities could be overlapped?
+:::
+
+---
+
+## 🖥️ MS Project Practice — Scheduling {.unnumbered}
+
+::: {.callout-note icon="false"}
+## Microsoft Project: Applying Chapter 4 Concepts
+
+Now that you understand activity sequencing, CPM, and Gantt charts, apply these directly in MS Project using the AAUP Wi-Fi Upgrade case study (Chapter 6) or your own project:
+
+**Tasks to complete in MS Project:**
+
+1. **Enter the activity list** from your WBS as auto-scheduled tasks with correct indentation (summary tasks → sub-tasks)
+2. **Set durations** using the estimates from your Activity List (type `5d`, `2w`, etc.)
+3. **Enter predecessors** for each task — use FS, SS, FF with any lags (e.g., `3SS+1d`)
+4. **View the Network Diagram** (View → Network Diagram): verify that the logic matches your hand-drawn AON diagram
+5. **View the Critical Path**: Format tab → check "Critical Tasks" — all red tasks form the critical path
+6. **Check Total Float**: Add the Total Slack column (right-click any column header → Insert Column → Total Slack). Zero = critical.
+7. **Simulate a delay**: Add a 3-day lag to one critical task — observe how MS Project recalculates the finish date automatically
+8. **Apply schedule compression**: Try reducing the duration of a critical task (crashing) and observe the new project finish date
+
+**Expected outcome:** Your MS Project schedule should match the CPM calculations you did by hand. If they differ, check for missing dependencies or manual scheduling overrides.
+:::
+
+---
+
+## Summary {.unnumbered}
+
+::: {.callout-note}
+## 📚 Further Reading
+
+- @pmbok2021 — Section 6: Schedule Management
+- @kerzner2017 — Chapter 12: Scheduling
+- @larson2021 — Chapter 6: Developing a Project Schedule
+- @lewis2010 — Chapter 7: Scheduling Project Work
+:::
+
+**Next Chapter →** [Resource Management](05-resources.qmd) — Learn how to plan, allocate, and manage the people and equipment that execute your schedule.

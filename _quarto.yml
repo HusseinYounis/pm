@@ -1,0 +1,104 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Project Management for Engineering Students"
+  subtitle: "Based on Schwalbe — IT Project Management (8th Ed.) | Enriched with Solved Examples, Case Studies & Engineering Applications"
+  author: "Engineering Department — Arab American University, Palestine"
+  date: "2026"
+  date-format: "YYYY"
+  cover-image: cover.png
+  favicon: cover.png
+  site-url: "https://husseinyounis.github.io/pm"
+  repo-actions: none
+  search: true
+
+  chapters:
+    - index.qmd
+    - part: "PART I — FOUNDATIONS"
+      chapters:
+        - chapters/01-introduction.qmd
+        - chapters/02-context.qmd
+        - chapters/03-process-groups.qmd
+    - part: "PART II — INITIATION & INTEGRATION"
+      chapters:
+        - chapters/02-initiation.qmd
+    - part: "PART III — PLANNING"
+      chapters:
+        - chapters/03-planning.qmd
+        - chapters/04-scheduling.qmd
+        - chapters/05-resources.qmd
+        - chapters/06-msproject.qmd
+    - part: "PART IV — EXECUTION & CONTROL"
+      chapters:
+        - chapters/06-risk.qmd
+        - chapters/07-cost.qmd
+        - chapters/08-quality.qmd
+    - part: "PART V — MODERN APPROACHES"
+      chapters:
+        - chapters/09-agile.qmd
+        - chapters/10-closure.qmd
+
+  appendices:
+    - chapters/references.qmd
+
+  sidebar:
+    style: "docked"
+    background: light
+    tools:
+      - icon: github
+        href: "https://github.com/HusseinYounis/pm"
+
+  navbar:
+    background: primary
+    logo: ""
+    title: "PM for Engineers"
+    right:
+      - icon: house-fill
+        href: index.qmd
+        aria-label: Home
+
+  page-footer:
+    left: "© 2026 Engineering Department, Arab American University — Project Management Course"
+    right:
+      - text: "Built with Quarto"
+        href: "https://quarto.org"
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      light: [cosmo, custom.css]
+    toc: true
+    toc-depth: 3
+    toc-title: "Contents"
+    number-sections: true
+    number-depth: 3
+    highlight-style: github
+    code-fold: true
+    fig-width: 8
+    fig-height: 5
+    code-tools: true
+    code-copy: true
+    fig-align: center
+    fig-responsive: true
+    mermaid:
+      theme: default
+      themeVariables:
+        fontSize: "14px"
+        fontFamily: "'Inter', system-ui, sans-serif"
+        nodePadding: 8
+    smooth-scroll: true
+    link-external-newwindow: true
+    grid:
+      sidebar-width: 280px
+      body-width: 900px
+      margin-width: 200px
+
+execute:
+  freeze: auto
+  echo: false
+  warning: false
+  message: false

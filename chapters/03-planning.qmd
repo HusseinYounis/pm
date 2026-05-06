@@ -1,0 +1,619 @@
+---
+title: "Project Planning & Work Breakdown Structure"
+---
+
+```{=html}
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 3 · Planning</div>
+  <h1>Project Planning & Work Breakdown Structure</h1>
+  <p class="chapter-desc">Turning project objectives into an actionable plan using scope definition, WBS, and the Project Management Plan.</p>
+</div>
+```
+
+## Learning Outcomes {.unnumbered}
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+
+By the end of this chapter, you will be able to:
+
+1. **Define** project scope and write a scope statement
+2. **Collect** and document requirements from stakeholders
+3. **Build** a Work Breakdown Structure (WBS) for an engineering project
+4. **Apply** the 100% Rule to verify WBS completeness
+5. **Develop** a Project Management Plan (PMP)
+6. **Identify** and manage scope creep
+:::
+
+---
+
+## Scope Management Overview
+
+**Scope management** defines **what work IS and IS NOT included** in the project. Poor scope management is one of the top causes of project failure — either through delivering too much (*gold plating*) or too little (*scope gaps*).
+
+```{mermaid}
+%%| fig-cap: "The scope management process"
+%%{init: {'flowchart': {'nodeSpacing': 20, 'rankSpacing': 50}}}%%
+flowchart LR
+    A["📋 Plan Scope<br/>How will scope be<br/>defined & controlled?"]
+    B["🎤 Collect<br/>Requirements<br/>What do stakeholders need?"]
+    C["📐 Define Scope<br/>Detailed project &<br/>product scope statement"]
+    D["🗂️ Create WBS<br/>Decompose scope into<br/>manageable work packages"]
+    E["✅ Validate Scope<br/>Formal client acceptance<br/>of deliverables"]
+    F["🔄 Control Scope<br/>Manage changes &<br/>prevent scope creep"]
+
+    A --> B --> C --> D --> E --> F
+    F --> |"Change Request<br/>Approved"| C
+
+    style A fill:#4f46e5,color:#fff
+    style B fill:#0f766e,color:#fff
+    style C fill:#15803d,color:#fff
+    style D fill:#b45309,color:#fff
+    style E fill:#7c3aed,color:#fff
+    style F fill:#b91c1c,color:#fff
+```
+
+---
+
+## Requirements Collection
+
+Before defining scope, the PM must understand what stakeholders **need** (requirements) vs. what they **want** (desires).
+
+### Requirements Elicitation Techniques
+
+::: {.panel-tabset}
+
+## Interviews
+**One-on-one discussions** with key stakeholders
+
+*Best for:* Sponsors, senior users, technical experts
+
+*Tips:*
+- Prepare open-ended questions
+- Ask "what does success look like to you?"
+- Probe: "What happens if we don't do X?"
+- Document and validate responses after each interview
+
+## Workshops
+**Structured group sessions** to define requirements collaboratively
+
+*Best for:* Large stakeholder groups with competing priorities
+
+*Techniques within workshops:*
+- **Brainstorming** — generate ideas freely
+- **Affinity diagramming** — group related ideas
+- **MoSCoW prioritisation** — Must/Should/Could/Won't
+- **Impact mapping** — how requirements link to goals
+
+## Surveys & Questionnaires
+**Structured data collection** at scale
+
+*Best for:* Large user bases, when in-person engagement is impractical
+
+*Tips:*
+- Limit to 10-15 questions
+- Mix closed (rating) and open (text) questions
+- Always pilot test before sending
+
+## Observation & Prototyping
+**See the work being done or show a draft solution**
+
+*Observation (Job Shadowing):*
+- Watch end-users perform their current process
+- Identify pain points they can't articulate
+- Document the "As-Is" process
+
+*Prototyping:*
+- Build a low-fidelity mockup
+- Use it to validate requirements early
+- Cheaper to change a sketch than a built system
+
+:::
+
+### Requirements Documentation
+
+Requirements should be documented using a **Requirements Traceability Matrix (RTM)**. Before looking at the full matrix, let's understand what each column means and why it matters:
+
+::: {.callout-note icon="false"}
+## 📚 Understanding the RTM — Column by Column
+
+| Column | What It Means | Example (R001) | Teaching Tip |
+|--------|--------------|----------------|--------------|
+| **Req ID** *(Requirement Identifier)* | A unique code that identifies each requirement — think of it as a "fingerprint" for that requirement | R001 | Encourage smart coding: use **FUNC-001** for functional requirements and **NFR-001** for non-functional ones |
+| **Requirement** *(Description)* | A clear, testable sentence that starts with *"The system shall…"* | "The system shall process 500 data points/second" | Teach the **SMART** rule: **S**pecific, **M**easurable, **A**chievable, **R**elevant, **T**ime-bound |
+| **Source** *(Origin)* | Who or what requested this requirement? (a person, document, or regulation) | User interviews | Always document the source — it protects the project from disputes later |
+| **Priority** *(Importance Level)* | How critical is this requirement to project success? | Must | Introduce the **MoSCoW** model: ✅ **Must** — non-negotiable · 🔶 **Should** — important but deferrable · 🔹 **Could** — nice-to-have if time allows · ❌ **Won't** — out of scope for this version |
+| **Acceptance Criteria** *(Verification Test)* | How do we prove that the requirement has been met? A measurable, pass/fail test | "Processing test passing 500 data points/second" | Key message: *"No acceptance criteria = no way to verify = the requirement is incomplete"* |
+| **Linked Deliverable** *(Work Output)* | Which project deliverable or work package fulfils this requirement? | Software v1.0 | Helps the team distribute tasks and track accountability across the WBS |
+| **Status** *(Current State)* | Where is this requirement in its lifecycle right now? | Approved | Suggested lifecycle: 📝 Draft → 🔍 Under Review → ✅ Approved → 🧪 In Testing → 🎯 Delivered |
+
+: RTM Column Guide {.striped .hover}
+:::
+
+Now that we understand each column, here is a complete RTM example:
+
+| Req ID | Requirement | Source | Priority | Acceptance Criteria | Linked Deliverable | Status |
+|--------|------------|--------|----------|--------------------|--------------------|--------|
+| R001 | System shall process 500 data points/sec | User interviews | Must | Processing test passing 500pts/s | Software v1.0 | Approved |
+| R002 | Interface shall meet WCAG 2.1 AA standards | Legal/Compliance | Must | Accessibility audit pass | UI Design | Pending |
+| R003 | System shall operate at -10°C to +50°C | Technical spec | Must | Environmental chamber test | Hardware unit | Approved |
+
+: Requirements Traceability Matrix example {.striped .hover}
+
+---
+
+## The Scope Statement
+
+The **Project Scope Statement** is the definitive document that describes what will be delivered and what will not:
+
+::: {.callout-note icon="false"}
+## 📖 What a Good Scope Statement Contains
+
+1. **Project Scope Description** — Detailed description of the product/service/result
+2. **Project Deliverables** — All outputs the project must produce
+3. **Acceptance Criteria** — How each deliverable will be measured and accepted
+4. **Project Exclusions** — Explicitly what is NOT in scope
+5. **Constraints** — Limiting factors (budget, time, regulatory, technical)
+6. **Assumptions** — Conditions assumed to be true (must be validated)
+:::
+
+::: {.callout-warning icon="false"}
+## ⚠️ The Single Most Dangerous Document Gap
+
+The most common and costly scope error is failing to **explicitly state exclusions**. 
+
+*Bad scope statement:* "Design and construct a 500m pedestrian footbridge"
+
+*Good scope statement:* "Design and construct a 500m steel-decked pedestrian footbridge between Points A and B. **This project does NOT include:** associated roadworks, lighting beyond the bridge deck, maintenance hangar, or path connections at either abutment."
+
+**Undefined = In scope (in the client's mind)**. If you don't explicitly exclude it, you'll be expected to deliver it.
+
+---
+
+::: {dir="rtl" style="text-align: right; font-family: 'Segoe UI', Tahoma, sans-serif;"}
+**❌ البيان السيّء (غامض وخطير):**
+
+> *"تصميم وإنشاء جسر مشاة بطول 500 متر"*
+
+| | الطرف | ما الذي يفهمه؟ |
+|---|---|---|
+| ✅ | **العميل** | جسر + إنارة + طرق وصول + صيانة + تنسيق محيط |
+| ✅ | **فريق المشروع** | فقط هيكل الجسر الأساسي |
+| 🎯 | **النتيجة** | **فجوة التوقعات** — والعميل دائماً يتوقع الأكثر! |
+
+: {.striped}
+
+**الدرس:** كل ما لم يُستثنَ صراحةً في بيان النطاق، **يُعدّ داخل النطاق في ذهن العميل**.
+:::
+:::
+
+---
+
+## Work Breakdown Structure (WBS)
+
+The **Work Breakdown Structure (WBS)** is the **most critical planning tool** in project management. It is a hierarchical decomposition of the total scope of work into manageable components called **work packages**.
+
+::: {.callout-note icon="false"}
+## 📖 The 100% Rule
+
+> *"The WBS includes 100% of the work defined by the project scope and captures ALL deliverables — internal, external, and interim — in terms of the work to be completed."*
+
+**Every element in the WBS must sum to 100% of the parent element's work. Nothing is omitted; nothing is duplicated.**
+:::
+
+### WBS Structure
+
+```{mermaid}
+%%| fig-cap: "WBS structure hierarchy for a Water Treatment Plant upgrade project"
+graph TD
+    L0["1.0<br/>🏭 WATER TREATMENT PLANT UPGRADE<br/>(Project Level)"]
+    
+    L1A["1.1<br/>📋 PROJECT MANAGEMENT"]
+    L1B["1.2<br/>🔍 INVESTIGATION &<br/>FEASIBILITY"]
+    L1C["1.3<br/>📐 DETAILED DESIGN"]
+    L1D["1.4<br/>🏗️ CONSTRUCTION"]
+    L1E["1.5<br/>🧪 COMMISSIONING<br/>& TESTING"]
+    L1F["1.6<br/>📄 HANDOVER &<br/>CLOSURE"]
+    
+    L2A1["1.1.1<br/>Project Charter"]
+    L2A2["1.1.2<br/>Project Plan"]
+    L2A3["1.1.3<br/>Progress Reporting"]
+    L2A4["1.1.4<br/>Stakeholder Mgmt"]
+    
+    L2C1["1.3.1<br/>Civil Works<br/>Design"]
+    L2C2["1.3.2<br/>Mechanical &<br/>Process Design"]
+    L2C3["1.3.3<br/>Electrical &<br/>Instrumentation<br/>Design"]
+    L2C4["1.3.4<br/>Environmental<br/>Documentation"]
+    
+    L2D1["1.4.1<br/>Site Preparation<br/>& Earthworks"]
+    L2D2["1.4.2<br/>Concrete<br/>Structures"]
+    L2D3["1.4.3<br/>Pipework &<br/>Valves"]
+    L2D4["1.4.4<br/>Mechanical<br/>Equipment<br/>Installation"]
+    L2D5["1.4.5<br/>Electrical &<br/>Controls<br/>Installation"]
+    
+    L0 --> L1A & L1B & L1C & L1D & L1E & L1F
+    L1A --> L2A1 & L2A2 & L2A3 & L2A4
+    L1C --> L2C1 & L2C2 & L2C3 & L2C4
+    L1D --> L2D1 & L2D2 & L2D3 & L2D4 & L2D5
+
+    style L0 fill:#1d4ed8,color:#fff,stroke:#1d4ed8
+    style L1A fill:#7c3aed,color:#fff
+    style L1B fill:#0f766e,color:#fff
+    style L1C fill:#15803d,color:#fff
+    style L1D fill:#b45309,color:#fff
+    style L1E fill:#b91c1c,color:#fff
+    style L1F fill:#0369a1,color:#fff
+```
+
+### WBS Development Guidelines
+
+::: {.panel-tabset}
+
+## Decomposition Rules
+**How to break down the WBS properly:**
+
+1. **Decompose by deliverables**, not by activities — the WBS is a *things to be delivered* structure, not a task list
+2. **Stop at the work package level** — packages small enough to be: estimated, assigned to ONE person/team, and monitored
+3. **Apply the 80-Hour Rule** — no work package should exceed 80 hours of effort (2 work weeks)
+4. **Apply the 100% Rule** — each parent level = sum of all children (no gaps, no overlaps)
+5. **Use nouns, not verbs** — "Foundation Concrete" not "Pour foundation concrete"
+
+## WBS Dictionary
+**Each work package needs a WBS Dictionary entry:**
+
+The WBS Dictionary provides the definition for each element:
+
+| Field | Description |
+|-------|-------------|
+| WBS Code | 1.4.2 |
+| Work Package Name | Concrete Structures |
+| Description | Supply and place all reinforced concrete for filter chambers, pump station walls, base slabs, and roof slabs. Excludes blinding concrete. |
+| Responsible Party | Civil Contractor |
+| Deliverables | As-built drawings, concrete test results, compliance certificate |
+| Acceptance Criteria | All concrete to AS 3600, 28-day strength ≥ N32, tolerances per spec |
+| Duration Estimate | 8 weeks |
+| Cost Estimate | $285,000 |
+| Dependencies | Earthworks complete (1.4.1) |
+
+## WBS Numbering
+**Standard WBS numbering convention:**
+
+```
+1.0 Project
+  1.1 Phase/Deliverable 1
+    1.1.1 Sub-deliverable
+    1.1.2 Sub-deliverable
+      1.1.2.1 Work Package
+      1.1.2.2 Work Package
+  1.2 Phase/Deliverable 2
+    1.2.1 Sub-deliverable
+    ...
+```
+
+Numbers should:
+- Be unique (no two elements share a number)
+- Reflect hierarchy (depth of decomposition)
+- Be stable (don't renumber if items are added)
+
+## Common WBS Mistakes
+**Avoid these errors:**
+
+❌ **Activities instead of deliverables** — "Design the pump" should be "Pump Design Package"
+
+❌ **Missing the 100% rule** — forgetting project management, testing, documentation
+
+❌ **Too much decomposition** — breaking everything down to 1-hour tasks creates unmanageable complexity
+
+❌ **Unclear scope boundaries** — work package descriptions that overlap with another package
+
+❌ **Skipping the WBS dictionary** — the diagram alone is not enough; definitions are essential
+
+❌ **One person owns everything** — each work package should have a single accountable owner
+
+:::
+
+### Worked Example — Emergency Reporting Website
+
+**Scenario:** Build a web application that allows the public to report emergencies (fire, medical, flooding) online so that response teams can be alerted and dispatched quickly.
+
+| WBS Code | Level 1 (Deliverable Group) | Level 2 (Sub-Deliverable) | Responsible |
+|----------|----------------------------|--------------------------|-------------|
+| **1.0** | 🚨 **Emergency Reporting Website** | — | Project Manager |
+| 1.1 | 📋 **Project Management** | | |
+| 1.1.1 | | Project Charter | Project Manager |
+| 1.1.2 | | Project Plan | Project Manager |
+| 1.1.3 | | Status Reports | Project Manager |
+| 1.2 | 🔍 **Requirements & Analysis** | | |
+| 1.2.1 | | Stakeholder Interviews Report | Business Analyst |
+| 1.2.2 | | System Requirements Specification | Business Analyst |
+| 1.2.3 | | Requirements Traceability Matrix (RTM) | Business Analyst |
+| 1.3 | 🎨 **Design** | | |
+| 1.3.1 | | UI/UX Wireframes | UI Designer |
+| 1.3.2 | | Database Schema | Backend Developer |
+| 1.3.3 | | System Architecture Document | Tech Lead |
+| 1.4 | 💻 **Development** | | |
+| 1.4.1 | | Incident Reporting Form (Frontend) | UI Developer |
+| 1.4.2 | | Alert & Notification Module | Backend Developer |
+| 1.4.3 | | Admin Dashboard | Full-Stack Developer |
+| 1.4.4 | | Backend API & Business Logic | Backend Developer |
+| 1.4.5 | | Database | DBA |
+| 1.5 | 🧪 **Testing & QA** | | |
+| 1.5.1 | | Unit Test Reports | Developer |
+| 1.5.2 | | Integration Test Reports | QA Engineer |
+| 1.5.3 | | UAT Sign-off Document | QA Lead |
+| 1.6 | 🚀 **Deployment & Handover** | | |
+| 1.6.1 | | Deployed & Configured Server | DevOps Engineer |
+| 1.6.2 | | User Training Manual | Technical Writer |
+| 1.6.3 | | Project Closure Report | Project Manager |
+
+: WBS — Emergency Reporting Website {.striped .hover}
+
+**WBS Dictionary — Emergency Reporting Website:**
+
+| WBS Code | Work Package Name | Description | Deliverables | Acceptance Criteria | Responsible | Duration | Cost Est. | Dependencies |
+|----------|-------------------|-------------|--------------|---------------------|-------------|----------|-----------|--------------|
+| 1.1.1 | Project Charter | Formal document authorising the project, defining objectives and key stakeholders | Signed Project Charter | Approved by sponsor | Project Manager | 3 days | $500 | — |
+| 1.1.2 | Project Plan | Integrated plan covering scope, schedule, cost, risk, and communications | Project Management Plan document | Approved by all stakeholders | Project Manager | 5 days | $800 | 1.1.1 |
+| 1.1.3 | Status Reports | Weekly progress reports throughout the project lifecycle | Weekly report set | Reports issued on schedule; reviewed by sponsor | Project Manager | Ongoing | $1,200 | 1.1.2 |
+| 1.2.1 | Stakeholder Interviews Report | Documented findings from interviews with emergency services, public users, and administrators | Interview report | Reviewed and signed off by interviewees | Business Analyst | 5 days | $1,500 | — |
+| 1.2.2 | System Requirements Specification | Full functional and non-functional requirements document | SRS document | Approved by client and tech lead | Business Analyst | 7 days | $2,000 | 1.2.1 |
+| 1.2.3 | Requirements Traceability Matrix | RTM linking each requirement to its source, priority, and acceptance criteria | RTM spreadsheet | All requirements traced to at least one deliverable | Business Analyst | 3 days | $500 | 1.2.2 |
+| 1.3.1 | UI/UX Wireframes | Screen-by-screen wireframes for the reporting form, map view, and admin dashboard | Wireframe file (Figma/PDF) | Client sign-off on all screens | UI Designer | 6 days | $2,500 | 1.2.2 |
+| 1.3.2 | Database Schema | Entity-relationship diagram and schema definition for incidents, users, and alerts | Schema document + SQL script | Reviewed by DBA and tech lead | Backend Developer | 4 days | $1,200 | 1.2.2 |
+| 1.3.3 | System Architecture Document | Technical architecture including server, API, database, and third-party integrations | Architecture document | Approved by tech lead | Tech Lead | 4 days | $1,500 | 1.3.2 |
+| 1.4.1 | Incident Reporting Form (Frontend) | Responsive web form allowing public to submit emergency type, location, and description | Deployed frontend module | Form submits correctly on mobile and desktop; validation passes | UI Developer | 10 days | $4,000 | 1.3.1, 1.3.3 |
+| 1.4.2 | Alert & Notification Module | System that sends SMS/email alerts to response teams on new incident submission | Deployed notification service | Alert delivered within 30 seconds of submission in load test | Backend Developer | 8 days | $3,500 | 1.4.4 |
+| 1.4.3 | Admin Dashboard | Interface for response coordinators to view, filter, and update incident status | Deployed dashboard | All CRUD operations functional; role-based access enforced | Full-Stack Developer | 12 days | $5,000 | 1.4.1, 1.4.4 |
+| 1.4.4 | Backend API & Business Logic | RESTful API handling incident submission, authentication, geolocation, and routing | Deployed API | All endpoints pass integration tests; response time < 500ms | Backend Developer | 14 days | $6,000 | 1.3.3 |
+| 1.4.5 | Database | Configured production database with schema, indexes, and backup policy | Live database instance | Data persists correctly; backup runs daily; restore tested | DBA | 5 days | $1,800 | 1.3.2 |
+| 1.5.1 | Unit Test Reports | Test results for individual functions and components | Unit test report | ≥ 90% code coverage; all tests passing | Developer | 5 days | $1,500 | 1.4.1–1.4.5 |
+| 1.5.2 | Integration Test Reports | End-to-end test results across modules | Integration test report | All user flows pass without errors | QA Engineer | 6 days | $2,000 | 1.5.1 |
+| 1.5.3 | UAT Sign-off Document | User Acceptance Testing results signed by the client | Signed UAT report | Client signs off with no critical issues outstanding | QA Lead | 5 days | $1,500 | 1.5.2 |
+| 1.6.1 | Deployed & Configured Server | Production server with SSL, domain, firewall, and monitoring configured | Live production environment | System accessible at agreed URL; uptime ≥ 99.5% | DevOps Engineer | 4 days | $2,000 | 1.5.3 |
+| 1.6.2 | User Training Manual | Step-by-step guide for public users and administrators | Training manual (PDF + online) | Reviewed and approved by client | Technical Writer | 4 days | $1,000 | 1.4.3 |
+| 1.6.3 | Project Closure Report | Final report documenting lessons learned, financial summary, and handover confirmation | Closure report | Signed by PM and sponsor | Project Manager | 2 days | $500 | 1.6.1, 1.6.2 |
+
+: WBS Dictionary — Emergency Reporting Website {.striped .hover}
+
+**Applying the guidelines to this example:**
+
+| Guideline | How it applies here |
+|-----------|---------------------|
+| **Deliverables, not activities** | "Incident Reporting Form" (a thing) ✅ — not "Code the form" (an activity) ❌ |
+| **80-Hour Rule** | "Backend API & Business Logic" (1.4.4) is large — in real practice split further into Authentication Module, Geolocation API, etc. |
+| **100% Rule** | Project Management + Requirements + Design + Development + Testing + Deployment covers the entire scope with no gaps |
+| **Nouns, not verbs** | "User Training Manual" ✅ — not "Train users" ❌ |
+| **Single owner per package** | Each row has one responsible party — no shared ownership ambiguity |
+
+---
+
+## The Project Management Plan
+
+The **Project Management Plan (PMP)** is the master document that describes **how the project will be planned, executed, and controlled**. It integrates all subsidiary plans:
+
+```{mermaid}
+%%| fig-cap: "Components of the Project Management Plan"
+mindmap
+  root((📄 PROJECT<br/>MANAGEMENT<br/>PLAN))
+    Subsidiary Plans
+      Scope Management Plan
+      Schedule Management Plan
+      Cost Management Plan
+      Quality Management Plan
+      Resource Management Plan
+      Communications Management Plan
+      Risk Management Plan
+      Procurement Management Plan
+      Stakeholder Engagement Plan
+    Baselines
+      Scope Baseline<br/>= WBS + Dictionary
+      Schedule Baseline<br/>= Approved Schedule
+      Cost Baseline<br/>= Approved Budget
+    Other Documents
+      Change Management Plan
+      Configuration Mgmt Plan
+      Requirements Mgmt Plan
+      Project Governance Plan
+```
+
+::: {.callout-warning icon="false"}
+## ⚠️ The PMP is Not the Project Schedule!
+
+Many students (and some practitioners) confuse the **Project Management Plan** with the **project schedule**. 
+
+The PMP is the *meta-document* — it describes **how** the project will be managed in each knowledge area. The schedule is just ONE of many components of the PMP.
+
+A complete PMP for a large engineering project may contain 200+ pages across all subsidiary plans.
+:::
+
+---
+
+## Scope Creep — The Silent Project Killer
+
+**Scope creep** is the gradual, uncontrolled expansion of project scope without corresponding changes to budget, schedule, or resources.
+
+```{mermaid}
+%%| fig-cap: "How scope creep happens and its impact"
+sequenceDiagram
+    actor Client
+    actor PM
+    actor Team
+
+    Note over Client,Team: Project starts with defined scope
+    
+    Client->>PM: "Can we just add a small feature?" (No formal request)
+    PM->>Team: "Sure, it's small, just do it"
+    Note over Team: Work added without change control
+    
+    Client->>PM: "Can we extend to Building C?" (No formal request)
+    PM->>Team: "OK, the client asked"
+    Note over Team: Schedule starts slipping
+    
+    Client->>PM: "Why is the project late and over budget?"
+    PM->>Client: "We added work without approving changes..."
+    Note over Client,Team: Relationship damaged, claims possible
+```
+
+### Change Control Process
+
+Every project must have a **formal change control process**:
+
+```{mermaid}
+%%| fig-cap: "Formal change control process"
+%%{init: {'flowchart': {'nodeSpacing': 30, 'rankSpacing': 60}}}%%
+flowchart TD
+    R["📝 Change Request<br/>Submitted"] --> A
+    A{"Is it in scope?"} --> |"✔️ Already in scope"| C1
+    A --> |"New request"| I
+    C1["✅ No change needed<br/>Re-clarify scope with team"]
+    I["🔍 IMPACT ASSESSMENT<br/>Schedule / Cost / Risk<br/>Quality impact?"] --> P
+    P{"Change Control<br/>Board (CCB) review"} --> |"Approve"| AP
+    P --> |"Reject"| RJ
+    P --> |"Defer"| DF
+    AP["✅ APPROVED<br/>Update: Scope + Schedule<br/>+ Budget + Risk Register<br/>Notify stakeholders"]
+    RJ["❌ REJECTED<br/>Document reason<br/>Notify requestor"]
+    DF["⏳ DEFERRED<br/>Re-evaluate in<br/>next review cycle"]
+
+    style R fill:#dbeafe,stroke:#3b82f6
+    style AP fill:#dcfce7,stroke:#22c55e,color:#166534
+    style RJ fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style DF fill:#fef9c3,stroke:#eab308,color:#854d0e
+```
+
+---
+
+## Case Study — Haramain High Speed Railway: WBS Coordination Across Borders {.unnumbered}
+
+::: {.callout-important icon="false"}
+## 🏭 Case Study: Haramain High Speed Railway — When Integration Fails at Scale
+
+**Background:**  
+The Haramain High Speed Railway (قطار الحرمين السريع — HHR) connects the holy cities of Makkah and Madinah via Jeddah and King Abdullah Economic City, spanning **450 kilometres** at speeds up to 300 km/h. This is the Arab world's flagship rail project, operating in one of the most challenging environments on Earth — the Hejaz Mountains and the Arabian Desert.
+
+**Original Plan vs Actual:**
+- Contract signed: **2009**
+- Original completion: **2013**
+- Actual opening: **October 2018** *(5 years late)*
+- Budget: ~**$16.5 billion** (USD)
+
+**The WBS Problem:**  
+The programme was divided between **four major international consortia**, each operating under different engineering standards and document management systems:
+
+| Consortium | Nationality | Scope |
+|-----------|-------------|-------|
+| Al Shoula Group / Saudi Binladin Group | Saudi | Civil works — earthworks, structures, track foundation |
+| Al Rajhi / China Railway Engineering | Chinese-Saudi | Northern civil works alignment |
+| RENFE / CAF / Ineco | Spanish | Railway systems, signalling, rolling stock, operations |
+| Siemens / Alstom | European | Electrification and E&M systems |
+
+Each consortium applied its own CAD standards, document numbering systems, and interface protocols — with no unified digital coordination environment across the programme.
+
+**What Happened:**  
+- Civil works were substantially complete by 2013, but systems integration — connecting trains, signalling, electrification, and station systems — caused a further **5 years of delays**
+- The interface between European-standard rail systems and Saudi civil infrastructure was managed informally, with no dedicated interface register
+- In 2016, a crisis at Saudi Binladin Group (the Kingdom's largest contractor, suspended following safety incidents) forced urgent contractor replacement across 300+ km of residual civil works
+- Testing and commissioning of 40 stations required re-coordination of 12 separate sub-systems, each owned by a different consortium
+
+**Impact:**
+
+| Factor | Effect |
+|--------|--------|
+| 5-year programme delay | Billions in financing and standing costs |
+| Contractor suspension (SBG) | 6+ months for retendering and remobilisation |
+| Signalling integration failures | 18 additional months of testing and rectification |
+| Interface ambiguity | 300+ formal interface non-conformances logged |
+
+**Project Management Root Causes:**
+
+| Failure | Root Cause | PM Lesson |
+|---------|-----------|-----------|
+| No unified interface register | Each consortium managed its own interfaces | Create a Programme Interface Register owned by an independent systems integrator |
+| Four different CAD/document standards | No standardisation mandated at contract award | Mandate a single BIM/document management platform at programme initiation |
+| Late commissioning focus | Testing planned as a single terminal activity | Overlap testing with construction using rolling section commissioning |
+| Contractor financial collapse | No annual contractor capability re-assessment | Include contractor financial health reviews as a governance requirement in mega-contracts |
+
+**The Achievement:**  
+Despite its troubled delivery, the HHR now carries hundreds of thousands of pilgrims between Makkah and Madinah annually, reducing the historic 4–6 hour road journey to **2.5 hours** by train — the Arab world's first true high-speed railway.
+
+**Discussion Questions:**
+1. How should the WBS dictionary have addressed the interface between civil works (SBG scope) and railway systems (RENFE scope)?
+2. What governance structure would you design to manage a four-consortium programme of this scale?
+3. How does this case compare to the Airbus A380 integration failure? What structural similarities exist?
+
+*Sources: @hhr2018; @arab2017rail*
+:::
+
+---
+
+## Exercises {.unnumbered}
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 3.1 — Requirements Collection
+
+You are PM for the design and construction of a new **university engineering laboratory** (1,500 m²).
+
+1. Identify at least **8 categories of stakeholders** who would have requirements for this lab
+2. Write **3 specific requirements** for each of 4 stakeholder groups (use the RTM format)
+3. For each requirement, assign a priority (Must / Should / Could)
+4. Identify **2 conflicting requirements** and explain how you would resolve them
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 3.2 — Build a WBS
+
+For the construction of a new **community footbridge** (80m span, steel throughtruss, timber deck, two abutments), develop a complete WBS that:
+
+1. Has at least **4 levels of decomposition**
+2. Includes ALL project phases (from charter to closure)
+3. Contains at least **30 work packages** at level 4
+4. Follows the 100% Rule (verify by checking each parent sums to 100%)
+5. Includes a **WBS Dictionary entry** for 5 of the work packages
+
+**Hint:** Consider these Level 1 categories: Project Management, Investigation, Design, Procurement, Construction, Commissioning, Closure
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 3.3 — Scope Statement Writing
+
+A client has given you the following brief:
+
+> "We want you to fix our factory's compressed air system. The compressors keep breaking down and it's costing us $80,000 a year in repairs and lost production."
+
+Write a **Scope Statement** for this project that includes:
+1. Project scope description
+2. List of deliverables (minimum 6)
+3. Acceptance criteria for at least 3 deliverables
+4. Explicit exclusions (minimum 4 things that are NOT in scope)
+5. Key assumptions (minimum 3)
+6. Key constraints (minimum 2)
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 3.4 — Change Control Scenario
+
+You are PM of a **$3.5M road reconstruction project** (12 months). You are in Month 4.
+
+The client project manager calls you and says:
+> "We've had a great idea. While you've got the road dug up, can you install a new stormwater pipe underneath? The council surveyed it last week and it will need replacing in 3 years anyway. Saves us digging it up twice."
+
+1. Is this a reasonable request? Argue both for and against
+2. Prepare an **Impact Assessment** covering: scope, schedule, cost, risk, and quality
+3. What additional information would you need before completing the assessment?
+4. Draft a **Change Request Form** (use the fields: ID, Date, Description, Requestor, Impact Summary, PM Recommendation)
+5. How would you respond to the client verbally while the formal assessment is in progress?
+:::
+
+---
+
+## Summary {.unnumbered}
+
+::: {.callout-note}
+## 📚 Further Reading
+
+- @pmbok2021 — Section 5: Scope Management
+- @larson2021 — Chapter 4: Defining the Project
+- @kerzner2017 — Chapter 10: Scope Management
+- @pinto2019 — Chapter 4: Project Planning
+:::
+
+**Next Chapter →** [Scheduling & CPM](04-scheduling.qmd) — Turn your WBS into a time-based schedule using Gantt charts, network diagrams, and Critical Path Method.

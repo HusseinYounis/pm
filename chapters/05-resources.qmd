@@ -1,0 +1,424 @@
+---
+title: "Resource Management"
+---
+
+```{=html}
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 5 · Planning</div>
+  <h1>Resource Management</h1>
+  <p class="chapter-desc">Planning, acquiring, developing, and managing the human and physical resources needed to deliver the project.</p>
+</div>
+```
+
+## Learning Outcomes {.unnumbered}
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+
+By the end of this chapter, you will be able to:
+
+1. **Develop** a Resource Management Plan
+2. **Create** a RACI matrix to assign roles and responsibilities
+3. **Build** a resource histogram and identify over-allocation
+4. **Apply** resource levelling and resource smoothing techniques
+5. **Describe** Tuckman's model of team development
+6. **Apply** leadership styles appropriate to different team situations
+7. **Manage** conflict within project teams
+:::
+
+---
+
+## Resource Categories
+
+::: {.callout-note icon="false"}
+## 📖 Types of Project Resources
+
+**Human Resources (Labour)**
+- Internal staff (employees from your own organisation)
+- External contractors and consultants
+- Specialists (e.g., geotechnical engineers, IT architects)
+
+**Physical Resources**
+- Equipment (excavators, cranes, testing instruments)
+- Materials (steel, concrete, cables)
+- Facilities (laboratories, offices, test facilities)
+
+**Financial Resources**
+- Budget allocation
+- Cash flow management (timing of expenditure)
+:::
+
+---
+
+## Resource Management Planning
+
+```{mermaid}
+%%| fig-cap: "Resource management process"
+flowchart TD
+    A["📋 PLAN<br/>Define resource types,<br/>roles, and approach"] --> B
+    B["📊 ESTIMATE<br/>Quantify resources<br/>needed per activity"] --> C
+    C["🗂️ ACQUIRE<br/>Hire, contract,<br/>or assign staff"] --> D
+    D["📅 SCHEDULE<br/>Allocate resources<br/>to activities"] --> E
+    E["⚖️ LEVEL<br/>Resolve over-allocation,<br/>balance utilisation"] --> F
+    F["👥 DEVELOP<br/>Build team capability<br/>and cohesion"] --> G
+    G["🔄 MANAGE<br/>Monitor performance,<br/>handle conflicts"] --> H
+    H["📈 CONTROL<br/>Track utilisation,<br/>adjust as needed"]
+
+    style A fill:#4f46e5,color:#fff
+    style B fill:#0f766e,color:#fff
+    style C fill:#15803d,color:#fff
+    style D fill:#b45309,color:#fff
+    style E fill:#7c3aed,color:#fff
+    style F fill:#b91c1c,color:#fff
+    style G fill:#0369a1,color:#fff
+    style H fill:#065f46,color:#fff
+```
+
+---
+
+## Roles and Responsibilities — The RACI Matrix
+
+The **RACI Matrix** defines who is **Responsible, Accountable, Consulted, and Informed** for each activity or deliverable:
+
+::: {.callout-note icon="false"}
+## 📖 RACI Definitions
+
+| Letter | Meaning | Description |
+|--------|---------|-------------|
+| **R** | Responsible | Does the work — can be multiple people |
+| **A** | Accountable | Owns the outcome — must be exactly ONE person |
+| **C** | Consulted | Provides input before decisions — two-way communication |
+| **I** | Informed | Notified of results — one-way communication |
+:::
+
+### RACI Matrix Example — Road Design Project
+
+| Deliverable | PM | Lead Engineer | Civil Designer | Environmental | Client | Surveyor |
+|-------------|----|-----------|---------|-----------|----|------|
+| Scope Statement | A | C | I | I | C | I |
+| Traffic Study | I | A | R | C | I | R |
+| Alignment Design | C | A | R | C | I | R |
+| Environmental Impact | I | C | C | A/R | I | I |
+| Geotechnical Report | I | A | C | I | I | R |
+| Design Drawings (30%) | A | C | R | I | I | I |
+| Design Drawings (100%) | A | R | R | C | C | R |
+| Specifications | A | R | C | C | I | I |
+| Cost Estimate | A | C | R | I | I | I |
+| Client Presentation | R | C | C | I | A | I |
+
+: RACI Matrix — Road Design Project {.striped .hover}
+
+::: {.callout-warning icon="false"}
+## ⚠️ RACI Rules
+
+1. Every row must have **exactly one A** (Accountable) — ambiguity = nobody owns it
+2. No person should be both R and A for the same task (conflict of interest)
+3. If most cells are empty for a person, question their need on the project
+4. If someone has too many R's, they may be over-committed
+5. Review the RACI at the start of each phase — roles should evolve
+:::
+
+---
+
+## Resource Histograms and Levelling
+
+A **resource histogram** shows the planned usage of a resource over time, making over-allocation visible:
+
+```{mermaid}
+%%| fig-cap: "Concept of resource histogram and levelling"
+xychart-beta
+    title "Civil Engineer Allocation (Before Levelling)"
+    x-axis ["Wk 1", "Wk 2", "Wk 3", "Wk 4", "Wk 5", "Wk 6", "Wk 7", "Wk 8"]
+    y-axis "Hours/Week" 0 --> 70
+    bar [40, 55, 70, 65, 45, 30, 25, 40]
+    line [40, 40, 40, 40, 40, 40, 40, 40]
+```
+
+*The line represents the maximum available hours (40 hrs/week). Bars above the line = over-allocation.*
+
+### Resource Levelling vs. Resource Smoothing
+
+::: {.panel-tabset}
+
+## Resource Levelling
+**Adjust the schedule to eliminate over-allocation**
+
+- Can **extend the project end date** to resolve peaks
+- Activities are delayed into their float periods
+- Used when resource constraints are absolute (only 1 specialist available)
+- The project end date may slip
+
+*Example:* If a structural engineer is needed 60 hrs/week for 2 weeks, but is only available 40 hrs/week, delay one set of activities by 2 weeks.
+
+## Resource Smoothing
+**Smooth usage without changing the end date**
+
+- Uses **float to shift activities** without extending the project
+- Cannot extend the project end date
+- Only non-critical activities can be moved
+- May leave some over-allocation if float is insufficient
+
+*Example:* Move a non-critical design task from Week 3 to Week 5 to reduce the engineer's peak load.
+
+## Strategies for Constrained Resources
+**When you cannot add more resource:**
+
+1. **Overtime** — extend working hours (expensive, unsustainable)
+2. **Subcontract** — outsource some activities
+3. **Reduce scope** — remove lower-priority deliverables
+4. **Extend timeline** — negotiate deadline relief with client
+5. **Cross-training** — train team members to cover skill gaps
+6. **Shift scheduling** — two shifts on critical path activities
+7. **Prioritise** — focus the constrained resource on critical path only
+
+:::
+
+---
+
+## Team Development — Tuckman's Model
+
+The most widely used model of team development, Tuckman's **Forming-Storming-Norming-Performing** model:
+
+```{mermaid}
+%%| fig-cap: "Tuckman's model of team development"
+%%{init: {'flowchart': {'nodeSpacing': 40, 'rankSpacing': 60}}}%%
+flowchart LR
+    F["🤝 FORMING<br/>Polite & cautious<br/>Roles unclear<br/>PM: Direct & guide"]
+    S["⚡ STORMING<br/>Conflict & tension<br/>Power struggles<br/>PM: Coach & mediate"]
+    N["🌱 NORMING<br/>Cohesion builds<br/>Roles clarify<br/>PM: Facilitate & support"]
+    P["🚀 PERFORMING<br/>High effectiveness<br/>Autonomous team<br/>PM: Delegate & enable"]
+    A["🏁 ADJOURNING<br/>Project ends<br/>Celebrate & reflect<br/>PM: Recognise & close"]
+
+    F --> S --> N --> P --> A
+
+    style F fill:#dbeafe,stroke:#3b82f6,color:#1e40af
+    style S fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style N fill:#fef9c3,stroke:#eab308,color:#854d0e
+    style P fill:#dcfce7,stroke:#22c55e,color:#166634
+    style A fill:#ede9fe,stroke:#7c3aed,color:#4c1d95
+```
+
+::: {.callout-warning icon="false"}
+## ⚠️ Common Mistake — Assuming Teams Start at "Performing"
+
+One of the most common errors engineering PMs make is treating a newly assembled project team as if they are already high-performing. Even experienced professionals need time to develop working relationships, establish communication norms, and build trust.
+
+**Allow time in your schedule for team development.** Teams that rush through Forming and Storming often cycle back through them at critical moments in the project.
+:::
+
+---
+
+## Leadership Styles in Project Management
+
+Effective PMs adapt their **leadership style** to the situation and team maturity:
+
+```{mermaid}
+%%| fig-cap: "Situational leadership: adapting style to team readiness"
+quadrantChart
+    title Situational Leadership — PM Style Selection
+    x-axis "Low Commitment" --> "High Commitment"
+    y-axis "Low Competence" --> "High Competence"
+    quadrant-1 "DELEGATING<br/>(Low Direction, High Support)"
+    quadrant-2 "COACHING<br/>(High Direction, High Support)"
+    quadrant-3 "DIRECTING<br/>(High Direction, Low Support)"
+    quadrant-4 "SUPPORTING<br/>(Low Direction, High Support)"
+    New Graduate Engineer: [0.2, 0.15]
+    Experienced but Unmotivated: [0.2, 0.75]
+    Motivated but Inexperienced: [0.75, 0.2]
+    Senior Expert: [0.85, 0.85]
+    Mid-Career Engineer: [0.5, 0.55]
+```
+
+---
+
+## Conflict Management
+
+In engineering projects, **conflict is inevitable** — budget, schedule, scope, and technical decisions frequently generate disagreements.
+
+```{mermaid}
+%%| fig-cap: "Thomas-Kilmann conflict resolution styles"
+quadrantChart
+    title Thomas-Kilmann Conflict Styles
+    x-axis "Low Assertiveness" --> "High Assertiveness"
+    y-axis "Low Cooperativeness" --> "High Cooperativeness"
+    quadrant-1 "COLLABORATING<br/>(Win-Win — Best for PM)"
+    quadrant-2 "COMPETING<br/>(Win-Lose)"
+    quadrant-3 "AVOIDING<br/>(Lose-Lose — Worst)"
+    quadrant-4 "ACCOMMODATING<br/>(Lose-Win)"
+    Avoiding: [0.15, 0.15]
+    Accommodating: [0.15, 0.85]
+    Competing: [0.85, 0.15]
+    Collaborating: [0.85, 0.85]
+    Compromising: [0.5, 0.5]
+```
+
+### When to Use Each Style
+
+| Style | When to Use | Risk |
+|-------|------------|------|
+| **Collaborating** | Complex issues where both parties' needs matter; complex technical decisions | Time-consuming |
+| **Compromising** | Moderate importance, limited time; pragmatic middle ground needed | Neither party fully satisfied |
+| **Competing** | Emergency; ethical violation; clear right answer | Damages relationship |
+| **Accommodating** | Issue is trivial to you; relationship more important | May appear weak |
+| **Avoiding** | Very minor issue; emotions too high to resolve now | Problem often escalates |
+
+---
+
+## Case Study — Grand Egyptian Museum: Resource Management at Civilisational Scale {.unnumbered}
+
+::: {.callout-important icon="false"}
+## 🏭 Case Study: Grand Egyptian Museum, Cairo — Managing the World's Largest Archaeological Museum
+
+**Background:**  
+The Grand Egyptian Museum (المتحف المصري الكبير — GEM) near the Pyramids of Giza is the world's largest archaeological museum, housing over **100,000 artefacts** including the complete treasures of Tutankhamun's tomb — displayed together for the first time. GEM is the most complex cultural construction project in the modern Arab world, requiring resource management across archaeological conservation, specialist construction, and international professional services simultaneously.
+
+**Scale:**
+- Floor area: **93,000 m²**
+- Construction cost: ~**$1 billion** (USD)
+- Construction started: **2002**; Tutankhamun galleries opened: **2022**
+- Peak construction workforce: **12,000 workers** on site simultaneously
+
+**Resource Management Challenges:**
+
+**Labour Resources:**
+- Specialist skills required: Conservation scientists, museum lighting engineers, acoustic designers, Egyptological curators — none available locally in sufficient numbers
+- Solution: International specialists hired on rotating 6-month contracts; partnership with Cairo University to provide 200+ trained conservators; national training programme created 800 Egyptian museum technicians who did not previously exist
+
+**Specialist Conservation Resource (The Parallel Programme):**
+- The Tutankhamun galleries alone required **10 years of artefact conservation** — a programme running parallel to construction
+- 5,000+ individual objects each required cataloguing, condition assessment, treatment, and custom display mount fabrication
+- Resource conflict: The same conservation scientists were needed by both the Tutankhamun programme and 90 other exhibition halls simultaneously
+- Solution: Conservation resource schedule maintained separately from construction programme with a dedicated 800m² on-site conservation laboratory
+
+**Equipment and Procurement Resources:**
+- Main atrium roof: 24,000 m² of translucent alabaster panels — unique material requiring custom Italian fabrication equipment; 18-month delivery cycle
+- Atrium steel structure (5,000+ tonnes) required specialist cranes continuously in demand across 4 simultaneous erection zones
+- 300+ custom museum display cases designed and fabricated in Germany, Austria, and Italy — long-lead procurement that could not be accelerated
+
+**Multi-Cultural Team Integration:**
+- Owner: Egyptian Ministry of Tourism and Antiquities
+- Construction Manager: Nippon Koei (Japan) + EHAF (Egypt)  
+- Main contractor: KRCC (Egyptian) with specialist packages from Italy, Japan, and Germany
+- Languages: Arabic, English, Japanese — creating documentation and communication challenges
+- PM Response: Trilingual coordination protocols; unified electronic document management; joint weekly progress meetings with all parties
+
+**Schedule Pressure from External Events:**
+- The 2011 Egyptian Revolution and 2013 political transition caused 3 years of project suspension
+- Resource dispersal during suspension meant re-mobilisation phases lost key specialist personnel who had moved to other projects
+- Recovery required six months of intensive recruitment before construction could resume at full capacity
+
+**Outcome:**
+The Tutankhamun galleries and Grand Hall opened in 2022 to international acclaim. Egypt's heritage sector now has 800 trained museum technicians, a world-class conservation laboratory, and an institutional knowledge base that will support Egyptian museums for decades.
+
+**Key Resource Lessons:**
+1. **Specialist resources for rare projects must be identified and secured years before they are needed** — conservation scientists cannot be trained in 6 months
+2. **Multi-cultural teams with fundamentally different working standards require active management** — language and documentation protocols must be agreed before work starts, not after problems emerge
+3. **Long-lead procurement must be on the critical path from day one** — the alabaster panels nearly caused an 18-month delay
+4. **Political risk disperses resources faster than any technical problem** — having a formal re-mobilisation plan is as important as the original resource plan
+
+*Sources: @gem2022; @nipponkoei2019*
+:::
+
+---
+
+## Exercises {.unnumbered}
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 5.1 — RACI Matrix Development
+
+You are managing the **detailed engineering design** for a new sewage treatment plant. The project team includes: Project Manager, Lead Process Engineer, Civil Designer, Mechanical Designer, Electrical Engineer, Environmental Consultant, and the Client Representative.
+
+Develop a RACI Matrix for the following deliverables:
+
+1. Project Execution Plan
+2. Process Flow Diagrams (PFDs)
+3. Piping & Instrumentation Diagrams (P&IDs)
+4. Civil Earthworks Design
+5. Equipment Selection Report
+6. Environmental Management Plan
+7. 30% Design Review Package
+8. Final Design Issue for Construction
+9. Cost Estimate (Class 3)
+10. Quality Assurance Plan
+
+**Validation Check:** Ensure every deliverable has exactly ONE Accountable person.
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 5.2 — Resource Histogram and Levelling
+
+You have scheduled the following activities for a structural engineer (available 40 hours/week):
+
+| Activity | Duration | Hours/Week | Start Week |
+|----------|----------|-----------|-----------|
+| Foundation calculations | 2 weeks | 25 hrs/week | Week 1 |
+| Retaining wall design | 3 weeks | 20 hrs/week | Week 2 |
+| Steel frame design | 4 weeks | 30 hrs/week | Week 2 |
+| Connection details | 2 weeks | 15 hrs/week | Week 5 |
+| Drawing review | 1 week | 20 hrs/week | Week 5 |
+
+1. Build a resource histogram for Weeks 1–6 (before levelling)
+2. Identify which weeks have over-allocation
+3. Apply resource smoothing (do not extend the project) — show the adjusted histogram
+4. If smoothing is insufficient, apply resource levelling — what happens to the project end date?
+5. Propose two alternative strategies to resolve the over-allocation without delaying the project
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 5.3 — Team Development Scenario
+
+An engineering firm has assembled a project team for a major infrastructure contract:
+- 3 senior engineers (15+ years, all from one established company)
+- 2 junior engineers (< 3 years, hired specifically for this project)
+- 1 subcontracted specialist from overseas (different cultural background)
+- 1 remote team member working from a different city
+
+The PM notices after 3 weeks that:
+- The senior engineers dominate all meetings and ignore input from juniors
+- The specialist feels isolated and is producing work that doesn't match the team's standards
+- The remote team member is disengaged and often misses deadlines
+
+1. Using Tuckman's model, which stage is this team in?
+2. What specific PM interventions would you use for EACH of the three issues?
+3. Design a **team development activity** (half-day workshop) to move this team toward the Norming stage
+4. How would you adjust your leadership style as the project progresses and the team matures?
+:::
+
+---
+
+## 🖥️ MS Project Practice — Resources {.unnumbered}
+
+::: {.callout-note icon="false"}
+## Microsoft Project: Applying Chapter 5 Concepts
+
+With your schedule from Chapter 4's practice complete, now add and manage resources:
+
+**Tasks to complete in MS Project:**
+
+1. **Open the Resource Sheet** (View → Resource Sheet) and enter all resources from your Resource Register:
+   - For each person: Type = Work, Max Units (100% or 50%), Std. Rate (₪/h), Base Calendar
+   - For equipment: Type = Work or Material (if consumed), with appropriate rate
+   - For fixed costs: Type = Cost
+2. **Assign resources to tasks** (double-click each task → Resources tab → select resource + set Units %)
+3. **Check for over-allocation**: Red person icons in the Indicators column = over-allocated. Also check View → Resource Sheet — over-allocated resources appear in red text
+4. **View the Resource Histogram**: View → Resource Usage → right-click the chart area → select "Bar" graph. Bars above the Max Units line indicate over-allocation
+5. **Apply Resource Levelling**: Resource tab → Level All. Observe how MS Project delays tasks to resolve conflicts. Note the new project finish date
+6. **Manual smoothing alternative**: Instead of auto-levelling, manually split a task (Task tab → Split Task button) or reduce a resource's units on a specific task to bring it within limits
+7. **Build a RACI view**: Export the Task Usage view to Excel (File → Save As → Excel) and add a RACI column for each resource–task assignment
+
+**Expected outcome:** After levelling, no resource should exceed their Max Units. The resource histogram should show all bars at or below the availability line. Compare the levelled finish date to the baseline — this is your resource-constrained schedule.
+:::
+
+---
+
+## Summary {.unnumbered}
+
+::: {.callout-note}
+## 📚 Further Reading
+
+- @pmbok2021 — Section 9: Resource Management
+- @larson2021 — Chapter 11: Managing Project Teams
+- @kerzner2017 — Chapter 7: Human Behaviour and Project Management
+:::
+
+**Next Chapter →** [Microsoft Project — Practical Tool Guide](06-msproject.qmd) — Apply scheduling and resource concepts hands-on in MS Project 2021.

@@ -1,0 +1,516 @@
+---
+title: "Quality Management"
+---
+
+```{=html}
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 8 · Execution & Control</div>
+  <h1>Quality Management</h1>
+  <p class="chapter-desc">Planning, assuring, and controlling quality to deliver engineering projects that meet specifications and client expectations.</p>
+</div>
+```
+
+## Learning Outcomes {.unnumbered}
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+
+By the end of this chapter, you will be able to:
+
+1. **Distinguish** between quality planning, quality assurance, and quality control
+2. **Develop** a Quality Management Plan for an engineering project
+3. **Apply** quality tools: inspection plans, control charts, Pareto analysis, fishbone diagrams
+4. **Explain** ISO 9001 and its role in project quality management
+5. **Describe** the Deming Cycle (PDCA) and its application to project QM
+6. **Analyse** the cost of quality (prevention vs. appraisal vs. failure costs)
+:::
+
+---
+
+## What is Quality in Engineering Projects?
+
+::: {.callout-note icon="false"}
+## 📖 Two Dimensions of Quality
+
+**Quality of Design (Fitness for Purpose):**  
+Does the delivered product meet the intended purpose? Did we deliver what the client NEEDED?
+
+**Quality of Conformance (Conformance to Specifications):**  
+Was the product built exactly to the approved specifications, drawings, and standards?
+
+*Example:* A bridge designed for 40-tonne trucks but only used by cars is HIGH quality of conformance (built as designed) but potentially POOR quality of design (over-engineered = waste). A bridge designed for 100-tonne loads but built with B-grade steel is HIGH quality of design but POOR quality of conformance.
+:::
+
+### Grade vs. Quality
+
+| | High Grade | Low Grade |
+|-|-----------|---------|
+| **High Quality** | Premium product built to spec | Budget product built to spec |
+| **Low Quality** | Premium product with defects | Budget product with defects |
+
+*Grade is the level of performance requirements; Quality is whether those requirements are met.*
+
+---
+
+## The Quality Management Process
+
+```{mermaid}
+%%| fig-cap: "The three processes of project quality management"
+flowchart LR
+    subgraph PL["📋 PLAN QUALITY<br/>MANAGEMENT"]
+        P1["Identify quality<br/>standards relevant<br/>to the project"]
+        P2["Define quality<br/>metrics and<br/>acceptance criteria"]
+        P3["Develop Quality<br/>Management Plan<br/>(QMP)"]
+        P1 --> P2 --> P3
+    end
+
+    subgraph QA["🔍 MANAGE QUALITY<br/>(Quality Assurance)"]
+        Q1["Audit processes<br/>to ensure they<br/>are being followed"]
+        Q2["Process improvement<br/>and corrective<br/>action"]
+        Q3["Quality audits<br/>and reviews"]
+        Q1 --> Q2 --> Q3
+    end
+
+    subgraph QC["🧪 CONTROL QUALITY<br/>(Quality Control)"]
+        C1["Inspect deliverables<br/>against specifications"]
+        C2["Test and verify<br/>outputs meet<br/>criteria"]
+        C3["Accept or reject<br/>and rework<br/>deliverables"]
+        C1 --> C2 --> C3
+    end
+
+    PL --> |"QMP guides<br/>QA and QC"| QA
+    PL --> QC
+    QA --> |"Process audit<br/>findings"| QC
+    QC --> |"Inspection results<br/>feed back to<br/>process improvement"| QA
+
+    style PL fill:#dbeafe,stroke:#3b82f6
+    style QA fill:#dcfce7,stroke:#22c55e
+    style QC fill:#fef9c3,stroke:#eab308
+```
+
+::: {.callout-note}
+## 📖 QA vs. QC — The Critical Distinction
+
+**Quality Assurance (QA):** Focuses on *processes* — "Are we doing the right things the right way?"
+- Proactive and process-oriented
+- Performed DURING the project
+- Examples: Process audits, design reviews, peer checks, construction supervision
+
+**Quality Control (QC):** Focuses on *outputs* — "Does the product meet requirements?"
+- Reactive and product-oriented
+- Applied to completed work
+- Examples: Material testing, dimensional surveys, pressure testing, functional testing
+:::
+
+---
+
+## The Deming PDCA Cycle
+
+The **Plan-Do-Check-Act (PDCA)** cycle, developed by W. Edwards Deming, is the foundation of continuous quality improvement:
+
+```{mermaid}
+%%| fig-cap: "The Deming PDCA Cycle applied to engineering projects"
+%%{init: {'flowchart': {'nodeSpacing': 40, 'rankSpacing': 60}}}%%
+flowchart LR
+    P["📋 PLAN<br/>Define objectives<br/>Set quality standards<br/>Plan inspections"]
+    D["⚙️ DO<br/>Execute project work<br/>Conduct inspections<br/>Document results"]
+    C["🔍 CHECK<br/>Analyse results<br/>Compare to specs<br/>Identify defects"]
+    A["🔄 ACT<br/>Implement corrections<br/>Root cause analysis<br/>Update procedures"]
+
+    P --> D --> C --> A --> P
+
+    style P fill:#4f46e5,color:#fff
+    style D fill:#0f766e,color:#fff
+    style C fill:#b45309,color:#fff
+    style A fill:#b91c1c,color:#fff
+```
+
+---
+
+## The Quality Management Plan
+
+A **Quality Management Plan (QMP)** defines how quality will be managed throughout the project:
+
+::: {.panel-tabset}
+
+## QMP Contents
+1. **Quality objectives** — measurable quality targets linked to project scope
+2. **Quality standards** — applicable codes, standards, specifications (e.g., AS/NZS, ISO, ASTM)
+3. **Quality responsibilities** — who is accountable for quality activities
+4. **Inspection and Test Plan (ITP)** — what will be tested, by whom, and when
+5. **Non-conformance procedure** — how defects are identified, documented, and resolved
+6. **Document control** — version control and distribution of quality documents
+7. **Audit schedule** — when QA audits will be conducted
+
+## Inspection and Test Plan (ITP)
+The ITP is the core QC tool — it specifies every inspection and test:
+
+| Activity | Test/Inspection | Standard | Frequency | Inspector | Hold/Witness/Review | Acceptance Criteria |
+|----------|----------------|---------|---------|-----------|--------------------|--------------------|
+| Concrete pour | Slump test | AS 1012.3 | Each truck | Site Engineer | Hold (H) | 80-120mm |
+| Concrete | 28-day cylinder test | AS 1012.9 | 1 set per 50m³ | NATA Lab | Review (R) | ≥ N32 (32MPa) |
+| Structural steel weld | Visual inspection | AS/NZS 1554 | 100% | Inspector | Witness (W) | No visible defects |
+| Steel weld | NDT (ultrasonic) | AS 2205 | 10% random | Certified UT tech | Review (R) | Class B |
+| Pipeline hydrostatic test | Pressure test | AS 2885 | Each segment | Engineer | Witness (W) | 1.5× operating pressure, 1 hour |
+
+**Hold/Witness/Review Codes:**
+- **H = Hold Point:** Work CANNOT proceed without inspector present and signing off
+- **W = Witness Point:** Inspector should attend; notified 24 hours in advance; can proceed if not present
+- **R = Review:** Documentation reviewed by inspector; work can proceed
+
+## Non-Conformance Management
+When a defect is found, it must be formally managed:
+
+```{mermaid}
+flowchart TD
+    D["🔍 Defect<br/>Discovered"] --> NCR
+    NCR["📝 Non-Conformance<br/>Report (NCR) Raised<br/><br/>Document:<br/>• What was found<br/>• Where/when<br/>• Who found it<br/>• Photos"] --> HOLD
+    HOLD["🛑 Work<br/>Held"] --> RCA
+    RCA["🔬 Root Cause<br/>Analysis"] --> OPTIONS
+    OPTIONS{"Disposition<br/>Options"}
+    OPTIONS --> REJ["❌ REJECT<br/>Remove and<br/>replace"] --> VP
+    OPTIONS --> REW["🔄 REWORK<br/>Repair to<br/>specification"] --> VP
+    OPTIONS --> UAI["⚠️ USE AS IS<br/>Engineer assessment<br/>and client approval"] --> VP
+    VP["✅ Verification<br/>Inspection<br/>Passed?"] --> |"YES"| CLOSE
+    VP --> |"NO"| NCR
+    CLOSE["✅ NCR<br/>Closed<br/><br/>Record lessons<br/>learned"]
+```
+
+:::
+
+---
+
+## Quality Control Tools
+
+### 1. Control Charts
+
+**Statistical Process Control (SPC)** uses control charts to monitor process stability:
+
+```{mermaid}
+%%| fig-cap: "Control chart concept for concrete compressive strength monitoring"
+xychart-beta
+    title "Concrete 28-Day Strength Control Chart (MPa)"
+    x-axis ["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S10", "S11", "S12"]
+    y-axis "Strength (MPa)" 25 --> 50
+    line [38, 36, 40, 35, 42, 33, 44, 37, 38, 41, 29, 36]
+    line [45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45]
+    line [32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32]
+```
+
+*Upper control limit = 45 MPa (UCL); Lower control limit = 32 MPa (LCL).*  
+*Sample 11 (29 MPa) is below the LCL — indicates an out-of-control process. Investigation required.*
+
+### 2. Pareto Analysis (80/20 Rule)
+
+Pareto analysis identifies the **vital few causes** that account for most quality problems:
+
+::: {.callout-note icon="false"}
+## 📖 Pareto Principle
+
+> *"80% of problems come from 20% of causes."*
+
+By focusing QC efforts on the 20% of causes driving 80% of defects, quality can be dramatically improved with limited resources.
+:::
+
+### 3. Cause-and-Effect (Fishbone / Ishikawa) Diagram
+
+```{mermaid}
+%%| fig-cap: "Fishbone diagram for concrete strength failures"
+flowchart LR
+    subgraph METHOD
+        M1[Poor vibration<br/>technique]
+        M2[Incorrect pour<br/>sequence]
+        M3[No slump test<br/>before pour]
+    end
+    subgraph MATERIAL
+        MA1[High water/cement<br/>ratio]
+        MA2[Wrong cement<br/>type delivered]
+        MA3[Aggregate<br/>segregation]
+    end
+    subgraph MACHINE
+        MC1[Faulty batch<br/>plant calibration]
+        MC2[Old mixer drums<br/>not cleaned]
+    end
+    subgraph MANMETHODS
+        P1[Untrained<br/>labour]
+        P2[Site engineer<br/>not present]
+    end
+    METHOD --> FAILURE
+    MATERIAL --> FAILURE
+    MACHINE --> FAILURE
+    MANMETHODS --> FAILURE
+    FAILURE["❌ Concrete<br/>Strength<br/>Failure<br/>(Below N32)"]
+
+    style FAILURE fill:#b91c1c,color:#fff
+```
+
+### 4. Checklist (Inspection Checklist)
+
+Standardised checklists ensure consistent inspection:
+
+**Reinforcement Inspection Checklist:**
+
+| Item | Check | Pass/Fail |
+|------|-------|---------|
+| Bar size matches drawings | All specified bar sizes confirmed on site | ☐ |
+| Bar spacing within tolerance | ±10mm of specified spacing | ☐ |
+| Cover to formwork correct | ±5mm of specified cover | ☐ |
+| Laps and splices correct | Per drawing detail | ☐ |
+| Chair supports (bottom bars) | 1 per m² minimum | ☐ |
+| No rust or contaminants | Clean reinforcement | ☐ |
+| Starter bars location correct | Per foundation drawings | ☐ |
+| RFI responses incorporated | All raised issues resolved | ☐ |
+| Engineer sign-off | Structural engineer approval | ☐ |
+
+---
+
+## ISO 9001 and Quality Systems
+
+**ISO 9001:2015** is the world's most widely adopted quality management system standard. It defines requirements for a QMS based on:
+
+```{mermaid}
+%%| fig-cap: "ISO 9001:2015 structure — the process approach"
+mindmap
+  root((ISO 9001<br/>:2015<br/>QMS))
+    Context of the Organisation
+      Understanding the organisation
+      Needs of interested parties
+      QMS scope
+      Processes
+    Leadership
+      Leadership commitment
+      Quality policy
+      Roles & responsibilities
+    Planning
+      Risk and opportunities
+      Quality objectives
+      Planning for change
+    Support
+      Resources
+      Competence
+      Awareness
+      Communication
+      Documented information
+    Operation
+      Operational planning
+      Customer requirements
+      Design and development
+      Control of processes
+      Release of products
+      Control of nonconformities
+    Performance Evaluation
+      Monitoring and measurement
+      Internal audit
+      Management review
+    Improvement
+      Nonconformity & corrective action
+      Continual improvement
+```
+
+---
+
+## Cost of Quality
+
+The **Cost of Quality (CoQ)** model recognises that ALL quality activities have a cost — and that investing in prevention is far cheaper than paying for failures:
+
+::: {.panel-tabset}
+
+## Prevention Costs
+**Costs to prevent defects (proactive):**
+- Quality planning and QMP development
+- Staff training and competency assessment
+- Design reviews and peer checks
+- Process standardisation and procedure writing
+- Supplier qualification programmes
+- Quality audits
+
+*Cost: Low-medium; Returns: Very high*
+
+## Appraisal Costs
+**Costs to detect defects (inspection):**
+- Material testing (concrete tests, weld inspections)
+- Site inspections and surveys
+- Software testing
+- Third-party audits and certifications
+- Equipment calibration
+
+*Cost: Medium; Returns: Medium-high*
+
+## Internal Failure Costs
+**Defects found BEFORE delivery:**
+- Rework (fixing defects before client sees them)
+- Scrap (material wasted due to errors)
+- Redesign required
+- Re-testing after rework
+
+*Cost: High; Avoided by prevention and appraisal*
+
+## External Failure Costs
+**Defects found AFTER delivery:**
+- Warranty claims and rectification
+- Legal liability
+- Lost future business
+- Regulatory fines
+- Brand damage
+- Property damage or personal injury
+
+*Cost: Extremely high; Avoided by good QA/QC*
+
+:::
+
+::: {.callout-warning icon="false"}
+## ⚠️ The 1-10-100 Rule of Quality
+
+The cost of fixing a defect multiplies with how late it is discovered:
+
+- **Cost to prevent** (design stage): **$1**
+- **Cost to detect and fix** (during construction): **$10**
+- **Cost to fix after handover** (warranty claim): **$100**
+
+This is why front-end investment in quality planning and design reviews has the highest ROI in engineering projects.
+:::
+
+---
+
+## Case Study — Jeddah Floods 2009: The Hidden Cost of Quality Failure {.unnumbered}
+
+::: {.callout-important icon="false"}
+## 🏭 Case Study: Jeddah Flooding — When Quality Assurance Is the First Budget Cut
+
+**Background:**  
+On 25 November 2009, a single rainstorm struck Jeddah, Saudi Arabia — **90 mm of rain in 3 hours**, equivalent to the city's entire annual average rainfall in one event. The results were catastrophic: **161 officially confirmed deaths** (independent estimates suggest over 500), thousands of vehicles swept away, and entire residential districts submerged under metres of water. The Saudi government subsequently spent over **SAR 35 billion (~$9 billion)** in disaster response and infrastructure reconstruction.
+
+The engineering tragedy was not the rainfall — extreme flash floods are a known geological risk in the Hejaz region. **The tragedy was the absence of drainage infrastructure that should have been built and inspected years earlier.**
+
+**What the Post-Disaster Investigation Found:**  
+A Saudi Control and Investigation Board inquiry revealed systematic quality management failure across decades of city infrastructure development:
+
+| Infrastructure Element | Required | Actually Built |
+|----------------------|---------|---------------|
+| Primary storm drainage network | 500 km specified in master plan | ~200 km built; much of it blocked by sediment and illegal connections |
+| Retention ponds | 15 major retention basins required | 3 completed; 8 plot allocations reassigned to housing developers |
+| Road drainage channels | Minimum 600 mm kerb drainage on all major roads | Most roads had 200–300 mm drainage; many had none |
+| Construction inspections | All drainage works inspected before roadway overlay | Independent estimates: 60%+ of roads paved without drainage inspection sign-off |
+
+**Quality Management Failures:**
+
+*1. Paper-Based QA Without Field Verification:*  
+Contractors routinely submitted quality inspection certificates for works that had not been completed to specification. No independent inspector challenged the certificates. The "quality assurance system" was form completion — not field verification.
+
+*2. Cost of Quality Inversion:*  
+Prevention cost (installing the missing drainage correctly): estimated at SAR 1.3 billion.  
+Failure cost paid (disaster response, reconstruction, compensation): **SAR 35+ billion**.  
+This is a **27:1 ratio** — a textbook demonstration of how eliminating quality investment creates catastrophic failure costs.
+
+*3. Conflict of Interest in QA Oversight:*  
+The municipal authority, urban development office, and construction contractors were linked through business and family relationships — structural compromises to QA independence that allowed systemic non-conformance to persist undetected.
+
+*4. Accumulation of "Acceptable" Non-Conformances:*  
+Individual drainage shortfalls in each development project were classified as "non-material NCRs" and signed off. Over 20 years of rapid city growth, thousands of individually approved NCRs accumulated into a completely broken citywide drainage system.
+
+**The True Cost of Quality — Jeddah 2009:**
+
+| Cost Category | Amount | Notes |
+|--------------|--------|-------|
+| Emergency response | SAR 4.8 billion | Immediate |
+| Road and drainage reconstruction | SAR 6.2 billion | Multi-year programme |
+| Compensation to bereaved families | SAR 0.3 billion | |
+| Lost business and private property | SAR 12+ billion | Estimated |
+| **Prevention cost if QA had functioned** | **SAR 1.3 billion** | *Full drainage system cost* |
+
+**Quality Lessons:**
+1. **QA independence is not a luxury** — when the inspector and contractor share financial interests, there is no quality assurance
+2. **The cost of preventing quality failure is always a fraction of the failure cost** — quality is never the line to cut in a budget overrun
+3. **Individual NCRs accumulate systemic risk** — no single non-conformance appears catastrophic in isolation; the pattern of non-conformances is
+4. **Paper-based QA systems are not quality systems** — quality assurance requires field verification and independent sign-off, not form completion
+5. **Quality culture requires consequences** — if contractors face no accountability for non-conformance, non-conformance will be universal
+
+**Discussion Questions:**
+1. Which quality management process (Planning, QA, or QC) failed most catastrophically in this case?
+2. Design a quality audit programme that would have detected the drainage infrastructure failures before they became a crisis
+3. How does this case illustrate the relationship between procurement governance, stakeholder independence, and quality outcomes in rapidly developing Arab cities?
+
+*Sources: @jeddah2009floods; @arab2010infra*
+:::
+
+---
+
+## Exercises {.unnumbered}
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 8.1 — Quality Management Plan
+
+You are managing the design and construction of a **new pedestrian cable-stayed bridge** (120m main span, stainless steel cables, glass-fibre reinforced concrete deck).
+
+Develop a **Quality Management Plan outline** that includes:
+
+1. Quality objectives (4 measurable objectives)
+2. Applicable standards and specifications (minimum 6 standards)
+3. Quality responsibilities (RACI for quality activities)
+4. Overview of the ITP (at least 8 inspections/tests for the construction phase)
+5. Non-conformance procedure (flow diagram)
+6. Quality audit schedule (frequency and scope)
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 8.2 — Inspection and Test Plan
+
+Develop a detailed **ITP** for the **structural steel installation** phase of a multi-storey building. Include:
+
+1. At least 10 inspection/test items
+2. For each item: Activity, Test/Inspection, Standard, Frequency, Hold/Witness/Review, Acceptance Criteria
+3. Identify 3 items that should be Hold Points and justify your selection
+4. What qualifications should the inspection personnel have for structural steel?
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 8.3 — Root Cause Analysis
+
+During construction of a water retaining structure, 6 of 20 concrete cylinders from a single pour failed the 28-day compressive strength test (required: 40 MPa; actual: 24-31 MPa).
+
+1. Draw a **fishbone diagram** identifying all potential causes (categorise by: Method, Material, Machine, Man, Environment, Measurement)
+2. Based on your fishbone, list 5 most likely root causes
+3. What **immediate actions** should be taken (this week)?
+4. What **corrective action** should be implemented to prevent recurrence?
+5. What clause in a typical concrete specification would apply, and what are the consequences?
+6. If the structure cannot be demolished and replaced, what engineering options exist to demonstrate structural adequacy despite the low-strength concrete?
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 8.4 — Cost of Quality Analysis
+
+An engineering consultancy analysed its quality costs for the previous financial year:
+
+| Cost Item | Amount |
+|-----------|--------|
+| Staff training | $48,000 |
+| Design peer reviews | $72,000 |
+| Site inspection (during construction) | $125,000 |
+| Software testing and verification | $35,000 |
+| Design rework (errors found internally) | $95,000 |
+| Construction rework (errors found before handover) | $210,000 |
+| Post-handover defect rectification | $340,000 |
+| Client legal claim (design defect) | $500,000 |
+| Third-party audit fees | $28,000 |
+
+1. Categorise each cost into: Prevention, Appraisal, Internal Failure, External Failure
+2. Calculate the total cost in each category and the percentage of total quality costs
+3. What is the total Cost of Quality as a percentage of total project revenue ($8.5M)?
+4. Based on the analysis, where should the consultancy invest to reduce total quality costs?
+5. The management team wants to cut the training budget ($48,000) to reduce costs. Analyse this decision using the 1-10-100 rule and the cost of quality data.
+:::
+
+---
+
+## Summary {.unnumbered}
+
+::: {.callout-note}
+## 📚 Further Reading
+
+- @pmbok2021 — Section 8: Quality Management
+- @juran2010 — Classic reference on quality planning and control
+- @kerzner2017 — Chapter 20: Quality Management
+- @larson2021 — Chapter 8: Monitoring and Controlling Quality
+:::
+
+**Next Chapter →** [Agile Project Management](09-agile.qmd) — Learn how Agile and Scrum are transforming engineering project delivery.

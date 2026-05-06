@@ -1,0 +1,559 @@
+/*-- scss:rules --*/
+
+/* ============================================================
+   Project Management Course — Custom Quarto Stylesheet
+   ============================================================ */
+
+/* ── Google Fonts ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&family=Merriweather:ital,wght@0,400;1,400&display=swap');
+
+/* ── Root Variables ───────────────────────────────────────── */
+:root {
+  --pm-blue:    #1d4ed8;
+  --pm-green:   #15803d;
+  --pm-amber:   #b45309;
+  --pm-red:     #b91c1c;
+  --pm-purple:  #7c3aed;
+  --pm-teal:    #0f766e;
+  --pm-slate:   #475569;
+  --pm-light:   #f8fafc;
+  --pm-border:  #e2e8f0;
+  --radius:     0.5rem;
+  --shadow-sm:  0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md:  0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:  0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Body & Typography ────────────────────────────────────── */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.75;
+  color: #1e293b;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+}
+
+h1 { font-size: 2.25rem; border-bottom: 3px solid var(--pm-blue); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+h2 { font-size: 1.75rem; color: var(--pm-blue); margin-top: 2.5rem; }
+h3 { font-size: 1.35rem; color: var(--pm-teal); margin-top: 2rem; }
+
+p { margin-bottom: 1.1rem; }
+
+code, pre {
+  font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+/* ── Hero Banner ──────────────────────────────────────────── */
+.hero-banner {
+  background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 50%, #4f46e5 100%);
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  margin: 1rem 0 2.5rem 0;
+  color: white;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  color: white;
+  border: none;
+  margin-bottom: 0.25rem;
+}
+
+.hero-content h2 {
+  font-size: 1.6rem;
+  color: rgba(255,255,255,0.9);
+  font-weight: 400;
+  margin-top: 0.25rem;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 650px;
+  margin: 1rem auto;
+  line-height: 1.7;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.badge {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+
+/* ── Callout Blocks (Enhanced) ────────────────────────────── */
+.callout {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: 1.5rem 0;
+  border-width: 0 0 0 4px;
+}
+
+.callout-tip {
+  background: #f0fdf4;
+  border-color: #22c55e !important;
+}
+
+.callout-note {
+  background: #eff6ff;
+  border-color: #3b82f6 !important;
+}
+
+.callout-warning {
+  background: #fefce8;
+  border-color: #eab308 !important;
+}
+
+.callout-important {
+  background: #fff7ed;
+  border-color: #f97316 !important;
+}
+
+.callout-caution {
+  background: #f0fdf4;
+  border-color: #4ade80 !important;
+}
+
+.callout-title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* ── Learning Outcomes Box ────────────────────────────────── */
+.learning-outcomes {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border: 2px solid #3b82f6;
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0 2rem 0;
+  box-shadow: var(--shadow-md);
+}
+
+.learning-outcomes h3 {
+  color: #1d4ed8;
+  margin-top: 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.learning-outcomes ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.learning-outcomes li {
+  margin-bottom: 0.4rem;
+  color: #1e40af;
+  font-weight: 500;
+}
+
+/* ── Case Study Box ───────────────────────────────────────── */
+.case-study {
+  background: linear-gradient(135deg, #fff7ed, #fed7aa);
+  border: 2px solid #f97316;
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  box-shadow: var(--shadow-md);
+}
+
+.case-study-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.case-study-icon {
+  font-size: 2rem;
+}
+
+.case-study-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #9a3412;
+  margin: 0;
+}
+
+.case-study-subtitle {
+  font-size: 0.85rem;
+  color: #c2410c;
+  margin: 0;
+}
+
+/* ── Exercise Blocks ──────────────────────────────────────── */
+.exercise-block {
+  background: #f0fdf4;
+  border: 2px solid #16a34a;
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.exercise-header {
+  color: #15803d;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.exercise-number {
+  display: inline-block;
+  background: #16a34a;
+  color: white;
+  border-radius: 50%;
+  width: 1.8rem;
+  height: 1.8rem;
+  text-align: center;
+  line-height: 1.8rem;
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+/* ── Key Formula Box ──────────────────────────────────────── */
+.formula-box {
+  background: #faf5ff;
+  border: 2px solid #7c3aed;
+  border-radius: var(--radius);
+  padding: 1.25rem 1.75rem;
+  margin: 1.5rem 0;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.formula-box .formula-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #7c3aed;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Info Cards (Grid) ────────────────────────────────────── */
+.info-card {
+  background: white;
+  border: 1px solid var(--pm-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+}
+
+.info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.info-card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.info-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--pm-blue);
+  margin: 0 0 0.5rem 0;
+}
+
+.info-card p {
+  font-size: 0.9rem;
+  color: var(--pm-slate);
+  margin: 0;
+}
+
+/* ── Timeline ─────────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  padding: 1rem 0;
+  margin: 1.5rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--pm-blue), var(--pm-teal));
+  border-radius: 3px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0.9rem;
+  top: 0.35rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: var(--pm-blue);
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px var(--pm-blue);
+}
+
+.timeline-item h4 {
+  margin: 0 0 0.25rem 0;
+  color: var(--pm-blue);
+  font-size: 1rem;
+}
+
+.timeline-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--pm-slate);
+}
+
+/* ── Chapter Header Banner ────────────────────────────────── */
+.chapter-banner {
+  background: linear-gradient(135deg, #1e293b 0%, #1d4ed8 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.chapter-banner .chapter-num {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 0.25rem;
+}
+
+.chapter-banner h1 {
+  color: white !important;
+  border: none !important;
+  margin: 0 0 0.5rem 0 !important;
+  padding: 0 !important;
+  font-size: 2rem;
+}
+
+.chapter-banner .chapter-desc {
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* ── Tables ───────────────────────────────────────────────── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+thead th {
+  background: var(--pm-blue);
+  color: white;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  text-align: left;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+tbody td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--pm-border);
+}
+
+tbody tr:nth-child(even) { background: var(--pm-light); }
+tbody tr:hover { background: #dbeafe; transition: background 0.15s; }
+
+/* ── Panel Tabset ─────────────────────────────────────────── */
+.panel-tabset .nav-tabs .nav-link {
+  font-weight: 600;
+  color: var(--pm-slate);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.panel-tabset .nav-tabs .nav-link.active {
+  color: var(--pm-blue);
+  border-bottom-color: var(--pm-blue);
+  background: #eff6ff;
+}
+
+/* ── Mermaid Diagrams ─────────────────────────────────────── */
+.mermaid {
+  text-align: center;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+/* Make all mermaid SVGs fully responsive */
+.mermaid svg,
+.cell-output-display svg {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+/* Readable base font size in diagram nodes */
+.mermaid svg text,
+.cell-output-display svg text {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 13px !important;
+}
+
+/* Prevent node shapes from clipping long labels */
+.mermaid svg .node,
+.cell-output-display svg .node {
+  overflow: visible;
+}
+
+.mermaid svg .node rect,
+.mermaid svg .node circle,
+.mermaid svg .node ellipse,
+.mermaid svg .node polygon,
+.mermaid svg .node path,
+.cell-output-display svg .node rect,
+.cell-output-display svg .node circle,
+.cell-output-display svg .node ellipse,
+.cell-output-display svg .node polygon,
+.cell-output-display svg .node path {
+  overflow: visible;
+}
+
+/* Edge label text */
+.mermaid svg .edgeLabel,
+.cell-output-display svg .edgeLabel {
+  font-size: 11px !important;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Subgraph labels */
+.mermaid svg .cluster-label,
+.cell-output-display svg .cluster-label {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+/* Mindmap nodes */
+.mermaid svg .mindmap-node,
+.mermaid svg .mindmap-node text {
+  font-size: 12px !important;
+}
+
+/* Ensure Gantt chart rows are readable */
+.mermaid svg .task,
+.mermaid svg .taskText {
+  font-size: 11px !important;
+}
+
+.mermaid svg .sectionTitle {
+  font-size: 12px !important;
+}
+
+/* Figure captions under diagrams */
+.cell-output-display + p.caption,
+figure figcaption {
+  font-size: 0.85rem;
+  color: var(--pm-slate);
+  text-align: center;
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────── */
+#quarto-sidebar {
+  border-right: 2px solid var(--pm-border);
+}
+
+.sidebar-title {
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  color: var(--pm-blue) !important;
+}
+
+/* ── Progress Indicator ───────────────────────────────────── */
+.progress-bar-container {
+  background: var(--pm-border);
+  border-radius: 9999px;
+  height: 8px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, var(--pm-blue), var(--pm-teal));
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+/* ── Responsive Adjustments ───────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 1.8rem; }
+  .hero-content h2 { font-size: 1.2rem; }
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.4rem; }
+}
+
+/* ── Print Styles ─────────────────────────────────────────── */
+@media print {
+  .hero-banner { background: #1d4ed8 !important; -webkit-print-color-adjust: exact; }
+  .callout { border-width: 2px !important; }
+}

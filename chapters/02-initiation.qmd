@@ -1,0 +1,1319 @@
+---
+title: "Project Initiation & Selection"
+---
+
+```{=html}
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 4 · Initiation &amp; Integration</div>
+  <h1>Project Initiation &amp; Selection</h1>
+  <p class="chapter-desc">Formally launching a project: time value of money, business cases, NPV/IRR/payback solved examples, project charters, and stakeholder engagement.</p>
+</div>
+```
+
+## Learning Outcomes {.unnumbered}
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+
+By the end of this chapter, you will be able to:
+
+1. **Calculate** Present Value (PV), Future Value (FV), and Net Present Value (NPV) from first principles
+2. **Develop** a business case for a proposed engineering project
+3. **Apply** project selection models: NPV, Payback Period, IRR, and Weighted Scoring
+4. **Compare** competing project proposals using financial and scoring criteria
+5. **Write** a comprehensive project charter
+6. **Identify** and **categorise** all project stakeholders
+7. **Create** a stakeholder power/interest matrix
+8. **Develop** a stakeholder engagement strategy
+9. **Explain** the role of the Project Management Office (PMO)
+:::
+
+---
+
+## Time Value of Money — The Financial Foundation
+
+Before evaluating any project, engineers must understand one key principle: **a dollar today is worth more than a dollar in the future**. This is the **Time Value of Money (TVM)** — the foundation of all engineering economics and project financial analysis.
+
+::: {.callout-note icon="false"}
+## 📖 Why Does Money Have a Time Value?
+
+Three reasons:
+1. **Opportunity cost** — money available today can be invested to earn returns
+2. **Inflation** — purchasing power erodes over time
+3. **Risk** — future cash flows are uncertain; present cash is certain
+
+*An engineering firm offered $1,000,000 today or $1,000,000 in 3 years will always choose today — they can invest it now and have more than $1M in 3 years.*
+:::
+
+### Future Value (FV)
+
+**Future Value** answers: *If I invest $P today at interest rate r, what will it be worth after n periods?*
+
+$$\boxed{FV = PV \times (1 + r)^n}$$
+
+Where:
+- $PV$ = Present Value (amount today)
+- $r$ = Interest (discount) rate per period
+- $n$ = Number of periods
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 2.1 — Future Value
+
+**Problem:** An engineering company invests **\$50,000** in a piece of testing equipment that generates a return. If the investment earns **8% per year**, what is the future value after **5 years**?
+
+**Solution:**
+
+$$FV = PV \times (1 + r)^n = 50{,}000 \times (1 + 0.08)^5$$
+
+| Year | Calculation | Value |
+|------|-------------|-------|
+| 0 (Today) | — | $50,000 |
+| 1 | $50,000 × 1.08 | $54,000 |
+| 2 | $54,000 × 1.08 | $58,320 |
+| 3 | $58,320 × 1.08 | $62,986 |
+| 4 | $62,986 × 1.08 | $68,024 |
+| 5 | $68,024 × 1.08 | **$73,466** |
+
+**Answer:** The \$50,000 investment grows to **\$73,466** after 5 years at 8%.
+
+*Using the formula directly:* $FV = 50{,}000 \times (1.08)^5 = 50{,}000 \times 1.4693 = \$73{,}466$
+:::
+
+---
+
+### Present Value (PV)
+
+**Present Value** is the reverse question: *What is a future cash flow worth in today's money?*
+
+$$\boxed{PV = \frac{FV}{(1 + r)^n}}$$
+
+The term $\dfrac{1}{(1+r)^n}$ is called the **discount factor** — it converts future money to present-day equivalent value.
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 2.2 — Present Value
+
+**Problem:** A road upgrade project will generate \$200,000 in annual savings starting one year from now for the next 3 years. If the discount rate is **8%**, what is the **present value** of each year's savings?
+
+**Solution — Discount Factors at 8%:**
+
+$$DF_{year\,t} = \frac{1}{(1.08)^t}$$
+
+| Year | Future Cash | Discount Factor | Present Value |
+|------|------------|-----------------|---------------|
+| 1 | $200,000 | $\frac{1}{1.08^1} = 0.926$ | **$185,185** |
+| 2 | $200,000 | $\frac{1}{1.08^2} = 0.857$ | **$171,468** |
+| 3 | $200,000 | $\frac{1}{1.08^3} = 0.794$ | **$158,766** |
+| **Total PV** | **$600,000 (nominal)** | | **$515,419** |
+
+**Key insight:** Although the total *nominal* cash flow is \$600,000, its *present* value is only \$515,419 — a difference of \$84,581 due to the time value of money.
+:::
+
+---
+
+### Net Present Value (NPV)
+
+**Net Present Value** answers the most important question in project selection: *Does this project create or destroy value?*
+
+$$\boxed{NPV = \sum_{t=0}^{n} \frac{B_t - C_t}{(1+r)^t}}$$
+
+Where:
+- $B_t$ = Benefits (cash inflows) in year $t$
+- $C_t$ = Costs (cash outflows) in year $t$
+- $r$ = Discount rate
+- $t$ = Time period (year 0 = today)
+
+**Decision Rule:**
+- $NPV > 0$ → Project **creates value** → Accept
+- $NPV < 0$ → Project **destroys value** → Reject
+- $NPV = 0$ → Project breaks even at the discount rate
+
+::: {.callout-note icon="false"}
+## 🧮 What Does NPV = 0 Actually Mean?
+
+A common misconception is that NPV = 0 means the project earns nothing. In reality, it means the project earns **exactly the required rate of return** — no more, no less.
+
+**What is actually happening when NPV = 0:**
+
+| | Value |
+|---|---|
+| 💵 You invest | \$10,000 today |
+| 💰 You receive | Future profits (e.g. \$4,000 × 3 years) |
+| 📉 After discounting | Their present value = exactly \$10,000 |
+| 🎯 Result | You earned exactly the required rate — no surplus, no loss |
+
+**The same project at different discount rates:**
+
+| Discount Rate Used | NPV | Meaning |
+|---|---|---|
+| 8% | +\$600 ✅ | Project earns **more than** 8% → Accept |
+| 10% | \$0 🎯 | Project earns **exactly** 10% → Break-even |
+| 12% | −\$500 ❌ | Project earns **less than** 12% → Reject |
+
+> ✅ When a discount rate of 10% gives NPV = 0, that means the **IRR = 10%** — the two concepts are the same thing.
+
+**Common misconceptions cleared up:**
+
+| ❌ Wrong Belief | ✅ Truth |
+|---|---|
+| "NPV = 0 means I earn nothing" | You do earn money — exactly what you demanded |
+| "The project is failing" | The project is viable — just not exceptional |
+| "Better not to invest" | Investment is acceptable; there is simply no bonus above your hurdle rate |
+:::
+
+::: {.callout-important icon="false"}
+## ❓ Where Do the Numbers Come From? (Pre-Execution Reality)
+
+NPV is calculated **before the project starts** — so the project has not been executed yet. This is a common point of confusion: *if nothing has happened, how do we know the costs and benefits year by year?*
+
+The answer is that **all figures in the NPV table are estimates and forecasts**, produced during the **Business Case / Feasibility Study** phase. Here is where each number typically comes from:
+
+| Figure | Source |
+|--------|--------|
+| **Initial cost (Year 0)** | Preliminary cost estimate — analogous, parametric, or vendor quotes (Class 4–5) |
+| **Ongoing costs (Years 1–n)** | Estimated operating/maintenance costs based on similar systems or expert judgment |
+| **Benefits (Years 1–n)** | Projected cost savings, revenue gains, productivity improvements — from market analysis, benchmarking, or business analysis |
+| **Discount rate** | Organisation's cost of capital, required rate of return, or WACC — set by finance |
+| **Project life (n years)** | Technical or economic life of the asset/system — based on industry norms |
+
+**This is the whole point of NPV as a selection tool:**
+
+> Before committing to execute a project, decision-makers need to know: *Is this investment worth it?* NPV uses the best available estimates at the time to answer that question — accepting that estimates carry uncertainty.
+
+**What happens after execution begins?** The estimates are replaced by actual figures. If actual costs or benefits deviate from estimates, the organisation may revise the business case mid-project or during project review gates.
+
+::: {.callout-tip}
+## 💡 Practical Insight
+
+A good business case always **documents the assumptions** behind each number (e.g., "Year 1 cost savings assume 20% reduction in manual processing time based on a pilot study"). This makes it clear what must hold true for the NPV to be valid — and what risks could change it.
+:::
+:::
+
+::: {.callout-note}
+## 📝 Note on Notation
+
+$B_t - C_t$ is simply the **net cash flow** at time $t$, often written as $CF_t$. The two forms are identical:
+
+$$\sum_{t=0}^{n} \frac{B_t - C_t}{(1+r)^t} \equiv \sum_{t=0}^{n} \frac{CF_t}{(1+r)^t}$$
+
+- $CF_t > 0$ → net benefit that year (benefits exceed costs)
+- $CF_t < 0$ → net cost that year (costs exceed benefits)
+
+Some textbooks separate $B_t$ and $C_t$ explicitly for clarity; others combine them into a single $CF_t$ term. Both mean the same thing.
+:::
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 2.3 — Full NPV Calculation (Based on Real Project Data)
+
+The following example uses the **exact data from a project financial template** used by project managers worldwide.
+
+**Scenario:** A company is evaluating a software system upgrade. The project is completed in Year 0 and generates benefits over 3 years.
+
+| Year ($t$) | Costs ($C_t$) | Discount Factor $\frac{1}{(1.08)^t}$ | Discounted Costs $C_t \times DF_t$ | Benefits ($B_t$) | Discounted Benefits $B_t \times DF_t$ |
+|:---:|---:|:---:|---:|---:|---:|
+| *—* | *Given* | *Formula* | *Costs × DF* | *Given* | *Benefits × DF* |
+| 0 | \$140,000 | $\frac{1}{(1.08)^0} = 1.000$ | $\$140{,}000 \times 1.000 = \$140{,}000$ | \$0 | $\$0 \times 1.000 = \$0$ |
+| 1 | \$40,000 | $\frac{1}{(1.08)^1} = 0.926$ | $\$40{,}000 \times 0.926 = \$37{,}040$ | \$200,000 | $\$200{,}000 \times 0.926 = \$185{,}185$ |
+| 2 | \$40,000 | $\frac{1}{(1.08)^2} = 0.857$ | $\$40{,}000 \times 0.857 = \$34{,}293$ | \$200,000 | $\$200{,}000 \times 0.857 = \$171{,}468$ |
+| 3 | \$40,000 | $\frac{1}{(1.08)^3} = 0.794$ | $\$40{,}000 \times 0.794 = \$31{,}752$ | \$200,000 | $\$200{,}000 \times 0.794 = \$158{,}766$ |
+| **Total** | **\$260,000** | | **\$243,085** | **\$600,000** | **\$515,419** |
+
+**Step 1: Calculate NPV**
+
+$$NPV = \text{Total Discounted Benefits} - \text{Total Discounted Costs}$$
+
+$$NPV = \$515{,}419 - \$243{,}085 = \mathbf{\$272{,}334}$$
+
+::: {.callout-note}
+## 🔍 What Does NPV = \$272,334 Actually Mean?
+
+This is **not** simply revenue minus costs. The discount rate (8%) already represents the **minimum required return** — your cost of capital or opportunity cost. When you discount future cash flows at 8%, you are already "paying" for that required return.
+
+Whatever is left over after discounting is **pure extra value created above and beyond the 8% requirement**.
+
+| If NPV were… | It would mean… |
+|---|---|
+| \$0 | Project earns exactly 8% — no more, no less |
+| +\$272,334 | Project earns 8% **plus** an extra \$272,334 in today's money |
+| Negative | Project cannot even cover the 8% required return |
+
+**Practical interpretation:** Accepting this project is equivalent to receiving an immediate cash gift of **\$272,334 today**, on top of your 8% return.
+:::
+
+**Result:** NPV = \$272,334 → **Positive → Accept the project**
+
+```{mermaid}
+%%| fig-cap: "Cash flow diagram — discounted costs vs. discounted benefits over project life"
+xychart-beta
+    title "Project Cash Flows (Discounted, $000)"
+    x-axis ["Year 0", "Year 1", "Year 2", "Year 3"]
+    y-axis "Amount ($000)" 0 --> 200
+    bar [140, 37, 34, 32]
+    line [0, 185, 171, 159]
+```
+:::
+
+---
+
+### Return on Investment (ROI)
+
+> *العائد على الاستثمار*
+
+**Return on Investment (ROI)** measures how much value a project generates **relative to its cost**. It answers: *For every dollar invested, how much do I get back?*
+
+$$\boxed{ROI = \frac{\text{Net Discounted Benefits}}{\text{Discounted Costs}} = \frac{\text{Discounted Benefits} - \text{Discounted Costs}}{\text{Discounted Costs}}}$$
+
+**Decision Rule:**
+- $ROI > 0\%$ → Project returns more than it costs → Accept
+- $ROI = 0\%$ → Project breaks even
+- $ROI < 0\%$ → Project loses money → Reject
+- **Higher ROI = more efficient use of investment**
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 2.4 — ROI Calculation
+
+**Using the same software upgrade project** (Discounted Benefits = \$515,419 | Discounted Costs = \$243,085):
+
+$$ROI = \frac{515{,}419 - 243{,}085}{243{,}085} = \frac{272{,}334}{243{,}085} = \mathbf{1.12 = 112\%}$$
+
+**Interpretation:** For every **\$1** invested (in today's money), the project returns **\$1.12 in net benefit** — meaning you get your dollar back **plus** \$1.12 on top. The project is 112% efficient on its investment.
+
+| ROI Value | Meaning |
+|---|---|
+| 112% | Returns \$1.12 net per \$1 invested |
+| 50% | Returns \$0.50 net per \$1 invested |
+| 0% | Breaks even — no gain, no loss |
+| −30% | Loses \$0.30 per \$1 invested |
+:::
+
+---
+
+### Payback Period
+
+**Payback Period** is the point in time when **cumulative discounted benefits first equal or exceed cumulative discounted costs** — i.e., when the project recoups its investment.
+
+It is found by tracking the **net position** (cumulative benefits − cumulative costs) year by year until it turns positive:
+
+$$\text{Net Position}_t = \sum_{i=0}^{t} \text{Discounted Benefits}_i - \sum_{i=0}^{t} \text{Discounted Costs}_i$$
+
+**Step 1 — Identify the payback year:** the first year where Net Position ≥ 0.
+
+**Step 2 — Calculate the exact (fractional) payback** to know the precise month:
+
+$$\boxed{\text{Exact Payback} = \text{Last negative year} + \frac{|\text{Net Position at last negative year}|}{\text{Net cash flow in payback year}}}$$
+
+Where **Net cash flow in payback year** = Discounted Benefits − Discounted Costs for that year.
+
+Multiply the decimal fraction by 12 to convert to months.
+
+**Decision Rule:**
+- **Shorter payback** → less risk, faster return of investment
+- Compare against a target (e.g., "must pay back within 3 years")
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 2.5 — Payback Period
+
+**Using the same software upgrade project**, track cumulative discounted costs and benefits year by year:
+
+| Year | Discounted Costs | Cumul. Discounted Costs | Discounted Benefits | Cumul. Discounted Benefits | Net Position |
+|:---:|---:|---:|---:|---:|---:|
+| 0 | \$140,000 | \$140,000 | \$0 | \$0 | **−\$140,000** |
+| 1 | \$37,040 | \$177,040 | \$185,185 | \$185,185 | **+\$8,145** ✅ |
+| 2 | \$34,293 | \$211,333 | \$171,468 | \$356,653 | +\$145,320 |
+| 3 | \$31,752 | \$243,085 | \$158,766 | \$515,419 | +\$272,334 |
+
+**The net position turns positive in Year 1 → Payback is within Year 1**
+
+**Exact (fractional) payback calculation:**
+
+- Last negative year = Year 0 → Net Position = −\$140,000
+- Net cash flow in Year 1 = Discounted Benefits − Discounted Costs = \$185,185 − \$37,040 = **\$148,145**
+
+$$\text{Exact Payback} = 0 + \frac{140{,}000}{148{,}145} = \mathbf{0.945 \text{ years}}$$
+
+$$0.945 \times 12 = \mathbf{11.3 \text{ months}}$$
+
+**Interpretation:** The project fully recovers its investment after approximately **11.3 months** — before the end of Year 1. Every month after that is pure gain.
+:::
+
+---
+
+### Break-Even Analysis
+
+> *هي الحد الأدنى من المبيعات الذي يجب تحقيقه لتغطية جميع التكاليف*
+
+**Break-even analysis** determines the **minimum level of sales (units or revenue) that must be achieved to cover all costs** — both fixed and variable. At the break-even point, the project neither makes a profit nor incurs a loss. Every unit sold **below** break-even means a loss; every unit sold **above** it generates profit.
+
+::: {.callout-note icon="false"}
+## 📖 Core Concepts
+
+To perform a break-even analysis, you need to understand three building blocks:
+
+| Concept | Definition | Example |
+|---------|-----------|---------|
+| **Fixed Costs (FC)** | Costs that do **not change** regardless of how many units are produced or sold — you pay them even if output is zero | Rent, equipment purchase, software licences, salaries of permanent staff |
+| **Variable Costs (VC)** | Costs that **increase with every unit** produced or sold | Raw materials, packaging, sales commissions, direct labour per unit |
+| **Selling Price (SP)** | Revenue received per unit sold | Price charged to the customer per item |
+
+**Contribution Margin (CM)** is the amount each unit *contributes* toward covering fixed costs — and eventually generating profit:
+
+$$CM = \text{Selling Price per Unit} - \text{Variable Cost per Unit}$$
+
+**Intuition:** Think of it this way — every unit you sell first pays for its own variable cost, and whatever is left over goes toward paying off the fixed costs. Once fixed costs are fully covered, you have reached break-even. After that, every unit sold is pure profit.
+:::
+
+**Break-Even Point (in units):**
+
+$$\boxed{BEP_{\text{units}} = \frac{\text{Fixed Costs}}{CM} = \frac{\text{Fixed Costs}}{\text{Selling Price per Unit} - \text{Variable Cost per Unit}}}$$
+
+**Break-Even Point (in revenue $):**
+
+$$\boxed{BEP_{\text{revenue}} = BEP_{\text{units}} \times \text{Selling Price per Unit}}$$
+
+**Decision Rule:**
+
+| Actual Sales vs. BEP | Meaning |
+|---|---|
+| Sales **< BEP** | Loss — not enough sales to cover all costs |
+| Sales **= BEP** | Break-even — all costs covered, profit = \$0 |
+| Sales **> BEP** | Profit — every unit beyond BEP earns pure margin |
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 2.6 — Break-Even Analysis
+
+**Scenario:** A manufacturing project has the following parameters:
+
+| Parameter | Value |
+|---|---|
+| Fixed Costs (equipment + setup) | \$25,000 |
+| Variable Cost per Unit | \$8 |
+| Selling Price per Unit | \$12 |
+| **Contribution Margin** | **\$12 − \$8 = \$4 per unit** |
+
+**Interpretation of Contribution Margin:** Each unit sold brings in \$12 in revenue but costs \$8 to produce — leaving \$4 per unit to pay off the \$25,000 in fixed costs. The minimum number of units needed to fully pay off fixed costs is the break-even point.
+
+**Step 1 — Break-Even Point in Units:**
+
+$$BEP = \frac{\$25{,}000}{\$4} = \mathbf{6{,}250\ \text{units}}$$
+
+The project must sell **at least 6,250 units** to cover all costs. Fewer than that means a loss.
+
+**Step 2 — Break-Even Revenue:**
+
+$$BEP_{\text{revenue}} = 6{,}250 \times \$12 = \mathbf{\$75{,}000}$$
+
+**Step 3 — Verify across production levels:**
+
+| Units Sold | Revenue ($12/unit) | Variable Costs ($8/unit) | Fixed Costs | Total Cost | Profit / (Loss) |
+|:---:|---:|---:|---:|---:|---:|
+| 0 | \$0 | \$0 | \$25,000 | \$25,000 | **(−\$25,000)** |
+| 1,000 | \$12,000 | \$8,000 | \$25,000 | \$33,000 | (−\$21,000) |
+| 3,000 | \$36,000 | \$24,000 | \$25,000 | \$49,000 | (−\$13,000) |
+| **6,250** | **\$75,000** | **\$50,000** | **\$25,000** | **\$75,000** | **\$0 ← BREAK-EVEN** |
+| 10,000 | \$120,000 | \$80,000 | \$25,000 | \$105,000 | **+\$15,000** |
+| 15,000 | \$180,000 | \$120,000 | \$25,000 | \$145,000 | +\$35,000 |
+| 20,000 | \$240,000 | \$160,000 | \$25,000 | \$185,000 | +\$55,000 |
+
+```{mermaid}
+%%| fig-cap: "Break-even chart — Revenue line vs. Total Cost line. They cross at 6,250 units."
+xychart-beta
+    title "Break-Even Analysis"
+    x-axis ["0", "2,000", "4,000", "6,250", "8,000", "10,000", "12,000"]
+    y-axis "Amount ($)" 0 --> 150000
+    line [0, 24000, 48000, 75000, 96000, 120000, 144000]
+    line [25000, 41000, 57000, 75000, 89000, 105000, 121000]
+```
+
+**Reading the chart:**
+- The **rising line from \$0** is Revenue — it starts at zero because no revenue is earned if nothing is sold.
+- The **line starting at \$25,000** is Total Cost — it starts above zero because fixed costs exist even at zero production.
+- The two lines **cross at 6,250 units** — that is the break-even point.
+- To the **left** of the crossing: the cost line is above the revenue line → **loss zone**
+- To the **right** of the crossing: the revenue line is above the cost line → **profit zone**
+:::
+
+---
+
+### Internal Rate of Return (IRR)
+
+The **IRR** is the discount rate at which the NPV of a project equals **zero**. In other words, it is the project's own internal rate of return — the rate the project earns on every dollar invested.
+
+$$\boxed{\text{Find } r \text{ such that: } NPV = \sum_{t=0}^{n} \frac{B_t - C_t}{(1+r)^t} = 0}$$
+
+#### The Hurdle Rate
+
+The **Hurdle Rate** (also called the **minimum acceptable rate of return**, MARR) is the **minimum return the organisation requires** before it will invest in a project. It typically reflects:
+
+| Component | Example |
+|---|---|
+| Cost of borrowing money (loan/bond interest) | 5% |
+| Expected return from alternative investments | 7% |
+| Risk premium for this type of project | 2% |
+| **Resulting Hurdle Rate** | **~8–10%** |
+
+The organisation sets the hurdle rate **before evaluating any project**. The IRR is then compared to it:
+
+$$\text{IRR} > \text{Hurdle Rate} \Rightarrow \text{Accept} \qquad \text{IRR} < \text{Hurdle Rate} \Rightarrow \text{Reject}$$
+
+#### How IRR is Calculated (Trial & Error + Interpolation)
+
+There is **no direct formula** to solve for IRR — you cannot isolate $r$ algebraically when $n > 1$. Instead, you use **trial and error**:
+
+1. **Pick two trial rates** — one that gives a **positive NPV** (too low) and one that gives a **negative NPV** (too high). The IRR lies between them.
+2. **Interpolate linearly** to estimate the exact crossing point.
+
+**How to choose trial rates:**
+- Start with the **hurdle rate** (e.g., 8%) — if NPV > 0, the project exceeds the hurdle, so try higher.
+- Try **5% steps** (10%, 15%, 20%) until NPV flips sign.
+- You need one positive NPV and one negative NPV — the IRR is between those two rates.
+
+$$\boxed{IRR \approx r_L + \frac{NPV_L}{NPV_L - NPV_H} \times (r_H - r_L)}$$
+
+Where:
+- $r_L$ = lower trial rate (gives **positive** NPV)
+- $r_H$ = higher trial rate (gives **negative** NPV)
+- $NPV_L$ = NPV at $r_L$ (positive)
+- $NPV_H$ = NPV at $r_H$ (negative)
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 2.7 — IRR by Interpolation
+
+**Scenario:** A project requires an initial investment of \$100,000 and generates the following net cash flows. The organisation's **hurdle rate is 8%**.
+
+| Year | Net Cash Flow ($B_t - C_t$) |
+|:---:|---:|
+| 0 | −\$100,000 |
+| 1 | +\$40,000 |
+| 2 | +\$45,000 |
+| 3 | +\$38,000 |
+
+---
+
+**Step 1 — Check at the Hurdle Rate (8%)**
+
+Before finding IRR, verify the project is worth investigating:
+
+| Year | Cash Flow | $DF = \frac{1}{(1.08)^t}$ | $PV = CF \times DF$ |
+|:---:|---:|:---:|---:|
+| 0 | −\$100,000 | 1.000 | −\$100,000 |
+| 1 | +\$40,000 | 0.926 | +\$37,037 |
+| 2 | +\$45,000 | 0.857 | +\$38,573 |
+| 3 | +\$38,000 | 0.794 | +\$30,172 |
+| **NPV** | | | **+\$5,782** ✅ |
+
+NPV at 8% is positive → the project clears the hurdle. This also tells us the **IRR must be higher than 8%** (we need a higher rate to push NPV to zero).
+
+---
+
+**Step 2 — Try a Higher Rate: r = 10%**
+
+Try 10% (one step above 8%):
+
+| Year | Cash Flow | $DF = \frac{1}{(1.10)^t}$ | $PV = CF \times DF$ |
+|:---:|---:|:---:|---:|
+| 0 | −\$100,000 | 1.000 | −\$100,000 |
+| 1 | +\$40,000 | 0.909 | +\$36,364 |
+| 2 | +\$45,000 | 0.826 | +\$37,190 |
+| 3 | +\$38,000 | 0.751 | +\$28,553 |
+| **NPV** | | | **+\$2,107** ✅ |
+
+Still positive at 10% → IRR is still higher. Try again.
+
+---
+
+**Step 3 — Try a Higher Rate: r = 15%**
+
+Try 15% (next step up):
+
+| Year | Cash Flow | $DF = \frac{1}{(1.15)^t}$ | $PV = CF \times DF$ |
+|:---:|---:|:---:|---:|
+| 0 | −\$100,000 | 1.000 | −\$100,000 |
+| 1 | +\$40,000 | 0.870 | +\$34,783 |
+| 2 | +\$45,000 | 0.756 | +\$34,023 |
+| 3 | +\$38,000 | 0.658 | +\$25,007 |
+| **NPV** | | | **−\$6,187** ❌ |
+
+NPV flipped to negative at 15%. We now have a **bracket**:
+
+| Trial Rate | NPV | Sign |
+|:---:|---:|:---:|
+| 10% | +\$2,107 | ✅ positive |
+| 15% | −\$6,187 | ❌ negative |
+
+→ **IRR lies between 10% and 15%**
+
+---
+
+**Step 4 — Linear Interpolation**
+
+$$IRR \approx r_L + \frac{NPV_L}{NPV_L - NPV_H} \times (r_H - r_L)$$
+
+$$IRR \approx 10\% + \frac{2{,}107}{2{,}107 - (-6{,}187)} \times (15\% - 10\%)$$
+
+$$IRR \approx 10\% + \frac{2{,}107}{8{,}294} \times 5\% = 10\% + 0.254 \times 5\% = 10\% + 1.27\%$$
+
+$$\boxed{IRR \approx 11.3\%}$$
+
+---
+
+**Step 5 — Decision**
+
+Compare IRR to the hurdle rate:
+
+$$IRR = 11.3\% \quad > \quad \text{Hurdle Rate} = 8\% \quad \Rightarrow \quad \textbf{Accept the project}$$
+
+::: {.callout-note}
+## 🔍 Why Not Just Use NPV?
+
+| Metric | What it tells you |
+|---|---|
+| NPV = +\$5,782 at 8% | The project adds \$5,782 of value over the 8% minimum |
+| IRR = 11.3% | The project earns an **11.3% return** on every dollar invested |
+
+Both say "accept". IRR is useful when you want to **compare return rates** across projects without knowing the exact dollar scale.
+:::
+:::
+
+::: {.callout-note icon="false"}
+## 📖 Comparing NPV, IRR, and Payback Period
+
+| Method | Measures | Best For | Limitation |
+|--------|---------|---------|-----------|
+| **NPV** | Absolute value created ($) | Maximising total value | Doesn't show return rate |
+| **IRR** | Percentage return (%) | Comparing with hurdle rate | Can give misleading results with non-conventional cash flows |
+| **Payback** | Speed of cost recovery (years) | Risk assessment; cash flow constraints | Ignores time value; ignores cash flows after payback |
+| **ROI** | Return as % of cost | Quick comparison metric | Doesn't account for time value or duration |
+
+**Best practice:** Use **NPV as primary** decision criterion; use IRR and payback as supplementary checks.
+:::
+
+---
+
+## The Initiation Phase
+
+The **Initiation Phase** is where a project is formally authorised to begin. This phase answers the fundamental questions: *Should we do this project? Who is authorised to lead it? Who are the key players?*
+
+```{mermaid}
+%%| fig-cap: "Key outputs of the Initiation Phase"
+flowchart LR
+    NEED["💡 Business<br/>Need or<br/>Opportunity"] --> |Triggers| BC
+    BC["📊 Business<br/>Case<br/>Development"] --> |Approved by| SA
+    SA["✅ Sponsor<br/>Approval &<br/>Funding"] --> |Leads to| PC
+    PC["📄 Project<br/>Charter<br/>Development"] --> |Authorises| PM
+    PM["👤 Project<br/>Manager<br/>Appointed"] --> |Identifies| SH
+    SH["👥 Stakeholder<br/>Identification<br/>& Analysis"] --> |Produces| SR
+    SR["📋 Stakeholder<br/>Register"] --> |Enables| PEP
+    PEP["🤝 Preliminary<br/>Engagement<br/>Plan"]
+
+    style NEED fill:#4f46e5,color:#fff,stroke:#4f46e5
+    style BC fill:#0f766e,color:#fff,stroke:#0f766e
+    style SA fill:#15803d,color:#fff,stroke:#15803d
+    style PC fill:#b45309,color:#fff,stroke:#b45309
+    style PM fill:#7c3aed,color:#fff,stroke:#7c3aed
+    style SH fill:#0369a1,color:#fff,stroke:#0369a1
+    style SR fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style PEP fill:#1d4ed8,color:#fff,stroke:#1d4ed8
+```
+
+---
+
+## The Business Case
+
+Before any project begins, the organisation must determine **whether the project is worth doing**. This is the purpose of the **Business Case**.
+
+::: {.callout-note icon="false"}
+## 📖 What is a Business Case?
+
+A **Business Case** is a documented justification for undertaking a project, showing that the expected benefits outweigh the costs, risks, and effort required. It is the primary decision-making document for project approval.
+:::
+
+### Elements of a Strong Business Case
+
+::: {.panel-tabset}
+
+## 1. Problem Statement
+**What problem or opportunity is being addressed?**
+
+- Current situation (As-Is)
+- Desired future state (To-Be)
+- Gap analysis
+- Urgency and consequence of inaction
+
+*Example:* "Route 60 (الطريق 60، الطريق الرئيسي القدس-رام الله) currently handles 38,000 vehicles/day — 42% above its designed capacity. This causes an average of 1.8 hours daily congestion, costing the West Bank regional economy an estimated $65M per year in productivity losses and contributing to dangerous road safety conditions..."
+
+## 2. Options Analysis
+**What are the possible solutions?**
+
+Present at least three options:
+- **Option 0:** Do nothing (baseline comparison)
+- **Option 1:** Minimum viable solution
+- **Option 2:** Recommended solution  
+- **Option 3:** Maximum solution
+
+Evaluate each option against criteria: cost, benefit, risk, timeline, feasibility
+
+## 3. Financial Analysis
+**Does it make financial sense?**
+
+Key financial metrics:
+
+| Metric | Formula | Good Indicator |
+|--------|---------|----------------|
+| **Net Present Value (NPV)** | $NPV = \sum \frac{B_t - C_t}{(1+r)^t}$ | NPV > 0 |
+| **Return on Investment (ROI)** | $ROI = \frac{Benefit - Cost}{Cost} \times 100\%$ | ROI > hurdle rate |
+| **Payback Period** | Months to recover investment | < threshold period |
+| **Benefit-Cost Ratio (BCR)** | $BCR = \frac{Benefits}{Costs}$ | BCR > 1 |
+
+## 4. Risk Summary
+**What are the key risks to delivery and benefit realisation?**
+
+- Top 5 project delivery risks
+- Top 5 operational/benefit risks
+- Overall risk rating
+- Key risk mitigation strategies
+
+## 5. Recommendation
+**What should the decision-maker approve?**
+
+- Clearly state the recommended option
+- State total approved budget
+- State approved timeline
+- List key conditions and assumptions
+
+:::
+
+---
+
+## Project Selection Models
+
+Before a project is formally authorised, organisations must decide **which projects to pursue** from a pool of competing proposals. Project selection is a strategic decision that balances financial return, strategic fit, risk, and resource availability.
+
+::: {.callout-note icon="false"}
+## 📖 Why Project Selection Matters
+
+Organisations always have more candidate projects than available resources. A disciplined selection process ensures that approved projects:
+
+- Align with strategic objectives
+- Deliver an acceptable return on investment
+- Are technically and operationally feasible
+- Fit within available resource capacity
+:::
+
+### Categories of Selection Models
+
+Project selection models fall into two broad categories:
+
+```{mermaid}
+%%| fig-cap: "Project selection model categories"
+%%{init: {'flowchart': {'nodeSpacing': 30, 'rankSpacing': 60}}}%%
+flowchart TD
+    S["PROJECT SELECTION MODELS"] --> N & M
+    N["NON-NUMERIC MODELS<br/>No mathematical calculation<br/>Based on judgment & policy"] --> N1 & N2 & N3
+    M["NUMERIC MODELS<br/>Quantitative analysis<br/>Objective comparison"] --> M1 & M2
+    N1["Sacred Cow<br/>Championed by senior exec<br/>Not challenged formally"]
+    N2["Operating Necessity<br/>Required for legal / safety<br/>compliance"]
+    N3["Comparative Benefit<br/>Rank projects by<br/>strategic value score"]
+    M1["Profitability Models<br/>NPV, IRR, Payback,<br/>BCR"]
+    M2["Scoring Models<br/>Weighted criteria<br/>across multiple factors"]
+
+    style S fill:#1d4ed8,color:#fff
+    style N fill:#dbeafe,stroke:#3b82f6,color:#1e40af
+    style M fill:#dcfce7,stroke:#22c55e,color:#166534
+```
+
+---
+
+### Profitability (Financial) Models
+
+For projects that generate measurable financial returns, these models provide objective comparison:
+
+| Model | Formula | Decision Rule |
+|-------|---------|---------------|
+| **Net Present Value (NPV)** | $NPV = \sum_{t=0}^{n} \frac{B_t - C_t}{(1+r)^t}$ | Accept if NPV > 0; higher NPV preferred |
+| **Internal Rate of Return (IRR)** | Rate where $NPV = 0$ | Accept if IRR > hurdle rate |
+| **Payback Period** | $PP = \frac{\text{Initial Investment}}{\text{Annual Net Cash Flow}}$ | Shorter payback preferred |
+| **Benefit-Cost Ratio (BCR)** | $BCR = \frac{\text{PV of Benefits}}{\text{PV of Costs}}$ | Accept if BCR > 1.0 |
+
+: Financial selection models {.striped .hover}
+
+::: {.callout-tip icon="false"}
+## 💡 Worked Example — NPV and Payback Comparison
+
+Three infrastructure proposals are under evaluation. Discount rate = 8 %. All values in $000.
+
+| Project | Year 0 | Year 1 | Year 2 | Year 3 | Year 4 | NPV (8%) | Payback |
+|---------|--------|--------|--------|--------|--------|---------|---------|
+| **A** – Bridge upgrade | −500 | +180 | +200 | +220 | +240 | **+205** | 2.5 yrs |
+| **B** – Road widening | −300 | +90 | +110 | +130 | +150 | **+105** | 2.9 yrs |
+| **C** – New bypass | −800 | +100 | +150 | +250 | +400 | **+53** | 3.5 yrs |
+
+**Conclusion:** Project A has the highest NPV and shortest payback — preferred on financial criteria alone. However, Project C may score higher on strategic or safety criteria, requiring a scoring model comparison.
+:::
+
+---
+
+### Weighted Scoring Model
+
+When projects must be compared on multiple criteria beyond financials, the **Weighted Scoring Model** provides a structured, transparent process:
+
+**Steps:**
+
+1. Identify evaluation criteria (strategic, financial, technical, risk)
+2. Assign weights to each criterion (total = 100%)
+3. Score each project on each criterion (e.g. 1–10)
+4. Calculate weighted score = Weight × Score
+5. Sum scores and rank projects
+
+::: {.callout-tip icon="false"}
+## 💡 Worked Example — Weighted Scoring
+
+Five criteria are weighted and three projects scored out of 10:
+
+| Criterion | Weight | Project A Score | Project A Weighted | Project B Score | Project B Weighted | Project C Score | Project C Weighted |
+|-----------|--------|-----------------|-------------------|-----------------|-------------------|-----------------|-------------------|
+| Strategic fit | 30% | 9 | **27.0** | 6 | 18.0 | 8 | 24.0 |
+| NPV / ROI | 25% | 8 | **20.0** | 7 | 17.5 | 5 | 12.5 |
+| Technical feasibility | 20% | 7 | **14.0** | 9 | 18.0 | 6 | 12.0 |
+| Risk level | 15% | 6 | **9.0** | 8 | 12.0 | 7 | 10.5 |
+| Resource availability | 10% | 8 | **8.0** | 5 | 5.0 | 9 | 9.0 |
+| **TOTAL** | **100%** | — | **78.0** | — | **70.5** | — | **68.0** |
+
+: Weighted scoring model example {.striped .hover}
+
+**Result:** Project A (78.0) is selected. Project B (70.5) is second-priority; Project C (68.0) is deferred.
+
+Note: criteria weights and scores should be agreed by the project sponsor and steering committee — not set unilaterally by the PM.
+:::
+
+---
+
+### Project Portfolio Management
+
+Once individual projects are selected, they must be managed collectively as a **portfolio**:
+
+```{mermaid}
+%%| fig-cap: "Project portfolio management structure"
+%%{init: {'flowchart': {'nodeSpacing': 30, 'rankSpacing': 60}}}%%
+flowchart TD
+    STRAT["🏢 Organisational Strategy<br/>& Goals"] --> PORT
+    PORT["📊 PROJECT PORTFOLIO<br/>All approved projects<br/>& programmes"] --> PROG & PROJ
+    PROG["📦 PROGRAMME<br/>Group of related<br/>projects managed together"] --> P1 & P2
+    PROJ["📋 STANDALONE PROJECT<br/>Independent project<br/>under portfolio oversight"] --> P3
+    P1["Project 1"]
+    P2["Project 2"]
+    P3["Project 3"]
+
+    style STRAT fill:#1d4ed8,color:#fff
+    style PORT fill:#0f766e,color:#fff
+    style PROG fill:#dbeafe,stroke:#3b82f6,color:#1e40af
+    style PROJ fill:#dcfce7,stroke:#22c55e,color:#166534
+```
+
+The **Project Management Office (PMO)** typically governs the portfolio, ensuring:
+
+- Resources are not double-committed across projects
+- Strategic balance is maintained (short-term vs long-term; high-risk vs low-risk)
+- Project performance is reported consistently to senior leadership
+- Lessons learned from one project flow into future projects
+
+---
+
+## The Project Charter
+
+The **Project Charter** is the formal document that **authorises the project** and grants the PM authority to use organisational resources.
+
+::: {.callout-note icon="false"}
+## 📖 PMI Definition
+
+> *"The project charter is the document issued by the project initiator or sponsor that formally authorises the existence of a project and provides the project manager with the authority to apply organisational resources to project activities."*
+> — PMBOK® Guide, 7th Edition
+:::
+
+### Project Charter Template
+
+A well-structured project charter includes:
+
+```{mermaid}
+%%| fig-cap: "Components of a Project Charter"
+mindmap
+  root((📄 PROJECT<br/>CHARTER))
+    Project Identification
+      Project Name
+      Project ID
+      Date Issued
+      Version
+    Purpose & Objectives
+      Problem Statement
+      Project Objectives
+      Success Criteria
+      Measurable Goals
+    Scope
+      In-Scope Items
+      Out-of-Scope Items
+      Key Deliverables
+      Assumptions
+      Constraints
+    Organisation
+      Project Sponsor
+      Project Manager
+      Key Stakeholders
+      Governance Structure
+    Timeline & Budget
+      High-level Schedule
+      Milestones
+      Approved Budget
+      Funding Source
+    Risks & Issues
+      Key Risks
+      Initial Issues
+      Constraints
+    Approvals
+      Sponsor Signature
+      PM Acknowledgement
+      Date
+```
+
+### Sample Project Charter — Stormwater Treatment Plant
+
+::: {.panel-tabset}
+
+## Overview
+**Project Name:** Westfield Industrial Precinct Stormwater Treatment Upgrade  
+**Project ID:** ENV-2026-047  
+**Date:** 15 January 2026  
+**Version:** 1.0  
+
+**Project Sponsor:** Director of Infrastructure, Westfield City Council  
+**Project Manager:** TBA  
+
+**Problem Statement:**  
+Current stormwater infrastructure in the Westfield Industrial Precinct was designed in 1985 and fails to meet current EPA discharge standards under the *Water Quality Act 2024*. Non-compliance fine risk is $2M+ per year plus potential shutdown orders.
+
+## Objectives
+**Primary Objective:**  
+Upgrade stormwater treatment infrastructure to achieve full compliance with EPA Water Quality Act 2024 standards by June 2027.
+
+**Measurable Success Criteria:**
+
+| Criterion | Target | Measurement Method |
+|-----------|--------|-------------------|
+| EPA compliance | 100% of parameters | EPA discharge testing |
+| Capacity | Handle 1-in-50yr storm | Hydraulic modelling sign-off |
+| Budget | Within $4.2M approved | Financial reporting |
+| Schedule | Complete by June 2027 | Milestone tracker |
+| Community impact | < 5 noise complaints | Council complaint log |
+
+## Scope
+**In Scope:**
+- Detailed design of new stormwater treatment ponds
+- Demolition of two existing ineffective basins
+- Construction of two new biofiltration systems
+- Upgrade of 1.2km of stormwater drainage pipes
+- Hydro-seeding and revegetation of disturbed areas
+- EPA approval process management
+
+**Out of Scope:**
+- Upstream catchment management
+- Road pavement renewals within the precinct
+- Private property drainage connections
+
+## Constraints & Risks
+**Key Constraints:**
+- EPA compliance non-negotiable by June 2027 (legislative deadline)
+- Maximum budget: $4.2M (council approved funding)
+- Construction must not disrupt industrial precinct operations
+- Protected vegetation in northern buffer zone cannot be disturbed
+
+**Key Risks (Initial):**
+
+| Risk | Impact | Likelihood |
+|------|--------|-----------|
+| Unexpected contaminated soil | High | Medium |
+| EPA approval delays | High | Low-Medium |
+| Wet season construction delays | Medium | Medium |
+| Community opposition | Medium | Low |
+
+## Approvals
+**Budget Authority:** $4,200,000  
+**Contingency Reserve:** 12% ($504,000)  
+**Programme Reserve:** 15% ($630,000)  
+
+**Approval Signatures Required:**
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| Project Sponsor | Director, Infrastructure | _______________ | ______ |
+| Finance Director | _______________ | _______________ | ______ |
+| Environmental Manager | _______________ | _______________ | ______ |
+
+:::
+
+---
+
+## Stakeholder Identification and Analysis
+
+**Stakeholder management** is consistently identified as one of the most critical — and most underestimated — aspects of engineering project management.
+
+::: {.callout-note icon="false"}
+## 📖 Definition — Stakeholder
+
+A **stakeholder** is any individual, group, or organisation that:
+- May **affect** the project, OR
+- May be **affected by** the project, OR
+- May **perceive** themselves to be affected by the project
+
+This includes both **positive** stakeholders (who benefit) and **negative** stakeholders (who are disadvantaged).
+:::
+
+### The Stakeholder Identification Process
+
+```{mermaid}
+%%| fig-cap: "Stakeholder identification and analysis process"
+%%{init: {'flowchart': {'nodeSpacing': 25, 'rankSpacing': 60}}}%%
+flowchart TD
+    A["🔍 IDENTIFY<br/>Brainstorm all possible stakeholders"] --> B
+    B["📊 CATEGORISE<br/>Group by type and role"] --> C
+    C["⚖️ ANALYSE<br/>Assess power, interest & impact"] --> D
+    D["📋 DOCUMENT<br/>Create stakeholder register"] --> E
+    E["🤝 PLAN<br/>Develop engagement strategy"] --> F
+    F["💬 ENGAGE<br/>Communicate & build relationships"] --> G
+    G["🔄 MONITOR<br/>Review & update throughout project"]
+    G --> |"Stakeholders change<br/>over time"| A
+
+    style A fill:#dbeafe,stroke:#3b82f6,color:#1e40af
+    style B fill:#dcfce7,stroke:#22c55e,color:#166534
+    style C fill:#fef9c3,stroke:#eab308,color:#854d0e
+    style D fill:#fed7aa,stroke:#f97316,color:#7c2d12
+    style E fill:#fce7f3,stroke:#ec4899,color:#831843
+    style F fill:#ede9fe,stroke:#7c3aed,color:#4c1d95
+    style G fill:#cffafe,stroke:#06b6d4,color:#164e63
+```
+
+### Categories of Stakeholders
+
+::: {.panel-tabset}
+
+## Internal Stakeholders
+**People within your organisation:**
+
+- **Project Sponsor** — Senior executive who champions and funds the project
+- **Project Manager** — Responsible for day-to-day project delivery
+- **Project Team** — Engineers, designers, specialists working on the project
+- **PMO** — Project Management Office providing standards and support
+- **Functional Managers** — Heads of departments whose staff work on the project
+- **Finance** — Budget approvals, financial reporting
+- **Legal/Contracts** — Contract review and procurement support
+
+## External Stakeholders
+**People outside your organisation:**
+
+- **Client/Owner** — Who pays for and will own the completed asset
+- **End Users** — People who will use the completed deliverable
+- **Regulators** — Government agencies (EPA, local authorities, safety bodies)
+- **Contractors & Suppliers** — Companies delivering parts of the project
+- **Community** — Local residents affected by construction
+- **Adjacent Businesses** — Operations affected during construction
+- **Media** — Press and social media that influence public opinion
+- **Environmental Groups** — NGOs with interest in environmental impacts
+
+## Positive vs. Negative
+**Grouping by attitude:**
+
+- **Champions** — Strong supporters who actively help the project
+- **Supporters** — Generally in favour but not actively engaged
+- **Neutral** — Not particularly concerned either way
+- **Resistors** — Mildly opposed but not actively blocking
+- **Blockers** — Actively working against the project
+
+:::
+
+### The Power/Interest Matrix
+
+The most widely used tool for stakeholder prioritisation:
+
+```{mermaid}
+%%| fig-cap: "Stakeholder Power/Interest Matrix with engagement strategies"
+quadrantChart
+    title Stakeholder Power/Interest Matrix
+    x-axis "Low Interest" --> "High Interest"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "MANAGE CLOSELY<br/>(Engage & Partner)"
+    quadrant-2 "KEEP SATISFIED<br/>(Regular Updates)"
+    quadrant-3 "MONITOR<br/>(Minimal Effort)"
+    quadrant-4 "KEEP INFORMED<br/>(Regular Communication)"
+    Project Sponsor: [0.85, 0.9]
+    CEO/Executive: [0.4, 0.85]
+    EPA Regulator: [0.75, 0.8]
+    Local Council: [0.7, 0.65]
+    Project Team: [0.9, 0.5]
+    End Users: [0.85, 0.35]
+    Local Community: [0.75, 0.25]
+    Media: [0.6, 0.5]
+    Adjacent Business: [0.5, 0.3]
+    Contractors: [0.8, 0.55]
+    Finance Dept: [0.35, 0.6]
+```
+
+### The Stakeholder Register
+
+The **Stakeholder Register** is the master document capturing all identified stakeholders and their analysis:
+
+| Stakeholder | Role | Power | Interest | Category | Engagement Level | PM Owner |
+|-------------|------|-------|---------|----------|-----------------|----------|
+| A. Smith | Project Sponsor | High | High | Internal | Champion | Project Manager |
+| EPA Division 3 | Regulator | High | High | External | Neutral | PM + Technical Lead |
+| Northbridge Council | Client | High | Medium | External | Supporter | PM |
+| Local Residents Assoc. | Community | Low | High | External | Resistor | Communications Lead |
+| Main Contractor | Delivery | Medium | High | External | Champion | PM + Contracts |
+| Environmental NGO | Watchdog | Low-Med | High | External | Resistor | PM |
+
+: Sample Stakeholder Register {.striped .hover}
+
+---
+
+## Stakeholder Engagement Strategy
+
+Once stakeholders are identified and analysed, develop a tailored **engagement strategy** for each group:
+
+```{mermaid}
+%%| fig-cap: "Stakeholder engagement levels (from lowest to highest engagement)"
+%%{init: {'flowchart': {'nodeSpacing': 25, 'rankSpacing': 50}}}%%
+flowchart LR
+    U["😴 UNAWARE<br/>Does not know about the project"]
+    R["😠 RESISTANT<br/>Aware but opposes the project"]
+    N["😐 NEUTRAL<br/>Aware but neither for nor against"]
+    S["😊 SUPPORTIVE<br/>Aware and in favour of the project"]
+    L["🌟 LEADING<br/>Actively engaged and advocating"]
+
+    U --> R --> N --> S --> L
+
+    style U fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style R fill:#fed7aa,stroke:#f97316,color:#7c2d12
+    style N fill:#fef9c3,stroke:#eab308,color:#854d0e
+    style S fill:#dcfce7,stroke:#22c55e,color:#166534
+    style L fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a
+```
+
+### Communication Planning
+
+::: {.callout-note}
+For each major stakeholder group, define:
+
+- **What** information they need
+- **When** they need it (frequency)
+- **How** it will be communicated (method/channel)
+- **Who** will communicate it (sender)
+- **Why** — what decision or action does the communication enable
+
+:::
+
+**Communication Matrix Example:**
+
+| Stakeholder | Information Needed | Frequency | Method | Owner |
+|-------------|-------------------|-----------|--------|-------|
+| Sponsor | Progress vs. plan, budget, risks | Monthly | Exec Dashboard + 1:1 meeting | PM |
+| Client | Milestones, issues, decisions needed | Weekly | Progress report + fortnightly meeting | PM |
+| Regulator | Compliance status, inspection notices | As required | Formal correspondence | PM + Legal |
+| Community | Construction impacts, timeline | Monthly | Letterbox drop + website | Comms Lead |
+| Team | Tasks, priorities, blockers | Daily/Weekly | Stand-up + team meeting | PM |
+| Contractor | Instructions, specifications, changes | As required | Site instructions, RFIs | Site Engineer |
+
+: Communication Planning Matrix {.striped .hover}
+
+---
+
+## Case Study — Dubai Metro: Red Line Project {.unnumbered}
+
+::: {.callout-important icon="false"}
+## 🏭 Case Study: Dubai Metro — World's Longest Fully Automated Metro System
+
+**Background:**  
+The Dubai Metro was initiated in 2005 as a response to Dubai's rapidly growing population and worsening road congestion. The Red Line project was the world's largest single contract public transport system at the time, valued at **USD $7.6 billion**.
+
+**Initiating the Project:**
+
+The project followed a rigorous initiation process:
+
+1. **Business Case** — Traffic modelling showed Dubai's road network would be saturated by 2010. Rail was the only viable mass transit solution.
+
+2. **Feasibility Study** — Multiple route options assessed over 18 months before Red Line alignment was chosen.
+
+3. **Project Charter** — Government of Dubai issued Decree authorising the Roads and Transport Authority (RTA) as project owner.
+
+4. **Stakeholder Analysis** — Over 200 stakeholder groups identified including: Dubai government, RTA, Hitachi-led consortium, 47 sub-contractors, 300,000+ daily users (projected), property owners along alignment, Dubai Metro Authority.
+
+**Stakeholder Challenges:**
+
+| Stakeholder | Issue | How it was Managed |
+|------------|-------|-------------------|
+| Property Owners | Land acquisition for 52km alignment | Government-mandated acquisition + fair compensation package |
+| Adjacent Businesses | Construction disruption for 3 years | Vibration monitoring, restricted working hours in key areas, compensation scheme |
+| Cultural Groups | Women-only carriages requirement | Dedicated carriages in Gold Class section |
+| Environmental Groups | Coastal construction impacts | Environmental impact assessment + mitigation measures |
+
+**Outcome:**  
+The Red Line opened in September 2009 — **on time** for the Dubai World Expo. It now carries over **600,000 passengers per day**.
+
+**Key Initiation Success Factors:**
+- High-level government sponsorship (Ruler's office directly involved)
+- Extremely detailed stakeholder mapping with dedicated relationship managers per group
+- Clear project charter with unambiguous governance structure
+- International PM expertise brought in to supplement local capability
+- Early community engagement, not just at approval stage
+
+**Discussion Questions:**
+1. How did political will and government sponsorship affect the success of this project?
+2. What are the risks of having too many stakeholders vs. too few?
+3. How would you adapt the stakeholder communication plan for a project of this scale?
+:::
+
+---
+
+## Exercises {.unnumbered}
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 2.1 — Business Case Development
+
+**Scenario:** The West Bank Water Authority is considering replacing **120 km of ageing asbestos-cement water mains** installed in the 1970s across the Ramallah governorate. The pipes are causing 180+ leaks per year, losing an estimated 35% of distributed water, and costing ₪8.5 million (~$2.3M) annually in emergency repairs and water loss.
+
+Develop a **Business Case Summary** that includes:
+
+1. Problem statement (3-4 sentences)
+2. Three options (Do Nothing / Reactive Emergency Repairs / Full Phased Replacement Programme)
+3. For each option: Estimated cost, estimated benefit, risk rating
+4. A recommendation with justification
+
+**Key data provided:**
+- Pipe replacement cost: ~$280K/km (phased over 6 years with donor co-funding from the World Bank)
+- Each leak event: $13,000 average direct cost (repair + water lost)
+- Water loss from leakage: ~35% of annual production (valued at $1.4M/yr)
+- Customer complaints from low pressure and interruptions: 1,800/year
+- Critical risk: A main failure near Ramallah Government Hospital would trigger a public health emergency
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 2.2 — Write a Project Charter
+
+A technology company wants to develop a new **Building Energy Management System (BEMS)** for a portfolio of 25 commercial buildings.
+
+Using the template from Section 2.4, write a **project charter** that includes:
+
+1. Project overview (name, sponsor, PM)
+2. Problem/opportunity statement
+3. At least 4 SMART objectives
+4. In-scope and out-of-scope items (3 each)
+5. High-level budget estimate
+6. Key milestone dates
+7. Three key risks
+
+*SMART = Specific, Measurable, Achievable, Relevant, Time-bound*
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 2.2 — Project Selection Models
+
+A regional transport authority has three infrastructure proposals for the coming budget cycle. Discount rate = 7%. All costs and benefits in $M.
+
+| Year | Project Alpha (New Rail Line) | Project Beta (Highway Upgrade) | Project Gamma (Bus Rapid Transit) |
+|------|-------------------------------|-------------------------------|-----------------------------------|
+| 0 | −120 | −60 | −40 |
+| 1 | +15 | +20 | +15 |
+| 2 | +20 | +22 | +18 |
+| 3 | +25 | +25 | +20 |
+| 4 | +30 | +25 | +22 |
+| 5 | +35 | +25 | +22 |
+
+**Part A — Financial Analysis:**
+1. Calculate the **Payback Period** for each project
+2. Calculate the **NPV** at 7% for each project (use discount factors: Yr 1=0.935, Yr 2=0.873, Yr 3=0.816, Yr 4=0.763, Yr 5=0.713)
+3. Rank the three projects by NPV
+
+**Part B — Weighted Scoring:**
+Evaluate the three projects using the following criteria and weights:
+
+| Criterion | Weight | Alpha | Beta | Gamma |
+|-----------|--------|-------|------|-------|
+| NPV / ROI | 30% | 6 | 8 | 7 |
+| Strategic fit | 25% | 9 | 6 | 7 |
+| Environmental impact | 20% | 8 | 5 | 7 |
+| Implementation risk | 15% | 5 | 8 | 9 |
+| Community benefit | 10% | 9 | 6 | 7 |
+
+Calculate the weighted score for each project and provide a **selection recommendation** with justification.
+
+**Part C — Reflection:**
+The board chair personally prefers Project Alpha ("Sacred Cow"). Using project selection theory, how would you present your recommendation objectively? What risks exist if the selection process is overridden?
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 2.3 — Stakeholder Analysis
+
+**Scenario:** You are managing the construction of a new **50 MW solar power plant** in the Jordan Valley on behalf of the Palestinian Authority Energy Authority. The plant will cover 200 hectares and supply renewable electricity to 12 municipalities across the West Bank, reducing dependence on Israeli electricity imports by an estimated 18%.
+
+1. **Identify** at least 12 stakeholders for this project
+2. **Categorise** each as Internal/External and Positive/Neutral/Negative
+3. **Map** each onto a Power/Interest Matrix (draw a 2×2 grid)
+4. **Develop** a brief engagement strategy (1-2 sentences) for the top 5 most important stakeholders
+5. **Identify** the 3 stakeholders you think pose the greatest risk to the project's success. Explain your reasoning.
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 2.4 — Stakeholder Conflict Resolution
+
+Two of your key stakeholders have directly opposing requirements:
+
+- **The Client** wants to maximise usable floor space in the new building (wants structural columns removed from open-plan floors)
+- **The Structural Engineer** says removing those columns is unsafe without a costly steel transfer structure (which exceeds budget)
+
+Drawing on stakeholder management principles:
+
+1. How would you prepare for a meeting with both parties?
+2. What information would you present to help them reach a decision?
+3. Who has the final decision-making authority in this situation?
+4. How do you maintain trust with both stakeholders regardless of the outcome?
+:::
+
+---
+
+## Summary {.unnumbered}
+
+```{mermaid}
+%%| fig-cap: "Chapter 2 — Key concepts summary"
+mindmap
+  root((Chapter 2<br/>Project<br/>Initiation<br/>& Selection))
+    Business Case
+      Problem Statement
+      Options Analysis
+      Financial Analysis
+      Risk Summary
+    Project Selection
+      Non-numeric models
+      NPV & IRR
+      Payback Period
+      Weighted Scoring Model
+      PMO Portfolio Oversight
+    Project Charter
+      Authorises the project
+      Appoints PM
+      Defines scope boundary
+      States objectives
+    Stakeholder Management
+      Identification
+      Categorisation
+      Power/Interest Matrix
+      Stakeholder Register
+      Engagement Strategy
+    Communication Planning
+      What, When, How
+      Communication Matrix
+      Tailored by audience
+```
+
+::: {.callout-note}
+## 📚 Further Reading
+
+- @pmbok2021 — Section 4.1: Develop Project Charter
+- @pinto2019 — Chapter 3: Stakeholder Management
+- @meredith2017 — Chapter 2: Strategic Management and Project Selection
+:::
+
+**Next Chapter →** [Planning & WBS](03-planning.qmd) — Learn how to translate your project charter into a detailed project plan.

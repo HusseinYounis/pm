@@ -1,0 +1,559 @@
+---
+title: "The Project Management Process Groups"
+---
+
+```{=html}
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 3 · Foundations</div>
+  <h1>The Project Management Process Groups</h1>
+  <p class="chapter-desc">A systematic walkthrough of the five process groups — from initiating through closing — applied to an engineering case study.</p>
+</div>
+```
+
+## Learning Outcomes {.unnumbered}
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+
+By the end of this chapter, you will be able to:
+
+1. **Describe** each of the five project management process groups in detail
+2. **Map** the process groups to the ten PMBOK knowledge areas
+3. **Explain** the key inputs, tools, and outputs of each process group
+4. **Apply** all five process groups to an engineering project scenario
+5. **Develop** a PM methodology appropriate for an engineering organisation
+:::
+
+---
+
+## Overview of the Process Groups
+
+The PMI defines **five process groups** that organise all project management activities. These are not sequential phases — they overlap and interact throughout the project:
+
+```{mermaid}
+%%| fig-cap: "The five process groups and their interactions"
+%%{init: {'theme': 'base'}}%%
+flowchart LR
+    I["🚀 INITIATING<br/>Define & authorise<br/>the project"]
+    P["📋 PLANNING<br/>Define objectives &<br/>plan the work"]
+    E["⚙️ EXECUTING<br/>Do the work &<br/>manage the team"]
+    MC["📊 MONITORING<br/>& CONTROLLING<br/>Track, review &<br/>regulate progress"]
+    C["🏁 CLOSING<br/>Formalise acceptance<br/>& close the project"]
+
+    I --> P
+    P --> E
+    E --> C
+    P <--> MC
+    E <--> MC
+    MC --> C
+
+    style I fill:#4f46e5,color:#fff,stroke:#4f46e5
+    style P fill:#0f766e,color:#fff,stroke:#0f766e
+    style E fill:#15803d,color:#fff,stroke:#15803d
+    style MC fill:#b45309,color:#fff,stroke:#b45309
+    style C fill:#b91c1c,color:#fff,stroke:#b91c1c
+```
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — Process Groups vs. Phases
+
+**Process Groups** are *management activities* — they happen in every phase. **Phases** are *divisions of work* specific to the project type.
+
+In a construction project:
+
+- The **Design Phase** involves initiating (approve the design scope), planning (design schedule), executing (produce drawings), monitoring (design reviews), and closing (design freeze sign-off).
+- The **Construction Phase** then repeats all five process groups for the build work.
+:::
+
+### Level of Activity Across Process Groups
+
+The amount of effort varies across the process groups. Planning and executing overlap significantly, with monitoring & controlling running continuously:
+
+```{mermaid}
+%%| fig-cap: "Relative effort across process groups over time"
+%%{init: {'theme': 'base'}}%%
+xychart-beta
+    title "Level of Activity Through the Project"
+    x-axis ["Start", "20%", "40%", "60%", "80%", "End"]
+    y-axis "Activity Level" 0 --> 100
+    line "Initiating" [60, 20, 5, 0, 0, 0]
+    line "Planning" [30, 80, 50, 30, 15, 5]
+    line "Executing" [0, 20, 70, 90, 60, 10]
+    line "M&C" [5, 30, 50, 60, 50, 20]
+    line "Closing" [0, 0, 0, 5, 40, 80]
+```
+
+---
+
+## The Initiating Process Group
+
+The Initiating process group **authorises the project** (or a new phase) and provides the high-level direction.
+
+### Key Activities
+
+```{mermaid}
+%%| fig-cap: "Initiating process group — key activities"
+flowchart TD
+    BN["💡 Business Need<br/>or Opportunity"] --> BC["📄 Develop<br/>Business Case"]
+    BC --> CH["📜 Develop<br/>Project Charter"]
+    CH --> SH["👥 Identify<br/>Stakeholders"]
+    SH --> GO["✅ Authorise the<br/>Project to Proceed"]
+
+    style BN fill:#e0e7ff,stroke:#4f46e5,color:#312e81
+    style BC fill:#e0e7ff,stroke:#4f46e5,color:#312e81
+    style CH fill:#e0e7ff,stroke:#4f46e5,color:#312e81
+    style SH fill:#e0e7ff,stroke:#4f46e5,color:#312e81
+    style GO fill:#4f46e5,color:#fff,stroke:#4f46e5
+```
+
+| Activity | Description | Key Output |
+|----------|-------------|------------|
+| **Develop Business Case** | Justify the project — why is it needed? What's the expected return? | Business case document |
+| **Develop Project Charter** | Formally authorise the project; name the PM; define high-level scope, budget, timeline | Project charter |
+| **Identify Stakeholders** | Determine who is affected by or can influence the project | Stakeholder register |
+
+: Initiating process group activities {.striped .hover}
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — The Project Charter
+
+The **project charter** is the document that formally *authorises* the project and gives the PM the authority to apply organisational resources. Without a signed charter, the project does not officially exist.
+
+Key elements: project purpose, measurable objectives, high-level requirements, summary budget, milestone schedule, PM name and authority level, sponsor name and approval.
+:::
+
+---
+
+## The Planning Process Group
+
+Planning is the **largest process group**, encompassing 24 of the 49 PMBOK processes. It defines *what* needs to be done, *how*, *when*, and *by whom*.
+
+### Key Activities
+
+```{mermaid}
+%%| fig-cap: "Planning process group — core planning activities"
+flowchart TD
+    PMP["📋 Develop Project<br/>Management Plan"]
+    
+    SC["📐 Plan Scope<br/>Collect Requirements<br/>Define Scope<br/>Create WBS"]
+    
+    TM["⏱️ Plan Schedule<br/>Define Activities<br/>Sequence Activities<br/>Estimate Durations<br/>Develop Schedule"]
+    
+    CM["💰 Plan Cost<br/>Estimate Costs<br/>Determine Budget"]
+    
+    QM["✅ Plan Quality"]
+    RM["👥 Plan Resources"]
+    CO["📢 Plan Communications"]
+    RK["⚠️ Plan Risk<br/>Identify Risks<br/>Analyse Risks<br/>Plan Responses"]
+    PR["📦 Plan Procurement"]
+    SM["🤝 Plan Stakeholder<br/>Engagement"]
+
+    PMP --> SC & TM & CM & QM & RM & CO & RK & PR & SM
+
+    style PMP fill:#0f766e,color:#fff,stroke:#0f766e
+    style SC fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style TM fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style CM fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style QM fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style RM fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style CO fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style RK fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style PR fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style SM fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+```
+
+::: {.callout-important icon="false"}
+## ⚠️ Common Mistake — Rushing to Execute
+
+Many engineers are eager to "start building" and treat planning as bureaucracy. But poor planning is the #1 cause of project failure. The rule of thumb: **every hour spent planning saves 3–5 hours during execution**.
+:::
+
+### The Project Management Plan
+
+The **Project Management Plan (PMP)** is the master document that integrates all subsidiary plans:
+
+| Subsidiary Plan | Defines |
+|----------------|---------|
+| **Scope Management Plan** | How scope will be defined, validated, and controlled |
+| **Schedule Management Plan** | How the schedule will be developed, managed, and controlled |
+| **Cost Management Plan** | How costs will be estimated, budgeted, and controlled |
+| **Quality Management Plan** | Quality standards and how they will be assured and controlled |
+| **Resource Management Plan** | How resources will be identified, acquired, and managed |
+| **Communications Management Plan** | Who needs what information, when, and in what format |
+| **Risk Management Plan** | How risks will be identified, analysed, and responded to |
+| **Procurement Management Plan** | What to procure, how, and from whom |
+| **Stakeholder Engagement Plan** | How stakeholders will be engaged throughout the project |
+
+: Components of the integrated Project Management Plan {.striped .hover}
+
+### The Three Baselines
+
+The PMP includes three **baselines** that serve as the reference points for measuring project performance:
+
+1. **Scope Baseline** = Scope Statement + WBS + WBS Dictionary
+2. **Schedule Baseline** = Approved project schedule
+3. **Cost Baseline** = Time-phased project budget
+
+Changes to any baseline require formal **change control** — you cannot simply move the goalposts.
+
+---
+
+## The Executing Process Group
+
+Executing is where the **actual work gets done**. The PM's focus shifts from planning to coordinating resources, managing the team, and ensuring quality.
+
+### Key Activities
+
+| Activity | Description |
+|----------|-------------|
+| **Direct and Manage Project Work** | Lead the team in producing deliverables according to the plan |
+| **Manage Project Knowledge** | Capture and share lessons learned and organisational knowledge |
+| **Manage Quality** | Perform quality assurance — audit processes and standards compliance |
+| **Acquire Resources** | Obtain the people, equipment, and materials needed |
+| **Develop Team** | Build team competence and cohesion (training, team-building) |
+| **Manage Team** | Track performance, resolve conflicts, provide feedback |
+| **Manage Communications** | Distribute information per the communications plan |
+| **Implement Risk Responses** | Execute the planned risk response strategies |
+| **Conduct Procurements** | Select sellers, negotiate contracts, issue purchase orders |
+| **Manage Stakeholder Engagement** | Work with stakeholders to meet their needs and address issues |
+
+: Executing process group activities {.striped .hover}
+
+::: {.callout-tip icon="false"}
+## 💡 Practical Tip — Where Time and Money Are Spent
+
+The executing process group consumes **the most time and the most budget** of any process group — typically 60–80% of total project resources. Effective planning and monitoring make this investment efficient; poor planning wastes it.
+:::
+
+---
+
+## The Monitoring and Controlling Process Group
+
+This process group runs **continuously** throughout the project. It tracks performance against the plan and takes corrective action when deviations occur.
+
+### Key Activities
+
+```{mermaid}
+%%| fig-cap: "The monitoring and controlling cycle"
+flowchart LR
+    M["📊 Measure<br/>Performance"] --> C["🔍 Compare to<br/>Baselines"]
+    C --> V["📉 Identify<br/>Variances"]
+    V --> D{Acceptable?}
+    D -->|Yes| M
+    D -->|No| A["🔧 Take Corrective<br/>or Preventive Action"]
+    A --> CH["📝 Update Plan<br/>(Change Control)"]
+    CH --> M
+
+    style M fill:#fef3c7,stroke:#d97706,color:#92400e
+    style C fill:#fef3c7,stroke:#d97706,color:#92400e
+    style V fill:#fef3c7,stroke:#d97706,color:#92400e
+    style D fill:#fff,stroke:#d97706,color:#92400e
+    style A fill:#fecaca,stroke:#ef4444,color:#991b1b
+    style CH fill:#fef3c7,stroke:#d97706,color:#92400e
+```
+
+| Activity | Knowledge Area |
+|----------|---------------|
+| **Monitor and Control Project Work** | Integration |
+| **Perform Integrated Change Control** | Integration |
+| **Validate Scope** | Scope |
+| **Control Scope** | Scope |
+| **Control Schedule** | Schedule |
+| **Control Costs** | Cost |
+| **Control Quality** | Quality |
+| **Control Resources** | Resources |
+| **Monitor Communications** | Communications |
+| **Monitor Risks** | Risk |
+| **Control Procurements** | Procurement |
+| **Monitor Stakeholder Engagement** | Stakeholder |
+
+: Monitoring and controlling processes by knowledge area {.striped .hover}
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — Integrated Change Control
+
+**All changes** to project baselines (scope, schedule, cost) must go through a formal **change control process**:
+
+1. **Request** — Document the change request (CR)
+2. **Evaluate** — Assess the impact on scope, schedule, cost, quality, and risk
+3. **Decide** — Change Control Board (CCB) approves, defers, or rejects
+4. **Implement** — If approved, update the plan and baselines
+5. **Communicate** — Notify all affected stakeholders
+
+Uncontrolled changes are **scope creep** — the silent killer of projects.
+:::
+
+---
+
+## The Closing Process Group
+
+Closing **formalises acceptance** of the project's deliverables and brings the project (or phase) to an orderly end.
+
+### Key Activities
+
+```{mermaid}
+%%| fig-cap: "The closing process group — systematic project completion"
+flowchart TD
+    V["✅ Verify all<br/>deliverables complete"] --> A["📝 Obtain formal<br/>acceptance"]
+    A --> F["💰 Complete financial<br/>closure"]
+    F --> C["📦 Close<br/>procurements"]
+    C --> L["📚 Capture lessons<br/>learned"]
+    L --> T["👥 Release team<br/>& resources"]
+    T --> AR["📁 Archive project<br/>documents"]
+    AR --> R["📊 Final project<br/>report"]
+
+    style V fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style A fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style F fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style C fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style L fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style T fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style AR fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+    style R fill:#fecaca,stroke:#b91c1c,color:#7f1d1d
+```
+
+::: {.callout-important icon="false"}
+## ⚠️ Common Mistake — Skipping Closure
+
+Many projects drift to an end without formal closure. This means:
+
+- No lessons learned captured → same mistakes repeated
+- No formal acceptance → disputes about what was delivered
+- Resources not released → they remain allocated but idle
+- Contracts not closed → lingering financial liabilities
+:::
+
+---
+
+## Mapping Process Groups to Knowledge Areas
+
+The most powerful view of project management is the **Process Group × Knowledge Area matrix**. Each cell represents a specific process:
+
+| Knowledge Area | Initiating | Planning | Executing | M & C | Closing |
+|----------------|-----------|----------|-----------|-------|---------|
+| **Integration** | Develop Charter | Develop PM Plan | Direct & Manage Work; Manage Knowledge | Monitor Work; Integrated Change Control | Close Project |
+| **Scope** | — | Plan Scope; Collect Requirements; Define Scope; Create WBS | — | Validate Scope; Control Scope | — |
+| **Schedule** | — | Plan Schedule; Define Activities; Sequence; Estimate Durations; Develop Schedule | — | Control Schedule | — |
+| **Cost** | — | Plan Cost; Estimate Costs; Determine Budget | — | Control Costs | — |
+| **Quality** | — | Plan Quality | Manage Quality | Control Quality | — |
+| **Resources** | — | Plan Resources; Estimate Activity Resources | Acquire; Develop; Manage Team | Control Resources | — |
+| **Communications** | — | Plan Communications | Manage Communications | Monitor Communications | — |
+| **Risk** | — | Plan Risk; Identify; Qualitative Analysis; Quantitative Analysis; Plan Responses | Implement Responses | Monitor Risks | — |
+| **Procurement** | — | Plan Procurement | Conduct Procurements | Control Procurements | — |
+| **Stakeholders** | Identify Stakeholders | Plan Engagement | Manage Engagement | Monitor Engagement | — |
+
+: The PMBOK Process Group × Knowledge Area matrix (simplified from PMBOK 7th Edition) {.striped .hover}
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — The Matrix as a Roadmap
+
+This matrix is the **roadmap** of project management. When you're unsure what to do next on a project, find your current process group and knowledge area in the matrix — the cell tells you what process to perform.
+
+Notice that:
+
+- **Planning** has the most processes (24 of 49)
+- **Integration** is the only knowledge area that spans *all five* process groups
+- **Initiating** and **Closing** are the smallest but arguably the most neglected
+:::
+
+---
+
+## Developing a PM Methodology
+
+An organisation's **PM methodology** defines the standard approach to managing projects. It adapts the generic PMBOK framework to the organisation's specific context.
+
+### Elements of an Engineering PM Methodology
+
+```{mermaid}
+%%| fig-cap: "Components of an engineering PM methodology"
+mindmap
+  root((PM<br/>Methodology))
+    Templates
+      Project Charter
+      PMP Template
+      WBS Template
+      Risk Register
+      Lessons Learned
+    Processes
+      Stage-gate reviews
+      Change control
+      Quality gates
+      Handover procedures
+    Tools
+      Scheduling software
+      Cost management
+      Document control
+      Collaboration platform
+    Standards
+      PMBOK Guide
+      ISO 21500
+      Industry codes
+      Company standards
+    Governance
+      Steering committee
+      PMO oversight
+      Reporting cadence
+      Escalation paths
+```
+
+::: {.callout-tip icon="false"}
+## 💡 Practical Tip — Tailoring
+
+No methodology should be applied blindly. The PMBOK 7th Edition emphasises **tailoring** — adapting processes, tools, and documentation to the project's size, complexity, and risk level. A $10M highway widening does not need the same level of documentation as a $2B metro system.
+:::
+
+---
+
+## Case Study — Al-Maktoum International Airport Expansion, Dubai {.unnumbered}
+
+::: {.callout-caution icon="false"}
+## 🏗️ Case Study — Al-Maktoum International Airport Expansion
+
+**Al-Maktoum International Airport** (DWC) in Dubai South is planned to become the world's largest airport, with an ultimate capacity of 260 million passengers per year. The expansion programme illustrates all five process groups in action.
+
+### Project Overview
+
+| Attribute | Detail |
+|-----------|--------|
+| **Location** | Dubai South (Jebel Ali), UAE |
+| **Estimated cost** | $35+ billion (full build-out) |
+| **Phases** | Multi-phase over 20+ years |
+| **Client** | Dubai Aviation Engineering Projects (DAEP) |
+| **Key challenge** | Phased construction while maintaining existing operations |
+
+### Process Groups in Action
+
+::: {.panel-tabset}
+
+#### 🚀 Initiating
+
+- **Strategic alignment:** Part of Dubai's vision to be the world's aviation hub, aligning with Dubai 2040 Urban Master Plan
+- **Business case:** Forecast demand exceeding Dubai International Airport's (DXB) 100M passenger capacity
+- **Project charter:** Defined scope as a phased expansion — runway, terminals, cargo, ground transportation
+- **Stakeholder identification:** UAE General Civil Aviation Authority, airlines, Dubai Tourism, neighbouring Expo 2020/District 2040 developments, 200+ airline customers
+
+#### 📋 Planning
+
+- **Scope:** Full WBS developed for each phase — airside (runways, taxiways, ATC tower), landside (terminals, parking, access roads), systems (baggage, security, IT)
+- **Schedule:** Primavera P6 master schedule with 50,000+ activities; critical path through terminal foundations and runway construction
+- **Cost:** Class 3 estimate progressing to Class 1; Earned Value Management mandated on all packages
+- **Quality:** ITP covering all structural, MEP, and ICT systems; BIM Level 2 mandated
+- **Risk:** 500+ risks in the register; key risks include ground conditions (sabkha soil), extreme heat (50°C+), supply chain disruptions, interface conflicts between packages
+
+#### ⚙️ Executing
+
+- **Team management:** Peak workforce estimated at 60,000+ workers from 40+ nationalities
+- **Procurement:** Multiple design-build packages awarded to international joint ventures
+- **Quality assurance:** Third-party inspection agencies; BIM clash detection before every pour
+- **Communications:** Weekly dashboards to DAEP leadership; monthly reports to Dubai Executive Council
+- **Stakeholder engagement:** Regular coordination with existing DWC operations to minimise disruption
+
+#### 📊 Monitoring & Controlling
+
+- **Earned Value:** Monthly EVM reporting (CPI, SPI) at programme, package, and activity level
+- **Change control:** Programme Change Board meets bi-weekly; all changes assessed for impact on schedule, cost, and interfaces
+- **Schedule monitoring:** 4-week lookahead schedules; delay analysis using Time Impact Analysis (TIA) method
+- **Risk monitoring:** Monthly risk reviews; risks that materialise become issues tracked in a separate register
+- **Scope control:** BIM model frozen at stage gates; any post-freeze changes require formal variation order
+
+#### 🏁 Closing
+
+- **Phased handover:** Each terminal zone goes through Testing & Commissioning (T&C), Operational Readiness (ORAT), and formal handover
+- **Lessons learned:** Captured at the end of each phase; fed into the planning of subsequent phases
+- **Document turnover:** As-built BIM models, O&M manuals, and warranty certificates collected per handover zone
+- **Benefits realisation:** Passenger capacity and airline satisfaction measured against business case projections
+
+:::
+
+### Lessons for Process Groups
+
+1. **All five process groups operate in every phase** — initiation happens again when a new terminal phase is authorised; planning is continuous; monitoring never stops
+2. **The planning process group is the backbone** — 50,000+ scheduled activities require meticulous planning to coordinate
+3. **Monitoring & controlling prevents surprises** — EVM and schedule analysis catch deviations early
+4. **Closing is critical in phased projects** — each phase must be formally closed and handed over before the next can fully begin
+5. **Integration is the PM's core job** — with hundreds of interfaces between packages, the programme management team's primary role is integration
+
+:::
+
+---
+
+## Exercises {.unnumbered}
+
+::: {.callout-warning icon="false"}
+## ✏️ Exercise 3.1 — Process Group Identification
+
+**For each of the following activities, identify which process group it belongs to** (Initiating, Planning, Executing, Monitoring & Controlling, or Closing):
+
+1. Preparing the project stakeholder register
+2. Conducting a concrete pour according to the quality plan
+3. Comparing actual costs against the cost baseline
+4. Archiving all project documents in the document management system
+5. Creating the Work Breakdown Structure
+6. Obtaining the client's formal sign-off on completed deliverables
+7. Holding a kick-off meeting with the project team
+8. Performing Earned Value Analysis to forecast the Estimate at Completion
+9. Capturing lessons learned from a completed design phase
+10. Negotiating a subcontract with a steel fabrication supplier
+11. Updating the risk register after a monthly risk review meeting
+12. Writing the project charter
+:::
+
+::: {.callout-warning icon="false"}
+## ✏️ Exercise 3.2 — Process Group Walkthrough
+
+**Scenario:** You are the PM for a **new 5 km urban road construction project** with a budget of $8 million and a timeline of 18 months.
+
+**Tasks:**
+
+For each of the five process groups, list:
+
+1. The **three most important activities** you would perform
+2. The **key deliverable(s)** produced
+3. The **primary stakeholders** involved
+
+Present your answer as a table with five rows (one per process group).
+:::
+
+::: {.callout-warning icon="false"}
+## ✏️ Exercise 3.3 — Knowledge Area Mapping
+
+**Scenario:** Consider a project to build a **solar-powered water pumping station** for a rural community.
+
+**Tasks:**
+
+1. For each of the **ten knowledge areas**, identify **one specific activity** you would perform during the **planning process group**
+2. Identify which three knowledge areas you think are **most critical** for this project and explain why
+3. Explain how **integration management** connects the other nine knowledge areas in this project
+:::
+
+::: {.callout-warning icon="false"}
+## ✏️ Exercise 3.4 — Change Control Scenario
+
+**Scenario:** You are managing the construction of a **new university library** ($15 million, 24 months). At month 10, the university president requests the addition of a **120-seat auditorium** to the ground floor — a feature not in the original scope.
+
+**Tasks:**
+
+1. Describe the **change control process** you would follow step by step
+2. Identify the **impacts** this change would have on scope, schedule, cost, quality, and risk
+3. What information would you present to the **Change Control Board** to help them decide?
+4. If the change is **approved**, what project documents would you need to update?
+5. If the change is **rejected**, how would you communicate this to the university president?
+:::
+
+---
+
+## Summary {.unnumbered}
+
+::: {.callout-note icon="false"}
+## 📝 Chapter Summary
+
+In this chapter you learned that:
+
+- The five **process groups** — Initiating, Planning, Executing, Monitoring & Controlling, and Closing — organise all PM activities
+- Process groups **overlap and repeat** within each project phase; they are not a once-through sequence
+- **Planning** is the largest process group with 24 processes; **Integration** is the only knowledge area spanning all five groups
+- The **Process Group × Knowledge Area matrix** is the roadmap of project management — 49 processes organised across 10 knowledge areas
+- **Integrated change control** protects the project baselines from uncontrolled scope creep
+- **Closing** is essential — formal acceptance, lessons learned, and document archival prevent future disputes and repeated mistakes
+- Organisations should develop a **PM methodology** tailored to their specific context, adapting generic best practices to their industry and project types
+:::

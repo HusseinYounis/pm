@@ -1,0 +1,630 @@
+---
+title: "Cost Management & Earned Value"
+---
+
+```{=html}
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 7 · Execution & Control</div>
+  <h1>Cost Management &amp; Earned Value</h1>
+  <p class="chapter-desc">Estimating, budgeting, and controlling project costs with Earned Value Management (EVM) — complete solved examples using real project data.</p>
+</div>
+```
+
+## Learning Outcomes {.unnumbered}
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+
+By the end of this chapter, you will be able to:
+
+1. **Apply** the four main cost estimation techniques including function point analysis
+2. **Develop** a project budget and cost baseline (S-curve)
+3. **Build** a bottom-up cost estimate using a WBS cost template
+4. **Calculate** all core EVM metrics (PV, EV, AC, CPI, SPI, EAC, ETC, TCPI)
+5. **Interpret** EVM status reports and forecast project outcomes
+6. **Identify** cost control techniques and corrective actions
+7. **Explain** contingency and management reserves
+:::
+
+---
+
+## Cost Estimation
+
+**Cost estimation** is the process of predicting the financial cost of completing project work.
+
+### Estimation Classes (AACE International Standard)
+
+| Class | Stage | Scope Definition | Accuracy | Usage |
+|-------|-------|-----------------|----------|-------|
+| **Class 5** | Concept | 0–2% | –50% to +100% | Screening, go/no-go |
+| **Class 4** | Study | 1–15% | –30% to +50% | Feasibility |
+| **Class 3** | Preliminary | 10–40% | –20% to +30% | Budget approval |
+| **Class 2** | Detailed | 30–70% | –10% to +15% | Cost control |
+| **Class 1** | Definitive | 50–100% | –5% to +5% | Tendering |
+
+: AACE Cost Estimate Classes {.striped .hover}
+
+### Estimation Techniques
+
+::: {.panel-tabset}
+
+## Analogous (Top-Down)
+**Based on historical data from similar projects**
+
+$$Cost_{new} = Cost_{historical} \times Adjustment\ Factor$$
+
+*When to use:* Early project stages; limited detail available
+
+**Cost Capacity Factor (Six-Tenths Rule):**
+$$Cost_B = Cost_A \times \left(\frac{Capacity_B}{Capacity_A}\right)^{0.6}$$
+
+*Example:* "Our last desalination plant (50 ML/day) cost $85M. This one is 65 ML/day:  
+$85M × (65/50)^{0.6} = $85M × 1.21 ≈ **$103M**"
+
+Accuracy: ±25% to ±50%
+
+## Parametric
+**Mathematical models based on units of measure**
+
+*Examples:*
+- Civil works: $450/m² × 3,500 m² = $1,575,000
+- Earthworks: $28/m³ × 15,000 m³ = $420,000
+- Electrical: $650/circuit × 180 circuits = $117,000
+
+Accuracy: ±10% to ±25%
+
+## Bottom-Up
+**Estimate each work package individually, then sum**
+
+Most accurate; most time-consuming.
+
+*For each activity:*
+1. Materials: Quantity × Unit rate
+2. Labour: Hours × Hourly rate
+3. Equipment: Hours/days × Hire rate
+4. Overheads: (L + M + E) × OH%
+5. Profit/margin (for contractors)
+
+Accuracy: ±5% to ±15%
+
+## Three-Point (PERT)
+**Optimistic, Most Likely, Pessimistic applied to cost**
+
+$$CE = \frac{O + 4M + P}{6}$$
+
+Used to build **cost contingency** from risk analysis.
+
+:::
+
+---
+
+## Bottom-Up Cost Estimate — Complete Example
+
+The following **real-world cost estimate** follows the WBS structure for an IT/Engineering project. It demonstrates how a project manager builds a detailed Class 2 estimate.
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 7.1 — Bottom-Up WBS Cost Estimate
+
+**Project:** Enterprise IT System Development  
+**Estimate Class:** Class 2 (Detailed — 30–70% scope definition)
+
+| WBS Item | Units/Hrs | Cost/Unit/Hr | Subtotals | WBS Level 1 Totals | % of Total |
+|----------|-----------|-------------|-----------|---------------------|------------|
+| **1. Project Management** | | | | **$306,300** | **20.1%** |
+| 1.1 Project manager | 960 hrs | $100/hr | $96,000 | | |
+| 1.2 Project team members | 1,920 hrs | $75/hr | $144,000 | | |
+| Contractors (10% of software dev & testing) | | | $66,300 | | |
+| **2. Hardware** | | | | **$76,000** | **5.0%** |
+| 2.1 Handheld devices | 100 units | $600/unit | $60,000 | | |
+| 2.2 Servers | 4 units | $4,000/unit | $16,000 | | |
+| **3. Software** | | | | **$614,000** | **40.4%** |
+| 3.1 Licensed software | 100 licences | $200/licence | $20,000 | | |
+| 3.2 Software development* | — | — | $594,000 | | |
+| **4. Testing** (10% of hardware + software) | | | | **$69,000** | **4.5%** |
+| **5. Training & Support** | | | | **$202,400** | **13.3%** |
+| 5.1 Trainee cost | 100 trainees | $500/trainee | $50,000 | | |
+| 5.2 Travel cost | 12 trips | $700/trip | $8,400 | | |
+| 5.3 Project team members | 1,920 hrs | $75/hr | $144,000 | | |
+| **6. Reserves** (20% of base estimate) | | | | **$253,540** | **16.7%** |
+| **TOTAL PROJECT COST ESTIMATE** | | | | **$1,521,240** | |
+
+: WBS-Based Bottom-Up Cost Estimate {.striped .hover}
+
+**Software Development Detail (Function Point Approach):**
+
+| Component | Quantity | Conversion Factor | Function Points |
+|-----------|----------|-------------------|-----------------|
+| External inputs | 10 | 4 | 40 |
+| External interface files | 3 | 7 | 21 |
+| External outputs | 3 | 5 | 15 |
+| External queries | 3 | 4 | 12 |
+| Logical internal tables | 6 | 10 | 60 |
+| **Total Function Points** | | | **148** |
+
+- Java 2 language equivalency: 46 SLOC per function point
+- Estimated SLOC: 148 × 46 = **6,808 lines of code**
+- Productivity factor: 30.27 person-months
+- Total labour hours: 4,843 hours at $120/hr
+- **Total software development estimate: $581,106** (rounded to $594,000 with 2.2% contingency)
+:::
+
+---
+
+## The Project Budget and Cost Baseline
+
+The **cost baseline** (S-curve) shows planned cumulative expenditure over time.
+
+```{mermaid}
+%%| fig-cap: "Project budget structure: from estimates to reserves"
+%%{init: {'flowchart': {'nodeSpacing': 30, 'rankSpacing': 60}}}%%
+graph TD
+    A["📋 Work Package Cost Estimates<br/>(Bottom-up per WBS work package)"]
+    B["📊 Control Accounts<br/>(Sum of work packages)"]
+    C["🗂️ Cost Baseline<br/>= Sum of Control Accounts + Contingency<br/>(Excludes Management Reserve)"]
+    D["🔒 Management Reserve<br/>PM's buffer for unknown-unknowns<br/>(Sponsor controlled)"]
+    E["💰 Budget at Completion (BAC)<br/>= Cost Baseline + Management Reserve"]
+
+    A --> B --> C
+    C --> E
+    D --> E
+
+    style E fill:#1d4ed8,color:#fff
+    style C fill:#0f766e,color:#fff
+    style D fill:#b91c1c,color:#fff
+```
+
+::: {.callout-note icon="false"}
+## 📖 Contingency vs. Management Reserve
+
+**Contingency Reserve:** For **known risks** (from the risk register). Controlled by the PM.
+
+**Management Reserve:** For **unknown-unknowns**. Controlled by the Project Sponsor.
+
+*Typical reserves:*
+- Contingency: 5–15% of base estimate
+- Management Reserve: 5–10% of base estimate
+:::
+
+---
+
+## Earned Value Management (EVM)
+
+**Earned Value Management (EVM)** integrates scope, schedule, and cost into a single measurement system — giving you an objective view of project status at any point.
+
+### The Three Core EVM Values
+
+::: {.callout-note icon="false"}
+## 📖 The Three Fundamental EVM Metrics
+
+| Metric | Acronym | Old Name | Question it Answers |
+|--------|---------|----------|---------------------|
+| **Planned Value** | PV | BCWS | How much work was *planned* to be done (in $)? |
+| **Earned Value** | EV | BCWP | How much work has actually been *accomplished* (in $)? |
+| **Actual Cost** | AC | ACWP | How much have we actually *spent* (in $)? |
+:::
+
+### EVM Formulas Reference Card
+
+| Metric | Formula | Positive = Good | Negative = Bad |
+|--------|---------|-----------------|----------------|
+| **SV** (Schedule Variance) | $EV - PV$ | Ahead of schedule | Behind schedule |
+| **CV** (Cost Variance) | $EV - AC$ | Under budget | Over budget |
+| **SPI** (Schedule Performance Index) | $EV / PV$ | > 1 = ahead | < 1 = behind |
+| **CPI** (Cost Performance Index) | $EV / AC$ | > 1 = under budget | < 1 = over budget |
+| **EAC** (Estimate at Completion) | $BAC / CPI$ | — | — |
+| **ETC** (Estimate to Complete) | $EAC - AC$ | — | — |
+| **VAC** (Variance at Completion) | $BAC - EAC$ | Positive = under budget | Negative = over budget |
+| **TCPI** (To-Complete Perf. Index) | $(BAC - EV) / (BAC - AC)$ | < 1 = easy | > 1 = needs improvement |
+
+: EVM Formulas Quick Reference {.striped .hover}
+
+---
+
+## Complete EVM Solved Example — Real Project Data
+
+The following complete example is based on **real earned value data** from a software project tracked over its full 12-month life cycle.
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 7.2 — Full EVM Walk-Through
+
+**Project:** Database Management System — **Budget at Completion (BAC) = $100,000**  
+**Duration:** 12 months (January–December)  
+**Status Date:** End of May (Month 5)
+
+**Step 1: Monthly Planned Value (PV) per activity**
+
+The Planned Value for each activity is the approved budget for work *scheduled* to be done:
+
+| Activity | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec | **Total PV** |
+|----------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-------------|
+| Plan & Staff Project | $4,000 | $4,000 | — | — | — | — | — | — | — | — | — | — | $8,000 |
+| Analyse Requirements | — | $6,000 | $6,000 | — | — | — | — | — | — | — | — | — | $12,000 |
+| Develop ERDs | — | — | $4,000 | $4,000 | — | — | — | — | — | — | — | — | $8,000 |
+| Design DB Tables | — | — | — | $6,000 | $4,000 | — | — | — | — | — | — | — | $10,000 |
+| Design Forms/Reports | — | — | — | — | $8,000 | $4,000 | — | — | — | — | — | — | $8,000* |
+| Construct Prototype | — | — | — | — | — | $10,000 | — | — | — | — | — | — | — |
+| Test/Eval Prototype | — | — | — | — | — | $2,000 | $6,000 | — | — | — | — | — | — |
+| User Feedback | — | — | — | — | — | — | $4,000 | $6,000 | $4,000 | — | — | — | — |
+| Test System | — | — | — | — | — | — | — | — | $4,000 | $4,000 | $2,000 | — | — |
+| Document System | — | — | — | — | — | — | — | — | — | — | $3,000 | $1,000 | — |
+| **Monthly PV** | **$4,000** | **$10,000** | **$10,000** | **$10,000** | **$12,000** | **$16,000** | **$10,000** | **$6,000** | **$8,000** | **$4,000** | **$5,000** | **$5,000** | — |
+| **Cumulative PV** | $4,000 | $14,000 | $24,000 | $34,000 | **$46,000** | $62,000 | $72,000 | $78,000 | $86,000 | $90,000 | $95,000 | $100,000 | |
+
+*\*Design Forms/Reports is only 75% planned complete by May*
+
+**Step 2: Earned Value (EV) — actual work accomplished**
+
+EV = Budgeted Cost × Actual % Complete
+
+| Activity | Total PV | Planned % | Actual % | EV ($) | Notes |
+|----------|---------|-----------|----------|--------|-------|
+| Plan & Staff Project | $8,000 | 100% | **100%** | $8,000 | Complete ✅ |
+| Analyse Requirements | $12,000 | 100% | **100%** | $12,000 | Complete ✅ |
+| Develop ERDs | $8,000 | 100% | **100%** | $8,000 | Complete ✅ |
+| Design DB Tables | $10,000 | 100% | **100%** | $10,000 | Complete ✅ |
+| Design Forms/Reports | $8,000 | 75% | **50%** | **$5,333** | Only 50% done (behind!) |
+| Construct Prototype | — | 0% | 0% | $0 | Not started |
+| Test/Eval Prototype | — | 0% | 0% | $0 | Not started |
+| **TOTAL EV at May 31** | | | | **$43,333** | |
+
+**Step 3: Actual Cost (AC) at May 31**
+
+| Month | Monthly AC | Cumulative AC |
+|-------|-----------|---------------|
+| January | $4,000 | $4,000 |
+| February | $11,000 | $15,000 |
+| March | $11,000 | $26,000 |
+| April | $12,000 | $38,000 |
+| May | $15,000 | **$53,000** |
+
+**Step 4: Calculate All EVM Metrics**
+
+| Metric | Formula | Calculation | Result | Interpretation |
+|--------|---------|------------|--------|----------------|
+| **PV** | Planned | — | **$46,000** | Budgeted work planned by May 31 |
+| **EV** | Earned | — | **$43,333** | Value of work actually done |
+| **AC** | Actual | — | **$53,000** | Money actually spent |
+| **SV** | EV − PV | 43,333 − 46,000 | **−$2,667** | ⚠️ $2,667 behind schedule |
+| **CV** | EV − AC | 43,333 − 53,000 | **−$9,667** | 🚨 $9,667 over budget |
+| **SPI** | EV/PV | 43,333/46,000 | **0.942** | Doing 94.2% of planned work |
+| **CPI** | EV/AC | 43,333/53,000 | **0.818** | Getting $0.82 value per $1 spent |
+| **EAC** | BAC/CPI | 100,000/0.818 | **$122,308** | Forecast final cost |
+| **ETC** | EAC − AC | 122,308 − 53,000 | **$69,308** | Still need $69K more to finish |
+| **VAC** | BAC − EAC | 100,000 − 122,308 | **−$22,308** | Expected overrun of $22,308 |
+| **TCPI** | (BAC−EV)/(BAC−AC) | (100K−43,333)/(100K−53K) | **1.206** | Need 20.6% better cost efficiency! |
+
+: Full EVM Status Table at May 31 {.striped .hover}
+
+**Step 5: S-Curve and EVM Chart**
+
+```{mermaid}
+%%| fig-cap: "EVM S-Curve showing PV, EV, AC and forecast through project completion"
+xychart-beta
+    title "EVM S-Curve — Database Project ($000)"
+    x-axis ["Jan", "Feb", "Mar", "Apr", "May ◄NOW", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    y-axis "Cumulative Cost ($000)" 0 --> 125
+    line [4, 14, 24, 34, 46, 62, 72, 78, 86, 90, 95, 100]
+    line [4, 14, 24, 34, 43, 0, 0, 0, 0, 0, 0, 0]
+    line [4, 15, 26, 38, 53, 0, 0, 0, 0, 0, 0, 0]
+```
+
+*Blue line = PV (planned); Orange line = EV (earned); Red line = AC (actual)*
+
+**Step 6: Status Narrative**
+
+> **Project Status Report — May 31**
+>
+> As of the end of May, the database project is **behind schedule (SPI = 0.94)** and **over budget (CPI = 0.82)**. The primary driver of poor cost performance is the "Design Forms, Reports & Queries" activity, which is only 50% complete against a planned 75%, while costs have continued at the budgeted rate. If current cost performance continues, the project is forecast to complete at **$122,308** — a **$22,308 (22.3%) overrun** against the approved budget of $100,000. Recommended actions: (1) Re-estimate remaining work on Forms/Reports activity; (2) Identify specific root causes of cost overrun in April and May; (3) Present options to sponsor: scope reduction, budget increase, or schedule extension.
+
+**TCPI Warning:** A TCPI of 1.206 means the team must achieve 20.6% better cost efficiency on all remaining work than it has achieved to date. This is generally considered unrealistic without significant interventions.
+:::
+
+---
+
+## EVM Status Interpretation Guide
+
+```{mermaid}
+%%| fig-cap: "EVM status quadrant — interpreting CPI and SPI together"
+quadrantChart
+    title EVM Status Quadrant (CPI vs SPI)
+    x-axis "Over Budget (CPI < 1)" --> "Under Budget (CPI > 1)"
+    y-axis "Behind Schedule (SPI < 1)" --> "Ahead of Schedule (SPI > 1)"
+    quadrant-1 "✅ BEST CASE<br/>Ahead + Under Budget"
+    quadrant-2 "⚠️ CHECK SCOPE<br/>Ahead but Over Budget"
+    quadrant-3 "🚨 CRITICAL<br/>Behind + Over Budget"
+    quadrant-4 "⚠️ AT RISK<br/>Behind but Under Budget"
+    Our Project: [0.3, 0.42]
+    Ideal: [0.85, 0.85]
+    Warning Zone: [0.35, 0.35]
+```
+
+| CPI / SPI | Condition | Action Required |
+|-----------|-----------|----------------|
+| Both ≥ 1.0 | On or under budget, on or ahead of schedule | Continue; investigate if >1.2 (too optimistic?) |
+| CPI < 1 only | Over budget, but on schedule | Investigate labour productivity; check estimates |
+| SPI < 1 only | Behind schedule, but on budget | Investigate activity constraints; consider crashing |
+| Both < 1.0 | **Critical — behind AND over budget** | Immediate corrective action; escalate to sponsor |
+| CPI < 0.85 | **Severe cost overrun** | Executive intervention required |
+
+: EVM Response Matrix {.striped .hover}
+
+---
+
+## Cost Control
+
+Cost control involves **monitoring, forecasting, and taking corrective action**:
+
+```{mermaid}
+%%| fig-cap: "Cost control cycle"
+%%{init: {'flowchart': {'nodeSpacing': 30, 'rankSpacing': 60}}}%%
+flowchart LR
+    M["📊 MEASURE<br/>Collect actual costs<br/>Calculate EV from work done"] --> A
+    A["📈 ANALYSE<br/>Calculate CV & CPI<br/>Forecast EAC"] --> R
+    R{"Performance
+acceptable?"}
+    R --> |"Yes"| CO["✅ Continue<br/>Monitor next period"]
+    R --> |"No"| CA["⚠️ Corrective Action<br/>Identify root cause<br/>Develop & approve plan"]
+    CA --> U["📋 UPDATE<br/>Revised estimate<br/>Change request & report"]
+    U --> M
+    CO --> M
+
+    style M fill:#dbeafe,stroke:#3b82f6
+    style A fill:#fef9c3,stroke:#eab308
+    style CA fill:#fee2e2,stroke:#ef4444
+    style CO fill:#dcfce7,stroke:#22c55e
+```
+
+### Cost Control Techniques
+
+::: {.panel-tabset}
+
+## EVM Trending
+Monitor CPI and SPI trends weekly:
+- Is CPI improving or deteriorating?
+- Historical research shows: **CPI rarely improves by more than 10%** from its value at 20% project completion
+- Early warning: CPI < 0.9 at 20% completion = high overrun risk
+
+## Cost Forecasting
+Review EAC regularly and communicate honestly:
+- **EAC = BAC/CPI** — if current cost performance continues (most common)
+- **EAC = AC + (BAC−EV)** — if remaining work will be done at original budget
+- **EAC = AC + ETC** — if an independent re-estimate of remaining work is done
+
+Compare all three forecasts monthly — divergence signals problems.
+
+## Change Control
+All cost changes must go through formal change control:
+1. Identify cost trending beyond threshold (typically ±5%)
+2. Issue early warning notice to client
+3. Raise formal change request
+4. Get written approval before spending additional funds
+
+## Recovery Strategies
+When the project is over budget:
+1. **Value Engineering** — achieve same outcome at lower cost
+2. **Scope reduction** — formally remove lower-priority deliverables
+3. **Productivity improvement** — identify and remove bottlenecks
+4. **Procurement re-negotiation** — re-tender over-budget packages
+5. **Request Management Reserve** — request release from sponsor
+
+:::
+
+---
+
+## Case Study — Riyadh Metro: Cost Management at Arab Mega-Scale {.unnumbered}
+
+::: {.callout-important icon="false"}
+## 🏭 Case Study: Riyadh Metro — Managing a $22.5 Billion Urban Rail Programme
+
+**Background:**  
+The Riyadh Metro (مترو الرياض) — **6 lines, 176 km, 85 stations** — was built concurrently in a single city from 2013 to 2021. It is the largest single transport programme in the Arab world.
+
+**Project Financials:**
+
+| Item | Value |
+|------|-------|
+| Approved Budget | $22.5 billion USD |
+| Final Actual Cost | ~$23–24 billion |
+| Cost Variance | +4–7% (exceptional for this scale) |
+| Contract Structure | 5 mega-contracts, each > $3 billion |
+
+**Cost Management Innovations:**
+
+| Innovation | Description | Result |
+|------------|-------------|--------|
+| Programme-level EVM | Single EVM template for all 5 consortia | Cross-contract cost visibility |
+| GMP with gain-share | Contractor gets 50% of savings below GMP; absorbs 70% of overruns | Aligned contractor incentives |
+| Independent ISCA | Third-party review of all claims before payment | Eliminated inflated progress claims |
+| Real-time cost dashboard | Accessible to ADA, Ministry of Finance, and all PMs | Line 4 (CPI=0.87 at 35%) triggered intervention 18 months before crisis |
+
+**EVM Alert Example:**
+
+> *Line 4 showed CPI = 0.87 at 35% complete (early 2016). An ADA intervention team was on site within two weeks — well before the cost variance became a payment crisis.*
+
+**Discussion Questions:**
+1. Why might a GMP contract be more appropriate for complex metro construction than fixed-price lump sum?
+2. If Line 3 is at CPI = 0.91 with 45% complete (BAC = $4.2 billion), calculate the EAC.
+3. How does independent cost auditing reduce the principal-agent problem in mega-project procurement?
+
+*Sources: @ada2021metro; @riyadh2020pmo*
+:::
+
+---
+
+## Exercises {.unnumbered}
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 7.1 — Cost Estimation
+
+You are estimating the cost of a **new wastewater treatment plant** (5 ML/day capacity).
+
+**Part A — Analogous Estimate:**
+- A 3 ML/day plant was built 3 years ago for $4.2 million
+- Construction price index has increased by 12% over 3 years
+- Cost capacity factor for treatment plants: 0.65
+
+1. Estimate the current cost of the 5 ML/day plant
+
+**Part B — Bottom-Up Parametric:**
+
+| Work Package | Quantity | Unit Rate |
+|-------------|---------|---------|
+| Civil earthworks | 8,500 m³ | $28/m³ |
+| Reinforced concrete structures | 420 m³ | $1,850/m³ |
+| Mechanical equipment | 1 lump sum | $650,000 |
+| Pipework and fittings | 280 m | $450/m |
+| Electrical and instrumentation | 1 lump sum | $380,000 |
+| Building and site works | 350 m² | $2,100/m² |
+
+Add 12% overhead, 8% contingency, and 5% management reserve.
+
+**Part C — Compare:** Why might your two estimates differ?
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 7.2 — EVM from Scratch
+
+A **$1,200,000 laboratory fit-out project** is 14 weeks into a planned 24-week schedule.
+
+| Work Package | Budget | % Complete | Actual Cost |
+|-------------|--------|-----------|-------------|
+| Demolition | $45,000 | 100% | $48,000 |
+| Structural modifications | $180,000 | 75% | $142,000 |
+| Mechanical services | $280,000 | 60% | $185,000 |
+| Electrical services | $220,000 | 50% | $128,000 |
+| Laboratory furniture | $150,000 | 40% | $68,000 |
+| ICT infrastructure | $120,000 | 20% | $28,000 |
+| Finishes | $145,000 | 10% | $16,000 |
+| Commissioning | $60,000 | 0% | $0 |
+| **PV at Week 14** | **$840,000** | | |
+
+Calculate: EV, AC, SV, CV, SPI, CPI, EAC, ETC, VAC, TCPI.  
+Write a 150-word status narrative to the project sponsor.
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 7.3 — EVM Trend Analysis
+
+Monthly EVM data for a road upgrade project (BAC = $3,500,000):
+
+| Month | PV ($) | EV ($) | AC ($) |
+|-------|--------|--------|--------|
+| 1 | 150,000 | 130,000 | 145,000 |
+| 2 | 320,000 | 290,000 | 335,000 |
+| 3 | 510,000 | 460,000 | 545,000 |
+| 4 | 750,000 | 680,000 | 810,000 |
+| 5 | 1,050,000 | 920,000 | 1,115,000 |
+| 6 | 1,400,000 | 1,180,000 | 1,450,000 |
+
+1. Calculate CPI and SPI for each month
+2. Plot the CPI and SPI trend
+3. Calculate EAC for each month — is the forecast getting better or worse?
+4. At Month 6, what specific corrective actions would you recommend?
+5. If management insists on completing within $3,500,000, what is TCPI at Month 6?
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 7.4 — Financial Analysis (TVM + EVM Combined)
+
+A government agency must choose between two water infrastructure projects. Discount rate = 8%.
+
+**Project Alpha — Water Treatment Plant Upgrade ($M)**
+
+| Year | Costs | Benefits |
+|------|-------|---------|
+| 0 | 5.0 | 0 |
+| 1 | 0.5 | 2.0 |
+| 2 | 0.5 | 2.5 |
+| 3 | 0.5 | 3.0 |
+| 4 | 0.3 | 3.0 |
+
+**Project Beta — Pipeline Replacement ($M)**
+
+| Year | Costs | Benefits |
+|------|-------|---------|
+| 0 | 3.5 | 0 |
+| 1 | 0.3 | 1.2 |
+| 2 | 0.3 | 1.5 |
+| 3 | 0.3 | 1.8 |
+| 4 | 0.2 | 2.0 |
+
+1. Calculate NPV for both projects at 8% (use DF: Y1=0.926, Y2=0.857, Y3=0.794, Y4=0.735)
+2. Calculate the payback period for both projects
+3. Which project should be selected based on financial criteria?
+4. Midway through Project Alpha: PV=$3.2M, EV=$2.6M, AC=$3.8M. Calculate CPI, SPI, EAC, and VAC. Should the agency be concerned?
+:::
+
+---
+
+## Summary {.unnumbered}
+
+```{mermaid}
+%%| fig-cap: "Chapter 7 — Key concepts summary"
+mindmap
+  root((Chapter 7<br/>Cost<br/>Management))
+    Cost Estimation
+      Analogous
+      Parametric
+      Bottom-Up WBS
+      Three-Point PERT
+      AACE Classes 1-5
+    Project Budget
+      Cost Baseline S-Curve
+      BAC
+      Contingency Reserve
+      Management Reserve
+    Earned Value Management
+      PV Planned Value
+      EV Earned Value
+      AC Actual Cost
+      SV and CV Variances
+      SPI and CPI Indices
+      EAC Forecast
+      ETC and VAC
+      TCPI
+    Cost Control
+      EVM Trending
+      Change Control
+      Recovery Strategies
+      Forecasting Methods
+```
+
+::: {.callout-note}
+## 📚 Further Reading
+
+- @pmbok2021 — Section 7: Cost Management
+- @fleming2016 — Complete guide to EVM
+- @kerzner2017 — Chapter 15: Cost Management
+- @larson2021 — Chapter 13: Earned Value in Project Management
+:::
+
+**Next Chapter →** [Quality Management](08-quality.qmd) — Plan, manage, and control project quality to meet specifications and exceed expectations.
+
+---
+
+## 🖥️ MS Project Practice — Cost & Earned Value {.unnumbered}
+
+::: {.callout-note icon="false"}
+## Microsoft Project: Applying Chapter 7 Concepts
+
+With resources and rates assigned in your project file, MS Project can calculate and track costs automatically:
+
+**Tasks to complete in MS Project:**
+
+1. **Verify resource rates** are entered correctly in the Resource Sheet (Std. Rate, Ovt. Rate, Cost/Use, Accrue At = Prorated for most resources)
+2. **Add fixed costs**: In Gantt Chart view, right-click a column header → Insert Column → Fixed Cost. Enter any fixed procurement or subcontract costs directly against the relevant task
+3. **View the Cost table**: View → Table → Cost. This shows Baseline Cost, Actual Cost, Remaining Cost, and Cost Variance for every task
+4. **Check the project total cost**: Project tab → Project Information → Statistics button. Verify the total cost matches your bottom-up estimate
+5. **Set the cost baseline** (if not already done): Project → Set Baseline → this freezes Baseline Cost values
+6. **Enter progress for 3–4 weeks** of your project (% Complete per task using actual data or the exercise data from Chapter 6 Exercise 6.3)
+7. **Generate the Earned Value report**: Report tab → Costs → Earned Value Report. Read off:
+   - **PV** (Planned Value / BCWS) — shown as "Baseline Cost" at the status date
+   - **EV** (Earned Value / BCWP) — shown as "Earned Value"
+   - **AC** (Actual Cost / ACWP) — shown as "Actual Cost"
+   - **CPI** and **SPI** — calculated automatically
+   - **EAC** (Estimate at Completion) — MS Project uses EAC = BAC / CPI by default
+8. **Set the Status Date**: Project tab → Project Information → Status Date. MS Project uses this date when calculating EV metrics — set it to the end of your last reported week
+9. **View the Tracking Gantt** and identify tasks where Cost Variance (CV) is negative (over budget). What corrective actions would you recommend?
+
+**Expected outcome:** Your MS Project EV figures should match the manual EVM calculations from the Chapter 7 exercises. Differences of more than 5% indicate a data entry error — check actual start dates and % complete values.
+:::

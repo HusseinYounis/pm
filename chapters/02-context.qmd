@@ -1,0 +1,520 @@
+---
+title: "The Project Management and Engineering Context"
+---
+
+```{=html}
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 2 · Foundations</div>
+  <h1>The Project Management and Engineering Context</h1>
+  <p class="chapter-desc">Understanding the organisational, technological, and human systems in which engineering projects operate.</p>
+</div>
+```
+
+## Learning Outcomes {.unnumbered}
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+
+By the end of this chapter, you will be able to:
+
+1. **Explain** the systems view of project management
+2. **Apply** the three-sphere model to analyse engineering projects
+3. **Describe** Bolman and Deal's four organisational frames
+4. **Compare** functional, matrix, and projectised organisational structures
+5. **Distinguish** between the project life cycle and the product life cycle
+6. **Recognise** the importance of organisational culture and top management commitment
+7. **Identify** recent trends shaping engineering project management
+:::
+
+---
+
+## A Systems View of Project Management
+
+Engineering projects do not exist in isolation — they operate inside complex **systems** of people, technology, organisations, and regulations. A *systems approach* means looking at the whole rather than individual parts.
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — Systems Thinking
+
+**Systems thinking** is a holistic approach to analysis that focuses on how a system's individual components interrelate and work together over time within the context of larger systems. In project management, it means recognising that a project's success depends on its environment — not just the work inside the project.
+:::
+
+A project manager who ignores the organisational context, technology constraints, or business strategy is like a structural engineer who designs a beam without considering the building it sits in.
+
+### The Three-Sphere Model
+
+The **Three-Sphere Model for Systems Management** recognises that every project operates at the intersection of three domains:
+
+```{mermaid}
+%%| fig-cap: "The Three-Sphere Model — every project sits at the intersection of business, organisation, and technology"
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#dbeafe'}}}%%
+flowchart TD
+    P(["🗂️ PROJECT"])
+
+    B["💼 BUSINESS<br/>• Strategy & goals<br/>• Financial viability<br/>• Market context<br/>• Return on investment"]
+    O["🏢 ORGANISATION<br/>• Culture & structure<br/>• Processes & governance<br/>• People & skills<br/>• Change management"]
+    T["⚙️ TECHNOLOGY<br/>• Engineering methods<br/>• Tools & platforms<br/>• Technical standards<br/>• Innovation & risk"]
+
+    B --> P
+    O --> P
+    T --> P
+
+    style P fill:#1d4ed8,color:#fff,stroke:#1d4ed8
+    style B fill:#fef9c3,stroke:#eab308,color:#854d0e
+    style O fill:#dcfce7,stroke:#22c55e,color:#166534
+    style T fill:#dbeafe,stroke:#3b82f6,color:#1e40af
+```
+
+::: {.callout-important icon="false"}
+## ⚠️ Common Mistake
+
+Focusing exclusively on the **technology sphere** — getting the engineering right — while neglecting the business justification or organisational readiness. Many technically excellent projects fail because the organisation was not prepared to adopt the result.
+:::
+
+**Engineering Example — A Smart Grid Upgrade:**
+
+| Sphere | Considerations |
+|--------|---------------|
+| **Business** | Does the investment reduce long-term energy costs? Is there regulatory pressure? |
+| **Organisation** | Are utility operators trained to manage the new system? Will unions resist automation? |
+| **Technology** | Are the chosen IoT sensors reliable in harsh weather? Do they meet IEC 61850 standards? |
+
+: Three-sphere analysis of a smart grid upgrade {.striped .hover}
+
+---
+
+## Understanding Organisations
+
+Projects are performed *within* organisations, and the organisation's characteristics profoundly shape how projects are managed — for better or worse.
+
+### The Four Frames of Organisations
+
+Bolman and Deal's **Four Frames Model** provides four different lenses to view organisations. Effective project managers learn to see their environment through *all four frames*, not just one:
+
+```{mermaid}
+%%| fig-cap: "Bolman and Deal's Four Frames of Organisations"
+%%{init: {'theme': 'base'}}%%
+quadrantChart
+    title Four Organisational Frames
+    x-axis "Focus on People" --> "Focus on Structure"
+    y-axis "Internal" --> "External"
+    quadrant-1 Political Frame
+    quadrant-2 Symbolic Frame
+    quadrant-3 Human Resources Frame
+    quadrant-4 Structural Frame
+```
+
+::: {.panel-tabset}
+
+#### 🏗️ Structural Frame
+
+- Focuses on **rules, roles, policies, hierarchy, and procedures**
+- The organisation as a machine — efficiency through clear structure
+- **PM implication:** Clear reporting lines, defined processes, formal change control
+- *Best for:* Stable environments, well-defined projects, compliance-heavy industries
+
+#### 👥 Human Resources Frame
+
+- Focuses on **people, relationships, skills, and motivation**
+- The organisation as a family — invest in people and they invest in you
+- **PM implication:** Team development, training, motivation, conflict resolution, communication
+- *Best for:* Knowledge-intensive projects, cross-functional teams
+
+#### 🎭 Political Frame
+
+- Focuses on **power, coalitions, competition, and scarce resources**
+- The organisation as a jungle — success depends on building alliances
+- **PM implication:** Stakeholder management, negotiation, navigating competing agendas
+- *Best for:* Large organisations with multiple departments, government projects
+
+#### ✨ Symbolic Frame
+
+- Focuses on **culture, rituals, values, vision, and meaning**
+- The organisation as a theatre — symbols and stories drive behaviour
+- **PM implication:** Project vision, team identity, celebrating milestones, organisational culture
+- *Best for:* Innovative projects, transformational change, multi-cultural environments
+
+:::
+
+::: {.callout-tip icon="false"}
+## 💡 Practical Tip
+
+When a project is struggling, try analysing the situation through each of the four frames. Often, a problem that seems purely *structural* (e.g., "we need a better process") is actually *political* (e.g., "two departments are competing for budget") or *human resources* (e.g., "the team is demotivated").
+:::
+
+### Organisational Structures
+
+The organisational structure determines who has authority over the project manager and team members. The five main types — Functional, Weak Matrix, Balanced Matrix, Strong Matrix, and Projectised — are covered in detail in **Chapter 1 (Section 1.7)**, including the images, authority levels, and advantages/disadvantages of each.
+
+As a quick recap for context, the key principle is:
+
+> The more project-oriented the structure, the more authority the PM holds — ranging from **none** (Functional) to **full** (Projectised).
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — Matrix Variants
+
+Most engineering organisations operate in some form of **matrix**:
+
+- **Weak Matrix:** Functional managers retain most authority; PM is more of a coordinator
+- **Balanced Matrix:** PM and functional manager share authority; common in mid-size engineering firms
+- **Strong Matrix:** PM has more authority than functional managers; resembles projectised
+
+The choice depends on how many projects the organisation runs, how critical projects are to revenue, and how specialised the staff are.
+:::
+
+### Organisational Culture
+
+**Organisational culture** is the set of shared assumptions, values, and behaviours that determine "how things are done here." Culture affects every aspect of project management:
+
+| Cultural Dimension | Impact on Projects |
+|-------------------|-------------------|
+| **Risk tolerance** | Conservative cultures resist innovative designs; entrepreneurial cultures embrace them |
+| **Decision-making** | Hierarchical cultures slow down approvals; flat cultures empower PMs |
+| **Communication style** | Formal cultures require written memos; informal cultures use quick chats |
+| **Attitude to failure** | Blame cultures hide problems; learning cultures surface them early |
+| **Time orientation** | Some cultures view deadlines as targets; others as firm commitments |
+
+: How organisational culture impacts project management {.striped .hover}
+
+::: {.callout-important icon="false"}
+## ⚠️ Common Mistake — Ignoring Culture
+
+A PM who introduces agile stand-ups into a deeply hierarchical government ministry, or imposes rigid waterfall controls onto a fast-moving startup, will face resistance — not because the method is wrong, but because it clashes with the culture.
+:::
+
+### The Importance of Top Management Commitment
+
+Research consistently shows that **executive sponsorship** is the #1 predictor of project success. Without it, projects lack:
+
+- **Authority** to acquire resources and resolve conflicts
+- **Legitimacy** in the eyes of stakeholders
+- **Funding protection** during budget cuts
+- **Strategic alignment** with the organisation's goals
+
+```{mermaid}
+%%| fig-cap: "How top management commitment flows down to project success"
+flowchart LR
+    TM["🏛️ Top Management<br/>Commitment"] --> A["✅ Clear authority<br/>for PM"]
+    TM --> B["💰 Adequate &<br/>protected funding"]
+    TM --> C["🎯 Strategic<br/>alignment"]
+    TM --> D["🗣️ Visible<br/>sponsorship"]
+    A --> S(["🏆 PROJECT<br/>SUCCESS"])
+    B --> S
+    C --> S
+    D --> S
+
+    style TM fill:#1d4ed8,color:#fff,stroke:#1d4ed8
+    style S fill:#15803d,color:#fff,stroke:#15803d
+```
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — The Need for Organisational Standards
+
+Organisations that establish **PM standards** — standard templates, methodologies, reporting formats, and a Project Management Office (PMO) — achieve higher project success rates. A PMO provides:
+
+- **Governance:** Consistent project initiation and approval processes
+- **Methodology:** Standard tools and techniques across all projects
+- **Support:** Mentoring, training, and administrative support for PMs
+- **Reporting:** Portfolio-level visibility for senior management
+:::
+
+---
+
+## Project Phases and the Project Life Cycle
+
+### The Project Life Cycle
+
+Every project passes through a series of **phases** from initiation to closure. The typical engineering project life cycle includes:
+
+```{mermaid}
+%%| fig-cap: "Typical engineering project life cycle phases"
+flowchart LR
+    F["📊 Feasibility<br/>& Concept"] --> D["📐 Design<br/>& Engineering"]
+    D --> P["🔨 Procurement<br/>& Construction"]
+    P --> C["🔧 Commissioning<br/>& Handover"]
+    C --> O["⚙️ Operations<br/>& Maintenance"]
+
+    style F fill:#4f46e5,color:#fff
+    style D fill:#0f766e,color:#fff
+    style P fill:#15803d,color:#fff
+    style C fill:#b45309,color:#fff
+    style O fill:#6b7280,color:#fff
+```
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — Phases vs. Process Groups
+
+**Phases** are specific to the project type (e.g., Design → Build → Commission). **Process Groups** (Initiating, Planning, Executing, Monitoring & Controlling, Closing) are *universal* and occur within *each* phase.
+
+A construction project's "Design Phase" involves planning activities, executing design work, and monitoring quality — all process groups in action within one phase.
+:::
+
+### The Product Life Cycle
+
+The **product life cycle** is broader than the project life cycle — it includes the entire lifespan of the deliverable:
+
+```{mermaid}
+%%| fig-cap: "Product life cycle encompasses multiple project life cycles"
+flowchart LR
+    subgraph ProductLC ["📦 Product Life Cycle (30–50 years for infrastructure)"]
+        direction LR
+        subgraph ProjLC1 ["🗂️ Original Project"]
+            I1["Concept"] --> D1["Design"] --> B1["Build"] --> H1["Handover"]
+        end
+        subgraph OPS ["⚙️ Operations & Maintenance"]
+            O1["Routine O&M"]
+        end
+        subgraph ProjLC2 ["🗂️ Upgrade Project"]
+            I2["Concept"] --> D2["Design"] --> B2["Build"] --> H2["Handover"]
+        end
+        subgraph RET ["🏚️ Retirement"]
+            R1["Decommission"]
+        end
+        ProjLC1 --> OPS --> ProjLC2 --> RET
+    end
+
+    style ProductLC fill:#f8fafc,stroke:#334155
+    style ProjLC1 fill:#dbeafe,stroke:#3b82f6
+    style OPS fill:#dcfce7,stroke:#22c55e
+    style ProjLC2 fill:#fef9c3,stroke:#eab308
+    style RET fill:#fecaca,stroke:#ef4444
+```
+
+**Engineering Example:**
+
+A highway bridge has a **product life cycle** of 75 years:
+
+1. **Original project** (3 years): Feasibility → Design → Construction → Commissioning
+2. **Operations** (60+ years): Routine inspection and maintenance
+3. **Upgrade project** (1 year): Seismic retrofitting to meet new codes
+4. **Retirement** (1 year): Demolition and replacement planning
+
+The PM manages the *project life cycle*; the asset owner manages the *product life cycle*.
+
+---
+
+## The Nature of Engineering Projects
+
+Engineering projects have unique characteristics that distinguish them from other project types:
+
+### Characteristics of Engineering Projects
+
+| Characteristic | Description |
+|---------------|-------------|
+| **Physical deliverables** | Create tangible infrastructure, buildings, systems, or products |
+| **Regulatory compliance** | Must meet building codes, environmental regulations, safety standards |
+| **Interdisciplinary teams** | Require civil, mechanical, electrical, environmental, and other specialists |
+| **Long durations** | Often span years, not weeks or months |
+| **High capital cost** | Budgets frequently in millions or billions of dollars |
+| **Environmental impact** | Construction and operation affect surrounding communities and ecosystems |
+| **Safety-critical** | Design and construction errors can endanger human life |
+| **Geographic constraints** | Site conditions, soil, weather, and access profoundly affect execution |
+
+: Distinguishing characteristics of engineering projects {.striped .hover}
+
+### Diverse Technologies and Specialisations
+
+Engineering projects often involve **multiple technical disciplines** working in parallel. A modern building project might require:
+
+- Structural engineering (concrete, steel)
+- Mechanical engineering (HVAC, plumbing)
+- Electrical engineering (power, lighting, firesafety)
+- Civil engineering (earthworks, drainage)
+- Software/controls engineering (BMS, automation)
+- Telecommunications (networking, security systems)
+
+The PM need not be an expert in every discipline, but must understand enough to coordinate them and recognise when specialist input is needed.
+
+---
+
+## Recent Trends in Engineering Project Management
+
+The practice of project management continues to evolve. Several trends are reshaping how engineering projects are delivered:
+
+### Building Information Modelling (BIM)
+
+**BIM** creates a shared digital model of a building or infrastructure asset, enabling all disciplines to work on a single source of truth:
+
+- **3D Modelling:** Visualise the design before construction begins
+- **4D (Time):** Link the model to the schedule to simulate construction sequences
+- **5D (Cost):** Attach cost data to model elements for real-time budget tracking
+- **6D (Sustainability):** Analyse energy performance and environmental impact
+- **7D (Facility Management):** Use the model for operations and maintenance after handover
+
+::: {.callout-tip icon="false"}
+## 💡 BIM vs. Traditional CAD
+
+Traditional CAD produces 2D drawings that are disconnected from each other. BIM produces an *intelligent model* where a change in one view automatically updates all others. Clash detection — finding conflicts between structural beams and HVAC ducts, for example — happens *before* construction, not during.
+:::
+
+### Globalisation and Virtual Teams
+
+Modern engineering projects increasingly involve **global teams**:
+
+- Design in one country, procurement in another, construction in a third
+- **Virtual teams** connected by video conferencing, cloud collaboration, and shared project servers
+- **Challenges:** Time zones, language barriers, cultural differences, trust-building without face-to-face contact
+
+### Sustainability and Green Engineering
+
+The **UN Sustainable Development Goals (SDGs)** increasingly influence project selection and design:
+
+- Net-zero carbon construction targets
+- Life-Cycle Assessment (LCA) for material selection
+- Green building certifications (LEED, BREEAM, Estidama)
+- Circular economy principles — design for disassembly and material reuse
+
+### Agile and Hybrid Approaches
+
+While traditional plan-driven (waterfall) approaches dominate construction, **hybrid approaches** are emerging:
+
+- Agile methods for the *design and engineering* phases (iterative design reviews)
+- Traditional methods for *procurement and construction* (sequential, safety-critical)
+- Lean Construction and the **Last Planner System** for collaborative scheduling
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — Agile in Engineering
+
+Agile does not mean "no planning." It means *adaptive planning* — shorter cycles, frequent feedback, and the ability to respond to change. Chapter 11 covers Agile and Scrum in detail.
+:::
+
+### Artificial Intelligence and Digital Twins
+
+Emerging technologies are transforming project management:
+
+- **AI-powered scheduling:** Predictive analytics for delay risk, automatic schedule optimisation
+- **Digital Twins:** A live virtual replica of a physical asset, updated with real-time sensor data
+- **Drones and LiDAR:** Automated site surveys, progress monitoring, and safety inspection
+- **Robotic Process Automation:** Automating repetitive administrative tasks (document control, reporting)
+
+---
+
+## 2.6 Case Study — Neom: The Line, Saudi Arabia {.unnumbered}
+
+::: {.callout-caution icon="false"}
+## 🏗️ Case Study — Neom: The Line, Saudi Arabia
+
+**The Line** is a 170 km linear city in northwestern Saudi Arabia, part of the $500 billion Neom megaproject. Announced in 2021, it aims to house 9 million people in a structure 200 metres wide, 500 metres tall, with zero cars, zero streets, and zero carbon emissions.
+
+### Project Context
+
+| Attribute | Detail |
+|-----------|--------|
+| **Location** | Tabuk Province, Saudi Arabia |
+| **Estimated cost** | $500 billion+ (Neom total) |
+| **Timeline** | Phase 1 target: 2030 |
+| **Workforce** | Peak estimate: 300,000+ workers |
+| **Key innovation** | Linear urban design — all services within 5-minute walk |
+
+### Three-Sphere Analysis
+
+::: {.panel-tabset}
+
+#### 💼 Business Sphere
+
+- Part of Saudi Vision 2030 — economic diversification away from oil
+- Funded by the Public Investment Fund (PIF), one of the world's largest sovereign wealth funds
+- Revenue model: tourism, technology, sports, entertainment, advanced manufacturing
+- Competing globally for talent and investment with established cities
+
+#### 🏢 Organisation Sphere
+
+- NEOM Company: a new government-backed entity with unprecedented authority
+- Matrix of international consultants, contractors, and Saudi government agencies
+- Massive workforce from dozens of countries — cultural integration challenge
+- Need for new governance structures — no precedent for a project of this scale
+
+#### ⚙️ Technology Sphere
+
+- Mirror-clad exterior with integrated solar panels
+- Underground high-speed rail running the full 170 km length
+- AI-driven city management — energy, waste, transport, security
+- Modular construction techniques to achieve the unprecedented scale
+- Vertical farming, desalination, and renewable energy at city scale
+
+:::
+
+### Lessons for Project Managers
+
+1. **Systems thinking is essential:** The Line cannot succeed with engineering excellence alone — it requires alignment across business (economic model), organisation (governance), and technology (innovation)
+2. **Organisational culture matters:** Creating a new organisation from scratch means deliberately designing the culture — values, decision-making norms, communication standards
+3. **Top management commitment is necessary but not sufficient:** Saudi Crown Prince Mohammed bin Salman provides ultimate sponsorship, but execution depends on thousands of middle managers making daily decisions
+4. **Product life cycle thinking:** The project delivers a city that must operate for centuries — decisions made during design lock in operational costs and capabilities for generations
+
+:::
+
+---
+
+## 2.7 Exercises {.unnumbered}
+
+::: {.callout-warning icon="false"}
+## ✏️ Exercise 2.1 — Three-Sphere Analysis
+
+**Scenario:** Your university is building a new **Engineering Innovation Centre** — a 5,000 m² building with smart classrooms, fabrication labs, a maker space, and a rooftop solar array.
+
+**Tasks:**
+
+1. Identify at least **three considerations** for each sphere (Business, Organisation, Technology)
+2. For each sphere, identify **one risk** that could threaten the project
+3. Describe how the three spheres **interact** — give an example where a decision in one sphere affects the others
+4. Recommend the most appropriate **organisational structure** (functional, matrix, or projectised) for this project and justify your choice
+:::
+
+::: {.callout-warning icon="false"}
+## ✏️ Exercise 2.2 — Four Frames Analysis
+
+**Scenario:** A municipal government has hired an engineering firm to design and build a **new wastewater treatment plant**. The project is six months behind schedule, and the client is threatening to cancel the contract.
+
+**Tasks:**
+
+1. Analyse the situation through each of Bolman and Deal's **four frames** — for each frame, suggest **one possible root cause** of the delay
+2. For each root cause, propose **one corrective action**
+3. Which frame do you think is **most likely** to explain the delay in an engineering project context? Justify your answer
+:::
+
+::: {.callout-warning icon="false"}
+## ✏️ Exercise 2.3 — Organisational Structure Comparison
+
+**Scenario:** Consider the following three organisations:
+
+- **Organisation A:** A large government roads authority with 2,000 employees and 50+ active projects
+- **Organisation B:** A small engineering consultancy with 30 employees and 5 active projects
+- **Organisation C:** A defence contractor building a single $2 billion naval vessel over 8 years
+
+**Tasks:**
+
+1. Recommend the most appropriate **organisational structure** for each (functional, weak/balanced/strong matrix, or projectised)
+2. For each recommendation, explain **why** this structure fits the organisation's characteristics
+3. For **Organisation A**, describe how a **PMO** could add value and what services it should provide
+:::
+
+::: {.callout-warning icon="false"}
+## ✏️ Exercise 2.4 — Product vs. Project Life Cycle
+
+**Scenario:** A regional water utility plans to build a **new desalination plant** with a design capacity of 100,000 m³/day and an expected operational life of 40 years.
+
+**Tasks:**
+
+1. Draw the **project life cycle** — identify 4–5 phases with key deliverables for each
+2. Draw the **product life cycle** — identify all stages from initial concept through to eventual decommissioning
+3. Identify **two decisions** made during the project that will significantly impact the product's long-term operational costs
+4. Explain why a PM should think about the **product life cycle** even though they are only responsible for the project
+:::
+
+---
+
+## Summary {.unnumbered}
+
+::: {.callout-note icon="false"}
+## 📝 Chapter Summary
+
+In this chapter you learned that:
+
+- **Systems thinking** is essential — projects exist within larger systems of business, organisation, and technology
+- The **Three-Sphere Model** helps PMs analyse the business, organisational, and technology dimensions of any project
+- **Bolman and Deal's Four Frames** (structural, HR, political, symbolic) provide multiple lenses for understanding organisations
+- **Organisational structure** (functional, matrix, projectised) determines the PM's authority and access to resources
+- **Organisational culture** profoundly affects how projects are managed — PMs must understand and work within it
+- **Top management commitment** and a **PMO** are key organisational enablers of project success
+- The **project life cycle** (temporary) exists within the broader **product life cycle** (permanent asset)
+- Modern engineering PM is shaped by trends including **BIM**, **globalisation**, **sustainability**, **hybrid agile**, and **AI/digital twins**
+:::

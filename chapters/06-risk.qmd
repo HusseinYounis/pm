@@ -1,0 +1,621 @@
+---
+title: "Risk Management & Project Audit"
+---
+
+```{=html}
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 6 · Execution &amp; Control</div>
+  <h1>Risk Management &amp; Project Audit</h1>
+  <p class="chapter-desc">Systematically identifying, analysing, and responding to threats and opportunities — and formally auditing project health to keep projects on track.</p>
+</div>
+```
+
+## Learning Outcomes {.unnumbered}
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+
+By the end of this chapter, you will be able to:
+
+1. **Define** risk and explain the difference between threats and opportunities
+2. **Identify** risks using structured techniques (brainstorming, FMEA, checklists)
+3. **Perform** qualitative risk analysis using a probability/impact matrix
+4. **Perform** quantitative risk analysis using Expected Monetary Value
+5. **Develop** appropriate risk response strategies (for threats and opportunities)
+6. **Maintain** a Risk Register throughout the project lifecycle
+7. **Monitor** risks and implement responses during project execution
+8. **Conduct** a project audit and prepare an audit report with health traffic-light rating
+:::
+
+---
+
+## What is Risk?
+
+::: {.callout-note icon="false"}
+## 📖 PMI Definition of Risk
+
+> *"An uncertain event or condition that, if it occurs, has a positive or negative effect on one or more project objectives such as scope, schedule, cost, or quality."*
+> — PMBOK® Guide, 7th Edition
+
+**Key Insight:** Risk ≠ Problem. A risk is a **possibility**, not a certainty. When a risk occurs, it becomes an **issue** that must be managed.
+:::
+
+```{mermaid}
+%%| fig-cap: "Risk vs. Issue — the risk lifecycle"
+flowchart LR
+    U["🔮 UNCERTAINTY<br/><br/>We don't know<br/>if this will happen"]
+    R["⚠️ RISK<br/><br/>Identified uncertainty<br/>with assessed<br/>probability and impact"]
+    T["🎯 TRIGGER<br/><br/>Early warning sign<br/>that risk is<br/>becoming more likely"]
+    I["🔥 ISSUE<br/><br/>Risk has occurred —<br/>now must be<br/>actively managed"]
+    C["💥 CONSEQUENCE<br/><br/>Schedule delay,<br/>cost overrun,<br/>quality failure"]
+
+    U --> R --> T --> I --> C
+
+    style U fill:#ede9fe,stroke:#7c3aed,color:#4c1d95
+    style R fill:#fef9c3,stroke:#eab308,color:#854d0e
+    style T fill:#fed7aa,stroke:#f97316,color:#7c2d12
+    style I fill:#fee2e2,stroke:#ef4444,color:#7f1d1d
+    style C fill:#1d4ed8,color:#fff,stroke:#1d4ed8
+```
+
+### Threats vs. Opportunities
+
+Risk can be negative (**threats**) or positive (**opportunities**):
+
+| | Threats | Opportunities |
+|-|---------|---------------|
+| **Definition** | Negative uncertainty | Positive uncertainty |
+| **Goal** | Reduce probability and/or impact | Increase probability and/or impact |
+| **Response strategies** | Avoid, Transfer, Mitigate, Accept | Exploit, Share, Enhance, Accept |
+| **Examples** | Unexpected ground conditions, key person leaving, supply chain delays | Early completion bonus, new technology reduces costs, regulatory approval faster than expected |
+
+---
+
+## Risk Identification
+
+Risk identification is an **ongoing, collaborative process** — not a one-time event at project start.
+
+### Risk Identification Techniques
+
+::: {.panel-tabset}
+
+## Brainstorming
+**Free-form group ideation in a risk workshop**
+
+*Process:*
+1. Assemble cross-functional team (PM, engineers, client rep, external specialist)
+2. Use structured prompts: "What could go wrong with...?"
+3. Capture all ideas without judgment
+4. Categorise and de-duplicate
+5. Assess each identified risk
+
+*Tips:*
+- Use an experienced facilitator, not the PM (who might inhibit responses)
+- Time-box: 30-60 minutes per major project phase
+- Anonymous input methods (sticky notes, digital tools) encourage candid responses
+
+## Risk Checklists
+**Use historical risk lists from similar projects**
+
+Industry-specific checklists exist for:
+- Civil/structural engineering
+- Process plant design
+- IT systems implementation
+- Environmental projects
+- Offshore/subsea projects
+
+Checklists ensure **common risks are not overlooked** but must be supplemented with project-specific risks.
+
+## FMEA / HAZID
+**Failure Mode and Effects Analysis / Hazard Identification**
+
+Used in engineering and safety-critical industries:
+
+1. For each component/process, ask: "How can this FAIL?"
+2. For each failure mode: "What is the EFFECT of this failure?"
+3. Assign: Severity, Occurrence probability, Detectability
+4. Calculate Risk Priority Number (RPN):
+   $$RPN = Severity \times Occurrence \times Detectability$$
+5. Focus on highest RPN items
+
+## SWOT Analysis
+**Structured analysis of project context**
+
+| | Positive (enhance) | Negative (address) |
+|-|--------------------|--------------------|
+| **Internal** | Strengths | Weaknesses |
+| **External** | Opportunities | Threats |
+
+Useful for early risk identification and strategic risk assessment. Connect SWOT factors to specific risk scenarios.
+
+## Assumption and Constraint Analysis
+**Challenge every assumption in the project plan**
+
+For each assumption: "What happens if this assumption is WRONG?"
+
+*Examples:*
+- "We assumed excavation would encounter class 3 material — what if it's class 5?"
+- "We assumed the supplier could deliver in 8 weeks — what if it takes 14?"
+- "We assumed EPA approval within 6 months — what if it takes 12?"
+
+:::
+
+### Risk Categorisation — Risk Breakdown Structure (RBS)
+
+```{mermaid}
+%%| fig-cap: "Risk Breakdown Structure (RBS) for an engineering project"
+mindmap
+  root((⚠️ PROJECT<br/>RISKS))
+    Technical Risks
+      Design complexity
+      Novel technology
+      Integration failures
+      Performance shortfall
+      Environmental unknowns
+    External Risks
+      Regulatory/approval delays
+      Market price fluctuations
+      Weather and natural events
+      Community opposition
+      Political changes
+    Organisational Risks
+      Resource availability
+      Skill gaps
+      Competing priorities
+      Management changes
+      Communication breakdown
+    Project Management Risks
+      Scope creep
+      Estimating errors
+      Schedule optimism
+      Change management failures
+      Contract management
+    Commercial Risks
+      Supplier insolvency
+      Contract disputes
+      Cost overruns
+      Insurance coverage gaps
+      Intellectual property
+```
+
+---
+
+## Qualitative Risk Analysis
+
+**Qualitative Risk Analysis** assesses identified risks using **probability** (how likely?) and **impact** (how serious?) to prioritise them for response planning.
+
+### Probability and Impact Scales
+
+::: {.panel-tabset}
+
+## Probability Scale
+| Rating | Label | Probability Range | Description |
+|--------|-------|-------------------|-------------|
+| 5 | Almost Certain | 81–100% | Expected to occur in most circumstances |
+| 4 | Likely | 61–80% | Will probably occur |
+| 3 | Possible | 41–60% | May occur at some stage |
+| 2 | Unlikely | 21–40% | Could occur but not expected |
+| 1 | Rare | 1–20% | May occur only in exceptional circumstances |
+
+## Impact Scale
+| Rating | Label | Cost Impact | Schedule Impact | Quality Impact |
+|--------|-------|------------|----------------|----------------|
+| 5 | Catastrophic | >30% overrun | >4 months delay | Unacceptable/failure |
+| 4 | Major | 15–30% overrun | 2–4 months delay | Major rework |
+| 3 | Moderate | 5–15% overrun | 1–2 months delay | Significant rework |
+| 2 | Minor | 1–5% overrun | 2–4 weeks delay | Minor rework |
+| 1 | Negligible | <1% overrun | <2 weeks delay | Minor inconvenience |
+
+:::
+
+### Risk Matrix (Heat Map)
+
+```{mermaid}
+%%| fig-cap: "5×5 Risk Matrix with risk zones"
+quadrantChart
+    title Risk Matrix — Probability vs Impact
+    x-axis "Low Impact (1)" --> "High Impact (5)"
+    y-axis "Low Probability (1)" --> "High Probability (5)"
+    quadrant-1 "HIGH RISK (Red)<br/>Immediately address"
+    quadrant-2 "EXTREME RISK<br/>Top Priority Action"
+    quadrant-3 "LOW RISK (Green)<br/>Monitor only"
+    quadrant-4 "MEDIUM RISK (Amber)<br/>Manage actively"
+    R1 Contaminated Soil Discovery: [0.6, 0.4]
+    R2 Regulatory Approval Delay: [0.7, 0.6]
+    R3 Key Engineer Resignation: [0.3, 0.7]
+    R4 Equipment Delivery Late: [0.5, 0.5]
+    R5 Unforeseen Flood Event: [0.15, 0.85]
+    R6 Minor Design Error: [0.6, 0.2]
+    R7 Subcontractor Default: [0.2, 0.75]
+    R8 Community Protest: [0.4, 0.4]
+    R9 Steel Price Increase: [0.55, 0.45]
+```
+
+---
+
+## Quantitative Risk Analysis
+
+**Quantitative Risk Analysis** assigns numerical values to risks, allowing financial exposure and schedule uncertainty to be modelled.
+
+### Expected Monetary Value (EMV)
+
+$$EMV = Probability \times Impact\ (\$)$$
+
+**Example Risk Register with EMV:**
+
+| Risk ID | Risk Description | Probability | Impact ($) | EMV ($) | Response |
+|---------|----------------|------------|-----------|---------|---------|
+| R-001 | Acid sulphate soils discovered | 30% | $350,000 | **$105,000** | Mitigation plan |
+| R-002 | Steel supplier delays 6 weeks | 25% | $180,000 | **$45,000** | Alternative supplier |
+| R-003 | Client scope additions | 60% | $120,000 | **$72,000** | Change control |
+| R-004 | Regulatory approval extended | 20% | $250,000 | **$50,000** | Early pre-lodgement |
+| R-005 | Favourable ground conditions | 40% | -$80,000 | **-$32,000** | Exploit opportunity |
+| | | | **Total EMV** | **$240,000** | |
+
+*The total EMV of $240,000 should be included in the project contingency fund.*
+
+### Monte Carlo Simulation
+
+For complex projects, **Monte Carlo simulation** runs thousands of scenario combinations to produce a probability distribution of project outcomes:
+
+```{mermaid}
+%%| fig-cap: "Monte Carlo simulation — concept diagram"
+%%{init: {'flowchart': {'nodeSpacing': 40, 'rankSpacing': 60}}}%%
+flowchart TD
+    I["📥 INPUTS<br/>Activity durations per task<br/>(Optimistic / Most Likely / Pessimistic)<br/>Risk probability distributions"] --> MC
+    MC["🎲 MONTE CARLO SIMULATION<br/>10,000+ iterations<br/>Randomly samples input distributions<br/>Records project outcome each run"] --> O
+    O["📊 OUTPUTS<br/>Probability distribution of<br/>completion dates and total cost<br/>S-curve of confidence levels"]
+    O --> D["📋 DECISIONS<br/>Contingency reserve to hold<br/>Schedule confidence level<br/>Risks driving most variance"]
+
+    style I fill:#dbeafe,stroke:#3b82f6
+    style MC fill:#fef9c3,stroke:#eab308,color:#854d0e
+    style O fill:#dcfce7,stroke:#22c55e,color:#166534
+    style D fill:#ede9fe,stroke:#7c3aed,color:#4c1d95
+```
+
+---
+
+## Risk Response Strategies
+
+### For Threats (Negative Risks)
+
+```{mermaid}
+%%| fig-cap: "Risk response strategies for threats"
+%%{init: {'flowchart': {'nodeSpacing': 30, 'rankSpacing': 70}}}%%
+flowchart TD
+    T["⚠️ THREAT<br/>Identified"]
+
+    T --> AV["🚫 AVOID<br/>Change the plan to<br/>eliminate the uncertainty<br/>Ex: Different site selection"]
+    T --> TR["📤 TRANSFER<br/>Shift impact to a third party<br/>Ex: Insurance, fixed-price<br/>contracts, bonds"]
+    T --> MT["🛡️ MITIGATE<br/>Reduce probability or impact<br/>Ex: Geotechnical investigation<br/>to reduce ground risk"]
+    T --> AC["✅ ACCEPT<br/>Acknowledge & plan ahead<br/>Passive: Contingency reserve<br/>Active: Ready response plan"]
+    T --> ES["⬆️ ESCALATE<br/>Beyond PM authority<br/>Escalate to sponsor<br/>or programme manager"]
+
+    style T fill:#b91c1c,color:#fff
+    style AV fill:#dcfce7,stroke:#22c55e,color:#166534
+    style TR fill:#dbeafe,stroke:#3b82f6,color:#1e40af
+    style MT fill:#fef9c3,stroke:#eab308,color:#854d0e
+    style AC fill:#fed7aa,stroke:#f97316,color:#7c2d12
+    style ES fill:#ede9fe,stroke:#7c3aed,color:#4c1d95
+```
+
+### For Opportunities (Positive Risks)
+
+| Strategy | Description | Example |
+|----------|-------------|---------|
+| **Exploit** | Ensure the opportunity definitely occurs | Assign best team to activity with potential for cost saving |
+| **Enhance** | Increase probability or impact | Pre-order materials to benefit from good pricing |
+| **Share** | Partner with another party to capture the opportunity | Joint venture to access larger market |
+| **Accept** | Take advantage if it occurs without actively pursuing | Will take early completion bonus if it happens naturally |
+
+---
+
+## The Risk Register
+
+The **Risk Register** is the master document for tracking all identified risks:
+
+| ID | Description | Category | Probability | Impact | Score | Owner | Response Type | Response Action | Trigger | Residual Risk | Status |
+|----|-------------|----------|------------|--------|-------|-------|-------------|--------------|---------|--------------|--------|
+| R-001 | Acid sulphate soils in Zone B excavation | Technical | 3 (Possible) | 4 (Major) | **12** | Geotech Lead | Mitigate | Trial pits in Zone B before bulk excavation; lime treatment plan ready | Discoloured excavation material or pH < 4 | 2×2=4 | Open |
+| R-002 | Single-source steel supplier delays | Commercial | 3 (Possible) | 3 (Moderate) | **9** | Contracts Mgr | Transfer/Mitigate | Contractual penalties + identify secondary supplier | 4-week delivery milestone missed | 2×2=4 | Open |
+| R-003 | Regulatory approval takes longer than 6 months | External | 2 (Unlikely) | 4 (Major) | **8** | PM | Mitigate | Pre-lodgement meeting; hire consultant to expedite | No acknowledgement letter within 4 weeks of submission | 1×4=4 | Open |
+
+---
+
+## Case Study — Mecca Crane Collapse 2015: The Cost of Ignored Risk {.unnumbered}
+
+::: {.callout-important icon="false"}
+## 🏭 Case Study: Masjid al-Haram Crane Collapse — Risk Management Under Deadline Pressure
+
+**Background:**  
+On 11 September 2015 — just **11 days before Hajj** was due to begin — a Liebherr LR 11350 crane collapsed at the **Masjid al-Haram (Grand Mosque of Mecca)** construction site during a storm. The crane fell into the mosque's northern courtyard, directly onto pilgrims performing prayers. The collapse killed **111 people** and injured 394 others.
+
+Saudi Binladin Group (SBG), one of the world's largest construction contractors and the Kingdom's most prestigious builder, was managing the largest ongoing expansion of Islam's holiest site.
+
+**Risk Management Failures:**
+
+| Risk Factor | What Should Have Happened | What Actually Happened |
+|-------------|--------------------------|----------------------|
+| Crane securing protocol | Cranes must be secured in travel (free-slew) mode before storms; standards require de-rigging when wind exceeds 72 km/h | Wind reached 83 km/h; the crane remained rigged and unsecured in travel mode |
+| Meteorological monitoring | 48-hour advance weather monitoring with automatic crane protocols triggered at defined wind thresholds | A weather alert was issued but not formally communicated to crane operators |
+| Public exclusion zones | Live construction adjacent to an occupied worship space — an extraordinary risk context requiring enhanced protocols | No enhanced exclusion zone protocol existed for public prayer areas below active cranes during extreme weather |
+| Equipment condition | All cranes subject to regular third-party certification | Investigation indicated the crane's luffing jib pin was in a degraded condition — a known maintenance concern |
+| Risk culture | Supervisors must have authority to halt work for any safety concern | The 11-day countdown to Hajj created "normalisation of deviance" — routine shortcuts had accumulated over weeks without incident |
+
+**The Normalisation of Deviance:**  
+SBG had worked under intense Hajj-season deadline pressure for decades without a major fatal incident. Shortcuts that deviated from formal safety protocols had become routine because "nothing bad had happened before." The 2015 collapse demonstrates that statistical tolerance of risk does not reduce the underlying probability of catastrophe — it merely delays it.
+
+**Financial and Operational Consequences:**
+- Criminal investigation of SBG management; 13 individuals charged
+- Following the crane collapse and a separate Mina pilgrimage stampede (24 September 2015), SBG was **suspended from all Saudi government contracts** by end of 2015
+- SBG had revenues exceeding **$5 billion/year** — the suspension was an existential business event
+- Saudi Arabia's Vision 2030 subsequently restructured the Haramain and Haram construction contracting model entirely
+
+**Engineering and PM Lessons:**
+1. **Deadline pressure is the greatest enemy of risk management** — the closer the deadline, the more vigilantly risk protocols must be enforced, not relaxed
+2. **Known equipment deficiencies must be formally entered into the risk register** — "we'll fix it next month" is not a risk response
+3. **Public safety in and around construction exclusion zones is non-negotiable** — it cannot be traded against schedule
+4. **Risk culture is built over years and destroyed in days** — senior project leadership must model expected safety behaviour at peak pressure moments, not only in routine periods
+5. **"We have always done it this way without incident"** is cognitive bias (normalisation of deviance), not a risk assessment
+
+**Discussion Questions:**
+1. Which of the six risk response strategies should SBG have applied to the crane stability risk during a known storm event at an occupied site?
+2. What specific trigger events and thresholds should have been included in the risk register to prevent this incident?
+3. How does schedule pressure influence risk decision-making on construction projects in the Arab world?
+
+*Sources: @mecca2015crane; @arab2016construction*
+:::
+
+---
+
+## Exercises {.unnumbered}
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 6.1 — Risk Identification
+
+For the **construction of a new 50-storey office tower** in a CBD location, identify at least **20 risks** across the following categories:
+
+1. Technical (5 risks)
+2. External/Environmental (5 risks)
+3. Organisational (5 risks)
+4. Commercial/Contract (5 risks)
+
+For each risk, write it in the format:
+*"If [uncertain event] occurs, then [impact on project objectives]."*
+
+**Bonus:** Identify 3 opportunities (positive risks) for this project.
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 6.2 — Risk Register Development
+
+Using 10 of the risks identified in Exercise 6.1:
+
+1. Assess Probability (1-5) and Impact (1-5) for each risk using the scales in this chapter
+2. Calculate the Risk Score (P × I)
+3. Plot the risks on a 5×5 risk matrix
+4. Identify the top 5 priority risks
+5. For each priority risk, develop:
+   - Response strategy
+   - Specific response action(s)
+   - Risk owner
+   - Trigger event
+
+Format your response as a Risk Register table.
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 6.3 — EMV and Contingency Calculation
+
+A highway expansion project has the following risk profile:
+
+| Risk | Probability | Cost Impact | Schedule Impact |
+|------|------------|-------------|----------------|
+| Contaminated land found | 25% | $850,000 | 8 weeks |
+| Bridge foundations deeper than expected | 35% | $420,000 | 4 weeks |
+| Weather delays during winter | 65% | $180,000 | 3 weeks |
+| Utility conflict requires redesign | 20% | $300,000 | 6 weeks |
+| Material price increase | 50% | $220,000 | 0 weeks |
+| Opportunity: Early completion bonus | 40% | -$200,000 | — |
+
+1. Calculate the EMV for each risk
+2. Calculate the total cost contingency fund required (sum of threat EMVs)
+3. What is the net EMV including the opportunity?
+4. If management will only fund 50% of the calculated contingency, which risks would you prioritise covering?
+5. Convert schedule impact to a weighted average schedule risk (in weeks)
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 6.4 — Risk Response Plan
+
+**Scenario:** You are managing the construction of a **200 MW concentrated solar power (CSP) plant** in Wadi Rum desert, Jordan (8 parabolic trough field modules, each 1.2 km long, covering a total of 480 hectares, in ambient temperatures reaching 48°C with severe seasonal sandstorms between February and April).
+
+The following risk has been identified and rated as **High (4×4 = 16)**:
+
+*"A severe sandstorm (khamsin) damages mirror assemblies during construction, contaminating the heat transfer fluid system and causing significant schedule delay and equipment replacement cost."*
+
+Develop a comprehensive **Risk Response Plan** for this risk:
+
+1. Justify why this is rated High (not Extreme or Medium)
+2. Evaluate ALL four threat response strategies (Avoid, Transfer, Mitigate, Accept) — recommend which to use and why
+3. Develop specific response actions with a named owner and deadline
+4. Define 3 trigger events that would activate the response
+5. Estimate the residual risk score after your response is implemented
+6. Identify the secondary risks created by your chosen response strategy
+:::
+
+---
+
+## Project Audit
+
+A **project audit** is a formal, independent assessment of a project conducted at a scheduled point during execution — not just at the end. The goal is to evaluate whether the project is performing as planned, identify corrective actions, and inform a formal **go / no-go / restructure** decision.
+
+::: {.callout-note icon="false"}
+## 📖 Definition — Project Audit
+
+A **project audit** is a structured, documented review of a project's performance, processes, and compliance against its approved plan, governance requirements, and applicable standards. It is conducted by an independent reviewer or audit team — not the project team itself.
+
+> *"The audit examines the reasons for success or failure and, more importantly, extracts lessons that can be applied to improve the management of future projects."*
+> — Meredith & Mantel, *Project Management: A Managerial Approach*
+:::
+
+---
+
+### Types of Project Audit
+
+| Audit Type | Trigger | Focus |
+|-----------|---------|-------|
+| **In-process Audit** | Scheduled (e.g., end of each phase) | Is the project on track? Will it meet objectives? |
+| **Pre-completion Audit** | Near project end | Are all deliverables complete? Is handover ready? |
+| **Termination Audit** | When cancellation is being considered | Should the project continue, restructure, or terminate? |
+| **Post-project Audit** | 6–12 months after close | Did the project deliver the expected benefits? |
+
+: Types of project audit {.striped .hover}
+
+---
+
+### The Audit Process
+
+```{mermaid}
+%%| fig-cap: "Project audit process flow"
+%%{init: {'flowchart': {'nodeSpacing': 30, 'rankSpacing': 60}}}%%
+flowchart LR
+    A["📅 PLAN<br/>Scope, schedule<br/>and team for audit"] --> B
+    B["📂 GATHER DATA<br/>Review documents<br/>Interview team<br/>Compare actuals to plan"] --> C
+    C["🔍 ANALYSE<br/>Identify variances<br/>Root causes<br/>Trends & forecasts"] --> D
+    D["📝 DRAFT REPORT<br/>Findings, issues<br/>Recommendations<br/>Risk to completion"] --> E
+    E["🤝 REVIEW<br/>Present to PM<br/>Sponsor review<br/>Validate facts"] --> F
+    F["📤 FINAL REPORT<br/>Distribute to<br/>steering committee<br/>Decision required"]
+
+    style A fill:#4f46e5,color:#fff
+    style B fill:#0f766e,color:#fff
+    style C fill:#b45309,color:#fff
+    style D fill:#7c3aed,color:#fff
+    style E fill:#0369a1,color:#fff
+    style F fill:#b91c1c,color:#fff
+```
+
+---
+
+### What the Audit Examines
+
+A comprehensive project audit reviews six key dimensions:
+
+::: {.panel-tabset}
+
+## Scope & Deliverables
+- Are all contracted deliverables on track to be completed?
+- Is there uncontrolled scope growth (scope creep)?
+- Are changes being managed through the formal change control process?
+- Have any requirements been missed or misunderstood?
+
+## Schedule Performance
+- What is the current schedule variance (SV) and Schedule Performance Index (SPI)?
+- Are critical path activities on track?
+- Have schedule risks materialised? With what impact?
+- Is the forecast completion date still achievable?
+
+## Cost Performance
+- What is the current cost variance (CV) and Cost Performance Index (CPI)?
+- Is the project tracking to the approved budget?
+- Are the contingency reserves adequate for remaining risks?
+- Forecast at Completion (FAC) vs. Budget at Completion (BAC)?
+
+## Risk & Issues
+- Are all identified risks being actively managed?
+- Have new risks emerged since last review?
+- Are issues being resolved in a timely manner?
+- Risk register current and updated?
+
+## Quality & Compliance
+- Are quality assurance processes being followed?
+- How many non-conformances have been raised? Closed?
+- Are all regulatory and permit requirements being met?
+- Testing and inspection results within specification?
+
+## Team & Stakeholders
+- Is the project team adequately resourced?
+- Are key stakeholders engaged and informed?
+- Are there emerging interpersonal or organisational conflicts?
+- Is the PM receiving appropriate sponsor support?
+
+:::
+
+---
+
+### The Audit Report
+
+The audit report is the formal output delivered to the project sponsor and steering committee. It must be honest, evidence-based, and actionable.
+
+::: {.callout-note icon="false"}
+## 📖 Audit Report Structure
+
+| Section | Contents |
+|---------|---------|
+| **Executive Summary** | Overall assessment (Green / Amber / Red), key findings, recommended decision |
+| **Scope Assessment** | Deliverables status, change control compliance, scope creep findings |
+| **Schedule Assessment** | Current SPI, critical path status, revised forecast completion date |
+| **Cost Assessment** | Current CPI, remaining budget adequacy, revised Estimate at Completion |
+| **Risk Assessment** | Top risks, residual risk profile, adequacy of contingency |
+| **Quality Findings** | NCR status, compliance status, test results summary |
+| **Findings & Issues** | Detailed list with owner and due date |
+| **Recommendations** | Specific, actionable corrective measures |
+| **Decision Required** | Continue as-is / Restructure / Escalate / Terminate |
+:::
+
+---
+
+### Project Health Traffic Light
+
+Audits typically conclude with a **traffic light** assessment:
+
+| Rating | Meaning | Typical Action |
+|--------|---------|----------------|
+| 🟢 **GREEN** | On track — no critical issues | Continue, monitor normally |
+| 🟡 **AMBER** | Issues identified — risk of failure without intervention | PM to prepare corrective action plan within 2 weeks |
+| 🔴 **RED** | Significant deviation — project objective at serious risk | Sponsor intervention required; recovery plan or restructure |
+| ⬛ **BLACK** | Unrecoverable — recommend formal termination | Steering committee to decide on orderly close-down |
+
+: Project health traffic light ratings {.striped .hover}
+
+---
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 6.5 — Perform a Project Audit
+
+**Scenario:** You are an independent auditor reviewing the following project status at Month 9 of a 15-month infrastructure project.
+
+**Project: Regional Pumping Station Upgrade — $4.2M budget**
+
+| Metric | Planned | Actual / Forecast |
+|--------|---------|------------------|
+| Budget Spent (Month 9) | $2.52M (60%) | $2.94M (70%) |
+| Work Complete (EV) | 60% | 52% |
+| Critical Path Float | 0 days | −18 days |
+| NCRs Raised | < 5 forecast | 14 raised, 6 open |
+| Change Requests | 3 forecast | 9 approved, 2 pending |
+| Team Vacancies | 0 | 2 key roles unfilled for 6 weeks |
+| Stakeholder Issues | None logged | 3 formal complaints from client |
+
+1. Calculate the **CPI** and **SPI** from the data above
+2. Forecast the **Estimate at Completion (EAC)** using CPI
+3. Assign a **traffic light rating** (Green / Amber / Red / Black) with justification
+4. Identify the **top 3 root causes** of the performance problems
+5. Write an **Executive Summary** (3-4 sentences) for the steering committee
+6. Recommend the **three most urgent corrective actions** with an owner and 2-week deadline
+:::
+
+---
+
+## Summary {.unnumbered}
+
+::: {.callout-note}
+## 📚 Further Reading
+
+- @pmbok2021 — Section 11: Risk Management
+- @hillson2017 — Full text recommended
+- @kerzner2017 — Chapter 17: Risk Management
+- @meredith2017 — Chapter 7: Risk Management
+:::
+
+**Next Chapter →** [Cost Management](07-cost.qmd) — Estimate, budget, and control project costs using Earned Value Management.

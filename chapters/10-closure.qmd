@@ -1,0 +1,601 @@
+---
+title: "Project Closure & Lessons Learned"
+---
+
+```{=html}
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 10 · Modern Approaches</div>
+  <h1>Project Closure &amp; Lessons Learned</h1>
+  <p class="chapter-desc">The professional conclusion of a project — handover, lessons learned, post-project reviews, and the lasting legacy of good closure practices.</p>
+</div>
+```
+
+## Learning Outcomes {.unnumbered}
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+
+By the end of this chapter, you will be able to:
+
+1. **Explain** why formal project closure is essential, not just "wrapping up"
+2. **Develop** a project closure checklist for an engineering project
+3. **Conduct** a structured lessons learned session using proven facilitation techniques
+4. **Prepare** a project handover package suitable for an operations and maintenance team
+5. **Distinguish** between administrative, contractual, and operational closure activities
+6. **Apply** benefits realisation frameworks to evaluate project success post-completion
+7. **Describe** the team and individual aspects of project ending (Tuckman "Adjourning")
+:::
+
+---
+
+## Why Closure Matters
+
+Many project managers treat closure as an afterthought — a few admin tasks after the "real" work is done. This is a critical mistake. Poor closure leads to:
+
+- **Knowledge loss:** Lessons not captured become repeated mistakes
+- **Contractual exposure:** Final payments withheld due to incomplete documentation
+- **Operational failures:** Handover packages that leave the operations team unable to maintain the system
+- **Stakeholder dissatisfaction:** No formal recognition or celebration of achievement
+- **Regulatory non-compliance:** Missing as-built records, certifications, or permits-to-operate
+
+::: {.callout-note icon="false"}
+## 📖 What is Project Closure?
+
+**PMBOK defines Project Closure** as the process of finalising all activities across all Project Management Process Groups to formally complete or close a project, phase, or contract.
+
+Closure activities are typically triggered by:
+- **Normal completion:** All deliverables accepted, objectives met
+- **Phase-gate closure:** End of a project phase before beginning the next
+- **Premature termination:** Project cancelled, merged, or made redundant
+- **Contractual completion:** Final payment received, warranty period ended
+:::
+
+### Types of Closure
+
+```{mermaid}
+%%| fig-cap: "Three dimensions of project closure"
+flowchart LR
+    subgraph ADMIN["📋 ADMINISTRATIVE CLOSURE"]
+        A1["Archive all<br/>project documents"] --> A2["Close financial<br/>accounts & POs"] --> A3
+        A3["Release team<br/>members"] --> A4["Performance<br/>reviews"] --> A5["Formal project<br/>closure report"]
+    end
+    subgraph CONTRACT["📝 CONTRACTUAL CLOSURE"]
+        C1["Final deliverable<br/>acceptance"] --> C2["Outstanding<br/>claims & disputes"] --> C3
+        C3["Final payment<br/>application"] --> C4["Warranties &<br/>defects liability"] --> C5["Contract<br/>formally closed"]
+    end
+    subgraph OPER["⚙️ OPERATIONAL CLOSURE"]
+        O1["O&M manual<br/>submission"] --> O2["As-built<br/>documentation"] --> O3
+        O3["Operator<br/>training"] --> O4["Commissioning<br/>certificates"] --> O5["System<br/>handover"]
+    end
+
+    style ADMIN fill:#dbeafe,stroke:#3b82f6
+    style CONTRACT fill:#fef9c3,stroke:#eab308
+    style OPER fill:#dcfce7,stroke:#22c55e
+```
+
+---
+
+## The Project Closure Process
+
+```{mermaid}
+%%| fig-cap: "End-to-end project closure flowchart"
+flowchart TD
+    START([🏁 Project Completion<br/>Signal Received]) --> VD
+    VD{All Deliverables<br/>Complete &<br/>Accepted?}
+    VD -- No --> RESOLVE["Resolve Outstanding<br/>Deliverables / Defects"]
+    RESOLVE --> VD
+    VD -- Yes --> FINAL_ACCEPT["Obtain Formal<br/>Client Acceptance<br/>Sign-Off"]
+    FINAL_ACCEPT --> PARALLEL
+
+    subgraph PARALLEL["Parallel Closure Activities"]
+        direction LR
+        H["📦 Prepare<br/>Handover<br/>Package"] 
+        LL["📝 Lessons<br/>Learned<br/>Workshop"]
+        FIN["💰 Financial<br/>Closure &<br/>Final Accounts"]
+        CON["📋 Contract<br/>Close-out"]
+        TEAM["👥 Team<br/>Demobilisation"]
+    end
+
+    PARALLEL --> ARCH["🗄️ Archive All<br/>Project<br/>Documents"]
+    ARCH --> REPORT["📄 Final Project<br/>Completion Report<br/>(to sponsor/steering)"]
+    REPORT --> CLOSE(["✅ Project Officially<br/>Closed"])
+
+    style START fill:#4f46e5,color:#fff,stroke:#4f46e5
+    style CLOSE fill:#22c55e,color:#fff,stroke:#22c55e
+    style PARALLEL fill:#f8fafc,stroke:#e2e8f0
+```
+
+### The Project Closure Checklist
+
+::: {.panel-tabset}
+
+## Deliverables & Acceptance
+- [ ] All contracted deliverables listed in the scope baseline have been completed
+- [ ] All deliverables have been formally accepted in writing by the authorised client representative
+- [ ] All outstanding defects and non-conformances have been rectified or agreed-upon remediation plans are in place
+- [ ] Final inspection certificates have been issued
+- [ ] All commissioning and testing records have been completed and signed
+- [ ] Performance verification test results meet specification requirements
+- [ ] All relevant permits, consents, and regulatory approvals are in place
+
+## Documentation
+- [ ] As-built drawings have been prepared, reviewed, and issued
+- [ ] Operations and Maintenance (O&M) Manuals prepared and submitted
+- [ ] All design calculations filed in the Document Management System
+- [ ] Technical specifications and data sheets archived
+- [ ] Test records, inspection reports, and ITPs filed
+- [ ] Photographic record of key construction milestones archived
+- [ ] All email correspondence and meeting minutes archived
+- [ ] Electronic and hard-copy document register finalised
+- [ ] Document retention schedule applied per regulatory requirements
+
+## Financial
+- [ ] All costs captured and coded to the cost baseline
+- [ ] Outstanding supplier / subcontractor invoices received and processed
+- [ ] Final account negotiations completed with client
+- [ ] Variation orders finalised and claims settled
+- [ ] Project contingency release approved by sponsor
+- [ ] Final project cost report prepared
+- [ ] Financial accounts formally closed in accounting system
+- [ ] Cost data benchmarked and stored in Estimating Database
+
+## Team & HR
+- [ ] All team performance reviews completed
+- [ ] Team members formally released and transitioned to new roles
+- [ ] Individual recognition and appreciation communicated
+- [ ] Skill development records updated
+- [ ] Team celebration event held (closure of the "storming/norming/performing" journey)
+
+## Contracts
+- [ ] All subcontract final accounts agreed and closed
+- [ ] All purchase orders receipted and closed
+- [ ] Supplier performance evaluations completed
+- [ ] Defects Liability Period (DLP) start date confirmed and diary reminder set
+- [ ] Retention monies schedule confirmed
+- [ ] Final payment application submitted to client
+
+:::
+
+---
+
+## Project Handover — Transferring the Asset
+
+The handover to an operations team (or client) is one of the most critical and most-overlooked activities:
+
+```{mermaid}
+%%| fig-cap: "Structured project handover process"
+sequenceDiagram
+    actor PM as Project Manager
+    actor CE as Commissioning Engineer
+    actor OPS as Operations Manager
+    actor CLIENT as Client Representative
+
+    PM->>CE: Confirm all systems commissioned
+    CE->>OPS: Provide technical briefing (3-day induction)
+    CE->>OPS: Hand over O&M manuals (digital + hard copy)
+    OPS->>OPS: Review O&M manuals, raise questions
+    OPS->>CE: Raise 15 clarification questions
+    CE->>OPS: Resolve all queries within 5 working days
+    PM->>CLIENT: Issue Draft Certificate of Practical Completion (CPC)
+    CLIENT->>PM: Review CPC, raise 3 outstanding items
+    PM->>CE: Close outstanding items
+    CE->>PM: Confirm all items closed
+    PM->>CLIENT: Issue Final CPC for signature
+    CLIENT->>PM: Sign and return CPC
+    PM->>PM: Confirm Defects Liability Period start date (12 months)
+    PM->>OPS: Confirm 24/7 support line active for 3 months post-handover
+    PM->>CLIENT: Submit Final Invoice
+```
+
+### Operations & Maintenance Manual Structure
+
+A good O&M Manual enables the operations team to run the facility without the design team's input:
+
+::: {.callout-note icon="false"}
+## 📖 Typical O&M Manual Contents
+
+| Section | Contents |
+|---------|---------|
+| **1. Introduction** | Project description, system overview, design intent |
+| **2. System Descriptions** | How each system works, design parameters, normal operating conditions |
+| **3. Operating Instructions** | Start-up, normal operation, shutdown, emergency procedures |
+| **4. Maintenance Schedule** | Routine maintenance tasks, frequencies, responsible parties |
+| **5. Maintenance Procedures** | Step-by-step procedures for each maintenance activity |
+| **6. Fault Finding** | Troubleshooting guides, alarm descriptions, corrective actions |
+| **7. Spare Parts Register** | Critical spares list, re-order quantities, supplier contacts |
+| **8. Equipment Documentation** | Manufacturer manuals, data sheets, test certificates |
+| **9. As-Built Drawings** | Final construction drawings reflecting what was actually built |
+| **10. Performance Data** | Commissioning results, tested capacities, energy benchmarks |
+| **11. Warranties & Guarantees** | Equipment warranties, performance guarantees, contact details |
+| **12. Emergency Contacts** | 24/7 fault line, contractor emergency numbers, regulatory hotlines |
+:::
+
+---
+
+## Lessons Learned
+
+Capturing lessons learned transforms project experience into **organisational knowledge**. Without a systematic approach, hard-won insights evaporate when the team disperses.
+
+```{mermaid}
+%%| fig-cap: "Lessons learned as part of the organisational learning cycle"
+flowchart LR
+    PROJ["🏗️ Live Project"] --> |"Events, decisions,<br/>outcomes"| LL
+    LL["📝 Lessons Learned<br/>Capture"] --> |"Structured<br/>sessions"| DB
+    DB["🗄️ Knowledge<br/>Database"] --> |"Accessible<br/>to future PMs"| NEXT
+    NEXT["🚀 Future Projects"] --> |"Briefed before<br/>project start"| PM2
+    PM2["🧠 Better-informed<br/>Project Planning"] --> |"Apply lessons;<br/>generate new<br/>experience"| PROJ
+
+    style LL fill:#4f46e5,color:#fff
+    style DB fill:#0f766e,color:#fff
+```
+
+### Running a Lessons Learned Workshop
+
+::: {.panel-tabset}
+
+## Preparation
+
+**Before the Workshop:**
+1. Schedule 2-3 hours for a team of up to 12 people
+2. Invite all key project contributors (not just the core PM team)
+3. Circulate a brief pre-read with timeline, key milestones, and objectives vs. actuals
+4. Prepare a structured template for capturing inputs
+5. Appoint an objective **facilitator** (ideally not the PM, to prevent defensiveness)
+
+**Ground Rules:**
+- This is a "blameless" session — we focus on *systems* and *processes*, not *people*
+- Be specific: give examples and data
+- Every insight is valuable — nothing is too small
+- Action items must have owners and dates
+
+## During the Workshop
+
+**Structure the session using the following prompts:**
+
+| Category | Questions to Ask |
+|---------|----------------|
+| **What went well?** | What should we DEFINITELY repeat on future projects? |
+| **What didn't go well?** | What would you change if you could do it again? |
+| **What surprised us?** | What did we not anticipate at the start? |
+| **Technical Insights** | What technical challenges did we face? What worked? |
+| **Process Insights** | What processes/procedures added value vs. overhead? |
+| **Stakeholder Insights** | What did stakeholders value most? What frustrated them? |
+| **Team Insights** | What team dynamics helped or hindered performance? |
+| **Recommendations** | Specific actions for the next project |
+
+Use dot-voting (each person gets 5 votes) to prioritise which lessons are most important to capture and act on.
+
+## Output Format
+
+**The Lessons Learned Register** should capture:
+
+| # | Category | Description | Impact | Root Cause | Recommendation | Owner | Status |
+|---|----------|-------------|--------|-----------|---------------|-------|--------|
+| 1 | Planning | Subcontractor scope was not clearly defined in tender documents, leading to 3 claims | High — $180K variation | Scope description too generic; not reviewed against subcontract risk | Develop standard subcontract scope templates per discipline | Procurement Manager | Open |
+| 2 | Schedule | Early works permits took 6 weeks longer than planned | Medium — 4 week delay | Single contact at authority; no escalation pathway identified | Map out approval pathways and key contacts at project start; include buffer in programme | PM | Implemented |
+| 3 | Technical | Utility survey was incomplete; 3 unexpected services found during excavation | High — $95K cost; HSE incident | Inaccurate utility records; no supplementary potholing | Always commission independent potholing 3m ahead of excavation | HSE Lead | Implemented |
+
+:::
+
+---
+
+## Post-Project Review & Benefits Realisation
+
+A **Post-Project Review (PPR)** is conducted 6-12 months after project completion to assess whether the project actually delivered the expected **benefits** — not just the deliverables.
+
+```{mermaid}
+%%| fig-cap: "Benefits realisation framework over time"
+gantt
+    title Benefits Realisation Timeline
+    dateFormat  YYYY-MM-DD
+    axisFormat  %b %Y
+
+    section Project Delivery
+    Project Execution                             :done, proj, 2024-01-01, 2025-06-30
+    
+    section Closure Activities
+    Commissioning & Handover                      :done, hand, 2025-05-01, 2025-07-31
+    Formal Project Close                          :done, close, 2025-07-01, 2025-07-31
+    
+    section Benefits Monitoring
+    Baseline Benefits Measurement                 :active, base, 2025-08-01, 2025-09-30
+    6-Month Benefits Check                        :check1, 2026-01-01, 2026-02-28
+    12-Month Post-Project Review (Full)           :ppr, 2026-07-01, 2026-08-31
+    24-Month Long-Term Benefits Audit             :audit, 2027-07-01, 2027-08-31
+```
+
+**Benefits Realisation Questions:**
+
+| Benefit Claimed | How Measured | Target | Actual (12 months) | Variance |
+|---------------|-------------|--------|-------------------|---------|
+| 25% reduction in pipe break frequency | Maintenance records, call logs | 25% less | 18% less | -7% (Not fully achieved) |
+| Operating cost saving of $420K/year | Annual opex budget vs. actuals | $420K | $380K | -$40K (Partially achieved) |
+| Compliance with EPA discharge limits | Monthly sampling reports | 100% compliance | 97% compliance | Slight shortfall; investigation underway |
+| Service interruption < 2 hrs/event | SCADA outage records | < 2 hrs | 1.4 hrs avg | Achieved — exceeded target |
+
+---
+
+## The Human Side of Closure — Tuckman "Adjourning"
+
+Tuckman's model of team development (introduced in Chapter 5) includes a final stage often overlooked:
+
+```{mermaid}
+%%| fig-cap: "Tuckman's model — the Adjourning stage"
+flowchart LR
+    T1["Forming<br/>😐 Polite,<br/>uncertain"] --> T2
+    T2["Storming<br/>😤 Conflict,<br/>competing"] --> T3
+    T3["Norming<br/>🤝 Rules,<br/>cooperation"] --> T4
+    T4["Performing<br/>🚀 High output,<br/>confidence"] --> T5
+    T5["Adjourning<br/>😢 Disengagement,<br/>reflection<br/>(project closure)"]
+
+    style T5 fill:#4f46e5,color:#fff
+```
+
+**The Adjourning Stage is characterised by:**
+- **Pride and satisfaction** — recognition of what the team achieved
+- **Anxiety** — uncertainty about what comes next for individuals
+- **Loss** — the end of a high-performing team and valued relationships
+- **Reflection** — individuals processing the project experience
+
+**PM's Role During Adjourning:**
+1. **Acknowledge and celebrate** achievement — project launch event, awards, team dinner
+2. **Express genuine appreciation** for individual contributions (personal, not just generic)
+3. **Provide career guidance** — help team members secure their next opportunity
+4. **Manage the transition** — clear timelines for when people are released
+5. **Write references and performance reviews** promptly
+6. **Capture team expertise** in lessons learned before knowledge disperses
+
+---
+
+## The Final Project Completion Report
+
+The **Project Completion Report** is delivered to the sponsor/steering committee and documents the full project story:
+
+::: {.callout-note icon="false"}
+## 📖 Project Completion Report Structure
+
+**1. Executive Summary**  
+One-page overview of what was delivered, key outcomes vs. objectives, and top 5 lessons learned.
+
+**2. Project Overview**  
+Background, objectives, scope, key stakeholders, and delivery strategy.
+
+**3. Deliverables Summary**  
+Table of all contracted deliverables — delivered/not delivered; scope variations.
+
+**4. Schedule Performance**  
+Planned vs. actual dates for key milestones; causes of delays or early completions.
+
+**5. Cost Performance**  
+Final cost vs. approved budget; variance analysis; EVM final metrics.
+
+**6. Quality Performance**  
+Key QA/QC metrics — NCR count, inspection result rates, rework costs, defects at completion.
+
+**7. Risk Summary**  
+Top risks identified at start, how they materialised (or didn't), risk management effectiveness.
+
+**8. Stakeholder Satisfaction**  
+Survey results, any outstanding concerns, relationship outcomes.
+
+**9. Lessons Learned Summary**  
+Top 10 lessons (both positive and negative) to be implemented on future projects.
+
+**10. Recommendations**  
+Specific recommendations for the organisation, operations team, and future projects.
+:::
+
+---
+
+## Case Study — Doha Metro: Closing the Arab World's Most Complex New Railway {.unnumbered}
+
+::: {.callout-important icon="false"}
+## 🏭 Case Study: Doha Metro — Planned Closure, Delivered On Time
+
+**Background:**  
+The Doha Metro (مترو الدوحة) is Qatar's first urban rail network — **76 km of track, 3 lines, 37 stations**, built almost entirely underground in 7 years. Qatar Rail awarded construction contracts in 2013 with a committed Phase 1 opening of **May 2019** to support Qatar's growing sporting calendar leading toward the FIFA World Cup 2022. Phase 1 closure was itself a complex project-within-a-project: opening a live metro in a city that had never had one before.
+
+**Planned Opening:** May 2019  
+**Actual Opening:** May 2019 — **on time**, a remarkable achievement for a programme of this scale  
+**Phase 1 Budget:** Approximately **$36 billion** (full network, including tunnels and stations)
+
+**Closure Challenges:**
+
+*1. Multi-Contractor Systems Integration:*  
+The Doha Metro involved over **60 major contracts** across civil works, MEP systems, rolling stock (CRRC trains), signalling (Thales), communications (Siemens), and station fit-out. No single contractor was responsible end-to-end.
+
+*Solution:* Qatar Rail appointed a dedicated **Systems Integration Manager (SIM)** 30 months before opening, with authority to issue **binding interface instructions** to all contractors regardless of contract. This role resolved 340+ documented interface non-conformances before they could delay the opening.
+
+*2. Regulatory Certification — A New Challenge for Qatar:*  
+Qatar had never had a metro. The national rail safety regulatory framework was being developed in parallel with the project — an extraordinary risk that certification could be delayed regardless of construction readiness.
+
+*Solution:* Qatar Rail engaged European rail safety certification specialists (CERTIFER, France) to prepare the safety case 18 months in advance; a "shadow" regulatory review 12 months before submission identified and resolved 28 regulatory gaps before the formal certification submission.
+
+*3. Phased Commissioning (Not a Big-Bang Opening):*  
+Rather than one simultaneous closure event, the handover strategy was incremental:
+- Tunnel infrastructure accepted: 18 months before opening
+- Train delivery and depot commissioning: 12 months before opening
+- Station MEP systems accepted: 6 months before opening
+- Trial operations (full-readiness, no public): 3 months before opening
+- Revenue operations Phase 1: May 2019
+
+Each phase had formal acceptance criteria, independent verification, and documented handover packs.
+
+*4. Operations Workforce Transition:*  
+At construction peak, the programme employed over **45,000 workers**. The closure plan managed the transition to an operations workforce of 2,200:
+- Operations staff recruited and trained in parallel with commissioning — not after it
+- 200-day train driver simulator programme before any revenue operation
+- Formal knowledge transfer: 18 months of shadowing between construction engineers and operations maintenance teams
+
+**Scorecard:**
+
+| Metric | Target | Actual | Outcome |
+|--------|--------|--------|---------|
+| Phase 1 Opening | May 2019 | May 2019 | ✅ On time |
+| Phase 1 Budget | ~$36bn | Within ~5% | ✅ Well controlled |
+| Safety Certification | May 2019 | April 2019 | ✅ One month early |
+| Worker Safety | Zero fatalities | Reported achieved | ✅ |
+| Trial Operations | 90 days | 95 days | ✅ |
+| Passenger Satisfaction (Year 1) | >80% | 91% | ✅ |
+
+**Takeaway for Engineers:**  
+The Doha Metro's successful closure was the result of closure planning from day one — not as a phase added at the end. The Systems Integration Manager role, phased handover strategy, parallel operations recruitment, and proactive regulatory engagement were all written into the project execution plan at contract award. The lesson: **you close well only if you plan to close well from the beginning.**
+:::
+
+---
+
+## Course Summary {.unnumbered}
+
+Congratulations on completing the course! 
+
+```{mermaid}
+%%| fig-cap: "The complete Project Management journey"
+flowchart LR
+    C1["📘 Ch 1<br/>Introduction<br/>What is PM?"] --> C2
+    C2["📋 Ch 2<br/>Initiation<br/>Charter &<br/>Stakeholders"] --> C3
+    C3["🗂️ Ch 3<br/>Planning<br/>Scope & WBS"] --> C4
+    C4["📅 Ch 4<br/>Scheduling<br/>CPM & Gantt"] --> C5
+    C5["👥 Ch 5<br/>Resources<br/>Teams & RACI"] --> C6
+    C6["⚠️ Ch 6<br/>Risk<br/>Identify &<br/>Respond"] --> C7
+    C7["💰 Ch 7<br/>Cost & EVM<br/>Budget &<br/>Control"] --> C8
+    C8["🔍 Ch 8<br/>Quality<br/>PDCA & ITP"] --> C9
+    C9["🔄 Ch 9<br/>Agile & Scrum<br/>Sprints"] --> C10
+    C10["🏁 Ch 10<br/>Closure<br/>Handover &<br/>Lessons"]
+
+    style C1 fill:#4f46e5,color:#fff
+    style C2 fill:#0284c7,color:#fff
+    style C3 fill:#0891b2,color:#fff
+    style C4 fill:#0f766e,color:#fff
+    style C5 fill:#15803d,color:#fff
+    style C6 fill:#ca8a04,color:#fff
+    style C7 fill:#ea580c,color:#fff
+    style C8 fill:#dc2626,color:#fff
+    style C9 fill:#9333ea,color:#fff
+    style C10 fill:#db2777,color:#fff
+```
+
+---
+
+## Exercises {.unnumbered}
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 10.1 — Closure Checklist Development
+
+You are the PM for a **highway widening project** (12km of dual carriageway, 3 bridges, 2 interchanges) that has just completed physical construction. The client is the State Roads Authority.
+
+1. Develop a comprehensive **Project Closure Checklist** covering administrative, contractual, and operational elements specific to a civil highway project
+2. Identify 5 stakeholders who must formally sign off before the project is closed
+3. How long do you recommend the Defects Liability Period (DLP) should be, and why?
+4. What documentation must be submitted to the roads authority as part of handover?
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 10.2 — Lessons Learned Workshop Design
+
+You are preparing to facilitate a **lessons-learned workshop** for a 3-year desalination plant project. The project delivered on scope and quality but was 8 months late and 12% over budget. The team of 15 core members will attend.
+
+1. Design a 3-hour workshop agenda (with timings)
+2. Draft 10 specific questions you would ask to draw out meaningful lessons (not generic ones)
+3. The lead engineer becomes defensive during the session when the design schedule is discussed. How do you handle this as the facilitator?
+4. Write 3 example lessons learned entries in register format (one positive, one negative, one risk-related) that might emerge from this project
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 10.3 — Benefits Realisation Assessment
+
+A new **wastewater treatment plant upgrade** was justified in the business case with the following benefits:
+- 40% reduction in energy consumption (baseline: $2.2M/year opex)
+- 100% compliance with new EPA nitrogen limits (≤10 mg/L total nitrogen)
+- 30% reduction in odour complaints
+- Capacity increase from 80 ML/day to 120 ML/day
+
+One year after handover, the following data is available:
+- Energy costs: $1.6M (vs. $2.2M baseline)
+- EPA compliance: 94% of samples within limits (6 samples failed over 12 months)
+- Odour complaints: 22 this year (vs. 35 baseline year)
+- Peak day flow recorded: 115 ML/day (design capacity 120 ML/day)
+
+1. Calculate the variance for each benefit against the target
+2. Which benefits were **achieved**, **partially achieved**, and **not achieved**?
+3. For any benefit not fully achieved, what could be the cause and what remediation would you recommend?
+4. Should the project be declared a "success"? Discuss using the triple constraint AND the benefits realisation lens.
+:::
+
+::: {.callout-caution icon="false"}
+## ✏️ Exercise 10.4 — Final Project Completion Report (Capstone)
+
+Using a project you have studied or worked on (or a hypothetical project assigned by your instructor), prepare a **Project Completion Report** covering:
+
+1. Executive Summary (max 1 page)
+2. Schedule Performance — planned vs. actual Gantt with variance analysis
+3. Cost Performance — final EVM analysis (SPI, CPI, EAC, VAC)
+4. Quality Performance — NCR log summary, inspection pass rates
+5. Top 5 Lessons Learned (with specific recommendations)
+6. Would you recommend this project as a template for future similar projects? Why or why not?
+
+*This exercise is designed as a summative assessment of the entire course.*
+:::
+
+---
+
+## Summary {.unnumbered}
+
+```{mermaid}
+%%| fig-cap: "Chapter 10 key concepts"
+mindmap
+  root((Chapter 10<br/>Project Closure))
+    Types of Closure
+      Administrative
+      Contractual
+      Operational
+    key Activities
+      Formal acceptance
+      Handover package
+      Financial close
+      Team demobilisation
+    Lessons Learned
+      Blameless session
+      Structured template
+      Published register
+      Organisational learning
+    Benefits Realisation
+      Post-Project Review
+      6 and 12 month checks
+      Measure vs business case
+    Human Aspects
+      Adjourning stage
+      Celebration and recognition
+      Career transitions
+      Knowledge transfer
+```
+
+::: {.callout-note}
+## 📚 Further Reading
+
+- @pmbok2021 — Chapter 18: Project Closing Process Group
+- @kerzner2017 — Chapter 21: Project Termination
+- @turner2014 — Chapter 17: Project Closeout
+- @pinto2019 — Chapter 12: Project Termination
+
+**Industry Resources:**
+- Crossrail Lessons Learned Reports: [crossrail.co.uk/learnings](https://learnings.crossrail.co.uk)
+- Infrastructure and Projects Authority (IPA) project delivery guidance: GOV.UK
+:::
+
+---
+
+::: {.callout-tip}
+## 🎓 Course Complete!
+
+You have now completed **Project Management for Engineering Students**. You have covered:
+
+- The lifecycle and knowledge areas of project management
+- Initiating and planning engineering projects
+- Scheduling, resourcing, risk, cost, and quality management
+- Agile and Scrum approaches for adaptive engineering projects
+- Professional project closure practices
+
+The next step is practice — apply these concepts on real projects, pursue professional certification (PMI PMP, APM PMQ, or PRINCE2), and continue learning from every project you deliver.
+
+*Good luck — and deliver great projects!*
+:::
