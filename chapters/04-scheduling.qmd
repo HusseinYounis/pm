@@ -130,34 +130,64 @@ Accuracy: ±5% to ±15%
 
 Activities must be sequenced based on their **logical dependencies**:
 
-```{mermaid}
-%%| fig-cap: "The four types of activity dependencies (PDM)"
-flowchart TB
-    subgraph ROW1[" "]
-        direction LR
-        subgraph FS["⬛ Finish-to-Start (FS) — Most Common"]
-            A1[Activity A] -->|"B cannot start until A finishes"| B1[Activity B]
-        end
-        subgraph SS["⬛ Start-to-Start (SS)"]
-            A2[Activity A] -->|"B cannot start until A starts"| B2[Activity B]
-        end
-    end
-    subgraph ROW2[" "]
-        direction LR
-        subgraph FF["⬛ Finish-to-Finish (FF)"]
-            A3[Activity A] -->|"B cannot finish until A finishes"| B3[Activity B]
-        end
-        subgraph SF["⬛ Start-to-Finish (SF) — Rare"]
-            A4[Activity A] -->|"B cannot finish until A starts"| B4[Activity B]
-        end
-    end
+```{=html}
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0;">
 
-    style ROW1 fill:none,stroke:none
-    style ROW2 fill:none,stroke:none
-    style FS fill:#dbeafe,stroke:#3b82f6
-    style SS fill:#dcfce7,stroke:#22c55e
-    style FF fill:#fef9c3,stroke:#eab308
-    style SF fill:#fee2e2,stroke:#ef4444
+  <!-- Finish-to-Start -->
+  <div style="background:#dbeafe;border:2px solid #3b82f6;border-radius:10px;padding:16px;">
+    <div style="font-weight:700;color:#1d4ed8;font-size:0.95em;margin-bottom:8px;">
+      Finish-to-Start (FS)
+      <span style="background:#1d4ed8;color:white;font-size:0.72em;padding:2px 8px;border-radius:20px;margin-left:6px;vertical-align:middle;">Most Common</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 0;">
+      <div style="background:#1d4ed8;color:white;padding:7px 14px;border-radius:6px;font-size:0.88em;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.2);">Activity A</div>
+      <div style="font-size:1.5em;color:#1d4ed8;line-height:1;">⟶</div>
+      <div style="background:#3b82f6;color:white;padding:7px 14px;border-radius:6px;font-size:0.88em;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.2);">Activity B</div>
+    </div>
+    <div style="font-size:0.83em;color:#1e40af;text-align:center;margin-top:4px;">B cannot <strong>start</strong> until A <strong>finishes</strong></div>
+    <div style="font-size:0.78em;color:#475569;margin-top:6px;text-align:center;font-style:italic;">e.g. Excavation must finish before concrete pour starts</div>
+  </div>
+
+  <!-- Start-to-Start -->
+  <div style="background:#dcfce7;border:2px solid #22c55e;border-radius:10px;padding:16px;">
+    <div style="font-weight:700;color:#15803d;font-size:0.95em;margin-bottom:8px;">Start-to-Start (SS)</div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 0;">
+      <div style="background:#15803d;color:white;padding:7px 14px;border-radius:6px;font-size:0.88em;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.2);">Activity A</div>
+      <div style="font-size:1.5em;color:#15803d;line-height:1;">⟶</div>
+      <div style="background:#22c55e;color:white;padding:7px 14px;border-radius:6px;font-size:0.88em;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.2);">Activity B</div>
+    </div>
+    <div style="font-size:0.83em;color:#166534;text-align:center;margin-top:4px;">B cannot <strong>start</strong> until A <strong>starts</strong></div>
+    <div style="font-size:0.78em;color:#475569;margin-top:6px;text-align:center;font-style:italic;">e.g. Training can begin once documentation starts</div>
+  </div>
+
+  <!-- Finish-to-Finish -->
+  <div style="background:#fef9c3;border:2px solid #eab308;border-radius:10px;padding:16px;">
+    <div style="font-weight:700;color:#a16207;font-size:0.95em;margin-bottom:8px;">Finish-to-Finish (FF)</div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 0;">
+      <div style="background:#a16207;color:white;padding:7px 14px;border-radius:6px;font-size:0.88em;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.2);">Activity A</div>
+      <div style="font-size:1.5em;color:#a16207;line-height:1;">⟶</div>
+      <div style="background:#eab308;color:white;padding:7px 14px;border-radius:6px;font-size:0.88em;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.2);">Activity B</div>
+    </div>
+    <div style="font-size:0.83em;color:#a16207;text-align:center;margin-top:4px;">B cannot <strong>finish</strong> until A <strong>finishes</strong></div>
+    <div style="font-size:0.78em;color:#475569;margin-top:6px;text-align:center;font-style:italic;">e.g. QA testing cannot end until development ends</div>
+  </div>
+
+  <!-- Start-to-Finish -->
+  <div style="background:#fee2e2;border:2px solid #ef4444;border-radius:10px;padding:16px;">
+    <div style="font-weight:700;color:#b91c1c;font-size:0.95em;margin-bottom:8px;">
+      Start-to-Finish (SF)
+      <span style="background:#b91c1c;color:white;font-size:0.72em;padding:2px 8px;border-radius:20px;margin-left:6px;vertical-align:middle;">Rare</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 0;">
+      <div style="background:#b91c1c;color:white;padding:7px 14px;border-radius:6px;font-size:0.88em;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.2);">Activity A</div>
+      <div style="font-size:1.5em;color:#b91c1c;line-height:1;">⟶</div>
+      <div style="background:#ef4444;color:white;padding:7px 14px;border-radius:6px;font-size:0.88em;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.2);">Activity B</div>
+    </div>
+    <div style="font-size:0.83em;color:#b91c1c;text-align:center;margin-top:4px;">B cannot <strong>finish</strong> until A <strong>starts</strong></div>
+    <div style="font-size:0.78em;color:#475569;margin-top:6px;text-align:center;font-style:italic;">e.g. New system (A) starts → old system (B) can shut down</div>
+  </div>
+
+</div>
 ```
 
 ### Lag and Lead Time
@@ -210,19 +240,18 @@ graph LR
 The **Critical Path Method (CPM)** identifies the **longest path through the network** — the sequence of activities that determines the minimum project duration.
 
 ::: {.callout-note icon="false"}
-## 📖 Key CPM Definitions
+## 📖 CPM Basic Terms & Formulas
 
-| Term | Definition |
-|------|-----------|
-| **Critical Path** | The longest path through the network; determines project end date |
-| **Float (Slack)** | Amount of time an activity can be delayed without delaying the project |
-| **Total Float** | Delay allowed without delaying project end date |
-| **Free Float** | Delay allowed without delaying the NEXT activity |
-| **Critical Activity** | An activity on the critical path (Float = 0) |
-| **Early Start (ES)** | Earliest time an activity can start |
-| **Early Finish (EF)** | Earliest time an activity can finish; EF = ES + Duration |
-| **Late Start (LS)** | Latest time an activity can start without delaying the project |
-| **Late Finish (LF)** | Latest time an activity can finish without delaying project |
+| Term | Formula | Meaning |
+|------|---------|---------|
+| **ES** — Early Start | $ES = \max(EF \text{ of predecessors})$ | Earliest an activity can start |
+| **EF** — Early Finish | $EF = ES + Duration$ | Earliest an activity can finish |
+| **LF** — Late Finish | $LF = \min(LS \text{ of successors})$ | Latest it can finish without delaying the project |
+| **LS** — Late Start | $LS = LF - Duration$ | Latest it can start without delaying the project |
+| **Total Float** | $Float = LS - ES \;=\; LF - EF$ | Flexibility an activity has before it delays the project |
+| **Free Float** | $FF = ES_{successor} - EF$ | Flexibility before delaying the *next* activity |
+| **Critical Path** | Activities where $Float = 0$ | Longest path — determines total project duration |
+| **Critical Activity** | $Float = 0$ | Any delay on this activity delays the entire project |
 :::
 
 ### Step-by-Step CPM Calculation
@@ -240,7 +269,12 @@ The **Critical Path Method (CPM)** identifies the **longest path through the net
 
 **Step 1: Forward Pass (Calculate ES and EF)**
 
-$$ES_A = 0, \quad EF_A = ES_A + Duration_A = 0 + 3 = 3$$
+::: {.callout-tip icon="false"}
+## 💡 Starting Convention
+The **first activity always has ES = 0** by convention — the project clock starts at zero. The formula $ES = \max(EF \text{ of predecessors})$ only applies to activities that have predecessors. Similarly, in the backward pass, **LF of the last activity = project duration** (not calculated from successors).
+:::
+
+$$ES_A = 0 \quad \text{(by convention — no predecessors)}, \quad EF_A = ES_A + Duration_A = 0 + 3 = 3$$
 
 $$ES_B = EF_A = 3, \quad EF_B = 3 + 5 = 8$$
 
@@ -256,7 +290,7 @@ $$ES_F = \max(EF_D, EF_E) = \max(14, 11) = 14, \quad EF_F = 14 + 4 = 18$$
 
 **Step 2: Backward Pass (Calculate LS and LF)**
 
-$$LF_F = 18, \quad LS_F = LF_F - Duration_F = 18 - 4 = 14$$
+$$LF_F = 18 \quad \text{(by convention — equals project duration, no successors)}, \quad LS_F = LF_F - Duration_F = 18 - 4 = 14$$
 
 $$LF_D = LS_F = 14, \quad LS_D = 14 - 6 = 8$$
 
@@ -316,6 +350,382 @@ graph LR
     style FN fill:#15803d,color:#fff
     style C fill:#dcfce7,stroke:#22c55e,color:#166534
     style E fill:#dcfce7,stroke:#22c55e,color:#166534
+```
+
+---
+
+### More CPM Examples
+
+Work through these five examples to master every dependency type and the parallel-start pattern.
+
+### Example 1 — FS Network
+
+**Four activities in a Finish-to-Start network with two parallel branches**
+
+| Activity | Duration | Predecessor | Dependency |
+|----------|----------|-------------|------------|
+| A | 3 days | — | Start |
+| B | 4 days | A | FS |
+| C | 2 days | A | FS |
+| D | 3 days | B, C | FS |
+
+**Forward Pass**
+
+$$ES_A = 0\;(\text{convention — no predecessors}),\quad EF_A = 0 + 3 = 3$$
+
+$$ES_B = EF_A = 3,\quad EF_B = 3 + 4 = 7$$
+
+$$ES_C = EF_A = 3,\quad EF_C = 3 + 2 = 5$$
+
+$$ES_D = \max(EF_B,\,EF_C) = \max(7,\,5) = 7,\quad EF_D = 7 + 3 = 10$$
+
+**Project Duration = 10 days**
+
+**Backward Pass**
+
+$$LF_D = 10\;(\text{convention — no successors}),\quad LS_D = 10 - 3 = 7$$
+
+$$LF_B = LS_D = 7,\quad LS_B = 7 - 4 = 3$$
+
+$$LF_C = LS_D = 7,\quad LS_C = 7 - 2 = 5$$
+
+$$LF_A = \min(LS_B,\,LS_C) = \min(3,\,5) = 3,\quad LS_A = 3 - 3 = 0$$
+
+**Float & Critical Path**
+
+| Activity | ES | EF | LS | LF | Float | Critical? |
+|----------|----|----|----|-----|-------|-----------|
+| A | 0 | 3 | 0 | 3 | **0** | ✅ |
+| B | 3 | 7 | 3 | 7 | **0** | ✅ |
+| C | 3 | 5 | 5 | 7 | **2** | ❌ |
+| D | 7 | 10 | 7 | 10 | **0** | ✅ |
+
+: Ex 1 CPM results {.striped .hover}
+
+**Critical Path: A → B → D (10 days)** — C has 2 days of float (can slip without delaying the project).
+
+```{mermaid}
+%%{init: {'flowchart': {'nodeSpacing': 25, 'rankSpacing': 55}}}%%
+flowchart LR
+    S(["Start — Day 0"])
+    A["A | Dur:3<br/>ES:0  EF:3<br/>LS:0  LF:3 | F:0"]
+    B["B | Dur:4<br/>ES:3  EF:7<br/>LS:3  LF:7 | F:0"]
+    C["C | Dur:2<br/>ES:3  EF:5<br/>LS:5  LF:7 | F:2"]
+    D["D | Dur:3<br/>ES:7  EF:10<br/>LS:7  LF:10 | F:0"]
+    EN(["End — Day 10"])
+
+    S -- CRITICAL --> A
+    A -- CRITICAL --> B
+    A --> C
+    B -- CRITICAL --> D
+    C --> D
+    D -- CRITICAL --> EN
+
+    style A fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style B fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style D fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style C fill:#dcfce7,stroke:#22c55e,color:#166534
+    style S fill:#1d4ed8,color:#fff
+    style EN fill:#15803d,color:#fff
+```
+
+### Example 2 — SS + Lag
+
+**Start-to-Start dependency: B can start 2 days after A starts (SS+2)**
+
+::: {.callout-tip icon="false"}
+## 💡 SS Lag Rule
+$$ES_B = ES_A + \text{lag}$$
+In the backward pass: $LS_A = LS_B - \text{lag}$
+Activities **overlap** in time — this is the whole point of SS.
+:::
+
+| Activity | Duration | Predecessor | Dependency |
+|----------|----------|-------------|------------|
+| A | 5 days | — | Start |
+| B | 4 days | A | SS+2 |
+| C | 3 days | B | FS |
+
+**Forward Pass**
+
+$$ES_A = 0\;(\text{convention}),\quad EF_A = 0 + 5 = 5$$
+
+$$ES_B = ES_A + \text{lag} = 0 + 2 = 2,\quad EF_B = 2 + 4 = 6$$
+
+*Note: A runs from day 0–5; B starts at day 2 while A is still in progress (overlap intended).*
+
+$$ES_C = EF_B = 6,\quad EF_C = 6 + 3 = 9$$
+
+**Project Duration = 9 days**
+
+**Backward Pass**
+
+$$LF_C = 9\;(\text{convention}),\quad LS_C = 9 - 3 = 6$$
+
+$$LF_B = LS_C = 6,\quad LS_B = 6 - 4 = 2$$
+
+$$LS_A = LS_B - \text{lag} = 2 - 2 = 0,\quad LF_A = LS_A + Dur_A = 0 + 5 = 5$$
+
+*The SS+2 backward rule forces A to start no later than day 0.*
+
+**Float & Critical Path**
+
+| Activity | ES | EF | LS | LF | Float | Critical? |
+|----------|----|----|----|-----|-------|-----------|
+| A | 0 | 5 | 0 | 5 | **0** | ✅ |
+| B | 2 | 6 | 2 | 6 | **0** | ✅ |
+| C | 6 | 9 | 6 | 9 | **0** | ✅ |
+
+: Ex 2 CPM results {.striped .hover}
+
+**Critical Path: A → B → C (9 days)** — All activities are critical; no float anywhere.
+
+```{mermaid}
+%%{init: {'flowchart': {'nodeSpacing': 25, 'rankSpacing': 55}}}%%
+flowchart LR
+    S(["Start — Day 0"])
+    A["A | Dur:5\nES:0  EF:5\nLS:0  LF:5 | F:0"]
+    B["B | Dur:4\nES:2  EF:6\nLS:2  LF:6 | F:0"]
+    C["C | Dur:3\nES:6  EF:9\nLS:6  LF:9 | F:0"]
+    EN(["End — Day 9"])
+
+    S -- CRITICAL --> A
+    A -- SS+2 lag --> B
+    B -- CRITICAL --> C
+    C -- CRITICAL --> EN
+
+    style A fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style B fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style C fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style S fill:#1d4ed8,color:#fff
+    style EN fill:#15803d,color:#fff
+```
+
+### Example 3 — FF Dependency
+
+**Finish-to-Finish dependency: B cannot finish until A finishes (FF+0)**
+
+::: {.callout-tip icon="false"}
+## 💡 FF Lag Rule
+$$ES_B = \max\!\bigl(0,\; EF_A + \text{lag} - Dur_B\bigr)$$
+$$EF_B = ES_B + Dur_B \;\geq\; EF_A + \text{lag}$$
+In the backward pass: $LF_A = LF_B - \text{lag}$
+:::
+
+| Activity | Duration | Predecessor | Dependency |
+|----------|----------|-------------|------------|
+| A | 6 days | — | Start |
+| B | 4 days | A | FF+0 |
+| C | 2 days | B | FS |
+
+**Forward Pass**
+
+$$ES_A = 0\;(\text{convention}),\quad EF_A = 0 + 6 = 6$$
+
+$$ES_B = \max(0,\;EF_A + 0 - Dur_B) = \max(0,\;6 - 4) = 2,\quad EF_B = 2 + 4 = 6$$
+
+*B must finish no earlier than A (day 6), so B is pushed to start at day 2.*
+
+$$ES_C = EF_B = 6,\quad EF_C = 6 + 2 = 8$$
+
+**Project Duration = 8 days**
+
+**Backward Pass**
+
+$$LF_C = 8\;(\text{convention}),\quad LS_C = 8 - 2 = 6$$
+
+$$LF_B = LS_C = 6,\quad LS_B = 6 - 4 = 2$$
+
+$$LF_A = LF_B - \text{lag} = 6 - 0 = 6,\quad LS_A = 6 - 6 = 0$$
+
+**Float & Critical Path**
+
+| Activity | ES | EF | LS | LF | Float | Critical? |
+|----------|----|----|----|-----|-------|-----------|
+| A | 0 | 6 | 0 | 6 | **0** | ✅ |
+| B | 2 | 6 | 2 | 6 | **0** | ✅ |
+| C | 6 | 8 | 6 | 8 | **0** | ✅ |
+
+: Ex 3 CPM results {.striped .hover}
+
+**Critical Path: A → B → C (8 days)** — B cannot finish before A, pulling the entire chain tight.
+
+```{mermaid}
+%%{init: {'flowchart': {'nodeSpacing': 25, 'rankSpacing': 55}}}%%
+flowchart LR
+    S(["Start — Day 0"])
+    A["A | Dur:6<br/>ES:0  EF:6<br/>LS:0  LF:6 | F:0"]
+    B["B | Dur:4<br/>ES:2  EF:6<br/>LS:2  LF:6 | F:0"]
+    C["C | Dur:2<br/>ES:6  EF:8<br/>LS:6  LF:8 | F:0"]
+    EN(["End — Day 8"])
+
+    S -- CRITICAL --> A
+    A -- FF+0 --> B
+    B -- CRITICAL --> C
+    C -- CRITICAL --> EN
+
+    style A fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style B fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style C fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style S fill:#1d4ed8,color:#fff
+    style EN fill:#15803d,color:#fff
+```
+
+### Example 4 — SF Dependency
+
+**Start-to-Finish (rare): B cannot finish until A starts (+1 day lag)**
+
+::: {.callout-warning icon="false"}
+## ⚠️ SF is the Rarest Dependency
+The predecessor (A) **starts** before the successor (B) can **finish**.
+Classic use case: an old system (B) must keep running until the new system (A) goes live.
+$$EF_B \;\geq\; ES_A + \text{lag}$$
+In the backward pass: $LS_A \leq LF_B - \text{lag}$
+:::
+
+| Activity | Duration | Predecessor | Dependency |
+|----------|----------|-------------|------------|
+| A | 3 days | — | Start |
+| B | 5 days | A | SF+1 |
+
+**Forward Pass**
+
+$$ES_A = 0\;(\text{convention}),\quad EF_A = 0 + 3 = 3$$
+
+B has no start constraint from the SF link (SF only constrains B's *finish*):
+
+$$ES_B = 0\;(\text{no start constraint}),\quad EF_B = 0 + 5 = 5$$
+
+Check SF+1 constraint: $EF_B = 5 \geq ES_A + 1 = 0 + 1 = 1\;\checkmark$
+
+**Project Duration = max(EF_A, EF_B) = max(3, 5) = 5 days**
+
+**Backward Pass**
+
+Neither A nor B has FS successors, so both LFs are set to the project duration:
+
+$$LF_B = 5\;(\text{project end}),\quad LS_B = 5 - 5 = 0$$
+
+SF+1 backward constraint: $LS_A \leq LF_B - \text{lag} = 5 - 1 = 4$
+
+$$LF_A = 5\;(\text{project end}),\quad LS_A = 5 - 3 = 2$$
+
+Check: $LS_A = 2 \leq 4\;\checkmark$ (SF constraint not the binding factor — B's own duration drives the schedule)
+
+**Float & Critical Path**
+
+| Activity | ES | EF | LS | LF | Float | Critical? |
+|----------|----|----|----|-----|-------|-----------|
+| A | 0 | 3 | 2 | 5 | **2** | ❌ |
+| B | 0 | 5 | 0 | 5 | **0** | ✅ |
+
+: Ex 4 CPM results {.striped .hover}
+
+**Critical Path: B (5 days)** — A has 2 days of float. B's long duration dominates; the SF constraint is satisfied without binding the schedule.
+
+```{mermaid}
+%%{init: {'flowchart': {'nodeSpacing': 25, 'rankSpacing': 55}}}%%
+flowchart LR
+    S(["Start — Day 0"])
+    A["A | Dur:3<br/>ES:0  EF:3<br/>LS:2  LF:5 | F:2"]
+    B["B | Dur:5<br/>ES:0  EF:5<br/>LS:0  LF:5 | F:0"]
+    EN(["End — Day 5"])
+
+    S --> A
+    S -- CRITICAL --> B
+    A -- SF+1 lag --> B
+    B -- CRITICAL --> EN
+    A --> EN
+
+    style A fill:#dcfce7,stroke:#22c55e,color:#166534
+    style B fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style S fill:#1d4ed8,color:#fff
+    style EN fill:#15803d,color:#fff
+```
+
+### Example 5 — Parallel Starts
+
+**Two activities with no predecessors both start on Day 0, creating parallel chains**
+
+| Activity | Duration | Predecessor | Dependency |
+|----------|----------|-------------|------------|
+| A | 4 days | — | Start |
+| B | 3 days | — | Start |
+| C | 5 days | A | FS |
+| D | 2 days | B | FS |
+| E | 3 days | C, D | FS |
+
+::: {.callout-tip icon="false"}
+## 💡 Multiple Starting Activities
+When two or more activities have **no predecessors**, they all receive $ES = 0$ by convention. They run in parallel from day 0.
+:::
+
+**Forward Pass**
+
+$$ES_A = 0\;(\text{convention}),\quad EF_A = 0 + 4 = 4$$
+
+$$ES_B = 0\;(\text{convention}),\quad EF_B = 0 + 3 = 3$$
+
+$$ES_C = EF_A = 4,\quad EF_C = 4 + 5 = 9$$
+
+$$ES_D = EF_B = 3,\quad EF_D = 3 + 2 = 5$$
+
+$$ES_E = \max(EF_C,\,EF_D) = \max(9,\,5) = 9,\quad EF_E = 9 + 3 = 12$$
+
+**Project Duration = 12 days**
+
+**Backward Pass**
+
+$$LF_E = 12\;(\text{convention}),\quad LS_E = 12 - 3 = 9$$
+
+$$LF_C = LS_E = 9,\quad LS_C = 9 - 5 = 4$$
+
+$$LF_D = LS_E = 9,\quad LS_D = 9 - 2 = 7$$
+
+$$LF_A = LS_C = 4,\quad LS_A = 4 - 4 = 0$$
+
+$$LF_B = LS_D = 9,\quad LS_B = 9 - 3 = 6$$
+
+**Float & Critical Path**
+
+| Activity | ES | EF | LS | LF | Float | Critical? |
+|----------|----|----|----|-----|-------|-----------|
+| A | 0 | 4 | 0 | 4 | **0** | ✅ |
+| B | 0 | 3 | 6 | 9 | **6** | ❌ |
+| C | 4 | 9 | 4 | 9 | **0** | ✅ |
+| D | 3 | 5 | 7 | 9 | **4** | ❌ |
+| E | 9 | 12 | 9 | 12 | **0** | ✅ |
+
+: Ex 5 CPM results {.striped .hover}
+
+**Critical Path: A → C → E (12 days)** — Chain B→D is non-critical; B has 6 days float, D has 4 days float.
+
+```{mermaid}
+%%{init: {'flowchart': {'nodeSpacing': 25, 'rankSpacing': 55}}}%%
+flowchart LR
+    S(["Start — Day 0"])
+    A["A | Dur:4<br/>ES:0  EF:4<br/>LS:0  LF:4 | F:0"]
+    B["B | Dur:3<br/>ES:0  EF:3<br/>LS:6  LF:9 | F:6"]
+    C["C | Dur:5<br/>ES:4  EF:9<br/>LS:4  LF:9 | F:0"]
+    D["D | Dur:2<br/>ES:3  EF:5<br/>LS:7  LF:9 | F:4"]
+    E["E | Dur:3<br/>ES:9  EF:12<br/>LS:9  LF:12 | F:0"]
+    EN(["End — Day 12"])
+
+    S -- CRITICAL --> A
+    S --> B
+    A -- CRITICAL --> C
+    B --> D
+    C -- CRITICAL --> E
+    D --> E
+    E -- CRITICAL --> EN
+
+    style A fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style C fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style E fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style B fill:#dcfce7,stroke:#22c55e,color:#166534
+    style D fill:#dcfce7,stroke:#22c55e,color:#166534
+    style S fill:#1d4ed8,color:#fff
+    style EN fill:#15803d,color:#fff
 ```
 
 ---
