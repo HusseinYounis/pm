@@ -346,7 +346,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#project-phases-and-the-project-life-cycle" id="toc-project-phases-and-the-project-life-cycle" class="nav-link" data-scroll-target="#project-phases-and-the-project-life-cycle"><span class="header-section-number">3.3</span> Project Phases and the Project Life Cycle</a>
   <ul class="collapse">
   <li><a href="#the-project-life-cycle" id="toc-the-project-life-cycle" class="nav-link" data-scroll-target="#the-project-life-cycle"><span class="header-section-number">3.3.1</span> The Project Life Cycle</a></li>
-  <li><a href="#the-product-life-cycle" id="toc-the-product-life-cycle" class="nav-link" data-scroll-target="#the-product-life-cycle"><span class="header-section-number">3.3.2</span> The Product Life Cycle</a></li>
+  <li><a href="#phase-gates-and-kill-points" id="toc-phase-gates-and-kill-points" class="nav-link" data-scroll-target="#phase-gates-and-kill-points"><span class="header-section-number">3.3.2</span> Phase Gates and Kill Points</a></li>
+  <li><a href="#the-product-life-cycle" id="toc-the-product-life-cycle" class="nav-link" data-scroll-target="#the-product-life-cycle"><span class="header-section-number">3.3.3</span> The Product Life Cycle</a></li>
   </ul></li>
   <li><a href="#the-nature-of-engineering-projects" id="toc-the-nature-of-engineering-projects" class="nav-link" data-scroll-target="#the-nature-of-engineering-projects"><span class="header-section-number">3.4</span> The Nature of Engineering Projects</a>
   <ul class="collapse">
@@ -763,8 +764,87 @@ quadrantChart
 </div>
 </div>
 </section>
-<section id="the-product-life-cycle" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="the-product-life-cycle"><span class="header-section-number">3.3.2</span> The Product Life Cycle</h3>
+<section id="phase-gates-and-kill-points" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="phase-gates-and-kill-points"><span class="header-section-number">3.3.2</span> Phase Gates and Kill Points</h3>
+<p>Between each phase sits a formal review point — the project must <strong>pass</strong> this review before advancing to the next phase. This review point is known by several names:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Also Known As</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Phase Gate</strong></td>
+<td>Stage Gate, Phase-End Review</td>
+</tr>
+<tr class="even">
+<td><strong>Kill Point</strong></td>
+<td>Go/No-Go Decision Point</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>⚠️ Kill Point — Exam Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>completion of a project phase review</strong> is formally called a <strong>Kill Point</strong> (or Phase Gate).</p>
+<p>The sponsor or steering committee makes one of three decisions:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Decision</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Go</strong></td>
+<td>Advance to the next phase</td>
+</tr>
+<tr class="even">
+<td><strong>No-Go (Kill)</strong></td>
+<td>Project is stopped or cancelled</td>
+</tr>
+<tr class="odd">
+<td><strong>Hold / Recycle</strong></td>
+<td>Return to current phase to resolve issues first</td>
+</tr>
+</tbody>
+</table>
+<p>Advancement is <strong>conditional</strong> — the project only moves forward if it meets the phase exit criteria.</p>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    F["📊 Feasibility"] --&gt;|"🚦 Kill Point 1"| D["📐 Design"]
+    D --&gt;|"🚦 Kill Point 2"| P["🔨 Construction"]
+    P --&gt;|"🚦 Kill Point 3"| C["🔧 Commissioning"]
+
+    style F fill:#4f46e5,color:#fff
+    style D fill:#0f766e,color:#fff
+    style P fill:#15803d,color:#fff
+    style C fill:#b45309,color:#fff
+</pre>
+</div>
+<p></p><figcaption> Kill points sit between each project phase</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-product-life-cycle" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="the-product-life-cycle"><span class="header-section-number">3.3.3</span> The Product Life Cycle</h3>
 <p>The <strong>product life cycle</strong> is broader than the project life cycle — it includes the entire lifespan of the deliverable:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1893,276 +1973,314 @@ quadrantChart
 <span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="st">A construction project's "Design Phase" involves planning activities, executing design work, and monitoring quality — all process groups in action within one phase.</span></span>
 <span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
 <span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="st">### The Product Life Cycle</span></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="st">### Phase Gates and Kill Points</span></span>
 <span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a><span class="st">The **product life cycle** is broader than the project life cycle — it includes the entire lifespan of the deliverable:</span></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a><span class="st">Between each phase sits a formal review point — the project must **pass** this review before advancing to the next phase. This review point is known by several names:</span></span>
 <span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
-<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">Product life cycle encompasses multiple project life cycles</span><span class="ot">"</span></span>
-<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
-<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a>    subgraph ProductLC [<span class="ot">"</span><span class="st">📦 Product Life Cycle (30–50 years for infrastructure)</span><span class="ot">"</span>]</span>
-<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>        direction LR</span>
-<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>        subgraph ProjLC1 [<span class="ot">"</span><span class="st">🗂️ Original Project</span><span class="ot">"</span>]</span>
-<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>            I1[<span class="ot">"</span><span class="st">Concept</span><span class="ot">"</span>] --&gt; D1[<span class="ot">"</span><span class="st">Design</span><span class="ot">"</span>] --&gt; B1[<span class="ot">"</span><span class="st">Build</span><span class="ot">"</span>] --&gt; H1[<span class="ot">"</span><span class="st">Handover</span><span class="ot">"</span>]</span>
-<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>        end</span>
-<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>        subgraph OPS [<span class="ot">"</span><span class="st">⚙️ Operations &amp; Maintenance</span><span class="ot">"</span>]</span>
-<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>            O1[<span class="ot">"</span><span class="st">Routine O&amp;M</span><span class="ot">"</span>]</span>
-<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a>        end</span>
-<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a>        subgraph ProjLC2 [<span class="ot">"</span><span class="st">🗂️ Upgrade Project</span><span class="ot">"</span>]</span>
-<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a>            I2[<span class="ot">"</span><span class="st">Concept</span><span class="ot">"</span>] --&gt; D2[<span class="ot">"</span><span class="st">Design</span><span class="ot">"</span>] --&gt; B2[<span class="ot">"</span><span class="st">Build</span><span class="ot">"</span>] --&gt; H2[<span class="ot">"</span><span class="st">Handover</span><span class="ot">"</span>]</span>
-<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a>        end</span>
-<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a>        subgraph RET [<span class="ot">"</span><span class="st">🏚️ Retirement</span><span class="ot">"</span>]</span>
-<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a>            R1[<span class="ot">"</span><span class="st">Decommission</span><span class="ot">"</span>]</span>
-<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a>        end</span>
-<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a>        ProjLC1 --&gt; OPS --&gt; ProjLC2 --&gt; RET</span>
-<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a>    end</span>
-<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>    style ProductLC fill:<span class="co">#f8fafc,stroke:#334155</span></span>
-<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>    style ProjLC1 fill:<span class="co">#dbeafe,stroke:#3b82f6</span></span>
-<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>    style OPS fill:<span class="co">#dcfce7,stroke:#22c55e</span></span>
-<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>    style ProjLC2 fill:<span class="co">#fef9c3,stroke:#eab308</span></span>
-<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>    style RET fill:<span class="co">#fecaca,stroke:#ef4444</span></span>
-<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="ot">```</span></span>
-<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a><span class="st">**Engineering Example:**</span></span>
-<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="st">A highway bridge has a **product life cycle** of 75 years:</span></span>
-<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a><span class="st">1. **Original project** (3 years): Feasibility → Design → Construction → Commissioning</span></span>
-<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="st">2. **Operations** (60+ years): Routine inspection and maintenance</span></span>
-<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a><span class="st">3. **Upgrade project** (1 year): Seismic retrofitting to meet new codes</span></span>
-<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="st">4. **Retirement** (1 year): Demolition and replacement planning</span></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a><span class="st">| Term | Also Known As |</span></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="st">|---|---|</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="st">| **Phase Gate** | Stage Gate, Phase-End Review |</span></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a><span class="st">| **Kill Point** | Go/No-Go Decision Point |</span></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-important icon="false"}</span></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="st">## ⚠️ Kill Point — Exam Tip</span></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a><span class="st">The **completion of a project phase review** is formally called a **Kill Point** (or Phase Gate).</span></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="st">The sponsor or steering committee makes one of three decisions:</span></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="st">| Decision | Outcome |</span></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="st">|---|---|</span></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="st">| **Go** | Advance to the next phase |</span></span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="st">| **No-Go (Kill)** | Project is stopped or cancelled |</span></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="st">| **Hold / Recycle** | Return to current phase to resolve issues first |</span></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="st">Advancement is **conditional** — the project only moves forward if it meets the phase exit criteria.</span></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">Kill points sit between each project phase</span><span class="ot">"</span></span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>    F[<span class="ot">"</span><span class="st">📊 Feasibility</span><span class="ot">"</span>] --&gt;|<span class="ot">"</span><span class="st">🚦 Kill Point 1</span><span class="ot">"</span>| D[<span class="ot">"</span><span class="st">📐 Design</span><span class="ot">"</span>]</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a>    D --&gt;|<span class="ot">"</span><span class="st">🚦 Kill Point 2</span><span class="ot">"</span>| P[<span class="ot">"</span><span class="st">🔨 Construction</span><span class="ot">"</span>]</span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a>    P --&gt;|<span class="ot">"</span><span class="st">🚦 Kill Point 3</span><span class="ot">"</span>| C[<span class="ot">"</span><span class="st">🔧 Commissioning</span><span class="ot">"</span>]</span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>    style F fill:<span class="co">#4f46e5,color:#fff</span></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a>    style D fill:<span class="co">#0f766e,color:#fff</span></span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a>    style P fill:<span class="co">#15803d,color:#fff</span></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>    style C fill:<span class="co">#b45309,color:#fff</span></span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="ot">```</span></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="st">### The Product Life Cycle</span></span>
 <span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="st">The PM manages the *project life cycle*; the asset owner manages the *product life cycle*.</span></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="st">The **product life cycle** is broader than the project life cycle — it includes the entire lifespan of the deliverable:</span></span>
 <span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
-<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a><span class="st">## The Nature of Engineering Projects</span></span>
-<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a><span class="st">Engineering projects have unique characteristics that distinguish them from other project types:</span></span>
-<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a><span class="st">### Characteristics of Engineering Projects</span></span>
-<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a><span class="st">| Characteristic | Description |</span></span>
-<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="st">|---------------|-------------|</span></span>
-<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a><span class="st">| **Physical deliverables** | Create tangible infrastructure, buildings, systems, or products |</span></span>
-<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="st">| **Regulatory compliance** | Must meet building codes, environmental regulations, safety standards |</span></span>
-<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="st">| **Interdisciplinary teams** | Require civil, mechanical, electrical, environmental, and other specialists |</span></span>
-<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="st">| **Long durations** | Often span years, not weeks or months |</span></span>
-<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a><span class="st">| **High capital cost** | Budgets frequently in millions or billions of dollars |</span></span>
-<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a><span class="st">| **Environmental impact** | Construction and operation affect surrounding communities and ecosystems |</span></span>
-<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="st">| **Safety-critical** | Design and construction errors can endanger human life |</span></span>
-<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="st">| **Geographic constraints** | Site conditions, soil, weather, and access profoundly affect execution |</span></span>
-<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a><span class="st">: Distinguishing characteristics of engineering projects {.striped .hover}</span></span>
-<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a><span class="st">### Diverse Technologies and Specialisations</span></span>
-<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="st">Engineering projects often involve **multiple technical disciplines** working in parallel. A modern building project might require:</span></span>
-<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a><span class="st">- Structural engineering (concrete, steel)</span></span>
-<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a><span class="st">- Mechanical engineering (HVAC, plumbing)</span></span>
-<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="st">- Electrical engineering (power, lighting, firesafety)</span></span>
-<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="st">- Civil engineering (earthworks, drainage)</span></span>
-<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="st">- Software/controls engineering (BMS, automation)</span></span>
-<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="st">- Telecommunications (networking, security systems)</span></span>
-<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="st">The PM need not be an expert in every discipline, but must understand enough to coordinate them and recognise when specialist input is needed.</span></span>
-<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
-<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="st">## Recent Trends in Engineering Project Management</span></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">Product life cycle encompasses multiple project life cycles</span><span class="ot">"</span></span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>    subgraph ProductLC [<span class="ot">"</span><span class="st">📦 Product Life Cycle (30–50 years for infrastructure)</span><span class="ot">"</span>]</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>        direction LR</span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>        subgraph ProjLC1 [<span class="ot">"</span><span class="st">🗂️ Original Project</span><span class="ot">"</span>]</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>            I1[<span class="ot">"</span><span class="st">Concept</span><span class="ot">"</span>] --&gt; D1[<span class="ot">"</span><span class="st">Design</span><span class="ot">"</span>] --&gt; B1[<span class="ot">"</span><span class="st">Build</span><span class="ot">"</span>] --&gt; H1[<span class="ot">"</span><span class="st">Handover</span><span class="ot">"</span>]</span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a>        end</span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a>        subgraph OPS [<span class="ot">"</span><span class="st">⚙️ Operations &amp; Maintenance</span><span class="ot">"</span>]</span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>            O1[<span class="ot">"</span><span class="st">Routine O&amp;M</span><span class="ot">"</span>]</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a>        end</span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a>        subgraph ProjLC2 [<span class="ot">"</span><span class="st">🗂️ Upgrade Project</span><span class="ot">"</span>]</span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>            I2[<span class="ot">"</span><span class="st">Concept</span><span class="ot">"</span>] --&gt; D2[<span class="ot">"</span><span class="st">Design</span><span class="ot">"</span>] --&gt; B2[<span class="ot">"</span><span class="st">Build</span><span class="ot">"</span>] --&gt; H2[<span class="ot">"</span><span class="st">Handover</span><span class="ot">"</span>]</span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a>        end</span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a>        subgraph RET [<span class="ot">"</span><span class="st">🏚️ Retirement</span><span class="ot">"</span>]</span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>            R1[<span class="ot">"</span><span class="st">Decommission</span><span class="ot">"</span>]</span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a>        end</span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>        ProjLC1 --&gt; OPS --&gt; ProjLC2 --&gt; RET</span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>    end</span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>    style ProductLC fill:<span class="co">#f8fafc,stroke:#334155</span></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>    style ProjLC1 fill:<span class="co">#dbeafe,stroke:#3b82f6</span></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>    style OPS fill:<span class="co">#dcfce7,stroke:#22c55e</span></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>    style ProjLC2 fill:<span class="co">#fef9c3,stroke:#eab308</span></span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>    style RET fill:<span class="co">#fecaca,stroke:#ef4444</span></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="ot">```</span></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a><span class="st">**Engineering Example:**</span></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="st">A highway bridge has a **product life cycle** of 75 years:</span></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="st">1. **Original project** (3 years): Feasibility → Design → Construction → Commissioning</span></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="st">2. **Operations** (60+ years): Routine inspection and maintenance</span></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a><span class="st">3. **Upgrade project** (1 year): Seismic retrofitting to meet new codes</span></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="st">4. **Retirement** (1 year): Demolition and replacement planning</span></span>
 <span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a><span class="st">The practice of project management continues to evolve. Several trends are reshaping how engineering projects are delivered:</span></span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a><span class="st">The PM manages the *project life cycle*; the asset owner manages the *product life cycle*.</span></span>
 <span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a><span class="st">### Building Information Modelling (BIM)</span></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
 <span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="st">**BIM** creates a shared digital model of a building or infrastructure asset, enabling all disciplines to work on a single source of truth:</span></span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="st">## The Nature of Engineering Projects</span></span>
 <span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="st">- **3D Modelling:** Visualise the design before construction begins</span></span>
-<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="st">- **4D (Time):** Link the model to the schedule to simulate construction sequences</span></span>
-<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a><span class="st">- **5D (Cost):** Attach cost data to model elements for real-time budget tracking</span></span>
-<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a><span class="st">- **6D (Sustainability):** Analyse energy performance and environmental impact</span></span>
-<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a><span class="st">- **7D (Facility Management):** Use the model for operations and maintenance after handover</span></span>
-<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-tip icon="false"}</span></span>
-<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="st">## 💡 BIM vs. Traditional CAD</span></span>
-<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="st">Traditional CAD produces 2D drawings that are disconnected from each other. BIM produces an *intelligent model* where a change in one view automatically updates all others. Clash detection — finding conflicts between structural beams and HVAC ducts, for example — happens *before* construction, not during.</span></span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a><span class="st">### Globalisation and Virtual Teams</span></span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a><span class="st">Modern engineering projects increasingly involve **global teams**:</span></span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a><span class="st">- Design in one country, procurement in another, construction in a third</span></span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="st">- **Virtual teams** connected by video conferencing, cloud collaboration, and shared project servers</span></span>
-<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a><span class="st">- **Challenges:** Time zones, language barriers, cultural differences, trust-building without face-to-face contact</span></span>
-<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a><span class="st">### Sustainability and Green Engineering</span></span>
-<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a><span class="st">The **UN Sustainable Development Goals (SDGs)** increasingly influence project selection and design:</span></span>
-<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a><span class="st">- Net-zero carbon construction targets</span></span>
-<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a><span class="st">- Life-Cycle Assessment (LCA) for material selection</span></span>
-<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="st">- Green building certifications (LEED, BREEAM, Estidama)</span></span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="st">- Circular economy principles — design for disassembly and material reuse</span></span>
-<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a><span class="st">### Agile and Hybrid Approaches</span></span>
-<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a><span class="st">While traditional plan-driven (waterfall) approaches dominate construction, **hybrid approaches** are emerging:</span></span>
-<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a><span class="st">- Agile methods for the *design and engineering* phases (iterative design reviews)</span></span>
-<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a><span class="st">- Traditional methods for *procurement and construction* (sequential, safety-critical)</span></span>
-<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a><span class="st">- Lean Construction and the **Last Planner System** for collaborative scheduling</span></span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-note icon="false"}</span></span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="st">## 📖 Key Concept — Agile in Engineering</span></span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="st">Engineering projects have unique characteristics that distinguish them from other project types:</span></span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a><span class="st">### Characteristics of Engineering Projects</span></span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a><span class="st">| Characteristic | Description |</span></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="st">|---------------|-------------|</span></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a><span class="st">| **Physical deliverables** | Create tangible infrastructure, buildings, systems, or products |</span></span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a><span class="st">| **Regulatory compliance** | Must meet building codes, environmental regulations, safety standards |</span></span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a><span class="st">| **Interdisciplinary teams** | Require civil, mechanical, electrical, environmental, and other specialists |</span></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="st">| **Long durations** | Often span years, not weeks or months |</span></span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="st">| **High capital cost** | Budgets frequently in millions or billions of dollars |</span></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a><span class="st">| **Environmental impact** | Construction and operation affect surrounding communities and ecosystems |</span></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a><span class="st">| **Safety-critical** | Design and construction errors can endanger human life |</span></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a><span class="st">| **Geographic constraints** | Site conditions, soil, weather, and access profoundly affect execution |</span></span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a><span class="st">: Distinguishing characteristics of engineering projects {.striped .hover}</span></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="st">### Diverse Technologies and Specialisations</span></span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a><span class="st">Engineering projects often involve **multiple technical disciplines** working in parallel. A modern building project might require:</span></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="st">- Structural engineering (concrete, steel)</span></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a><span class="st">- Mechanical engineering (HVAC, plumbing)</span></span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a><span class="st">- Electrical engineering (power, lighting, firesafety)</span></span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a><span class="st">- Civil engineering (earthworks, drainage)</span></span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a><span class="st">- Software/controls engineering (BMS, automation)</span></span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="st">- Telecommunications (networking, security systems)</span></span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a><span class="st">The PM need not be an expert in every discipline, but must understand enough to coordinate them and recognise when specialist input is needed.</span></span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a><span class="st">## Recent Trends in Engineering Project Management</span></span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a><span class="st">The practice of project management continues to evolve. Several trends are reshaping how engineering projects are delivered:</span></span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a><span class="st">### Building Information Modelling (BIM)</span></span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="st">**BIM** creates a shared digital model of a building or infrastructure asset, enabling all disciplines to work on a single source of truth:</span></span>
 <span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a><span class="st">Agile does not mean "no planning." It means *adaptive planning* — shorter cycles, frequent feedback, and the ability to respond to change. Chapter 11 covers Agile and Scrum in detail.</span></span>
-<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
-<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a><span class="st">### Artificial Intelligence and Digital Twins</span></span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a><span class="st">Emerging technologies are transforming project management:</span></span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a><span class="st">- **AI-powered scheduling:** Predictive analytics for delay risk, automatic schedule optimisation</span></span>
-<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a><span class="st">- **Digital Twins:** A live virtual replica of a physical asset, updated with real-time sensor data</span></span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a><span class="st">- **Drones and LiDAR:** Automated site surveys, progress monitoring, and safety inspection</span></span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a><span class="st">- **Robotic Process Automation:** Automating repetitive administrative tasks (document control, reporting)</span></span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a><span class="st">- **3D Modelling:** Visualise the design before construction begins</span></span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a><span class="st">- **4D (Time):** Link the model to the schedule to simulate construction sequences</span></span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a><span class="st">- **5D (Cost):** Attach cost data to model elements for real-time budget tracking</span></span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a><span class="st">- **6D (Sustainability):** Analyse energy performance and environmental impact</span></span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a><span class="st">- **7D (Facility Management):** Use the model for operations and maintenance after handover</span></span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-tip icon="false"}</span></span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a><span class="st">## 💡 BIM vs. Traditional CAD</span></span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a><span class="st">Traditional CAD produces 2D drawings that are disconnected from each other. BIM produces an *intelligent model* where a change in one view automatically updates all others. Clash detection — finding conflicts between structural beams and HVAC ducts, for example — happens *before* construction, not during.</span></span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
 <span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a><span class="st">### Globalisation and Virtual Teams</span></span>
 <span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a><span class="st">## 2.6 Case Study — Neom: The Line, Saudi Arabia {.unnumbered}</span></span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a><span class="st">Modern engineering projects increasingly involve **global teams**:</span></span>
 <span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-caution icon="false"}</span></span>
-<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a><span class="st">## 🏗️ Case Study — Neom: The Line, Saudi Arabia</span></span>
-<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a><span class="st">**The Line** is a 170 km linear city in northwestern Saudi Arabia, part of the </span><span class="wa">$500</span><span class="st"> billion Neom megaproject. Announced in 2021, it aims to house 9 million people in a structure 200 metres wide, 500 metres tall, with zero cars, zero streets, and zero carbon emissions.</span></span>
-<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a><span class="st">### Project Context</span></span>
-<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a><span class="st">| Attribute | Detail |</span></span>
-<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="st">|-----------|--------|</span></span>
-<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a><span class="st">| **Location** | Tabuk Province, Saudi Arabia |</span></span>
-<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="st">| **Estimated cost** | </span><span class="wa">$500</span><span class="st"> billion+ (Neom total) |</span></span>
-<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a><span class="st">| **Timeline** | Phase 1 target: 2030 |</span></span>
-<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a><span class="st">| **Workforce** | Peak estimate: 300,000+ workers |</span></span>
-<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a><span class="st">| **Key innovation** | Linear urban design — all services within 5-minute walk |</span></span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a><span class="st">- Design in one country, procurement in another, construction in a third</span></span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a><span class="st">- **Virtual teams** connected by video conferencing, cloud collaboration, and shared project servers</span></span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a><span class="st">- **Challenges:** Time zones, language barriers, cultural differences, trust-building without face-to-face contact</span></span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a><span class="st">### Sustainability and Green Engineering</span></span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a><span class="st">The **UN Sustainable Development Goals (SDGs)** increasingly influence project selection and design:</span></span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="st">- Net-zero carbon construction targets</span></span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a><span class="st">- Life-Cycle Assessment (LCA) for material selection</span></span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="st">- Green building certifications (LEED, BREEAM, Estidama)</span></span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a><span class="st">- Circular economy principles — design for disassembly and material reuse</span></span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a><span class="st">### Agile and Hybrid Approaches</span></span>
 <span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a><span class="st">### Three-Sphere Analysis</span></span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a><span class="st">While traditional plan-driven (waterfall) approaches dominate construction, **hybrid approaches** are emerging:</span></span>
 <span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.panel-tabset}</span></span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a><span class="st">#### 💼 Business Sphere</span></span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="st">- Agile methods for the *design and engineering* phases (iterative design reviews)</span></span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a><span class="st">- Traditional methods for *procurement and construction* (sequential, safety-critical)</span></span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a><span class="st">- Lean Construction and the **Last Planner System** for collaborative scheduling</span></span>
 <span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a><span class="st">- Part of Saudi Vision 2030 — economic diversification away from oil</span></span>
-<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a><span class="st">- Funded by the Public Investment Fund (PIF), one of the world's largest sovereign wealth funds</span></span>
-<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a><span class="st">- Revenue model: tourism, technology, sports, entertainment, advanced manufacturing</span></span>
-<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a><span class="st">- Competing globally for talent and investment with established cities</span></span>
-<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🏢 Organisation Sphere</span></span>
-<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a><span class="st">- NEOM Company: a new government-backed entity with unprecedented authority</span></span>
-<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a><span class="st">- Matrix of international consultants, contractors, and Saudi government agencies</span></span>
-<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a><span class="st">- Massive workforce from dozens of countries — cultural integration challenge</span></span>
-<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a><span class="st">- Need for new governance structures — no precedent for a project of this scale</span></span>
-<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a><span class="st">#### ⚙️ Technology Sphere</span></span>
-<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a><span class="st">- Mirror-clad exterior with integrated solar panels</span></span>
-<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a><span class="st">- Underground high-speed rail running the full 170 km length</span></span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a><span class="st">- AI-driven city management — energy, waste, transport, security</span></span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a><span class="st">- Modular construction techniques to achieve the unprecedented scale</span></span>
-<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a><span class="st">- Vertical farming, desalination, and renewable energy at city scale</span></span>
-<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-note icon="false"}</span></span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a><span class="st">## 📖 Key Concept — Agile in Engineering</span></span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a><span class="st">Agile does not mean "no planning." It means *adaptive planning* — shorter cycles, frequent feedback, and the ability to respond to change. Chapter 11 covers Agile and Scrum in detail.</span></span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a><span class="st">### Artificial Intelligence and Digital Twins</span></span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a><span class="st">Emerging technologies are transforming project management:</span></span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a><span class="st">- **AI-powered scheduling:** Predictive analytics for delay risk, automatic schedule optimisation</span></span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a><span class="st">- **Digital Twins:** A live virtual replica of a physical asset, updated with real-time sensor data</span></span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a><span class="st">- **Drones and LiDAR:** Automated site surveys, progress monitoring, and safety inspection</span></span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a><span class="st">- **Robotic Process Automation:** Automating repetitive administrative tasks (document control, reporting)</span></span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a><span class="st">## 2.6 Case Study — Neom: The Line, Saudi Arabia {.unnumbered}</span></span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-caution icon="false"}</span></span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a><span class="st">## 🏗️ Case Study — Neom: The Line, Saudi Arabia</span></span>
 <span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a><span class="st">### Lessons for Project Managers</span></span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a><span class="st">**The Line** is a 170 km linear city in northwestern Saudi Arabia, part of the </span><span class="wa">$500</span><span class="st"> billion Neom megaproject. Announced in 2021, it aims to house 9 million people in a structure 200 metres wide, 500 metres tall, with zero cars, zero streets, and zero carbon emissions.</span></span>
 <span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a><span class="st">1. **Systems thinking is essential:** The Line cannot succeed with engineering excellence alone — it requires alignment across business (economic model), organisation (governance), and technology (innovation)</span></span>
-<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a><span class="st">2. **Organisational culture matters:** Creating a new organisation from scratch means deliberately designing the culture — values, decision-making norms, communication standards</span></span>
-<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a><span class="st">3. **Top management commitment is necessary but not sufficient:** Saudi Crown Prince Mohammed bin Salman provides ultimate sponsorship, but execution depends on thousands of middle managers making daily decisions</span></span>
-<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a><span class="st">4. **Product life cycle thinking:** The project delivers a city that must operate for centuries — decisions made during design lock in operational costs and capabilities for generations</span></span>
-<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
-<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
-<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a><span class="st">## 2.7 Exercises {.unnumbered}</span></span>
-<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-warning icon="false"}</span></span>
-<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 2.1 — Three-Sphere Analysis</span></span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a><span class="st">### Project Context</span></span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a><span class="st">| Attribute | Detail |</span></span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a><span class="st">|-----------|--------|</span></span>
+<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a><span class="st">| **Location** | Tabuk Province, Saudi Arabia |</span></span>
+<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a><span class="st">| **Estimated cost** | </span><span class="wa">$500</span><span class="st"> billion+ (Neom total) |</span></span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a><span class="st">| **Timeline** | Phase 1 target: 2030 |</span></span>
+<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a><span class="st">| **Workforce** | Peak estimate: 300,000+ workers |</span></span>
+<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a><span class="st">| **Key innovation** | Linear urban design — all services within 5-minute walk |</span></span>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a><span class="st">### Three-Sphere Analysis</span></span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.panel-tabset}</span></span>
 <span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a><span class="st">**Scenario:** Your university is building a new **Engineering Innovation Centre** — a 5,000 m² building with smart classrooms, fabrication labs, a maker space, and a rooftop solar array.</span></span>
+<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a><span class="st">#### 💼 Business Sphere</span></span>
 <span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a><span class="st">**Tasks:**</span></span>
-<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a><span class="st">1. Identify at least **three considerations** for each sphere (Business, Organisation, Technology)</span></span>
-<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a><span class="st">2. For each sphere, identify **one risk** that could threaten the project</span></span>
-<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a><span class="st">3. Describe how the three spheres **interact** — give an example where a decision in one sphere affects the others</span></span>
-<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a><span class="st">4. Recommend the most appropriate **organisational structure** (functional, matrix, or projectised) for this project and justify your choice</span></span>
-<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
-<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-warning icon="false"}</span></span>
-<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 2.2 — Four Frames Analysis</span></span>
-<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a><span class="st">**Scenario:** A municipal government has hired an engineering firm to design and build a **new wastewater treatment plant**. The project is six months behind schedule, and the client is threatening to cancel the contract.</span></span>
-<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a><span class="st">**Tasks:**</span></span>
-<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a><span class="st">1. Analyse the situation through each of Bolman and Deal's **four frames** — for each frame, suggest **one possible root cause** of the delay</span></span>
-<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a><span class="st">2. For each root cause, propose **one corrective action**</span></span>
-<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a><span class="st">3. Which frame do you think is **most likely** to explain the delay in an engineering project context? Justify your answer</span></span>
-<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a><span class="st">- Part of Saudi Vision 2030 — economic diversification away from oil</span></span>
+<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a><span class="st">- Funded by the Public Investment Fund (PIF), one of the world's largest sovereign wealth funds</span></span>
+<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a><span class="st">- Revenue model: tourism, technology, sports, entertainment, advanced manufacturing</span></span>
+<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a><span class="st">- Competing globally for talent and investment with established cities</span></span>
+<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a><span class="st">#### 🏢 Organisation Sphere</span></span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a><span class="st">- NEOM Company: a new government-backed entity with unprecedented authority</span></span>
+<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a><span class="st">- Matrix of international consultants, contractors, and Saudi government agencies</span></span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a><span class="st">- Massive workforce from dozens of countries — cultural integration challenge</span></span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a><span class="st">- Need for new governance structures — no precedent for a project of this scale</span></span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a><span class="st">#### ⚙️ Technology Sphere</span></span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a><span class="st">- Mirror-clad exterior with integrated solar panels</span></span>
+<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a><span class="st">- Underground high-speed rail running the full 170 km length</span></span>
+<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a><span class="st">- AI-driven city management — energy, waste, transport, security</span></span>
+<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a><span class="st">- Modular construction techniques to achieve the unprecedented scale</span></span>
+<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a><span class="st">- Vertical farming, desalination, and renewable energy at city scale</span></span>
 <span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-warning icon="false"}</span></span>
-<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 2.3 — Organisational Structure Comparison</span></span>
-<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a><span class="st">**Scenario:** Consider the following three organisations:</span></span>
-<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a><span class="st">- **Organisation A:** A large government roads authority with 2,000 employees and 50+ active projects</span></span>
-<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a><span class="st">- **Organisation B:** A small engineering consultancy with 30 employees and 5 active projects</span></span>
-<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a><span class="st">- **Organisation C:** A defence contractor building a single </span><span class="wa">$2</span><span class="st"> billion naval vessel over 8 years</span></span>
+<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a><span class="st">### Lessons for Project Managers</span></span>
+<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a><span class="st">1. **Systems thinking is essential:** The Line cannot succeed with engineering excellence alone — it requires alignment across business (economic model), organisation (governance), and technology (innovation)</span></span>
+<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a><span class="st">2. **Organisational culture matters:** Creating a new organisation from scratch means deliberately designing the culture — values, decision-making norms, communication standards</span></span>
+<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a><span class="st">3. **Top management commitment is necessary but not sufficient:** Saudi Crown Prince Mohammed bin Salman provides ultimate sponsorship, but execution depends on thousands of middle managers making daily decisions</span></span>
+<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a><span class="st">4. **Product life cycle thinking:** The project delivers a city that must operate for centuries — decisions made during design lock in operational costs and capabilities for generations</span></span>
 <span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a><span class="st">**Tasks:**</span></span>
+<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
 <span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a><span class="st">1. Recommend the most appropriate **organisational structure** for each (functional, weak/balanced/strong matrix, or projectised)</span></span>
-<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a><span class="st">2. For each recommendation, explain **why** this structure fits the organisation's characteristics</span></span>
-<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a><span class="st">3. For **Organisation A**, describe how a **PMO** could add value and what services it should provide</span></span>
-<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
-<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-warning icon="false"}</span></span>
-<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 2.4 — Product vs. Project Life Cycle</span></span>
-<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a><span class="st">**Scenario:** A regional water utility plans to build a **new desalination plant** with a design capacity of 100,000 m³/day and an expected operational life of 40 years.</span></span>
-<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a><span class="st">**Tasks:**</span></span>
-<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a><span class="st">1. Draw the **project life cycle** — identify 4–5 phases with key deliverables for each</span></span>
-<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a><span class="st">2. Draw the **product life cycle** — identify all stages from initial concept through to eventual decommissioning</span></span>
-<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a><span class="st">3. Identify **two decisions** made during the project that will significantly impact the product's long-term operational costs</span></span>
-<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a><span class="st">4. Explain why a PM should think about the **product life cycle** even though they are only responsible for the project</span></span>
-<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
-<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a><span class="st">## 2.7 Exercises {.unnumbered}</span></span>
+<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-warning icon="false"}</span></span>
+<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 2.1 — Three-Sphere Analysis</span></span>
+<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a><span class="st">**Scenario:** Your university is building a new **Engineering Innovation Centre** — a 5,000 m² building with smart classrooms, fabrication labs, a maker space, and a rooftop solar array.</span></span>
+<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a><span class="st">**Tasks:**</span></span>
+<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a><span class="st">1. Identify at least **three considerations** for each sphere (Business, Organisation, Technology)</span></span>
+<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a><span class="st">2. For each sphere, identify **one risk** that could threaten the project</span></span>
+<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a><span class="st">3. Describe how the three spheres **interact** — give an example where a decision in one sphere affects the others</span></span>
+<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a><span class="st">4. Recommend the most appropriate **organisational structure** (functional, matrix, or projectised) for this project and justify your choice</span></span>
+<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-warning icon="false"}</span></span>
+<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 2.2 — Four Frames Analysis</span></span>
 <span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a><span class="st">## Summary {.unnumbered}</span></span>
+<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a><span class="st">**Scenario:** A municipal government has hired an engineering firm to design and build a **new wastewater treatment plant**. The project is six months behind schedule, and the client is threatening to cancel the contract.</span></span>
 <span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-note icon="false"}</span></span>
-<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a><span class="st">## 📝 Chapter Summary</span></span>
-<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a><span class="st">In this chapter you learned that:</span></span>
-<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a><span class="st">- **Systems thinking** is essential — projects exist within larger systems of business, organisation, and technology</span></span>
-<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a><span class="st">- The **Three-Sphere Model** helps PMs analyse the business, organisational, and technology dimensions of any project</span></span>
-<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a><span class="st">- **Bolman and Deal's Four Frames** (structural, HR, political, symbolic) provide multiple lenses for understanding organisations</span></span>
-<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a><span class="st">- **Organisational structure** (functional, matrix, projectised) determines the PM's authority and access to resources</span></span>
-<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a><span class="st">- **Organisational culture** profoundly affects how projects are managed — PMs must understand and work within it</span></span>
-<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a><span class="st">- **Top management commitment** and a **PMO** are key organisational enablers of project success</span></span>
-<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a><span class="st">- The **project life cycle** (temporary) exists within the broader **product life cycle** (permanent asset)</span></span>
-<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a><span class="st">- Modern engineering PM is shaped by trends including **BIM**, **globalisation**, **sustainability**, **hybrid agile**, and **AI/digital twins**</span></span>
-<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a><span class="st">**Tasks:**</span></span>
+<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a><span class="st">1. Analyse the situation through each of Bolman and Deal's **four frames** — for each frame, suggest **one possible root cause** of the delay</span></span>
+<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a><span class="st">2. For each root cause, propose **one corrective action**</span></span>
+<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a><span class="st">3. Which frame do you think is **most likely** to explain the delay in an engineering project context? Justify your answer</span></span>
+<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-warning icon="false"}</span></span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 2.3 — Organisational Structure Comparison</span></span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a><span class="st">**Scenario:** Consider the following three organisations:</span></span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a><span class="st">- **Organisation A:** A large government roads authority with 2,000 employees and 50+ active projects</span></span>
+<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a><span class="st">- **Organisation B:** A small engineering consultancy with 30 employees and 5 active projects</span></span>
+<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a><span class="st">- **Organisation C:** A defence contractor building a single </span><span class="wa">$2</span><span class="st"> billion naval vessel over 8 years</span></span>
+<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a><span class="st">**Tasks:**</span></span>
+<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a><span class="st">1. Recommend the most appropriate **organisational structure** for each (functional, weak/balanced/strong matrix, or projectised)</span></span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a><span class="st">2. For each recommendation, explain **why** this structure fits the organisation's characteristics</span></span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a><span class="st">3. For **Organisation A**, describe how a **PMO** could add value and what services it should provide</span></span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-warning icon="false"}</span></span>
+<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a><span class="st">## ✏️ Exercise 2.4 — Product vs. Project Life Cycle</span></span>
+<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a><span class="st">**Scenario:** A regional water utility plans to build a **new desalination plant** with a design capacity of 100,000 m³/day and an expected operational life of 40 years.</span></span>
+<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a><span class="st">**Tasks:**</span></span>
+<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a><span class="st">1. Draw the **project life cycle** — identify 4–5 phases with key deliverables for each</span></span>
+<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a><span class="st">2. Draw the **product life cycle** — identify all stages from initial concept through to eventual decommissioning</span></span>
+<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a><span class="st">3. Identify **two decisions** made during the project that will significantly impact the product's long-term operational costs</span></span>
+<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a><span class="st">4. Explain why a PM should think about the **product life cycle** even though they are only responsible for the project</span></span>
+<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
+<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a><span class="st">## Summary {.unnumbered}</span></span>
+<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a><span class="st">::: {.callout-note icon="false"}</span></span>
+<span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a><span class="st">## 📝 Chapter Summary</span></span>
+<span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a><span class="st">In this chapter you learned that:</span></span>
+<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a><span class="st">- **Systems thinking** is essential — projects exist within larger systems of business, organisation, and technology</span></span>
+<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a><span class="st">- The **Three-Sphere Model** helps PMs analyse the business, organisational, and technology dimensions of any project</span></span>
+<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a><span class="st">- **Bolman and Deal's Four Frames** (structural, HR, political, symbolic) provide multiple lenses for understanding organisations</span></span>
+<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a><span class="st">- **Organisational structure** (functional, matrix, projectised) determines the PM's authority and access to resources</span></span>
+<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a><span class="st">- **Organisational culture** profoundly affects how projects are managed — PMs must understand and work within it</span></span>
+<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a><span class="st">- **Top management commitment** and a **PMO** are key organisational enablers of project success</span></span>
+<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a><span class="st">- The **project life cycle** (temporary) exists within the broader **product life cycle** (permanent asset)</span></span>
+<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a><span class="st">- Modern engineering PM is shaped by trends including **BIM**, **globalisation**, **sustainability**, **hybrid agile**, and **AI/digital twins**</span></span>
+<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a><span class="st">:::</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
