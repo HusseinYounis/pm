@@ -50,6 +50,32 @@ Closure activities are typically triggered by:
 - **Contractual completion:** Final payment received, warranty period ended
 :::
 
+### Phase Gate & Kill Point
+
+At the end of each project phase, a formal review is conducted before allowing the project to proceed. This review point has several names used interchangeably in the industry:
+
+| Term | Source | Meaning |
+|---|---|---|
+| **Phase Gate** | PMBOK / general PM | Review at the end of a phase — gate opens or stays closed |
+| **Stage Gate** | Cooper's model | Same concept used in product development |
+| **Kill Point** | PMBOK | Decision point where the project can be "killed" (stopped) or allowed to continue |
+
+::: {.callout-important icon="false"}
+## ⚠️ Kill Point — Exam Tip
+
+The **completion of a project phase review** is formally called a **Kill Point** (also Phase Gate).
+
+At a kill point, the sponsor or steering committee makes one of three decisions:
+
+| Decision | Outcome |
+|---|---|
+| **Go** | Advance to the next phase |
+| **No-Go (Kill)** | Project is stopped or cancelled |
+| **Hold / Recycle** | Return to current phase to fix issues before proceeding |
+
+The advancement is **conditional** — the project only moves forward if it passes the review criteria.
+:::
+
 ### Types of Closure
 
 ```{mermaid}

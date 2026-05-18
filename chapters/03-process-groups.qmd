@@ -283,6 +283,41 @@ flowchart LR
 Uncontrolled changes are **scope creep** — the silent killer of projects.
 :::
 
+### Configuration Management
+
+**Configuration Management** ensures that the descriptions of project products and deliverables are **correct, complete, and consistent** at all times — from initial definition through to final handover.
+
+::: {.callout-note icon="false"}
+## 📖 What is Configuration Management?
+
+While **Integrated Change Control** asks: *"Should this change be approved?"*,
+**Configuration Management** asks: *"Is what we are building still accurately described in our documents?"*
+
+It tracks and controls the **physical and functional characteristics** of project deliverables, ensuring that:
+- Product specifications match what is actually being built
+- All documentation reflects the latest approved version
+- No unauthorised changes have been made to the product description
+:::
+
+| Activity | Description |
+|---|---|
+| **Configuration Identification** | Define and document the characteristics of each deliverable |
+| **Configuration Control** | Ensure product descriptions are correct and complete; prevent unauthorised changes |
+| **Configuration Status Accounting** | Record and report the status of all configurations |
+| **Configuration Audit** | Verify that the deliverable matches its documented specification |
+
+::: {.callout-important icon="false"}
+## ⚠️ Exam Tip — Configuration Management vs. Integrated Change Control
+
+| | Configuration Management | Integrated Change Control |
+|---|---|---|
+| **Focus** | Product descriptions & specifications | Change requests to baselines |
+| **Question it answers** | Are the product descriptions correct and complete? | Should this change be approved? |
+| **Managed by** | Configuration Manager / PM | Change Control Board (CCB) |
+
+> *"To ensure that the description of project products are correct and complete"* → **Configuration Management** ✅
+:::
+
 ---
 
 ## The Closing Process Group

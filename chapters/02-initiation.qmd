@@ -616,6 +616,30 @@ flowchart LR
 
 ---
 
+### Project Initiation Triggers
+
+A project does not start on its own — it is always triggered by a **need, problem, or external requirement**. PMBOK identifies the following common triggers:
+
+| Trigger | Description | Example |
+|---|---|---|
+| **Market demand** | A market opportunity or customer need | Develop a water-saving product due to drought |
+| **Business need** | Internal organisational requirement | Upgrade ageing IT infrastructure |
+| **Customer request** | A specific client asks for work | Client commissions a bridge design |
+| **Technological advance** | New technology requires adoption | Migrate systems to cloud platform |
+| **Legal requirement** | New law or regulation must be complied with | Build a wastewater plant to meet EPA standards |
+| **Ecological/social need** | Environmental or community pressure | Remediate a contaminated site |
+| **Directive** | New requirements imposed by management, government, or external authority | Management orders a safety upgrade across all sites |
+
+::: {.callout-important icon="false"}
+## ⚠️ Directive — Exam Tip
+
+A **directive** is a requirement imposed by **management, government, or an external authority** that the organisation has no choice but to comply with. Unlike market-driven or business-need projects, directive projects are **mandatory** — they proceed regardless of financial return (e.g., regulatory compliance, safety mandates, government legislation).
+
+**Key point:** When a project is initiated because of a directive, the business case may still be prepared — but the decision to proceed is **not optional**.
+:::
+
+---
+
 ## The Business Case
 
 Before any project begins, the organisation must determine **whether the project is worth doing**. This is the purpose of the **Business Case**.

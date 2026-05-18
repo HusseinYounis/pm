@@ -302,6 +302,57 @@ Studies show that technical problems account for fewer than **20%** of project f
 
 ---
 
+## How IT Projects Differ from Other Projects
+
+This book is based on **Schwalbe's IT Project Management** framework, which recognises that IT projects have unique characteristics that make them fundamentally different from construction, manufacturing, or infrastructure projects. Understanding these differences explains why IT projects fail more often — and why Agile methods emerged specifically for them.
+
+```{mermaid}
+%%| fig-cap: "Key differences between IT projects and other project types"
+flowchart LR
+    subgraph IT["💻 IT Projects"]
+        IT1["Invisible deliverable\n(software, data, systems)"]
+        IT2["Requirements change\nfrequently"]
+        IT3["Progress hard\nto measure"]
+        IT4["Cheap to rework\nbefore release"]
+        IT5["High technology\nuncertainty"]
+    end
+    subgraph OTHER["🏗️ Engineering / Construction Projects"]
+        O1["Visible, physical\ndeliverable"]
+        O2["Scope changes\nare costly & rare"]
+        O3["Progress visible\n(% built)"]
+        O4["Rework is\nextremely expensive"]
+        O5["Established methods\nand standards"]
+    end
+
+    style IT fill:#dbeafe,stroke:#3b82f6
+    style OTHER fill:#dcfce7,stroke:#22c55e
+```
+
+| Characteristic | IT Projects | Construction / Engineering |
+|---|---|---|
+| **Deliverable** | Intangible — software, database, system | Tangible — building, road, plant |
+| **Visibility of progress** | Difficult — "90% done" is unreliable | Easy — you can see what is built |
+| **Requirement changes** | Frequent and expected | Rare and expensive |
+| **Rework cost** | Low before release; very high after | Always very high |
+| **Technology risk** | High — tools and platforms evolve rapidly | Low — established construction methods |
+| **Uniqueness** | Almost every project is one-of-a-kind | Some reuse of standard designs |
+| **Team skills** | Highly specialised, scarce, hard to replace | Broader labour pools available |
+| **Failure rate** | ~52% challenged, ~17% fail (Standish 2020) | Lower, but cost overruns are common |
+
+: IT vs. Engineering project characteristics {.striped .hover}
+
+::: {.callout-note icon="false"}
+## 📖 Why This Matters for Project Management
+
+These differences explain three important things:
+
+1. **Why Agile was invented for IT** — Fixed-scope waterfall planning fails when requirements change every sprint. IT projects need iterative, flexible approaches.
+2. **Why IT projects are harder to control** — You cannot walk the site and see progress. Earned Value, burndown charts, and demos are used instead.
+3. **Why stakeholder involvement is critical in IT** — Since the product is invisible until it is built, continuous user feedback is the only way to ensure the final system meets the real need.
+:::
+
+---
+
 ## The Role of the Project Manager
 
 A project manager is more than a technical expert — they are an **integrator, communicator, and leader**.
@@ -363,6 +414,17 @@ quadrantChart
 
 The way an organisation is structured determines **who holds authority over the project manager and team**. The structure shapes communication paths, resource availability, and ultimately, the project manager's power to deliver. PMBOK recognises five main types:
 
+::: {.callout-note icon="false"}
+## 📖 Key Roles — PM vs. Functional Manager (FM)
+
+| Role | Who They Are | What They Control |
+|---|---|---|
+| **Project Manager (PM)** | Leads the project — responsible for scope, schedule, cost, and quality | Project deliverables and outcomes |
+| **Functional Manager (FM)** | Head of a department (e.g., Head of Engineering, Head of Finance, Head of HR) | People, salaries, technical standards, and departmental resources |
+
+The **central question** in every organisational structure is: *between the PM and the FM — who has more power?*
+:::
+
 ---
 
 ### 1. Functional Structure
@@ -398,7 +460,69 @@ The PM cannot directly assign tasks to other departments. Every request must pas
 
 ---
 
-### 2. Weak Matrix Structure
+### 2. Divisional Structure
+
+In a **divisional structure**, the organisation is split into self-contained units — each division has its **own functional departments** (Engineering, Finance, HR, etc.) and operates semi-independently. Divisions are typically organised by:
+
+- **Product** (e.g., Infrastructure Division, Buildings Division, Energy Division)
+- **Geography** (e.g., Middle East Division, Europe Division)
+- **Customer/Market** (e.g., Government Clients Division, Private Sector Division)
+
+```{mermaid}
+%%| fig-cap: "Divisional organisational structure — each division is a mini-organisation"
+flowchart TD
+    CEO["🏢 CEO / Head Office"]
+    CEO --> D1["🏗️ Infrastructure\nDivision"]
+    CEO --> D2["🏢 Buildings\nDivision"]
+    CEO --> D3["⚡ Energy\nDivision"]
+
+    D1 --> D1E["Engineering"]
+    D1 --> D1F["Finance"]
+    D1 --> D1P["Projects"]
+
+    D2 --> D2E["Engineering"]
+    D2 --> D2F["Finance"]
+    D2 --> D2P["Projects"]
+
+    D3 --> D3E["Engineering"]
+    D3 --> D3F["Finance"]
+    D3 --> D3P["Projects"]
+
+    style CEO fill:#4f46e5,color:#fff
+    style D1 fill:#0f766e,color:#fff
+    style D2 fill:#15803d,color:#fff
+    style D3 fill:#b45309,color:#fff
+```
+
+::: {.callout-note icon="false"}
+## ⚖️ PM Authority: **Medium — Authority Within the Division**
+
+The PM operates within the division and reports to the Division Head. Authority is stronger than in a functional structure but limited to the division's resources — cross-division collaboration requires executive-level approval.
+:::
+
+| | Divisional |
+|---|---|
+| **PM Authority** | Medium (within division) |
+| **Resource Control** | Division manager |
+| **PM Role** | Full-time within division |
+| **Budget Control** | Division manager |
+| **Best For** | Large organisations with distinct product lines or regional operations |
+
+**✅ Advantages**
+- Each division is focused and accountable for its own results
+- Faster decision-making within the division
+- Clear ownership of divisional projects and budgets
+- Easier to measure divisional performance
+
+**❌ Disadvantages**
+- Duplication of functions across divisions (each has its own HR, Finance, etc.)
+- Poor collaboration and resource sharing between divisions
+- Potential for divisions to compete against each other internally
+- Inconsistent PM practices across divisions unless a central PMO exists
+
+---
+
+### 3. Weak Matrix Structure
 
 ![Weak matrix organisational structure — PM has limited authority](../images/org-weak-matrix.png){fig-align="center" width="80%"}
 
@@ -430,7 +554,7 @@ Employees have **dual reporting lines** — to both their department head and th
 
 ---
 
-### 3. Balanced Matrix Structure
+### 4. Balanced Matrix Structure
 
 ![Balanced matrix organisational structure — shared authority](../images/org-balanced-matrix.png){fig-align="center" width="80%"}
 
@@ -463,7 +587,7 @@ The PM can influence task priorities and may have input into hiring/firing decis
 
 ---
 
-### 4. Strong Matrix Structure
+### 5. Strong Matrix Structure
 
 ![Strong matrix organisational structure — PM has high authority](../images/org-strong-matrix.png){fig-align="center" width="80%"}
 
@@ -496,7 +620,7 @@ The PM can unilaterally adjust plans, assign resources, and make staffing decisi
 
 ---
 
-### 5. Projectised (Flat) Structure
+### 6. Projectised (Flat) Structure
 
 ![Projectised (flat) organisational structure — PM has full authority](../images/org-projectized.png){fig-align="center" width="80%"}
 
@@ -531,14 +655,14 @@ The PM does not consult with anyone else. They are fully responsible for hiring,
 
 ### Authority Comparison Summary
 
-| Characteristic | Functional | Weak Matrix | Balanced Matrix | Strong Matrix | Projectised |
-|---|---|---|---|---|---|
-| **PM Authority** | None | Low | Medium | High | Full |
-| **Resource Availability** | Low | Low | Medium | High | Full |
-| **Budget Control** | Functional Mgr | Functional Mgr | Mixed | PM | PM |
-| **PM Role** | Part-time | Part-time | Full-time | Full-time | Full-time |
-| **Team Loyalty** | Department | Department | Shared | Project | Project |
-| **Decision Speed** | Slow | Slow | Moderate | Fast | Fastest |
+| Characteristic | Functional | Divisional | Weak Matrix | Balanced Matrix | Strong Matrix | Projectised |
+|---|---|---|---|---|---|---|
+| **PM Authority** | None | Medium | Low | Medium | High | Full |
+| **Resource Availability** | Low | Medium | Low | Medium | High | Full |
+| **Budget Control** | Functional Mgr | Division Mgr | Functional Mgr | Mixed | PM | PM |
+| **PM Role** | Part-time | Full-time | Part-time | Full-time | Full-time | Full-time |
+| **Team Loyalty** | Department | Division | Department | Shared | Project | Project |
+| **Decision Speed** | Slow | Moderate | Slow | Moderate | Fast | Fastest |
 
 : Comparison of organisational structures by PM authority {.striped .hover}
 

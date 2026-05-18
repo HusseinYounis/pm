@@ -248,6 +248,44 @@ flowchart LR
 A construction project's "Design Phase" involves planning activities, executing design work, and monitoring quality — all process groups in action within one phase.
 :::
 
+### Phase Gates and Kill Points
+
+Between each phase sits a formal review point — the project must **pass** this review before advancing to the next phase. This review point is known by several names:
+
+| Term | Also Known As |
+|---|---|
+| **Phase Gate** | Stage Gate, Phase-End Review |
+| **Kill Point** | Go/No-Go Decision Point |
+
+::: {.callout-important icon="false"}
+## ⚠️ Kill Point — Exam Tip
+
+The **completion of a project phase review** is formally called a **Kill Point** (or Phase Gate).
+
+The sponsor or steering committee makes one of three decisions:
+
+| Decision | Outcome |
+|---|---|
+| **Go** | Advance to the next phase |
+| **No-Go (Kill)** | Project is stopped or cancelled |
+| **Hold / Recycle** | Return to current phase to resolve issues first |
+
+Advancement is **conditional** — the project only moves forward if it meets the phase exit criteria.
+:::
+
+```{mermaid}
+%%| fig-cap: "Kill points sit between each project phase"
+flowchart LR
+    F["📊 Feasibility"] -->|"🚦 Kill Point 1"| D["📐 Design"]
+    D -->|"🚦 Kill Point 2"| P["🔨 Construction"]
+    P -->|"🚦 Kill Point 3"| C["🔧 Commissioning"]
+
+    style F fill:#4f46e5,color:#fff
+    style D fill:#0f766e,color:#fff
+    style P fill:#15803d,color:#fff
+    style C fill:#b45309,color:#fff
+```
+
 ### The Product Life Cycle
 
 The **product life cycle** is broader than the project life cycle — it includes the entire lifespan of the deliverable:
