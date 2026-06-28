@@ -28,7 +28,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## A Systems View of Project Management
+## A Systems View of Project Management [📋 Required]{.badge-req}
 
 Engineering projects do not exist in isolation — they operate inside complex **systems** of people, technology, organisations, and regulations. A *systems approach* means looking at the whole rather than individual parts.
 
@@ -82,7 +82,7 @@ Focusing exclusively on the **technology sphere** — getting the engineering ri
 
 ---
 
-## Understanding Organisations
+## Understanding Organisations [📋 Required]{.badge-req}
 
 Projects are performed *within* organisations, and the organisation's characteristics profoundly shape how projects are managed — for better or worse.
 
@@ -219,7 +219,7 @@ Organisations that establish **PM standards** — standard templates, methodolog
 
 ---
 
-## Project Phases and the Project Life Cycle
+## Project Phases and the Project Life Cycle [📋 Required]{.badge-req}
 
 ### The Project Life Cycle
 
@@ -330,7 +330,7 @@ The PM manages the *project life cycle*; the asset owner manages the *product li
 
 ---
 
-## The Nature of Engineering Projects
+## The Nature of Engineering Projects [➕ Extended]{.badge-ext}
 
 Engineering projects have unique characteristics that distinguish them from other project types:
 
@@ -364,7 +364,7 @@ The PM need not be an expert in every discipline, but must understand enough to 
 
 ---
 
-## Recent Trends in Engineering Project Management
+## Recent Trends in Engineering Project Management [➕ Extended]{.badge-ext}
 
 The practice of project management continues to evolve. Several trends are reshaping how engineering projects are delivered:
 

@@ -1,0 +1,683 @@
+---
+title: "Project Integration Management"
+---
+
+```{=html}
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 4 · Initiation &amp; Integration</div>
+  <h1>Project Integration Management</h1>
+  <p class="chapter-desc">Coordinating all project management processes — from selecting and chartering projects to directing execution, controlling changes, and closing phases — with practical tools and solved examples.</p>
+</div>
+```
+
+## Learning Outcomes {.unnumbered}
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+
+By the end of this chapter, you will be able to:
+
+1. **Explain** what project integration management is and why it is the most important knowledge area
+2. **Apply** strategic planning tools (SWOT, NPV, ROI, Payback, Weighted Scoring) to select the best projects
+3. **Develop** a project charter with all required components
+4. **Describe** the contents and purpose of a project management plan
+5. **Explain** how to direct and manage project work during execution
+6. **Apply** integrated change control procedures and use a change control system
+7. **Outline** the process for formally closing a project or phase
+:::
+
+---
+
+## What Is Project Integration Management? [📋 Required]{.badge-req}
+
+**Project integration management** involves coordinating all of the other project management knowledge areas throughout a project's life cycle. It ensures that all elements of a project come together at the right times to complete the project successfully.
+
+The PMBOK® Guide defines **six core processes** in project integration management:
+
+```{mermaid}
+%%| fig-cap: "Project integration management — six processes mapped to process groups"
+%%{init: {'theme': 'base'}}%%
+flowchart LR
+    subgraph INI["🚀 INITIATING"]
+        P1["Develop\nProject Charter"]
+    end
+    subgraph PLN["📋 PLANNING"]
+        P2["Develop Project\nManagement Plan"]
+    end
+    subgraph EXE["⚙️ EXECUTING"]
+        P3["Direct & Manage\nProject Work"]
+    end
+    subgraph MC["📊 MONITORING & CONTROLLING"]
+        P4["Monitor & Control\nProject Work"]
+        P5["Perform Integrated\nChange Control"]
+    end
+    subgraph CLO["🏁 CLOSING"]
+        P6["Close Project\nor Phase"]
+    end
+
+    INI --> PLN --> EXE --> CLO
+    EXE <--> MC
+    PLN <--> MC
+
+    style INI fill:#4f46e5,color:#fff,stroke:#4f46e5
+    style PLN fill:#0f766e,color:#fff,stroke:#0f766e
+    style EXE fill:#15803d,color:#fff,stroke:#15803d
+    style MC fill:#b45309,color:#fff,stroke:#b45309
+    style CLO fill:#b91c1c,color:#fff,stroke:#b91c1c
+```
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — Why Integration Management Matters
+
+The **project manager's** primary responsibility is integration management — coordinating all people, plans, and work so the project succeeds. This includes:
+
+- **Interface management**: identifying and managing points of interaction between project elements
+- **Communication**: keeping all stakeholders informed across organizational boundaries
+- **Decision-making**: resolving conflicts among project goals and team members
+- **Big-picture focus**: steering the entire project toward successful completion
+
+Many project managers make the mistake of focusing on technical work rather than integration. A technically excellent project can still fail if the project manager ignores stakeholder communication, planning, and change control.
+:::
+
+---
+
+## Strategic Planning and Project Selection [📋 Required]{.badge-req}
+
+Before managing a project, organisations must decide **which projects to pursue**. This is where strategic planning and project selection come in.
+
+### Strategic Planning
+
+**Strategic planning** involves determining long-term objectives by:
+
+- Analysing the **strengths and weaknesses** of the organisation
+- Studying **opportunities and threats** in the business environment
+- Predicting **future trends** and projecting the need for new products and services
+
+A widely used strategic planning tool is **SWOT analysis**:
+
+```{mermaid}
+%%| fig-cap: "SWOT analysis framework for identifying potential projects"
+%%{init: {'theme': 'base'}}%%
+quadrantChart
+    title SWOT Analysis — Four Dimensions
+    x-axis Internal --> External
+    y-axis Negative --> Positive
+    quadrant-1 Opportunities
+    quadrant-2 Strengths
+    quadrant-3 Weaknesses
+    quadrant-4 Threats
+    Existing expertise: [0.2, 0.8]
+    Technical skills: [0.3, 0.75]
+    No marketing plan: [0.2, 0.25]
+    Limited budget: [0.3, 0.2]
+    Growing market: [0.75, 0.8]
+    New client project: [0.8, 0.85]
+    Strong competition: [0.75, 0.25]
+    Technology risks: [0.85, 0.15]
+```
+
+### The Four-Stage IT Project Selection Process
+
+Organisations that manage IT projects well typically follow a structured, four-stage process for selecting projects:
+
+| Stage | Name | Purpose | Key Output |
+|-------|------|---------|------------|
+| **1** | IT Strategy Planning | Align IT strategy with organisational mission and vision | Strategic IT goals |
+| **2** | Business Area Analysis | Document key business processes that benefit from IT | Business case list |
+| **3** | Project Planning | Define potential projects — scope, benefits, constraints | Project candidates |
+| **4** | Resource Allocation | Select projects and assign resources | Approved project list |
+
+: Four-stage IT project planning process (Schwalbe, Ch.4) {.striped .hover}
+
+### Categorising IT Projects
+
+Organisations can categorise potential IT projects by their source or nature:
+
+::: {.panel-tabset}
+
+## Problems
+Address **undesirable situations** requiring correction — e.g., a buggy legacy system causing financial reporting errors.
+
+## Opportunities
+**Capitalise on favourable conditions** — e.g., developing a mobile app to reach a new customer segment.
+
+## Directives
+Respond to **new requirements** imposed by management, government regulation, or customers — e.g., a GDPR compliance system.
+
+:::
+
+---
+
+## Methods for Selecting Projects
+
+Once potential projects are identified, organisations use financial and scoring methods to compare and rank them.
+
+### Net Present Value (NPV) Analysis
+
+**NPV** discounts all future cash flows back to today's value, reflecting the time value of money.
+
+$$NPV = \sum_{t=0}^{n} \frac{C_t}{(1 + r)^t}$$
+
+Where:
+- $C_t$ = cash flow at time $t$
+- $r$ = discount rate (cost of capital)
+- $n$ = project duration (years)
+
+**Decision rule:** Select projects with **NPV > 0**. A higher NPV indicates greater value created.
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 4.1 — NPV Analysis
+
+An engineering company is evaluating a new IT system. Initial investment (Year 0): **\$120,000**. Discount rate: **10%**.
+
+| Year | Cash Flow | Discount Factor | Present Value |
+|------|-----------|----------------|---------------|
+| 0 | –\$120,000 | 1.000 | –\$120,000 |
+| 1 | \$30,000 | 0.909 | \$27,270 |
+| 2 | \$40,000 | 0.826 | \$33,040 |
+| 3 | \$50,000 | 0.751 | \$37,550 |
+| 4 | \$50,000 | 0.683 | \$34,150 |
+| 5 | \$40,000 | 0.621 | \$24,840 |
+
+: NPV calculation for IT system project {.striped .hover}
+
+$$NPV = -120{,}000 + 27{,}270 + 33{,}040 + 37{,}550 + 34{,}150 + 24{,}840 = \mathbf{\$36{,}850}$$
+
+**Decision:** NPV = \$36,850 > 0 → **Accept the project**
+:::
+
+### Return on Investment (ROI)
+
+$$ROI = \frac{\text{Total Discounted Benefits} - \text{Total Discounted Costs}}{\text{Total Discounted Costs}} \times 100\%$$
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 4.2 — ROI
+
+If total discounted benefits = \$120,000 and total discounted costs = \$100,000:
+
+$$ROI = \frac{120{,}000 - 100{,}000}{100{,}000} \times 100\% = \mathbf{20\%}$$
+
+A positive ROI indicates the project returns more than it costs. Higher ROI is preferred when comparing alternatives.
+:::
+
+### Payback Analysis
+
+**Payback period** is the time required to recover the initial investment from project cash flows.
+
+$$\text{Payback Period} = \text{Year before recovery} + \frac{\text{Unrecovered amount at start of year}}{\text{Cash flow during year}}$$
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 4.3 — Payback Period
+
+| Year | Annual Cash Flow | Cumulative Cash Flow |
+|------|----------------|---------------------|
+| 0 | –\$120,000 | –\$120,000 |
+| 1 | \$30,000 | –\$90,000 |
+| 2 | \$40,000 | –\$50,000 |
+| 3 | \$50,000 | \$0 |
+| 4 | \$50,000 | \$50,000 |
+
+: Payback period calculation {.striped .hover}
+
+The cumulative cash flow reaches zero at the **end of Year 3**.
+
+$$\text{Payback Period} = 3 \text{ years}$$
+
+If the organisation's maximum acceptable payback is 4 years → **Project is acceptable**
+:::
+
+### Weighted Scoring Model
+
+When financial analysis alone is insufficient, a **weighted scoring model** rates each project on multiple criteria using assigned weights.
+
+**Steps:**
+1. Identify evaluation criteria important to the organisation
+2. Assign a weight (%) to each criterion (weights sum to 100%)
+3. Score each project on each criterion (e.g., 0–100)
+4. Calculate weighted score = weight × score for each criterion
+5. Sum weighted scores and compare
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 4.4 — Weighted Scoring Model
+
+An organisation is comparing three IT projects (A, B, C) on four criteria:
+
+| Criterion | Weight | Project A Score | Project B Score | Project C Score |
+|-----------|--------|----------------|----------------|----------------|
+| Supports key business objectives | 25% | 90 | 70 | 50 |
+| Strong internal sponsor | 15% | 70 | 90 | 20 |
+| Sufficient resources available | 20% | 50 | 70 | 80 |
+| High ROI (>25%) | 40% | 80 | 50 | 90 |
+
+: Weighted scoring model — criteria and scores {.striped .hover}
+
+**Calculating weighted scores:**
+
+| Criterion | Weight | Project A | Project B | Project C |
+|-----------|--------|-----------|-----------|-----------|
+| Business objectives | 0.25 | 22.5 | 17.5 | 12.5 |
+| Internal sponsor | 0.15 | 10.5 | 13.5 | 3.0 |
+| Resources available | 0.20 | 10.0 | 14.0 | 16.0 |
+| High ROI | 0.40 | 32.0 | 20.0 | 36.0 |
+| **Total Weighted Score** | | **75.0** | **65.0** | **67.5** |
+
+: Weighted scoring model — final scores {.striped .hover}
+
+**Decision:** Project A has the highest score (75.0) → **Select Project A**
+:::
+
+### Balanced Scorecard
+
+The **balanced scorecard** (developed by Kaplan and Norton) converts an organisation's value drivers into defined metrics across four perspectives:
+
+| Perspective | Focus | Example Metric |
+|-------------|-------|---------------|
+| **Customer** | Customer satisfaction and value | On-time delivery rate |
+| **Financial** | Revenue, cost reduction, ROI | Cost per transaction |
+| **Internal Process** | Operational efficiency | Defect rate, cycle time |
+| **Growth & Learning** | Employee skills, innovation | Training hours per staff |
+
+: Balanced scorecard perspectives {.striped .hover}
+
+Organisations use the balanced scorecard to ensure that selected projects are aligned with the overall strategy across all four dimensions, not just the financial one.
+
+---
+
+## Developing a Project Charter [📋 Required]{.badge-req}
+
+Once top management selects a project to pursue, the first formal step is to **develop the project charter** — the document that officially authorises the project.
+
+### What Is a Project Charter?
+
+A **project charter** is a document that:
+
+- Formally recognises the existence of a project
+- Provides direction on the project's objectives and management
+- **Authorises the project manager** to use organisational resources
+- Should be **signed by key stakeholders** to acknowledge agreement
+
+::: {.callout-note icon="false"}
+## 📖 Key Inputs for Developing a Project Charter
+
+| Input | Description |
+|-------|-------------|
+| **Statement of Work (SOW)** | Describes the products/services the project will create; includes business need, requirements, and strategic alignment |
+| **Business Case** | Justifies the investment; includes objectives, high-level requirements, and financial goals |
+| **Agreements/Contracts** | Relevant for external projects — contract terms often map to charter content |
+| **Enterprise Environmental Factors** | Government regulations, industry standards, organisation infrastructure, marketplace conditions |
+| **Organisational Process Assets** | Policies, templates, lessons learned, historical information from previous projects |
+:::
+
+### Project Charter Contents
+
+Although formats vary, a project charter should include at minimum:
+
+::: {.panel-tabset}
+
+## Core Elements
+- **Project title** and date of authorisation
+- **Project manager** name and contact information
+- **Summary schedule** — planned start and finish dates; key milestones
+- **Summary budget** — total cost estimate or reference to budgetary documents
+- **Project objectives** — brief description of goals and business justification
+
+## Approach & Governance
+- **Project success criteria** — measurable outcomes; who signs off on acceptance
+- **Management approach summary** — stakeholder needs, assumptions, constraints, references to subsidiary plans
+- **Roles and responsibilities matrix** — who is responsible for what
+- **Sign-off section** — signatures of key project stakeholders
+
+## Comments & Supporting Docs
+- **Comments section** — space for stakeholder concerns or important notes
+- References to related plans: communications plan, risk plan, procurement plan
+
+:::
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 4.5 — Partial Project Charter
+
+**Project Title:** Campus Network Upgrade Project  
+**Date of Authorisation:** 1 September 2026  
+**Project Manager:** Eng. Reem Al-Haddad | reem@aaup.edu
+
+**Projected Start:** 1 October 2026 | **Projected Finish:** 31 March 2027
+
+**Key Milestones:**
+
+| Milestone | Target Date |
+|-----------|------------|
+| Network design approved | 15 October 2026 |
+| Cabling installation complete | 15 December 2026 |
+| Equipment configured and tested | 31 January 2027 |
+| User training complete | 28 February 2027 |
+| Final acceptance sign-off | 31 March 2027 |
+
+: Project charter milestones {.striped .hover}
+
+**Objectives:** Upgrade the campus network infrastructure to support gigabit speeds for 2,000 concurrent users across 8 buildings, enabling online learning and administrative applications.
+
+**Budget Summary:** \$450,000 (±20% at charter stage)
+
+**Approach:** Use a phased rollout building-by-building to minimise disruption. An external network contractor will be engaged for installation. Weekly status reports to the sponsor.
+
+**Success Criteria:** 99.5% network uptime within 30 days of go-live; all buildings connected; user acceptance confirmed by IT Director.
+:::
+
+---
+
+## Developing a Project Management Plan [📋 Required]{.badge-req}
+
+The **project management plan** is the central document that integrates and coordinates all other planning outputs. It is far more than a Gantt chart.
+
+### Project Management Plan Contents
+
+A comprehensive project management plan includes:
+
+| Section | Content |
+|---------|---------|
+| **Scope management plan** | How scope will be defined, validated, and controlled |
+| **Schedule management plan** | How the schedule will be developed and controlled |
+| **Cost management plan** | How costs will be estimated, budgeted, and controlled |
+| **Quality management plan** | Quality standards and assurance/control activities |
+| **Resource management plan** | How physical and human resources will be acquired and managed |
+| **Communications management plan** | What information is communicated, to whom, when, and how |
+| **Risk management plan** | How risks will be identified, analysed, and responded to |
+| **Procurement management plan** | How goods and services will be acquired from outside the project |
+| **Stakeholder engagement plan** | How stakeholders will be engaged and managed |
+| **Change management plan** | How changes will be requested, evaluated, and controlled |
+
+: Project management plan subsidiary plans {.striped .hover}
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — The Purpose of a Project Management Plan
+
+> *"The main purpose of project plans is to facilitate action."* — Schwalbe
+
+A project management plan is **not** just documentation for its own sake. It exists to:
+
+1. Guide the project team in executing the work
+2. Establish baselines against which progress is measured
+3. Provide a basis for communicating with stakeholders
+4. Enable controlled changes when circumstances change
+
+**Best practice:** Those who will **do** the work should **plan** the work. The project manager solicits input from all team members and specialists.
+:::
+
+### Using Guidelines to Create Project Management Plans
+
+Many organisations provide guidelines and templates to ensure consistency across projects. Notable standards include:
+
+- **IEEE Standard 1058-1998** — Software Project Management Plan (SPMP): covers overview, project organisation, managerial process plans, technical process plans, and supporting process plans
+- **U.S. DoD Standard 2167** — Software Development Plan for defence projects
+- **PMI PMBOK® Guide** — knowledge area plans as subsidiary components
+
+---
+
+## Directing and Managing Project Work [📋 Required]{.badge-req}
+
+**Directing and managing project work** is the process of executing the project management plan — actually doing the work to produce the project's deliverables.
+
+### Key Outputs of Execution
+
+```{mermaid}
+%%| fig-cap: "Outputs of directing and managing project work"
+%%{init: {'theme': 'base'}}%%
+flowchart TD
+    PM["📋 Project Management Plan\n(Input)"] --> EXEC["⚙️ Direct &amp; Manage\nProject Work"]
+    CR["✅ Approved Change\nRequests (Input)"] --> EXEC
+    EXEC --> D["📦 Deliverables"]
+    EXEC --> WPI["📊 Work Performance\nInformation"]
+    EXEC --> CRQ["🔄 Change Requests"]
+    EXEC --> UPD["📝 Plan & Document\nUpdates"]
+
+    style EXEC fill:#15803d,color:#fff,stroke:#15803d
+```
+
+### Factors for Successful Execution
+
+::: {.panel-tabset}
+
+## Strong Leadership
+Project managers must **lead by example** — if they follow through on their own plans, team members are more likely to do the same.
+
+A project manager must:
+- Provide clear direction and priorities
+- Motivate and develop the team
+- Navigate organisational politics to remove barriers
+- Break rules when necessary (with good judgement and political skill)
+
+## Supportive Culture
+A supportive organisational culture promotes:
+- Useful guidelines and templates that **help** (not hinder) getting work done
+- A culture that uses project plans as the basis for performing work and measuring progress
+- Clear lines of authority and decision-making
+
+## Business & Technical Knowledge
+Project managers need to understand:
+- The **application area** of the project (the business domain)
+- The **product** being created
+- Enough **technical knowledge** to guide the team and evaluate options
+
+For large projects: a strong business/domain background often matters more than technical expertise.
+
+:::
+
+### Project Execution Tools and Techniques
+
+| Tool/Technique | Description |
+|----------------|-------------|
+| **Expert judgment** | Consulting specialists on methodology, technology, and approach |
+| **Meetings** | Face-to-face, phone, and virtual meetings for communication, problem-solving, and relationship-building |
+| **Project Management Information Systems (PMIS)** | Software for scheduling, tracking, and reporting (e.g., MS Project, Primavera) |
+
+---
+
+## Monitoring and Controlling Project Work [📋 Required]{.badge-req}
+
+**Monitoring and controlling** project work runs continuously from initiation through closing. It involves:
+
+- Comparing **actual performance** to the project management plan
+- Identifying variances and taking corrective action
+- Providing **forecasts** to update current cost and schedule information
+- Monitoring implementation of approved changes
+- Reporting on project status to stakeholders
+
+```{mermaid}
+%%| fig-cap: "Monitor and control project work — continuous loop"
+%%{init: {'theme': 'base'}}%%
+flowchart LR
+    PLAN["📋 Baseline Plan\n(Schedule, Cost, Scope)"]
+    EXEC["⚙️ Execute\nProject Work"]
+    MEASURE["📊 Measure Actual\nPerformance"]
+    COMPARE["🔍 Compare:\nActual vs. Plan"]
+    VARIANCE{Variance?}
+    CORRECT["🔧 Corrective\nAction"]
+    REPORT["📢 Status\nReport"]
+
+    PLAN --> EXEC --> MEASURE --> COMPARE --> VARIANCE
+    VARIANCE -->|"Yes"| CORRECT --> EXEC
+    VARIANCE -->|"No"| REPORT
+    CORRECT --> REPORT
+
+    style PLAN fill:#0f766e,color:#fff
+    style CORRECT fill:#b45309,color:#fff
+```
+
+---
+
+## Performing Integrated Change Control [📋 Required]{.badge-req}
+
+Change is **inevitable** on projects. The question is not whether changes will occur, but whether they will be **managed effectively**.
+
+### What Is Integrated Change Control?
+
+**Integrated change control** involves identifying, evaluating, and managing changes throughout the project life cycle. It ensures that:
+
+- Changes are **formally requested** and documented
+- Impacts on scope, cost, and schedule are **assessed before approval**
+- Only **approved changes** are implemented
+- All affected plans and documents are **updated** accordingly
+
+### The Change Control System
+
+A formal **change control system** includes:
+
+```{mermaid}
+%%| fig-cap: "Change control process flow"
+%%{init: {'theme': 'base'}}%%
+flowchart TD
+    REQ["📝 Change Request\nSubmitted"] --> LOG["📋 Log Change\nRequest"]
+    LOG --> ASSESS["🔍 Impact Assessment\n(Scope, Cost, Schedule, Risk)"]
+    ASSESS --> CCB["👥 Change Control\nBoard (CCB) Review"]
+    CCB --> DEC{Decision}
+    DEC -->|"Approved"| UPDATE["📝 Update Plans,\nBaselines & Docs"]
+    DEC -->|"Rejected"| NOTIFY["📢 Notify\nRequestor"]
+    DEC -->|"Deferred"| PEND["⏳ Pending\nReview"]
+    UPDATE --> IMPL["⚙️ Implement\nApproved Change"]
+    IMPL --> CLOSE["✅ Close Change\nRequest"]
+
+    style CCB fill:#4f46e5,color:#fff
+    style DEC fill:#b45309,color:#fff
+```
+
+### The Change Control Board (CCB)
+
+A **Change Control Board (CCB)** is a group of authorised stakeholders who review, evaluate, and approve or reject change requests. The CCB:
+
+- Meets regularly (or on-demand for urgent changes)
+- Reviews all proposed changes against project baselines
+- Considers cost, schedule, and scope impacts
+- Has the authority to approve, reject, or defer changes
+
+### Configuration Management
+
+**Configuration management** ensures that the performance and physical characteristics of a product are consistent with its requirements and documentation. On IT projects it involves:
+
+- Identifying and documenting **configuration items** (software versions, hardware specs, documents)
+- Controlling **changes** to those items
+- Recording and reporting the **status** of changes
+- **Verifying** that products conform to their specifications
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 4.6 — Change Request Log
+
+The following table shows a partial change request log for the campus network upgrade project:
+
+| CR# | Date | Requested By | Description | Impact (Cost / Schedule) | CCB Decision | Status |
+|-----|------|-------------|-------------|--------------------------|-------------|--------|
+| CR-01 | 15 Oct | IT Director | Add wireless APs in library | +\$8,000 / +5 days | Approved | Implemented |
+| CR-02 | 20 Oct | Facilities | Re-route cabling via ceiling ducts | +\$12,000 / +10 days | Approved | In Progress |
+| CR-03 | 25 Oct | Network Team | Upgrade core switches to 10G | +\$25,000 / +2 days | Deferred | Pending budget review |
+| CR-04 | 1 Nov | Faculty | Add AV ports in classrooms | +\$5,000 / 0 days | Rejected | Closed — out of scope |
+
+: Sample change request log {.striped .hover}
+:::
+
+### Suggestions for Performing Integrated Change Control
+
+| Recommendation | Explanation |
+|----------------|-------------|
+| View project management as **communication and negotiation** | Changes involve people; manage relationships proactively |
+| **Plan for change** from the start | Build contingency reserves and define the change process early |
+| Establish a **formal change control system** with a CCB | Prevents ad-hoc changes that derail the project |
+| Use **configuration management** | Maintains integrity of project deliverables and documents |
+| Use **performance reports** to identify needed changes | Variance reports often reveal scope creep or needed adjustments |
+| **Focus on leading** — don't get lost in managing every change | Delegate detailed change tracking; focus on overall project direction |
+
+---
+
+## Closing Projects or Phases [📋 Required]{.badge-req}
+
+**Closing a project or phase** involves finalising all activities and transferring the completed (or cancelled) work to the appropriate parties.
+
+### Key Outputs of Project Closing
+
+::: {.panel-tabset}
+
+## Final Product Transition
+The sponsor receives the final **product, service, or result** as specified. For contracted work, this requires **formal written acceptance**. Internal projects often use a **project completion form** or **client acceptance form**.
+
+## Organisational Process Asset Updates
+The project team delivers:
+- **Project documentation** — all plans, reports, and records
+- **Project closure document** — formal sign-off that the project is complete
+- **Final project report** — summary of outcomes, costs, schedule performance, and a transition plan for ongoing operations
+- **Lessons-learned report** — captures what went right, what went wrong, and recommendations for future projects
+
+## Post-Implementation Review
+Many organisations conduct a **post-implementation review** (also called a post-project audit) to:
+- Verify that the project achieved its stated objectives
+- Measure the benefits realised against the business case
+- Capture institutional knowledge for future projects
+
+:::
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — Final Project Report Structure
+
+A typical final project report includes:
+
+1. **Project Objectives** — what the project set out to achieve
+2. **Summary of Project Results** — what was actually delivered
+3. **Original vs. Actual Start/End Dates** — schedule performance
+4. **Original vs. Actual Budget** — cost performance
+5. **Project Assessment** — was it a success? What went right and wrong?
+6. **Transition Plan** — handover to operations; ongoing support requirements
+7. **Attachments** — all key project management documentation (charter, scope statement, WBS, Gantt charts, risk register, lessons learned, acceptance form)
+:::
+
+---
+
+## Software Tools for Project Integration Management [📋 Required]{.badge-req}
+
+Project integration management is supported by a wide range of software:
+
+| Category | Examples | Use in Integration Management |
+|----------|---------|-------------------------------|
+| **Project management software** | MS Project, Primavera, Smartsheet | Scheduling, tracking, Gantt charts, change logging |
+| **Word processing / presentation** | MS Word, PowerPoint | Project charters, management plans, status reports |
+| **Spreadsheets** | MS Excel, Google Sheets | Financial analysis (NPV, ROI, payback, weighted scoring) |
+| **Portfolio management software** | ProjectManager.com, Clarity PPM | Aligning projects with strategy; portfolio dashboards |
+| **Communication / collaboration** | MS Teams, SharePoint | Distributing plans, meeting management, document control |
+| **Business Service Management (BSM) tools** | CA Clarity, ServiceNow | Linking IT project outcomes to business performance metrics |
+
+---
+
+## Chapter Summary
+
+::: {.callout-note icon="false"}
+## 📋 Summary — Project Integration Management
+
+**Project integration management** is widely considered the most important knowledge area, because it ties all others together. The project manager's primary job is integration.
+
+**Key processes:**
+
+| Process | Process Group | Key Output |
+|---------|--------------|-----------|
+| Develop Project Charter | Initiating | Project charter (signed) |
+| Develop Project Management Plan | Planning | Integrated project management plan |
+| Direct & Manage Project Work | Executing | Deliverables, work performance data |
+| Monitor & Control Project Work | Monitoring & Controlling | Change requests, performance reports |
+| Perform Integrated Change Control | Monitoring & Controlling | Approved changes, updated baselines |
+| Close Project or Phase | Closing | Final deliverable, lessons learned |
+
+**Project selection methods:** NPV, ROI, Payback, Weighted Scoring Model, Balanced Scorecard
+
+**Project charter** formally authorises the project and the project manager.
+
+**Integrated change control** — use a CCB, document all changes, assess impacts before approving.
+:::
+
+---
+
+## Review Questions
+
+1. An organisation is evaluating two IT projects. Project X has NPV = \$45,000 and payback = 2.5 years. Project Y has NPV = \$38,000 and payback = 1.8 years. The organisation's maximum acceptable payback period is 3 years. Which should be selected and why?
+
+2. A project manager receives a request from a developer to add a new feature that was not in the original scope. Describe the integrated change control process that should be followed.
+
+3. Explain why many project managers fail at integration management, using the Nick Carson DNA-sequencing case as an example.
+
+4. Develop a weighted scoring model for selecting between two engineering projects using the following criteria: technical feasibility (30%), strategic alignment (25%), financial return (30%), and resource availability (15%). Assign scores of your choice and calculate the winner.
+
+5. List five components that must appear in a project charter. Why is a signed charter important?

@@ -557,3 +557,40 @@ figure figcaption {
   .hero-banner { background: #1d4ed8 !important; -webkit-print-color-adjust: exact; }
   .callout { border-width: 2px !important; }
 }
+
+/* ── Section Badges ───────────────────────────────────────── */
+.badge-req {
+  display: inline-block;
+  background: #16a34a;
+  color: #fff !important;
+  font-size: 0.62em;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 999px;
+  margin-left: 10px;
+  vertical-align: middle;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+}
+
+.badge-ext {
+  display: inline-block;
+  background: #7c3aed;
+  color: #fff !important;
+  font-size: 0.62em;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 999px;
+  margin-left: 10px;
+  vertical-align: middle;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+}
+
+h2 .badge-req, h2 .badge-ext,
+h3 .badge-req, h3 .badge-ext {
+  font-size: 0.55em;
+  padding: 2px 8px;
+}

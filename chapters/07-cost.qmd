@@ -17,84 +17,508 @@ title: "Cost Management & Earned Value"
 
 By the end of this chapter, you will be able to:
 
-1. **Apply** the four main cost estimation techniques including function point analysis
-2. **Develop** a project budget and cost baseline (S-curve)
-3. **Build** a bottom-up cost estimate using a WBS cost template
-4. **Calculate** all core EVM metrics (PV, EV, AC, CPI, SPI, EAC, ETC, TCPI)
-5. **Interpret** EVM status reports and forecast project outcomes
-6. **Identify** cost control techniques and corrective actions
-7. **Explain** contingency and management reserves
+1. **Explain** fundamental cost concepts: direct/indirect, tangible/intangible, sunk cost, opportunity cost, life cycle costing, and learning curve theory
+2. **Apply** the four main cost estimation techniques including function point analysis
+3. **Develop** a project budget and cost baseline (S-curve)
+4. **Build** a bottom-up cost estimate using a WBS cost template
+5. **Calculate** all core EVM metrics (PV, EV, AC, CPI, SPI, EAC, ETC, TCPI) including Rate of Performance (RP)
+6. **Interpret** EVM status reports and forecast project outcomes
+7. **Identify** cost control techniques and corrective actions
+8. **Explain** contingency and management reserves
+9. **Describe** Project Portfolio Management (PPM) and its role in strategic resource allocation
 :::
 
 ---
 
-## Cost Estimation
+## Basic Principles of Cost Management [📋 Required]{.badge-req}
+
+Before estimating or controlling costs, project managers must understand the fundamental cost concepts that underpin financial decision-making:
+
+### What is Cost?
+
+**Cost** is a resource sacrificed or foregone to achieve a specific objective — usually measured in monetary units. **Project cost management** encompasses all processes required to complete the project within an approved budget.
+
+### Key Cost Concepts
+
+::: {.panel-tabset}
+
+## Types of Costs
+
+```{=html}
+<div style="text-align:center;margin:1em 0 1.5em;">
+  <img src="https://oae.app/wp-content/uploads/2025/08/Types-of-Project-Costs-1024x1024.png"
+       alt="Types of Project Costs overview diagram"
+       style="max-width:520px;width:100%;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.15);">
+</div>
+```
+
+### 1. Direct vs. Indirect Costs
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.callout-note icon="false"}
+## 💼 Direct Costs
+
+Expenses that can be attributed **entirely and specifically to a single project**. These do not exist if the project does not happen.
+
+| Example | Description |
+|---------|-------------|
+| Specialized team salaries | Staff hired solely for this project |
+| Project hardware/software licences | Purchased exclusively for project use |
+| Raw materials | Consumed directly in deliverables |
+| Contractor fees | Engaged specifically for project work |
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.callout-tip icon="false"}
+## 🏢 Indirect Costs
+
+Overhead or administrative costs that **support general business operations** rather than a specific project. Usually **shared across multiple projects**.
+
+| Example | Description |
+|---------|-------------|
+| Office rent | Facility housing all teams |
+| General utilities | Power, internet, water |
+| Executive salaries | Leadership overseeing all projects |
+| Insurance | Organisation-wide cover |
+:::
+:::
+
+:::
+
+---
+
+### 2. Fixed vs. Variable Costs
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.callout-note icon="false"}
+## 📌 Fixed Costs
+
+One-off or recurring expenses that **remain constant regardless** of the project's production level, output, or timeframe.
+
+| Example | Description |
+|---------|-------------|
+| Software subscriptions | Same monthly fee regardless of usage |
+| Consultant retainers | Fixed monthly engagement fee |
+| Equipment lease agreements | Fixed periodic payment |
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.callout-tip icon="false"}
+## 📈 Variable Costs
+
+Expenses that **fluctuate or scale** based on the level of project activity, resources used, or overall volume.
+
+| Example | Description |
+|---------|-------------|
+| Temporary worker wages | More workers = higher cost |
+| Materials consumed | Concrete, steel — quantity-driven |
+| Shipping fees | Scales with volume and distance |
+:::
+:::
+
+:::
+
+---
+
+### 3. Additional Cost Classifications
+
+| Cost Type | Definition | Key Rule / Example |
+|-----------|------------|--------------------|
+| **Sunk Costs** | Money already spent and **unrecoverable** | ⚠️ Never let sunk costs influence future decisions — e.g. funds spent on a cancelled prototype or a failed software platform |
+| **Opportunity Costs** | The potential value or revenue **lost by choosing one project over an alternative** | Choosing Project A means forgoing the benefit Project B would have delivered |
+| **Recurring Costs** | Repetitive expenses incurred regularly | Weekly labour costs, monthly software subscriptions |
+| **Non-Recurring Costs** | One-time upfront investments | Initial hardware setup, site mobilisation |
+| **Quality Costs** | Expenses dedicated to ensuring quality standards are met | **Prevention** (training), **Appraisal** (testing), **Failure** (rework, warranty claims) |
+| **Contingency Reserves** | Funds set aside for **known risks** or scope changes within the project's baseline budget | Controlled by the PM; part of the cost baseline |
+
+::: {.callout-important icon="false"}
+## ⚠️ The Sunk Cost Trap
+
+A common decision-making error is allowing sunk costs to drive future spending. The fact that ₪500,000 has already been spent on a failing system is **irrelevant** to the question of whether to continue — only the future costs and benefits of each option should guide the decision.
+:::
+
+## Life Cycle Costing
+
+**Life cycle costing (LCC)** considers the **total cost of ownership** across the asset's entire life — not just the capital construction cost:
+
+$$LCC = C_{initial} + C_{operations} + C_{maintenance} + C_{disposal} - C_{salvage}$$
+
+::: {.callout-important icon="false"}
+## ⚠️ Why LCC Matters
+
+A pump that costs $8,000 to purchase but $3,000/year to maintain over 20 years has a life cycle cost of:
+$$LCC = \$8,000 + (20 \times \$3,000) = \$68,000$$
+
+A $12,000 pump requiring only $1,200/year has:
+$$LCC = \$12,000 + (20 \times \$1,200) = \$36,000$$
+
+The "cheaper" pump costs **89% more** over its service life. LCC prevents false economy in procurement.
+:::
+
+## Financial Return Concepts
+
+Senior management and clients evaluate projects using financial metrics. Project managers must speak this language:
+
+| Term | Definition | Formula |
+|------|------------|---------|
+| **Revenue** | Income generated from the project's outputs | — |
+| **Profit** | Revenue minus all expenditures | $Profit = Revenue - Cost$ |
+| **Profit margin** | Ratio of profit to revenue (expressed as %) | $PM = \frac{Profit}{Revenue} \times 100$ |
+| **Return on Investment (ROI)** | Benefit of investment relative to its cost | $ROI = \frac{(Benefits - Costs)}{Costs} \times 100\%$ |
+| **NPV** | Net Present Value — sum of discounted future cash flows | $NPV = \sum \frac{CF_t}{(1+r)^t}$ |
+| **Payback Period** | Time to recover initial investment | $PP = \frac{Initial\ Investment}{Annual\ Net\ Benefit}$ |
+
+*A positive NPV means the project creates value. A higher ROI indicates better return per dollar invested.*
+
+## Learning Curve Theory
+
+**Learning curve theory** states that as workers gain experience producing a product, **unit cost decreases in a predictable pattern**. Each time cumulative output doubles, cost per unit falls by a fixed percentage.
+
+$$Unit\ Cost_n = Unit\ Cost_1 \times n^b \quad \text{where } b = \frac{\log(learning\ rate)}{\log(2)}$$
+
+| Learning Rate | Meaning |
+|--------------|---------|
+| 80% | Each time production doubles, unit cost = 80% of previous |
+| 90% | Unit cost = 90% of previous each doubling |
+
+*Example: If the first unit costs $100,000 and the learning rate is 80%, the 2nd unit costs $80,000; the 4th unit costs $64,000; the 8th costs $51,200.*
+
+**Project implication:** Software development, prefabrication, and repetitive construction activities all exhibit learning curve effects — factor this into estimates for repetitive work.
+
+## Reserves
+
+**Reserves** are funds included in a cost estimate to mitigate risk:
+
+| Reserve Type | Purpose | Who Controls |
+|-------------|---------|--------------|
+| **Contingency Reserve** | Known-unknowns — identified risks with probability and impact | Project Manager |
+| **Management Reserve** | Unknown-unknowns — unforeseeable events | Senior Management / Sponsor |
+
+*Contingency is part of the cost baseline; management reserve is NOT in the cost baseline but IS in the project budget.*
+
+:::
+
+---
+
+## Cost Estimation [📋 Required]{.badge-req}
 
 **Cost estimation** is the process of predicting the financial cost of completing project work.
 
-### Estimation Classes (AACE International Standard)
+### Estimation Classes (فئات تقدير التكلفة) — AACE International Standard
 
-| Class | Stage | Scope Definition | Accuracy | Usage |
-|-------|-------|-----------------|----------|-------|
-| **Class 5** | Concept | 0–2% | –50% to +100% | Screening, go/no-go |
-| **Class 4** | Study | 1–15% | –30% to +50% | Feasibility |
-| **Class 3** | Preliminary | 10–40% | –20% to +30% | Budget approval |
-| **Class 2** | Detailed | 30–70% | –10% to +15% | Cost control |
-| **Class 1** | Definitive | 50–100% | –5% to +5% | Tendering |
+The **AACE International Cost Estimate Classification System** categorises capital project cost estimates into five distinct classes (Class 1 through 5) based on the **maturity of project definition deliverables** (نضج مخرجات تعريف المشروع) — not merely elapsed time or estimate purpose. It provides a standardised stage-gate framework that aligns estimate accuracy and methodology with the degree of project scope development.
 
-: AACE Cost Estimate Classes {.striped .hover}
+::: {.callout-note icon="false"}
+## 📌 Three Key Rules of the System
 
-### Estimation Techniques
+1. **Primary determinant is scope maturity** — the class assigned depends on how complete the project definition deliverables are, not the phase name or calendar date.
+2. **Accuracy ranges** (نطاق الدقة) **are not universal** — they depend on technological complexity, quality of historical data, and defined risk levels.
+3. **Scope changes are excluded** — accuracy percentages represent normal variation *within* a defined scope; they do not cover scope growth.
+:::
+
+```{=html}
+<div style="overflow-x:auto;margin:1.2em 0;">
+<table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+  <thead>
+    <tr style="background:#1d4ed8;color:#fff;">
+      <th style="padding:10px 12px;">Class</th>
+      <th style="padding:10px 12px;">Stage</th>
+      <th style="padding:10px 12px;">Scope Maturity<br/><span style="font-weight:400;font-size:.82rem;">نسبة اكتمال المشروع</span></th>
+      <th style="padding:10px 12px;">Methodology<br/><span style="font-weight:400;font-size:.82rem;">المنهجية</span></th>
+      <th style="padding:10px 12px;">Accuracy Range<br/><span style="font-weight:400;font-size:.82rem;">نطاق الدقة</span></th>
+      <th style="padding:10px 12px;">Primary End Usage<br/><span style="font-weight:400;font-size:.82rem;">الاستخدام</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:#fef9c3;">
+      <td style="padding:9px 12px;font-weight:700;">Class 5<br/><span style="font-weight:400;font-size:.82rem;color:#78350f;">الدرجة الخامسة</span></td>
+      <td style="padding:9px 12px;">Concept / Feasibility<br/><span style="font-size:.82rem;color:#78350f;">التقدير المفهومي / دراسة الجدوى</span></td>
+      <td style="padding:9px 12px;text-align:center;">0% – 2%</td>
+      <td style="padding:9px 12px;">Stochastic (عشوائية/تقريبية): capacity-factored models, parametric models, judgement / analogy</td>
+      <td style="padding:9px 12px;text-align:center;">−20% to −50% <br/><span style="color:#166534">+30% to +100%</span></td>
+      <td style="padding:9px 12px;">Capacity evaluation, long-range capital planning, concept screening<br/><span style="font-size:.82rem;color:#78350f;">التخطيط الاستراتيجي الأولي، اختيار الأفكار، تقييم الجدوى المبدئية</span></td>
+    </tr>
+    <tr>
+      <td style="padding:9px 12px;font-weight:700;">Class 4<br/><span style="font-weight:400;font-size:.82rem;color:#1e3a5f;">الدرجة الرابعة</span></td>
+      <td style="padding:9px 12px;">Study / Preliminary Budget<br/><span style="font-size:.82rem;color:#1e3a5f;">التقدير الأولي / ميزانية الدراسة</span></td>
+      <td style="padding:9px 12px;text-align:center;">1% – 15%</td>
+      <td style="padding:9px 12px;">Equipment-factored (عوامل المعدات) models, parametric modelling, historical unit costs</td>
+      <td style="padding:9px 12px;text-align:center;">−15% to −30% <br/><span style="color:#166534">+20% to +50%</span></td>
+      <td style="padding:9px 12px;">Detailed strategic planning, business case (دراسة العمل) development, preliminary budget approval<br/><span style="font-size:.82rem;color:#1e3a5f;">التخطيط التفصيلي، اعتماد الميزانيات المبدئية</span></td>
+    </tr>
+    <tr style="background:#eff6ff;">
+      <td style="padding:9px 12px;font-weight:700;">Class 3<br/><span style="font-weight:400;font-size:.82rem;color:#1e3a5f;">الدرجة الثالثة</span></td>
+      <td style="padding:9px 12px;">Budget Authorization / Control<br/><span style="font-size:.82rem;color:#1e3a5f;">تقدير اعتماد الميزانية / التحكم</span></td>
+      <td style="padding:9px 12px;text-align:center;">10% – 40%</td>
+      <td style="padding:9px 12px;">Semi-detailed unit costs with assembly-level (بنود التجميعات) line items and parametric models</td>
+      <td style="padding:9px 12px;text-align:center;">−10% to −20% <br/><span style="color:#166534">+10% to +30%</span></td>
+      <td style="padding:9px 12px;">Funding authorisation, budget baseline (الميزانية المرجعية) establishment, control budgeting<br/><span style="font-size:.82rem;color:#1e3a5f;">اعتماد التمويل النهائي، وضع خط الأساس</span></td>
+    </tr>
+    <tr>
+      <td style="padding:9px 12px;font-weight:700;">Class 2<br/><span style="font-weight:400;font-size:.82rem;color:#1e3a5f;">الدرجة الثانية</span></td>
+      <td style="padding:9px 12px;">Control / Bid Estimate<br/><span style="font-size:.82rem;color:#1e3a5f;">تقدير التحكم / العطاء التفصيلي</span></td>
+      <td style="padding:9px 12px;text-align:center;">30% – 75%</td>
+      <td style="padding:9px 12px;">Detailed unit cost derivations with forced detailed take-offs (حصر الكميات التفصيلي)</td>
+      <td style="padding:9px 12px;text-align:center;">−5% to −15% <br/><span style="color:#166534">+5% to +20%</span></td>
+      <td style="padding:9px 12px;">Detailed control baseline, bid/tender preparation, procurement initiation<br/><span style="font-size:.82rem;color:#1e3a5f;">إعداد خطوط التحكم التفصيلية، تجهيز المناقصات، بدء المشتريات</span></td>
+    </tr>
+    <tr style="background:#f0fdf4;">
+      <td style="padding:9px 12px;font-weight:700;">Class 1<br/><span style="font-weight:400;font-size:.82rem;color:#166534;">الدرجة الأولى</span></td>
+      <td style="padding:9px 12px;">Check Estimate / Tender<br/><span style="font-size:.82rem;color:#166534;">التقدير النهائي / التدقيق والترسية</span></td>
+      <td style="padding:9px 12px;text-align:center;">65% – 100%</td>
+      <td style="padding:9px 12px;">Full detailed unit costs with completely quantified material take-offs (MTO — حصر وفصل كميات المواد)</td>
+      <td style="padding:9px 12px;text-align:center;">−3% to −10% <br/><span style="color:#166534">+3% to +15%</span></td>
+      <td style="padding:9px 12px;">Final bid/tender analysis, check estimate against Class 2, contract award<br/><span style="font-size:.82rem;color:#166534;">مراجعة العطاءات النهائية، ترسية العقود</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+```
+
+*Classifications scale from early conceptual approximations (Class 5) up to highly detailed final construction tenders (Class 1). As scope definition matures (نضج المشروع), accuracy improves and methodology shifts from stochastic models to fully quantified take-offs.*
+
+::: {.callout-tip icon="false"}
+## 📖 Key Vocabulary (المصطلحات الأساسية)
+
+| English Term | Arabic |
+|---|---|
+| **Project Definition Maturity** | نضج / اكتمال مخرجات المشروع الهندسي |
+| **Accuracy Range** | نطاق الدقة |
+| **Contingency** (احتياطي) | ميزانية الطوارئ / الاحتياطي |
+| **Material Take-Off (MTO)** | حصر وفصل كميات المواد |
+| **Basis of Estimate (BOE)** | أسس تقدير التكلفة |
+| **Budget Baseline** | الميزانية المرجعية / خط الأساس |
+| **Business Case** | دراسة العمل |
+| **Stochastic methods** | الطرق العشوائية / التقريبية |
+:::
+
+
+
+### Estimation Techniques (أساليب تقدير التكلفة)
 
 ::: {.panel-tabset}
 
 ## Analogous (Top-Down)
-**Based on historical data from similar projects**
+### التقدير بالمقارنة / التناظري (Analogous — Top-Down)
+
+**Based on historical data from similar past projects** — الاعتماد على البيانات التاريخية لمشروع سابق مماثل لتقدير تكلفة أو مدة المشروع الحالي.
 
 $$Cost_{new} = Cost_{historical} \times Adjustment\ Factor$$
 
-*When to use:* Early project stages; limited detail available
+| | |
+|---|---|
+| **When to use** | Very early project stages — **Class 5 / Class 4** — when design details are almost non-existent (المراحل الأولية جداً عندما تكون التفاصيل شبه معدومة) |
+| **Advantages (المميزات)** | Very fast · Low cost · Requires minimal engineering effort |
+| **Disadvantages (العيوب)** | Very low accuracy — assumes similar conditions, location, and inflation rates, which rarely holds true (يفترض تشابه الظروف والموقع والتضخم، وهو ما لا يحدث غالباً) |
 
-**Cost Capacity Factor (Six-Tenths Rule):**
+::: {.callout-tip icon="false"}
+## 💡 Simple Example — Painting a School Classroom
+
+**Situation:** You need to estimate the cost of painting a new classroom (60 m²). You have no detailed plans yet — only the room size.
+
+**Historical data:** Last year you painted a similar classroom of **50 m²** for **₪2,500**.
+
+**Step 1 — Calculate the historical unit rate:**
+$$Unit\ Rate = \frac{\text{₪}2{,}500}{50\ m^2} = \text{₪}50\ per\ m^2$$
+
+**Step 2 — Apply to the new project:**
+$$Cost_{new} = \text{₪}50/m^2 \times 60\ m^2 = \mathbf{\text{₪}3{,}000}$$
+
+> **Interpretation:** Based on the last job, painting this classroom should cost around ₪3,000. This took 2 minutes to calculate — but accuracy is only ±30% to ±50%. The real cost could be anywhere from ₪1,500 to ₪4,500 depending on paint quality, number of coats, and labour rates. Use this number only for early budget screening.
+:::
+
+**Cost Capacity Factor — Six-Tenths Rule (قاعدة الأعشار الستة):**
 $$Cost_B = Cost_A \times \left(\frac{Capacity_B}{Capacity_A}\right)^{0.6}$$
 
-*Example:* "Our last desalination plant (50 ML/day) cost $85M. This one is 65 ML/day:  
-$85M × (65/50)^{0.6} = $85M × 1.21 ≈ **$103M**"
+*Engineering example:* A 50 ML/day desalination plant cost $85M. Estimating a 65 ML/day plant:
+$$\$85M \times (65/50)^{0.6} = \$85M \times 1.21 \approx \$103M$$
 
-Accuracy: ±25% to ±50%
+**Accuracy (نطاق الدقة):** ±25% to ±50%
 
 ## Parametric
-**Mathematical models based on units of measure**
+### التقدير البارامتري / الإحصائي (Parametric)
 
-*Examples:*
-- Civil works: $450/m² × 3,500 m² = $1,575,000
-- Earthworks: $28/m³ × 15,000 m³ = $420,000
-- Electrical: $650/circuit × 180 circuits = $117,000
+**Uses a statistical relationship between historical data and project parameters** to calculate cost — استخدام علاقة إحصائية بين البيانات التاريخية والمتغيرات الأخرى (البارامترات) لحساب التكلفة، مثل: تكلفة المتر المربع × المساحة الكلية.
 
-Accuracy: ±10% to ±25%
+$$Cost = Unit\ Rate \times Quantity\ of\ Parameter$$
+
+| | |
+|---|---|
+| **When to use** | Early to mid stages — **Class 4 / Class 3** — e.g. estimating hospital construction costs based on number of beds (تقدير تكلفة بناء المستشفيات بناءً على عدد الأسرة) |
+| **Advantages (المميزات)** | More accurate than analogous estimating · Easy to adjust and scale using software |
+| **Disadvantages (العيوب)** | Entirely dependent on model quality — if historical data or equations are wrong, the result will be incorrect (إذا كانت البيانات القديمة أو المعادلات خاطئة، ستكون النتيجة غير صحيحة) |
+
+::: {.callout-tip icon="false"}
+## 💡 Simple Example — Painting a School (Multiple Classrooms)
+
+**Situation:** You need to paint an entire school — 12 classrooms, a corridor, and a staff room. You now have the floor plan (areas known) but no detailed specifications. You use published unit rates from similar school projects.
+
+| Area | Unit Rate | Quantity | Estimated Cost |
+|------|-----------|----------|----------------|
+| Classrooms (standard) | ₪50/m² | 12 × 60 m² = 720 m² | ₪36,000 |
+| Corridor (high-traffic, extra coats) | ₪65/m² | 150 m² | ₪9,750 |
+| Staff room (feature wall) | ₪80/m² | 40 m² | ₪3,200 |
+| **Total Parametric Estimate** | | | **₪48,950** |
+
+> **Interpretation:** The parametric model gives a much better breakdown than the analogous single number. You can see where costs come from — and changing one rate (e.g. if corridor paint is more expensive) instantly updates the total. Accuracy is ±10–25%: far better than the analogous estimate, but a detailed take-off would still be more precise.
+:::
+
+**Accuracy (نطاق الدقة):** ±10% to ±25%
 
 ## Bottom-Up
-**Estimate each work package individually, then sum**
+### التقدير من أسفل إلى أعلى (Bottom-Up)
 
-Most accurate; most time-consuming.
+**Bottom-up estimating** builds the total project estimate by estimating **each individual task, activity, or work package separately** — then rolling all those estimates upward into a project total.
 
-*For each activity:*
-1. Materials: Quantity × Unit rate
-2. Labour: Hours × Hourly rate
-3. Equipment: Hours/days × Hire rate
-4. Overheads: (L + M + E) × OH%
-5. Profit/margin (for contractors)
+تفكيك المشروع إلى أصغر أجزاء ممكنة (حزم العمل في هيكل تقسيم العمل WBS) وتخمين تكلفة كل بند على حدة، ثم تجميعها تصاعدياً للوصول لإجمالي المشروع.
 
-Accuracy: ±5% to ±15%
+| | |
+|---|---|
+| **When to use** | Advanced, engineering-complete stages — **Class 2 / Class 1** (المراحل المتقدمة والمكتملة هندسياً) |
+| **Advantages (المميزات)** | Most accurate technique · Provides full detail supporting cost control during execution (الأدق على الإطلاق، ويوفر تفاصيل كاملة تدعم الرقابة على التكاليف أثناء التنفيذ) |
+| **Disadvantages (العيوب)** | Time-consuming · Very costly to prepare · Requires complete engineering documents (يستهلك وقتاً طويلاً، مكلف جداً لإعداده، ويتطلب وثائق هندسية مكتملة) |
+
+::: {.callout-tip icon="false"}
+## 💡 Simple Example — Painting One Classroom (Full Detail)
+
+**Situation:** The school contract is now finalised. You must submit a priced tender for painting **one standard classroom (60 m²)**. You count every litre of paint, every hour of labour, every tool.
+
+**Step 1 — Materials (المواد):**
+
+| Item | Quantity | Unit Rate | Cost |
+|------|----------|-----------|------|
+| Primer coat | 6 litres | ₪8/litre | ₪48 |
+| Emulsion paint (2 coats) | 14 litres | ₪12/litre | ₪168 |
+| Sandpaper & masking tape | 1 set | ₪15 | ₪15 |
+| **Materials subtotal** | | | **₪231** |
+
+**Step 2 — Labour (العمالة):**
+
+| Task | Hours | Rate | Cost |
+|------|-------|------|------|
+| Surface preparation | 3 hrs | ₪25/hr | ₪75 |
+| Priming | 2 hrs | ₪25/hr | ₪50 |
+| Painting (2 coats) | 5 hrs | ₪25/hr | ₪125 |
+| **Labour subtotal** | | | **₪250** |
+
+**Step 3 — Equipment (المعدات):**
+
+| Item | Days | Rate | Cost |
+|------|------|------|------|
+| Scaffolding hire | 1 day | ₪40/day | ₪40 |
+| **Equipment subtotal** | | | **₪40** |
+
+**Step 4 — Overheads @ 15% (المصاريف العامة):**
+$$OH = (\text{₪}231 + \text{₪}250 + \text{₪}40) \times 15\% = \text{₪}521 \times 0.15 = \text{₪}78$$
+
+**Step 5 — Total (one classroom):**
+
+| Component | Cost |
+|-----------|------|
+| Materials | ₪231 |
+| Labour | ₪250 |
+| Equipment | ₪40 |
+| Overheads (15%) | ₪78 |
+| **Total** | **₪599** |
+
+> **Comparison:** The analogous estimate gave ₪3,000 for the same 60 m² room. The bottom-up estimate gives ₪599 — a massive difference showing how inaccurate rough top-down estimates can be without scope detail. Scale this up across 12 classrooms + corridor + staff room and the bottom-up total would be far more reliable than ₪48,950 from the parametric approach.
+:::
+
+#### The 4-Step Process (خطوات التطبيق)
+
+| Step | Action | What to Do |
+|------|--------|-----------|
+| **1 — Break Down** (تفكيك المشروع) | Create a WBS (هيكل تقسيم العمل) | Split the project into work packages — the road map of individual tasks to estimate |
+| **2 — Estimate Each Package** (تقدير كل حزمة) | Consult team & experts | For each work package, determine time, cost, and resources. Consult developers, engineers, designers |
+| **3 — Aggregate** (التجميع التصاعدي) | Sum all estimates | Add all work package estimates to produce the total project cost |
+| **4 — Review & Refine** (المراجعة والتحسين) | Validate with stakeholders | Adjust using historical data or expert judgement; confirm with sponsor |
+
+*For each work package — مكوّنات تكلفة كل حزمة عمل:*
+
+1. Materials (المواد): Quantity × Unit rate
+2. Labour (العمالة): Hours × Hourly rate
+3. Equipment (المعدات): Hours/days × Hire rate
+4. Overheads (المصاريف العامة): (L + M + E) × OH%
+5. Profit/margin (الربح) — for contractors
+
+#### Benefits (المميزات)
+
+| Benefit | Explanation |
+|---------|-------------|
+| **High accuracy (دقة عالية)** | No big assumptions — every task is individually examined |
+| **Better risk identification (كشف المخاطر مبكراً)** | Task-level breakdown exposes cost and schedule risks before they escalate |
+| **Stakeholder confidence (ثقة أصحاب المصلحة)** | Detailed, evidence-based estimates are far easier to defend and gain buy-in for |
+
+#### Drawbacks (العيوب)
+
+| Drawback | Impact |
+|----------|--------|
+| **Time-consuming (يستغرق وقتاً طويلاً)** | Estimating every task separately is a project in itself for large programmes |
+| **Requires many inputs (يحتاج مدخلات كثيرة)** | Coordination across team members, experts, and stakeholders adds overhead |
+| **Risk of over-detailing (خطر الإفراط في التفصيل)** | Too deep a WBS decomposition makes estimates hard to track and maintain |
+
+**Accuracy (نطاق الدقة):** ±5% to ±15%
 
 ## Three-Point (PERT)
-**Optimistic, Most Likely, Pessimistic applied to cost**
+### التقدير ثلاثي النقاط (Three-Point Estimation — PERT)
+
+**A technique to reduce risk and uncertainty** by considering three scenarios instead of a single fixed number — تقنية لتقليل المخاطر وعدم اليقين عبر أخذ ثلاثة سيناريوهات في الاعتبار بدلاً من رقم واحد ثابت.
+
+| Scenario | Symbol | Arabic | Description |
+|----------|--------|--------|-------------|
+| **Optimistic** | O | المتفائل | Best-case scenario — everything goes perfectly |
+| **Most Likely** | M | الأكثر احتمالاً | Realistic scenario under normal conditions |
+| **Pessimistic** | P | المتشائم | Worst-case scenario — major risks materialise |
+
+**PERT Weighted Average Formula (المعادلة الموزونة):**
 
 $$CE = \frac{O + 4M + P}{6}$$
 
-Used to build **cost contingency** from risk analysis.
+The Most Likely estimate is weighted **four times** more than the Optimistic or Pessimistic — reflecting that realistic conditions are far more probable than extremes.
+
+**Standard Deviation (الانحراف المعياري) — measure of uncertainty:**
+
+$$\sigma = \frac{P - O}{6}$$
+
+A large $\sigma$ means high uncertainty; a small $\sigma$ means the three estimates are close together and the outcome is more predictable.
+
+::: {.callout-tip icon="false"}
+## 💡 Simple Example — Painting a Classroom: How Long Will It Take?
+
+**Situation:** You are planning to paint the classroom but you are unsure how many days it will take. You ask your painter, who gives you three honest answers:
+
+| Scenario | Symbol | Days | Reasoning |
+|----------|--------|------|-----------|
+| **Optimistic** | O | **2 days** | Surface is clean, paint arrives on time, no interruptions |
+| **Most Likely** | M | **4 days** | Normal conditions — some prep work, one afternoon break |
+| **Pessimistic** | P | **10 days** | Wall cracks found, paint delivery delayed, extra coats needed |
+
+**Step 1 — PERT weighted average:**
+$$CE = \frac{O + 4M + P}{6} = \frac{2 + (4 \times 4) + 10}{6} = \frac{2 + 16 + 10}{6} = \frac{28}{6} \approx \mathbf{4.67\ days}$$
+
+**Step 2 — Standard deviation (how uncertain is this estimate?):**
+$$\sigma = \frac{P - O}{6} = \frac{10 - 2}{6} = \frac{8}{6} \approx \mathbf{1.33\ days}$$
+
+> **Interpretation:** Rather than simply saying "4 days" (most likely), the PERT estimate gives **4.67 days** — pulled upward by the pessimistic scenario. The standard deviation of 1.33 days tells you there is meaningful uncertainty: plan for 5–6 days to be safe. If the painter said O=3, M=4, P=5, the σ would be only 0.33 — very predictable. The wider the gap between O and P, the riskier the estimate.
+
+**Apply to cost:** Using the bottom-up rate of ₪25/hr × 8 hrs/day:
+$$CE_{cost} = 4.67\ days \times 8\ hrs \times \text{₪}25/hr = \mathbf{\text{₪}934}$$
+
+vs. the most-likely-only estimate of 4 × 8 × ₪25 = ₪800 — the PERT approach adds ₪134 as implicit risk buffer.
+:::
+
+Used to build **cost contingency (ميزانية الطوارئ)** from risk analysis.
+
+**Accuracy (نطاق الدقة):** ±10% to ±15% (when combined with realistic risk data)
 
 :::
+
 
 ---
 
@@ -150,7 +574,7 @@ The following **real-world cost estimate** follows the WBS structure for an IT/E
 
 ---
 
-## The Project Budget and Cost Baseline
+## The Project Budget and Cost Baseline [📋 Required]{.badge-req}
 
 The **cost baseline** (S-curve) shows planned cumulative expenditure over time.
 
@@ -187,7 +611,7 @@ graph TD
 
 ---
 
-## Earned Value Management (EVM)
+## Earned Value Management (EVM) [📋 Required]{.badge-req}
 
 **Earned Value Management (EVM)** integrates scope, schedule, and cost into a single measurement system — giving you an objective view of project status at any point.
 
@@ -202,6 +626,29 @@ graph TD
 | **Earned Value** | EV | BCWP | How much work has actually been *accomplished* (in $)? |
 | **Actual Cost** | AC | ACWP | How much have we actually *spent* (in $)? |
 :::
+
+### Rate of Performance (RP)
+
+**Rate of Performance (RP)** is a practical alternative to the standard EV calculation when the precise % complete of an activity is uncertain. It compares **actual work completed** to the **work that should have been done by now**:
+
+$$RP = \frac{\text{Actual work completed}}{\text{Work planned to be completed}} \times 100\%$$
+
+$$EV = RP \times PV$$
+
+::: {.callout-tip icon="false"}
+## 💡 RP Example
+
+Activity A is planned to take 10 days and is budgeted at $5,000. After 5 days (50% of planned time), the team has completed 3 days of work (30% of the planned work).
+
+$$RP = \frac{3}{5} = 60\%$$
+
+$$EV = 60\% \times \$2,500 = \$1,500$$
+
+(Note: $2,500 = PV at status date = 50% of $5,000)
+
+*RP is especially useful for activities where measuring % complete is subjective — it grounds the earned value calculation in planned vs. actual work quantities.*
+:::
+
 
 ### EVM Formulas Reference Card
 
@@ -220,6 +667,336 @@ graph TD
 
 ---
 
+## 🚗 EVM Made Intuitive — The Tulkarem to Jenin Road Trip {.unnumbered}
+
+::: {.callout-note icon="false"}
+## 🗺️ Before the Numbers: A Story First
+
+EVM can feel like a wall of formulas — until you tie each one to something real. Imagine you are driving from **Tulkarem to Jenin** — two cities in the West Bank, roughly **60 km apart**. You planned the trip carefully, estimated fuel, food, and tolls, and set a budget of **₪10 per km**. You are the project manager of this journey.
+
+$$\text{Budget at Completion (BAC)} = 60\ \text{km} \times \text{₪}10/\text{km} = \text{₪}600$$
+:::
+
+```{=html}
+<div style="background:linear-gradient(135deg,#1d4ed8 0%,#0f766e 100%);border-radius:12px;padding:20px 28px;color:#fff;margin:1.2em 0;">
+  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;">
+    <div style="font-size:1.5rem;font-weight:700;">🚗 Tulkarem → Jenin</div>
+    <div style="display:flex;gap:32px;flex-wrap:wrap;">
+      <div style="text-align:center;"><div style="font-size:1.8rem;font-weight:800;">60 km</div><div style="font-size:.85rem;opacity:.85;">Total Distance</div></div>
+      <div style="text-align:center;"><div style="font-size:1.8rem;font-weight:800;">₪10/km</div><div style="font-size:.85rem;opacity:.85;">Budget Rate</div></div>
+      <div style="text-align:center;"><div style="font-size:1.8rem;font-weight:800;">₪600</div><div style="font-size:.85rem;opacity:.85;">BAC</div></div>
+    </div>
+  </div>
+</div>
+```
+
+### Step 1 — Planning the Trip (PV, EV, AC)
+
+By midday you had planned to cover **24 km** of the route. That is your **Planned Value (PV)** — the budgeted cost of work you planned to accomplish by this point.
+
+$$PV = 24\ \text{km} \times \text{₪}10 = \text{₪}240$$
+
+But in reality, checkpoints and traffic on Road 60 slowed you down. You have only driven **20 km** so far. That is your **Earned Value (EV)** — the value of work you actually completed, expressed in budget terms.
+
+$$EV = 20\ \text{km} \times \text{₪}10 = \text{₪}200$$
+
+Now check your wallet. Fuel, a snack at a roadside stand, and a parking fee at the checkpoint total **₪180** spent. That is your **Actual Cost (AC)**.
+
+$$AC = \text{₪}180$$
+
+::: {.callout-tip icon="false"}
+## 📌 Quick Recap — The Three Core Values
+
+| Metric | What It Represents | Value |
+|--------|-------------------|-------|
+| **PV** — Planned Value | Work you *planned* to do by now | **₪240** (24 km planned) |
+| **EV** — Earned Value | Work you *actually completed* | **₪200** (20 km driven) |
+| **AC** — Actual Cost | Money you *actually spent* | **₪180** spent |
+
+On paper you should be at 24 km, but you are only at 20 km — yet you have spent less than expected. Let's see what the numbers tell us.
+:::
+
+---
+
+### Step 2 — Are You On Schedule? On Budget? (SV & CV)
+
+#### Schedule Variance (SV)
+
+SV tells you whether you are ahead or behind your travel plan.
+
+$$SV = EV - PV = \text{₪}200 - \text{₪}240 = \mathbf{-\text{₪}40}$$
+
+A **negative SV** means you are **behind schedule** — you are 4 km (₪40 worth of distance) behind where you planned to be.
+
+#### Cost Variance (CV)
+
+CV tells you whether you are spending more or less than expected for the work done.
+
+$$CV = EV - AC = \text{₪}200 - \text{₪}180 = \mathbf{+\text{₪}20}$$
+
+A **positive CV** means you are **under budget** — you spent ₪20 less than the budget for the 20 km you have completed. Your roadside snack cost less than expected!
+
+::: {.callout-important icon="false"}
+## ⚠️ Variance Summary
+
+| Variance | Formula | Result | Meaning |
+|----------|---------|--------|---------|
+| **SV** (Schedule Variance) | EV − PV | **−₪40** | 🟠 Behind schedule (4 km behind plan) |
+| **CV** (Cost Variance) | EV − AC | **+₪20** | 🟢 Under budget (₪20 saved so far) |
+
+**Rule:** Negative = Bad · Positive = Good · Zero = Exactly on plan
+:::
+
+---
+
+### Step 3 — How Efficiently Are You Travelling? (SPI & CPI)
+
+Variances tell you the *gap* in money terms. **Performance indices** tell you the *ratio* — how efficiently you are working compared to the plan. They are unit-free numbers that allow comparisons across projects of any size.
+
+#### Schedule Performance Index (SPI)
+
+$$SPI = \frac{EV}{PV} = \frac{\text{₪}200}{\text{₪}240} = \mathbf{0.833}$$
+
+An SPI of **0.833** means you are completing **83.3%** of the planned distance for every kilometre planned. For every 10 km you should drive, you are only covering about 8.3 km. You are running at 83% of your planned pace.
+
+#### Cost Performance Index (CPI)
+
+$$CPI = \frac{EV}{AC} = \frac{\text{₪}200}{\text{₪}180} = \mathbf{1.111}$$
+
+A CPI of **1.111** means for every **₪1 you spend, you get ₪1.11 worth of distance**. Your driving is cost-efficient — you are stretching the budget beyond what was planned.
+
+::: {.callout-note icon="false"}
+## 📊 Index Interpretation Guide
+
+| Index | Value | Condition | Plain English |
+|-------|-------|-----------|---------------|
+| **SPI** | **0.833** | < 1 ⚠️ Behind schedule | Driving slower than planned — arrive late |
+| **CPI** | **1.111** | > 1 ✅ Under budget | Spending less per km than budgeted — saving money |
+
+**EVM tells two stories at once:** How *fast* you are going (SPI) and how *wisely* you are spending (CPI). Here you are running late but saving money — a common real-world situation.
+:::
+
+---
+
+### Step 4 — How Will the Whole Trip End? (EAC Forecasts)
+
+So far you have driven 20 km and spent ₪180. You still have **40 km** left to Jenin. What will the **total trip cost** be? EVM offers **four forecasting methods**, each reflecting a different assumption about your future behaviour.
+
+```{=html}
+<div style="background:#fef9c3;border-left:5px solid #eab308;border-radius:6px;padding:16px 22px;margin:1em 0;">
+  <strong>Known values going into the forecast:</strong>
+  BAC = ₪600 · EV = ₪200 · AC = ₪180 · CPI = 1.111 · SPI = 0.833
+</div>
+```
+
+#### EAC Formula 1 — Current efficiency continues
+
+> *"I have been driving efficiently and plan to keep it that way — same fuel habits, same stops, all the way to Jenin."*
+
+$$EAC_1 = \frac{BAC}{CPI} = \frac{\text{₪}600}{1.111} = \mathbf{\text{₪}540}$$
+
+If you maintain your current cost efficiency for the remaining 40 km, you will arrive in Jenin having spent only **₪540** — saving **₪60** against the original budget.
+
+#### EAC Formula 2 — Early savings were temporary
+
+> *"I was frugal at the start, but from here I will drive at exactly the original budgeted rate — ₪10 per km for the remaining distance."*
+
+$$EAC_2 = AC + (BAC - EV) = \text{₪}180 + (\text{₪}600 - \text{₪}200) = \text{₪}180 + \text{₪}400 = \mathbf{\text{₪}580}$$
+
+You will finish the trip spending **₪580** — still ₪20 under the original budget, but you gave up most of your early savings.
+
+#### EAC Formula 3 — Both schedule and cost delays continue
+
+> *"Checkpoints and slow traffic will follow me all the way. My CPI *and* SPI will remain the same — I am both slow and (luckily) cost-efficient."*
+
+$$EAC_3 = AC + \frac{BAC - EV}{CPI \times SPI} = \text{₪}180 + \frac{\text{₪}400}{1.111 \times 0.833}$$
+
+$$= \text{₪}180 + \frac{\text{₪}400}{0.925} = \text{₪}180 + \text{₪}432.4 = \mathbf{\text{₪}612.4}$$
+
+Even though you are spending efficiently, being delayed stretches the trip — extra waiting time at checkpoints means more fuel idling, more snacks, more cost. You will arrive **₪12.4 over budget**.
+
+#### EAC Formula 4 — Fresh estimate from this point forward
+
+> *"I will stop at Sebastia ruins on the way — a complete re-plan of the remaining journey. I estimate the rest will cost ₪450 from here."*
+
+$$EAC_4 = AC + ETC_{new} = \text{₪}180 + \text{₪}450 = \mathbf{\text{₪}630}$$
+
+A detour and longer journey means arriving **₪30 over budget** — but with memories of an ancient Roman city. This is the **bottom-up ETC** method: ignore past performance and estimate remaining work fresh.
+
+::: {.callout-tip icon="false"}
+## 💡 All Four EAC Forecasts Compared
+
+| Formula | Assumption | EAC | vs. BAC (₪600) |
+|---------|-----------|-----|----------------|
+| **EAC₁** = BAC / CPI | Same cost efficiency to end | **₪540** | ✅ **₪60 under** |
+| **EAC₂** = AC + (BAC − EV) | Rest at original budgeted rate | **₪580** | ✅ **₪20 under** |
+| **EAC₃** = AC + (BAC−EV)/(CPI×SPI) | Same cost *and* schedule delays | **₪612** | 🟠 **₪12 over** |
+| **EAC₄** = AC + New ETC | Complete re-estimate from now | **₪630** | 🔴 **₪30 over** |
+
+*Which formula should you use?* In practice, **EAC₁** is the most common (current efficiency is the best predictor of future efficiency). **EAC₄** is used after major scope or route changes.
+:::
+
+---
+
+### Step 5 — What's Left and What's the Final Verdict? (ETC & VAC)
+
+Using **EAC₁ = ₪540** (assuming cost efficiency continues):
+
+#### Estimate to Complete (ETC)
+
+How much money do you still need to reach Jenin?
+
+$$ETC = EAC - AC = \text{₪}540 - \text{₪}180 = \mathbf{\text{₪}360}$$
+
+You have **₪360 left to spend** to complete the remaining 40 km of your journey.
+
+#### Variance at Completion (VAC)
+
+What will your final saving (or overrun) be compared to the original budget?
+
+$$VAC = BAC - EAC = \text{₪}600 - \text{₪}540 = \mathbf{+\text{₪}60}$$
+
+A positive VAC means you will finish **₪60 under budget**. That is ₪60 saved — enough for a warm meal in Jenin when you arrive! 🍽️
+
+---
+
+### Full Summary Dashboard
+
+```{=html}
+<div style="overflow-x:auto;margin:1.5em 0;">
+<table style="width:100%;border-collapse:collapse;font-size:.92rem;">
+  <thead>
+    <tr style="background:#1d4ed8;color:#fff;">
+      <th style="padding:10px 14px;text-align:left;">Metric</th>
+      <th style="padding:10px 14px;text-align:left;">Formula</th>
+      <th style="padding:10px 14px;text-align:center;">Calculation</th>
+      <th style="padding:10px 14px;text-align:center;">Result</th>
+      <th style="padding:10px 14px;text-align:left;">What It Means on This Trip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:#eff6ff;">
+      <td style="padding:9px 14px;font-weight:700;">BAC</td>
+      <td style="padding:9px 14px;">60 km × ₪10</td>
+      <td style="padding:9px 14px;text-align:center;">—</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;">₪600</td>
+      <td style="padding:9px 14px;">Total budget for the whole trip</td>
+    </tr>
+    <tr>
+      <td style="padding:9px 14px;font-weight:700;">PV</td>
+      <td style="padding:9px 14px;">24 km planned × ₪10</td>
+      <td style="padding:9px 14px;text-align:center;">24 × 10</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;">₪240</td>
+      <td style="padding:9px 14px;">You planned to be at km 24 by now</td>
+    </tr>
+    <tr style="background:#eff6ff;">
+      <td style="padding:9px 14px;font-weight:700;">EV</td>
+      <td style="padding:9px 14px;">20 km done × ₪10</td>
+      <td style="padding:9px 14px;text-align:center;">20 × 10</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;">₪200</td>
+      <td style="padding:9px 14px;">You actually reached km 20</td>
+    </tr>
+    <tr>
+      <td style="padding:9px 14px;font-weight:700;">AC</td>
+      <td style="padding:9px 14px;">Money actually spent</td>
+      <td style="padding:9px 14px;text-align:center;">—</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;">₪180</td>
+      <td style="padding:9px 14px;">Fuel + food + parking so far</td>
+    </tr>
+    <tr style="background:#fef9c3;">
+      <td style="padding:9px 14px;font-weight:700;">SV</td>
+      <td style="padding:9px 14px;">EV − PV</td>
+      <td style="padding:9px 14px;text-align:center;">200 − 240</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;color:#b45309;">−₪40</td>
+      <td style="padding:9px 14px;">🟠 4 km behind schedule</td>
+    </tr>
+    <tr style="background:#fef9c3;">
+      <td style="padding:9px 14px;font-weight:700;">CV</td>
+      <td style="padding:9px 14px;">EV − AC</td>
+      <td style="padding:9px 14px;text-align:center;">200 − 180</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;color:#166534;">+₪20</td>
+      <td style="padding:9px 14px;">🟢 ₪20 under budget so far</td>
+    </tr>
+    <tr style="background:#f0fdf4;">
+      <td style="padding:9px 14px;font-weight:700;">SPI</td>
+      <td style="padding:9px 14px;">EV / PV</td>
+      <td style="padding:9px 14px;text-align:center;">200 / 240</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;color:#b45309;">0.833</td>
+      <td style="padding:9px 14px;">🟠 Travelling at 83% of planned pace</td>
+    </tr>
+    <tr style="background:#f0fdf4;">
+      <td style="padding:9px 14px;font-weight:700;">CPI</td>
+      <td style="padding:9px 14px;">EV / AC</td>
+      <td style="padding:9px 14px;text-align:center;">200 / 180</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;color:#166534;">1.111</td>
+      <td style="padding:9px 14px;">🟢 Getting ₪1.11 value per ₪1 spent</td>
+    </tr>
+    <tr style="background:#eff6ff;">
+      <td style="padding:9px 14px;font-weight:700;">EAC₁</td>
+      <td style="padding:9px 14px;">BAC / CPI</td>
+      <td style="padding:9px 14px;text-align:center;">600 / 1.111</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;color:#166534;">₪540</td>
+      <td style="padding:9px 14px;">🟢 Forecast total if efficiency holds</td>
+    </tr>
+    <tr style="background:#eff6ff;">
+      <td style="padding:9px 14px;font-weight:700;">EAC₂</td>
+      <td style="padding:9px 14px;">AC + (BAC − EV)</td>
+      <td style="padding:9px 14px;text-align:center;">180 + 400</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;color:#166534;">₪580</td>
+      <td style="padding:9px 14px;">🟢 Forecast if rest done at original rate</td>
+    </tr>
+    <tr style="background:#eff6ff;">
+      <td style="padding:9px 14px;font-weight:700;">EAC₃</td>
+      <td style="padding:9px 14px;">AC + (BAC−EV)/(CPI×SPI)</td>
+      <td style="padding:9px 14px;text-align:center;">180 + 400/0.925</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;color:#b45309;">₪612</td>
+      <td style="padding:9px 14px;">🟠 Forecast if both delays continue</td>
+    </tr>
+    <tr style="background:#eff6ff;">
+      <td style="padding:9px 14px;font-weight:700;">EAC₄</td>
+      <td style="padding:9px 14px;">AC + New ETC</td>
+      <td style="padding:9px 14px;text-align:center;">180 + 450</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;color:#b91c1c;">₪630</td>
+      <td style="padding:9px 14px;">🔴 Re-planned route via Sebastia detour</td>
+    </tr>
+    <tr style="background:#fef2f2;">
+      <td style="padding:9px 14px;font-weight:700;">ETC</td>
+      <td style="padding:9px 14px;">EAC₁ − AC</td>
+      <td style="padding:9px 14px;text-align:center;">540 − 180</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;">₪360</td>
+      <td style="padding:9px 14px;">Still need ₪360 to finish the trip</td>
+    </tr>
+    <tr style="background:#fef2f2;">
+      <td style="padding:9px 14px;font-weight:700;">VAC</td>
+      <td style="padding:9px 14px;">BAC − EAC₁</td>
+      <td style="padding:9px 14px;text-align:center;">600 − 540</td>
+      <td style="padding:9px 14px;text-align:center;font-weight:700;color:#166534;">+₪60</td>
+      <td style="padding:9px 14px;">🟢 Arrive in Jenin ₪60 under budget</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+```
+
+::: {.callout-important icon="false"}
+## 🏁 Trip Conclusion
+
+You are on your way from **Tulkarem to Jenin**. Halfway through the journey, the EVM dashboard tells you:
+
+- You are **4 km behind schedule** (SPI = 0.833) — checkpoints slowed you down
+- You are **spending efficiently** (CPI = 1.111) — fuel and food cost less than planned
+- If you keep this cost efficiency, **you will arrive ₪60 under budget** (VAC = +₪60)
+- The only scenario that puts you over budget is if you continue to be delayed *and* those delays add cost — or if you change the route entirely
+
+**This is the power of EVM.** At any moment on the trip — or on any real project — you can answer three fundamental questions objectively:
+
+1. **Are we on schedule?** → SPI = 0.833 → No, slightly behind
+2. **Are we on budget?** → CPI = 1.111 → Yes, actually ahead
+3. **How will it end?** → EAC₁ = ₪540 → Under budget if we maintain efficiency
+:::
+
+---
+
 ## Complete EVM Solved Example — Real Project Data
 
 The following complete example is based on **real earned value data** from a software project tracked over its full 12-month life cycle.
@@ -235,20 +1012,44 @@ The following complete example is based on **real earned value data** from a sof
 
 The Planned Value for each activity is the approved budget for work *scheduled* to be done:
 
-| Activity | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec | **Total PV** |
-|----------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-------------|
-| Plan & Staff Project | $4,000 | $4,000 | — | — | — | — | — | — | — | — | — | — | $8,000 |
-| Analyse Requirements | — | $6,000 | $6,000 | — | — | — | — | — | — | — | — | — | $12,000 |
-| Develop ERDs | — | — | $4,000 | $4,000 | — | — | — | — | — | — | — | — | $8,000 |
-| Design DB Tables | — | — | — | $6,000 | $4,000 | — | — | — | — | — | — | — | $10,000 |
-| Design Forms/Reports | — | — | — | — | $8,000 | $4,000 | — | — | — | — | — | — | $8,000* |
-| Construct Prototype | — | — | — | — | — | $10,000 | — | — | — | — | — | — | — |
-| Test/Eval Prototype | — | — | — | — | — | $2,000 | $6,000 | — | — | — | — | — | — |
-| User Feedback | — | — | — | — | — | — | $4,000 | $6,000 | $4,000 | — | — | — | — |
-| Test System | — | — | — | — | — | — | — | — | $4,000 | $4,000 | $2,000 | — | — |
-| Document System | — | — | — | — | — | — | — | — | — | — | $3,000 | $1,000 | — |
-| **Monthly PV** | **$4,000** | **$10,000** | **$10,000** | **$10,000** | **$12,000** | **$16,000** | **$10,000** | **$6,000** | **$8,000** | **$4,000** | **$5,000** | **$5,000** | — |
-| **Cumulative PV** | $4,000 | $14,000 | $24,000 | $34,000 | **$46,000** | $62,000 | $72,000 | $78,000 | $86,000 | $90,000 | $95,000 | $100,000 | |
+```{=html}
+<div style="overflow-x:auto;margin:1em 0;">
+<table style="width:100%;border-collapse:collapse;font-size:.82rem;white-space:nowrap;">
+  <thead>
+    <tr style="background:#1d4ed8;color:#fff;">
+      <th style="padding:7px 10px;text-align:left;">Activity</th>
+      <th style="padding:7px 8px;text-align:center;">Jan</th>
+      <th style="padding:7px 8px;text-align:center;">Feb</th>
+      <th style="padding:7px 8px;text-align:center;">Mar</th>
+      <th style="padding:7px 8px;text-align:center;">Apr</th>
+      <th style="padding:7px 8px;text-align:center;background:#b45309;">May ◄</th>
+      <th style="padding:7px 8px;text-align:center;">Jun</th>
+      <th style="padding:7px 8px;text-align:center;">Jul</th>
+      <th style="padding:7px 8px;text-align:center;">Aug</th>
+      <th style="padding:7px 8px;text-align:center;">Sep</th>
+      <th style="padding:7px 8px;text-align:center;">Oct</th>
+      <th style="padding:7px 8px;text-align:center;">Nov</th>
+      <th style="padding:7px 8px;text-align:center;">Dec</th>
+      <th style="padding:7px 10px;text-align:center;font-weight:700;">Total PV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td style="padding:6px 10px;">Plan &amp; Staff Project</td><td style="text-align:center;padding:6px 8px;">$4,000</td><td style="text-align:center;padding:6px 8px;">$4,000</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;background:#fef9c3;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;font-weight:700;padding:6px 10px;">$8,000</td></tr>
+    <tr style="background:#f8fafc;"><td style="padding:6px 10px;">Analyse Requirements</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;padding:6px 8px;">$6,000</td><td style="text-align:center;padding:6px 8px;">$6,000</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;background:#fef9c3;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;font-weight:700;padding:6px 10px;">$12,000</td></tr>
+    <tr><td style="padding:6px 10px;">Develop ERDs</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;padding:6px 8px;">$4,000</td><td style="text-align:center;padding:6px 8px;">$4,000</td><td style="text-align:center;background:#fef9c3;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;font-weight:700;padding:6px 10px;">$8,000</td></tr>
+    <tr style="background:#f8fafc;"><td style="padding:6px 10px;">Design DB Tables</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;padding:6px 8px;">$6,000</td><td style="text-align:center;background:#fef9c3;padding:6px 8px;">$4,000</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;font-weight:700;padding:6px 10px;">$10,000</td></tr>
+    <tr><td style="padding:6px 10px;">Design Forms/Reports*</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;background:#fef9c3;padding:6px 8px;">$8,000</td><td style="text-align:center;padding:6px 8px;">$4,000</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;font-weight:700;padding:6px 10px;">$8,000*</td></tr>
+    <tr style="background:#f8fafc;"><td style="padding:6px 10px;">Construct Prototype</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;background:#fef9c3;color:#999;">—</td><td style="text-align:center;padding:6px 8px;">$10,000</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;font-weight:700;color:#999;padding:6px 10px;">—</td></tr>
+    <tr><td style="padding:6px 10px;">Test/Eval Prototype</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;background:#fef9c3;color:#999;">—</td><td style="text-align:center;padding:6px 8px;">$2,000</td><td style="text-align:center;padding:6px 8px;">$6,000</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;font-weight:700;color:#999;padding:6px 10px;">—</td></tr>
+    <tr style="background:#f8fafc;"><td style="padding:6px 10px;">User Feedback</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;background:#fef9c3;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;padding:6px 8px;">$4,000</td><td style="text-align:center;padding:6px 8px;">$6,000</td><td style="text-align:center;padding:6px 8px;">$4,000</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;font-weight:700;color:#999;padding:6px 10px;">—</td></tr>
+    <tr><td style="padding:6px 10px;">Test System</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;background:#fef9c3;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;padding:6px 8px;">$4,000</td><td style="text-align:center;padding:6px 8px;">$4,000</td><td style="text-align:center;padding:6px 8px;">$2,000</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;font-weight:700;color:#999;padding:6px 10px;">—</td></tr>
+    <tr style="background:#f8fafc;"><td style="padding:6px 10px;">Document System</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;background:#fef9c3;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;color:#999;">—</td><td style="text-align:center;padding:6px 8px;">$3,000</td><td style="text-align:center;padding:6px 8px;">$1,000</td><td style="text-align:center;font-weight:700;color:#999;padding:6px 10px;">—</td></tr>
+    <tr style="background:#dbeafe;font-weight:700;"><td style="padding:7px 10px;">Monthly PV</td><td style="text-align:center;padding:7px 8px;">$4,000</td><td style="text-align:center;padding:7px 8px;">$10,000</td><td style="text-align:center;padding:7px 8px;">$10,000</td><td style="text-align:center;padding:7px 8px;">$10,000</td><td style="text-align:center;background:#b45309;color:#fff;padding:7px 8px;">$12,000</td><td style="text-align:center;padding:7px 8px;">$16,000</td><td style="text-align:center;padding:7px 8px;">$10,000</td><td style="text-align:center;padding:7px 8px;">$6,000</td><td style="text-align:center;padding:7px 8px;">$8,000</td><td style="text-align:center;padding:7px 8px;">$4,000</td><td style="text-align:center;padding:7px 8px;">$5,000</td><td style="text-align:center;padding:7px 8px;">$5,000</td><td style="text-align:center;padding:7px 10px;">—</td></tr>
+    <tr style="background:#1d4ed8;color:#fff;font-weight:700;"><td style="padding:7px 10px;">Cumulative PV</td><td style="text-align:center;padding:7px 8px;">$4,000</td><td style="text-align:center;padding:7px 8px;">$14,000</td><td style="text-align:center;padding:7px 8px;">$24,000</td><td style="text-align:center;padding:7px 8px;">$34,000</td><td style="text-align:center;background:#b45309;padding:7px 8px;">$46,000</td><td style="text-align:center;padding:7px 8px;">$62,000</td><td style="text-align:center;padding:7px 8px;">$72,000</td><td style="text-align:center;padding:7px 8px;">$78,000</td><td style="text-align:center;padding:7px 8px;">$86,000</td><td style="text-align:center;padding:7px 8px;">$90,000</td><td style="text-align:center;padding:7px 8px;">$95,000</td><td style="text-align:center;padding:7px 8px;">$100,000</td><td style="text-align:center;padding:7px 10px;">—</td></tr>
+  </tbody>
+</table>
+</div>
+```
 
 *\*Design Forms/Reports is only 75% planned complete by May*
 
@@ -279,21 +1080,35 @@ EV = Budgeted Cost × Actual % Complete
 
 **Step 4: Calculate All EVM Metrics**
 
-| Metric | Formula | Calculation | Result | Interpretation |
-|--------|---------|------------|--------|----------------|
-| **PV** | Planned | — | **$46,000** | Budgeted work planned by May 31 |
-| **EV** | Earned | — | **$43,333** | Value of work actually done |
-| **AC** | Actual | — | **$53,000** | Money actually spent |
-| **SV** | EV − PV | 43,333 − 46,000 | **−$2,667** | ⚠️ $2,667 behind schedule |
-| **CV** | EV − AC | 43,333 − 53,000 | **−$9,667** | 🚨 $9,667 over budget |
-| **SPI** | EV/PV | 43,333/46,000 | **0.942** | Doing 94.2% of planned work |
-| **CPI** | EV/AC | 43,333/53,000 | **0.818** | Getting $0.82 value per $1 spent |
-| **EAC** | BAC/CPI | 100,000/0.818 | **$122,308** | Forecast final cost |
-| **ETC** | EAC − AC | 122,308 − 53,000 | **$69,308** | Still need $69K more to finish |
-| **VAC** | BAC − EAC | 100,000 − 122,308 | **−$22,308** | Expected overrun of $22,308 |
-| **TCPI** | (BAC−EV)/(BAC−AC) | (100K−43,333)/(100K−53K) | **1.206** | Need 20.6% better cost efficiency! |
-
-: Full EVM Status Table at May 31 {.striped .hover}
+```{=html}
+<div style="overflow-x:auto;margin:1em 0;">
+<table style="width:100%;border-collapse:collapse;font-size:.88rem;">
+  <thead>
+    <tr style="background:#1d4ed8;color:#fff;">
+      <th style="padding:8px 12px;">Metric</th>
+      <th style="padding:8px 12px;">Formula</th>
+      <th style="padding:8px 12px;">Calculation</th>
+      <th style="padding:8px 12px;text-align:center;">Result</th>
+      <th style="padding:8px 12px;">Interpretation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:#eff6ff;"><td style="padding:7px 12px;font-weight:700;">PV</td><td style="padding:7px 12px;">Planned</td><td style="padding:7px 12px;">—</td><td style="padding:7px 12px;text-align:center;font-weight:700;">$46,000</td><td style="padding:7px 12px;">Budgeted work planned by May 31</td></tr>
+    <tr><td style="padding:7px 12px;font-weight:700;">EV</td><td style="padding:7px 12px;">Earned</td><td style="padding:7px 12px;">—</td><td style="padding:7px 12px;text-align:center;font-weight:700;">$43,333</td><td style="padding:7px 12px;">Value of work actually done</td></tr>
+    <tr style="background:#eff6ff;"><td style="padding:7px 12px;font-weight:700;">AC</td><td style="padding:7px 12px;">Actual</td><td style="padding:7px 12px;">—</td><td style="padding:7px 12px;text-align:center;font-weight:700;">$53,000</td><td style="padding:7px 12px;">Money actually spent</td></tr>
+    <tr style="background:#fef9c3;"><td style="padding:7px 12px;font-weight:700;">SV</td><td style="padding:7px 12px;">EV − PV</td><td style="padding:7px 12px;">43,333 − 46,000</td><td style="padding:7px 12px;text-align:center;font-weight:700;color:#b45309;">−$2,667</td><td style="padding:7px 12px;">⚠️ $2,667 behind schedule</td></tr>
+    <tr style="background:#fee2e2;"><td style="padding:7px 12px;font-weight:700;">CV</td><td style="padding:7px 12px;">EV − AC</td><td style="padding:7px 12px;">43,333 − 53,000</td><td style="padding:7px 12px;text-align:center;font-weight:700;color:#b91c1c;">−$9,667</td><td style="padding:7px 12px;">🚨 $9,667 over budget</td></tr>
+    <tr style="background:#fef9c3;"><td style="padding:7px 12px;font-weight:700;">SPI</td><td style="padding:7px 12px;">EV/PV</td><td style="padding:7px 12px;">43,333 / 46,000</td><td style="padding:7px 12px;text-align:center;font-weight:700;color:#b45309;">0.942</td><td style="padding:7px 12px;">Doing 94.2% of planned work</td></tr>
+    <tr style="background:#fee2e2;"><td style="padding:7px 12px;font-weight:700;">CPI</td><td style="padding:7px 12px;">EV/AC</td><td style="padding:7px 12px;">43,333 / 53,000</td><td style="padding:7px 12px;text-align:center;font-weight:700;color:#b91c1c;">0.818</td><td style="padding:7px 12px;">Getting $0.82 value per $1 spent</td></tr>
+    <tr style="background:#eff6ff;"><td style="padding:7px 12px;font-weight:700;">EAC</td><td style="padding:7px 12px;">BAC / CPI</td><td style="padding:7px 12px;">100,000 / 0.818</td><td style="padding:7px 12px;text-align:center;font-weight:700;color:#b91c1c;">$122,308</td><td style="padding:7px 12px;">Forecast final cost</td></tr>
+    <tr><td style="padding:7px 12px;font-weight:700;">ETC</td><td style="padding:7px 12px;">EAC − AC</td><td style="padding:7px 12px;">122,308 − 53,000</td><td style="padding:7px 12px;text-align:center;font-weight:700;">$69,308</td><td style="padding:7px 12px;">Still need $69K more to finish</td></tr>
+    <tr style="background:#fee2e2;"><td style="padding:7px 12px;font-weight:700;">VAC</td><td style="padding:7px 12px;">BAC − EAC</td><td style="padding:7px 12px;">100,000 − 122,308</td><td style="padding:7px 12px;text-align:center;font-weight:700;color:#b91c1c;">−$22,308</td><td style="padding:7px 12px;">Expected overrun of $22,308</td></tr>
+    <tr style="background:#fef2f2;"><td style="padding:7px 12px;font-weight:700;">TCPI</td><td style="padding:7px 12px;">(BAC−EV)/(BAC−AC)</td><td style="padding:7px 12px;white-space:nowrap;">(100K−43,333)/(100K−53K)</td><td style="padding:7px 12px;text-align:center;font-weight:700;color:#b91c1c;">1.206</td><td style="padding:7px 12px;">Need 20.6% better cost efficiency!</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.8rem;margin-top:.4em;"><em>Full EVM Status Table at May 31</em></p>
+</div>
+```
 
 **Step 5: S-Curve and EVM Chart**
 
@@ -350,7 +1165,7 @@ quadrantChart
 
 ---
 
-## Cost Control
+## Cost Control [📋 Required]{.badge-req}
 
 Cost control involves **monitoring, forecasting, and taking corrective action**:
 
@@ -447,6 +1262,82 @@ The Riyadh Metro (مترو الرياض) — **6 lines, 176 km, 85 stations** �
 3. How does independent cost auditing reduce the principal-agent problem in mega-project procurement?
 
 *Sources: @ada2021metro; @riyadh2020pmo*
+:::
+
+---
+
+## Project Portfolio Management (PPM) [📋 Required]{.badge-req}
+
+**Project Portfolio Management (PPM)** is the centralised management of one or more portfolios — groups of projects, programmes, and operations — to achieve strategic business objectives.
+
+::: {.callout-note icon="false"}
+## 📖 Portfolio vs. Programme vs. Project
+
+| Level | Scope | Focus |
+|-------|-------|-------|
+| **Portfolio** | Collection of projects/programmes aligned to strategic goals | Strategic value, resource optimisation, balance |
+| **Programme** | Group of related projects managed together for benefits | Synergies, shared resources, coordinated delivery |
+| **Project** | Temporary endeavour to create a unique product/service | Defined scope, schedule, and budget |
+
+*A portfolio may contain programmes and stand-alone projects. Not all projects in a portfolio need to be related to each other.*
+:::
+
+### Why PPM Matters for Cost Management
+
+PPM extends cost management from the individual project level to the **organisational level** — ensuring money is invested in the right projects:
+
+```{mermaid}
+%%| fig-cap: "PPM connects project costs to organisational strategy"
+%%{init: {'flowchart': {'nodeSpacing': 30, 'rankSpacing': 50}}}%%
+flowchart TD
+    S["🎯 Strategic Objectives<br/>Grow revenue / Cut costs /<br/>Regulatory compliance"] --> PP
+    PP["📋 Portfolio Planning<br/>Identify, categorise,<br/>and prioritise projects"] --> RA
+    RA["💰 Resource & Budget Allocation<br/>Distribute limited funds<br/>across competing projects"] --> PM
+    PM["📊 Portfolio Monitoring<br/>Track aggregate EVM,<br/>costs, and benefits"] --> RV
+    RV["🔄 Portfolio Review<br/>Kill / accelerate / add<br/>projects based on value"]
+    RV --> PP
+
+    style S fill:#1d4ed8,color:#fff
+    style RA fill:#b45309,color:#fff
+```
+
+### Benefits of Project Portfolio Management
+
+| Benefit | Description |
+|---------|-------------|
+| **Strategic alignment** | Ensures every funded project supports organisational goals |
+| **Resource optimisation** | Avoids over-commitment; balances demand with capacity |
+| **Risk diversification** | A portfolio of projects spreads risk like a financial portfolio |
+| **Kill decisions** | Enables conscious decisions to stop projects that no longer deliver value |
+| **Transparency** | Senior leadership gets a consolidated view of total cost and benefit |
+| **Prioritisation** | When budgets are cut, PPM provides the framework to decide which projects survive |
+
+### PPM Scoring and Prioritisation
+
+Organisations often use a **weighted scoring model** to rank projects for funding:
+
+| Criterion | Weight | Project A Score | Project B Score |
+|-----------|--------|-----------------|-----------------|
+| Strategic alignment | 30% | 8 | 6 |
+| NPV / Financial return | 25% | 7 | 9 |
+| Risk level (inverse) | 20% | 6 | 8 |
+| Implementation feasibility | 15% | 9 | 5 |
+| Regulatory compliance | 10% | 10 | 7 |
+| **Weighted Total** | **100%** | **7.65** | **7.05** |
+
+*Project A scores higher despite lower NPV — strategic fit and feasibility outweigh pure financial return.*
+
+::: {.callout-tip icon="false"}
+## 💡 PPM Software
+
+Modern PPM software (e.g., Microsoft Project Online, Primavera P6 Portfolio, Oracle PPM Cloud) provides:
+- Portfolio dashboards with aggregated EVM across all projects
+- Resource capacity planning
+- Benefits realisation tracking
+- Automatic re-prioritisation when budgets change
+- Risk-adjusted portfolio views
+
+A 2015 PMI study found only **20% of organisations** have a high level of benefits realization maturity through PPM — organisations with strong PPM deliver **35% more projects on budget**.
 :::
 
 ---
@@ -562,12 +1453,25 @@ A government agency must choose between two water infrastructure projects. Disco
 %%| fig-cap: "Chapter 7 — Key concepts summary"
 mindmap
   root((Chapter 7<br/>Cost<br/>Management))
+    Basic Cost Principles
+      Direct and Indirect Costs
+      Tangible and Intangible
+      Sunk Cost
+      Opportunity Cost
+      Life Cycle Costing
+      Learning Curve Theory
+      Contingency and Management Reserves
+    Financial Returns
+      Profit and Profit Margin
+      ROI
+      NPV and Payback Period
     Cost Estimation
       Analogous
       Parametric
       Bottom-Up WBS
       Three-Point PERT
       AACE Classes 1-5
+      Function Points and SLOC
     Project Budget
       Cost Baseline S-Curve
       BAC
@@ -577,6 +1481,7 @@ mindmap
       PV Planned Value
       EV Earned Value
       AC Actual Cost
+      Rate of Performance RP
       SV and CV Variances
       SPI and CPI Indices
       EAC Forecast
@@ -587,6 +1492,12 @@ mindmap
       Change Control
       Recovery Strategies
       Forecasting Methods
+    Project Portfolio Management
+      Strategic Alignment
+      Resource Optimisation
+      Prioritisation Models
+      Kill and Go Decisions
+      PPM Software
 ```
 
 ::: {.callout-note}

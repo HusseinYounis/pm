@@ -1,0 +1,651 @@
+---
+title: "Project Scope Management"
+---
+
+```{=html}
+<div class="chapter-banner">
+  <div class="chapter-num">Chapter 5 · Planning</div>
+  <h1>Project Scope Management</h1>
+  <p class="chapter-desc">Defining exactly what a project will — and will not — deliver: from collecting requirements and writing scope statements to building WBS structures, validating deliverables, and controlling scope creep.</p>
+</div>
+```
+
+## Learning Outcomes {.unnumbered}
+
+::: {.callout-tip icon="false"}
+## 🎯 Learning Outcomes
+
+By the end of this chapter, you will be able to:
+
+1. **Explain** the six processes of project scope management and why scope is critical to project success
+2. **Develop** a scope management plan and requirements management plan
+3. **Collect** requirements using interviews, focus groups, prototyping, and RTMs
+4. **Write** a project scope statement with all required components
+5. **Create** a Work Breakdown Structure (WBS) using multiple approaches
+6. **Produce** a WBS dictionary entry for a work package
+7. **Apply** scope validation and scope control techniques to prevent scope creep
+:::
+
+---
+
+## What Is Project Scope Management? [📋 Required]{.badge-req}
+
+**Project scope management** includes the processes required to ensure that the project includes all the work required — and **only** the work required — to complete the project successfully.
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — Product Scope vs. Project Scope
+
+| Term | Definition | Measurement |
+|------|-----------|-------------|
+| **Product scope** | The features and functions that characterise a product, service, or result | Measured against product requirements |
+| **Project scope** | The work that must be done to deliver a product, service, or result with the specified features and functions | Measured against the project management plan |
+:::
+
+### The Six Scope Management Processes
+
+```{mermaid}
+%%| fig-cap: "The six project scope management processes"
+%%{init: {'theme': 'base'}}%%
+flowchart LR
+    P1["1️⃣ Plan Scope\nManagement"] --> P2["2️⃣ Collect\nRequirements"]
+    P2 --> P3["3️⃣ Define\nScope"]
+    P3 --> P4["4️⃣ Create\nWBS"]
+    P4 --> P5["5️⃣ Validate\nScope"]
+    P5 --> P6["6️⃣ Control\nScope"]
+    P6 -->|"Change requests"| P3
+
+    style P1 fill:#4f46e5,color:#fff,stroke:#4f46e5
+    style P2 fill:#0f766e,color:#fff,stroke:#0f766e
+    style P3 fill:#15803d,color:#fff,stroke:#15803d
+    style P4 fill:#0369a1,color:#fff,stroke:#0369a1
+    style P5 fill:#b45309,color:#fff,stroke:#b45309
+    style P6 fill:#b91c1c,color:#fff,stroke:#b91c1c
+```
+
+---
+
+## Planning Scope Management [📋 Required]{.badge-req}
+
+The **scope management plan** is the first output of scope management. It documents how the project team will:
+
+- Define and develop project scope
+- Create, maintain, and approve the WBS
+- Formally accept completed deliverables (scope validation)
+- Handle requests for changes to scope (scope control)
+
+The **requirements management plan** documents how project requirements will be:
+
+| Aspect | Managed By |
+|--------|-----------|
+| Analysed and documented | Requirements analysis process |
+| Tracked and reported | Traceability matrix (RTM) |
+| Prioritised | MoSCoW or weighted criteria |
+| Managed through changes | Integrated change control |
+| Verified | Acceptance testing |
+
+: Requirements management plan components {.striped .hover}
+
+---
+
+## Collecting Requirements [📋 Required]{.badge-req}
+
+**Collecting requirements** is often the most difficult step in scope management — and the most consequential. Research shows that rework from poor requirements can consume **up to half of total project costs**.
+
+### Why Requirements Are So Hard
+
+Studies of software development projects found:
+
+- **73%** of teams said the most important challenge was gaining a clear understanding of what customers wanted
+- **70%** spent at least 10% of their time managing requirement changes
+- **83%** still used MS Word/Excel as the primary tool for communicating requirements
+
+### Cost of Late Requirements Changes
+
+The later in the project lifecycle a requirement defect is found, the more expensive it is to fix:
+
+```{mermaid}
+%%| fig-cap: "Relative cost to fix a requirements defect by phase (after Grady, 1999)"
+%%{init: {'theme': 'base'}}%%
+xychart-beta
+    title "Relative Cost to Correct a Requirements Defect"
+    x-axis ["Requirements", "Design", "Code", "Test", "Operations"]
+    y-axis "Relative Cost" 0 --> 120
+    bar [1, 5, 10, 40, 100]
+```
+
+::: {.callout-warning icon="false"}
+## ⚠️ Common Mistake — Insufficient Requirements Gathering
+
+Skipping thorough requirements gathering to "save time" is one of the most common — and costly — project mistakes. A defect found during **operations** costs 100× more to fix than the same defect found in the **requirements phase**.
+:::
+
+### Requirements Collection Techniques
+
+::: {.panel-tabset}
+
+## Interviews
+One-on-one discussions with key stakeholders.
+
+- **Best for:** Complex systems; senior stakeholders
+- **Pros:** Deep understanding; builds relationships
+- **Cons:** Time-consuming; expensive at scale
+
+## Focus Groups & Workshops
+Facilitated group sessions (e.g., **Joint Application Design — JAD**) bring together sponsors, users, business analysts, and developers to jointly define requirements.
+
+- **Best for:** Consensus-building; resolving conflicting needs
+- **JAD workshops** are highly structured, intensive, typically 1–5 days
+- Produces detailed, agreed-upon requirements faster than one-on-one interviews
+
+## Questionnaires & Surveys
+Structured questions sent to a large group of stakeholders.
+
+- **Best for:** Large user populations; geographic distribution
+- **Pros:** Efficient and scalable
+- **Cons:** Responses may be shallow; low return rates
+
+## Observation
+Watching users perform their current work processes (also called **job shadowing**).
+
+- **Best for:** Process improvement projects; system replacement
+- **Pros:** Reveals actual vs. stated behaviour
+- **Cons:** Disruptive; requires significant analyst time
+
+## Prototyping
+Developing a **working replica** or mock-up of part of the system for user feedback.
+
+- **Best for:** UI-heavy systems; unclear requirements
+- Can be **throwaway** (for learning only) or **evolutionary** (grows into final product)
+- **Use case modelling** is a related technique for identifying system interactions
+
+## Document Analysis & Benchmarking
+Reviewing existing documentation (current systems, contracts, standards) and comparing to similar projects/products inside or outside the organisation.
+
+- **Best for:** System replacements; compliance-driven projects
+- Ensures continuity with existing processes
+
+:::
+
+### Requirements Traceability Matrix (RTM)
+
+A **Requirements Traceability Matrix (RTM)** links each requirement to its source and tracks its status through implementation and testing.
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 5.1 — Requirements Traceability Matrix
+
+**Project:** Campus IT Hardware Upgrade
+
+| Req # | Requirement Name | Category | Source | Priority | Status | Test Ref |
+|-------|-----------------|----------|--------|----------|--------|---------|
+| R01 | Laptop — Intel i7 processor | Hardware | Corporate IT Standards | High | Complete — all units verified | T-01 |
+| R02 | Laptop — 16 GB RAM minimum | Hardware | Project Charter | High | Complete — all units meet spec | T-01 |
+| R03 | Laptop — 2 TB SSD storage | Hardware | Project Charter | High | Complete | T-01 |
+| R04 | Standard security software pre-installed | Software | IT Security Policy | High | In Progress | T-02 |
+| R05 | VPN client installed and configured | Software | Network Manager | Medium | Not Started | T-03 |
+| R06 | Asset tagging and inventory update | Administrative | Finance Department | Medium | In Progress | — |
+
+: Requirements Traceability Matrix — Campus IT Upgrade {.striped .hover}
+
+The RTM maintains traceability from the **source of each requirement** through decomposition, implementation, and validation.
+:::
+
+---
+
+## Defining Scope [📋 Required]{.badge-req}
+
+**Defining scope** provides a **detailed description of the work** required for the project. It is critical because:
+
+- It improves accuracy of time, cost, and resource estimates
+- It defines a **baseline** for performance measurement and project control
+- It aids in communicating **clear work responsibilities** to all stakeholders
+- It establishes the boundary between what **is** and what **is not** included in the project
+
+### The Project Scope Statement
+
+The **project scope statement** is the primary output of scope definition. It should include at minimum:
+
+| Component | Description |
+|-----------|-------------|
+| **Product scope description** | Detailed description of the product, service, or result to be created |
+| **Product user acceptance criteria** | The conditions that must be met for the customer to accept the deliverable |
+| **Project deliverables** | A list of all outputs the project will produce |
+| **Project exclusions** | Explicit statement of what is **not** included — prevents scope creep |
+| **Project boundaries** | Interfaces with other projects or systems |
+| **Project constraints** | Limitations on budget, schedule, resources, or technology |
+| **Project assumptions** | Statements treated as true for planning purposes that have not been confirmed |
+
+: Project scope statement components {.striped .hover}
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 5.2 — Project Scope Statement (Progressive Elaboration)
+
+**Project:** Campus Network Upgrade
+
+**Version 1 (Charter-level, early in project):**
+> "Upgrade the campus network to gigabit speeds for all buildings, including servers, switches, and wireless access points as needed."
+
+**Version 2 (Detailed scope statement, after planning):**
+> "Upgrade the campus network in 8 buildings (Buildings A–H) to support 1 Gbps wired connections and 802.11ax (Wi-Fi 6) wireless with coverage in all offices, classrooms, and common areas. The project includes replacing all existing Cat5 cabling with Cat6A, installing new Cisco Catalyst 9300 switches, deploying 120 Cisco 9130 Wi-Fi access points, and upgrading the core router. Excluded from scope: building G (under renovation), internet service provider (ISP) contract renegotiation, and end-user devices."
+
+The scope statement becomes more **specific and detailed** as the project progresses — this is called **progressive elaboration**.
+:::
+
+::: {.callout-warning icon="false"}
+## ⚠️ Common Mistake — Vague Scope Statements
+
+A scope statement like *"Upgrade the IT infrastructure"* is dangerously vague. Every stakeholder will have a different interpretation. Ambiguous scope is the leading cause of:
+
+- Scope creep (uncontrolled additions to the project)
+- Stakeholder dissatisfaction
+- Cost and schedule overruns
+:::
+
+---
+
+## Creating the Work Breakdown Structure [📋 Required]{.badge-req}
+
+A **Work Breakdown Structure (WBS)** is a **deliverable-oriented hierarchical decomposition** of the total scope of work to be carried out by the project team.
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — The WBS Is the Foundation of Project Planning
+
+The WBS provides the basis for:
+
+- **Scheduling** — all activities in the project schedule come from the WBS
+- **Cost estimating and budgeting** — costs are estimated at work package level
+- **Resource assignment** — resources are assigned to work packages
+- **Change control** — work outside the WBS is considered out-of-scope
+
+> *"Work should not be done on a project if it is not included in the WBS."* — PMI
+:::
+
+### WBS Structure and Levels
+
+```{mermaid}
+%%| fig-cap: "WBS structure — levels and work packages"
+%%{init: {'theme': 'base'}}%%
+flowchart TD
+    L1["**LEVEL 1**\nEntire Project\n(Project Name)"]
+    L2A["**LEVEL 2**\nMajor Deliverable/Phase\n(e.g., Web Site Design)"]
+    L2B["**LEVEL 2**\nMajor Deliverable/Phase\n(e.g., Web Site Development)"]
+    L2C["**LEVEL 2**\nProject Management"]
+    L3A["**LEVEL 3**\nSub-deliverable\n(e.g., Home Page)"]
+    L3B["**LEVEL 3**\nSub-deliverable\n(e.g., Department Pages)"]
+    L4A["**LEVEL 4 — Work Package**\n(e.g., Design graphics)"]
+    L4B["**LEVEL 4 — Work Package**\n(e.g., Write content)"]
+
+    L1 --> L2A & L2B & L2C
+    L2A --> L3A & L3B
+    L3A --> L4A & L4B
+
+    style L4A fill:#15803d,color:#fff
+    style L4B fill:#15803d,color:#fff
+```
+
+**Work packages** are the lowest-level tasks in the WBS — they are the units at which:
+- Work time estimates are entered into project software
+- Resources and costs are assigned
+- The project manager monitors and controls progress
+
+### WBS Numbering
+
+The PMI **Practice Standard for Work Breakdown Structures** defines a hierarchical numbering scheme:
+
+```
+1.0  Campus Network Upgrade Project
+  1.1  Project Management
+    1.1.1  Project charter
+    1.1.2  Weekly status reports
+    1.1.3  Project closure report
+  1.2  Network Design
+    1.2.1  Current state assessment
+    1.2.2  Topology design
+    1.2.3  Design review and approval
+  1.3  Procurement
+    1.3.1  Bill of materials
+    1.3.2  Vendor selection
+    1.3.3  Purchase orders
+  1.4  Installation
+    1.4.1  Cabling (Buildings A–D)
+    1.4.2  Cabling (Buildings E–H)
+    1.4.3  Switch configuration
+    1.4.4  Wireless AP deployment
+  1.5  Testing & Acceptance
+    1.5.1  Performance testing
+    1.5.2  Security testing
+    1.5.3  User acceptance testing
+```
+
+### Approaches to Developing a WBS
+
+::: {.panel-tabset}
+
+## Using Guidelines
+Many organisations and government agencies prescribe WBS formats. Following guidelines ensures:
+- Consistency across projects
+- Easier evaluation of proposals
+- Reuse of templates from similar past projects
+
+*Example:* The U.S. Department of Defense provides mandatory WBS structures for defence contracts. Contractors must follow these WBS formats in their cost proposals.
+
+## Analogy Approach
+Use a **WBS from a similar previous project** as a starting template and adapt it.
+
+- **Pros:** Fast; based on real experience; less risk of omissions
+- **Best for:** Organisations that repeatedly do similar projects (e.g., building construction, system implementations)
+
+## Top-Down Approach
+Start with the **overall project** at Level 1, then progressively break it down into smaller pieces.
+
+- Natural approach for most projects
+- Works well when the project scope is well-understood at the start
+- Senior project managers and stakeholders drive the decomposition
+
+## Bottom-Up Approach
+Start by **identifying all specific tasks** that need to be done, then group them into higher-level categories.
+
+- **Best for:** Novel projects where the scope is not well-defined at a high level
+- More inclusive — team members contribute their own task lists
+- Results are then rolled up into a coherent WBS
+
+## Mind Mapping
+Use a **visual mind map** to brainstorm all project deliverables and tasks without initially worrying about hierarchy.
+
+1. Place the project name in the centre
+2. Add branches for major deliverable areas
+3. Add sub-branches for more detailed tasks
+4. Convert the mind map to a formal WBS hierarchy
+
+Mind mapping encourages creativity and helps capture ideas that linear outlining might miss.
+
+:::
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 5.3 — WBS for an Engineering IT Project
+
+**Project:** Enterprise Resource Planning (ERP) Implementation for a Manufacturing Company
+
+```
+1.0  ERP Implementation Project
+  1.1  Project Management
+    1.1.1  Project charter approved
+    1.1.2  Project management plan
+    1.1.3  Weekly status reports
+    1.1.4  Project closure
+  1.2  Requirements & Design
+    1.2.1  Business process analysis
+    1.2.2  System requirements document
+    1.2.3  Data migration plan
+    1.2.4  System configuration design
+  1.3  Software & Infrastructure
+    1.3.1  ERP software licences procured
+    1.3.2  Server hardware installed
+    1.3.3  Network configuration
+    1.3.4  ERP system configured
+  1.4  Data Migration
+    1.4.1  Legacy data extracted
+    1.4.2  Data cleansed and transformed
+    1.4.3  Data loaded into ERP
+    1.4.4  Data validation and sign-off
+  1.5  Testing
+    1.5.1  Unit testing
+    1.5.2  Integration testing
+    1.5.3  User acceptance testing (UAT)
+  1.6  Training
+    1.6.1  Training materials developed
+    1.6.2  End-user training delivered
+    1.6.3  IT administrator training
+  1.7  Go-Live & Support
+    1.7.1  Go-live plan executed
+    1.7.2  Post-go-live support (30 days)
+    1.7.3  Project closure report
+```
+
+**Work package example (1.5.3):** User Acceptance Testing  
+Duration estimate: 15 days | Resources: 2 business analysts + 5 key users | Cost: \$18,500
+:::
+
+### Relationship Between WBS, Schedule, and Gantt Chart
+
+The WBS feeds directly into the project schedule:
+
+```{mermaid}
+%%| fig-cap: "WBS to Gantt chart — the WBS is the backbone of the schedule"
+%%{init: {'theme': 'base'}}%%
+flowchart LR
+    WBS["📋 WBS\n(Deliverable\nhierarchy)"] -->|"Work packages\nbecome activities"| SCH["📅 Activity List\n(Define, Sequence,\nEstimate durations)"]
+    SCH --> GANTT["📊 Gantt Chart\n(Scheduled with\nstart/end dates)"]
+    GANTT --> BASE["📌 Schedule\nBaseline"]
+
+    style WBS fill:#0f766e,color:#fff
+    style GANTT fill:#15803d,color:#fff
+    style BASE fill:#4f46e5,color:#fff
+```
+
+---
+
+## The WBS Dictionary [📋 Required]{.badge-req}
+
+The **WBS dictionary** accompanies the WBS and provides detailed information about **each work package**. It prevents ambiguity about what is (and is not) included in each piece of work.
+
+### WBS Dictionary Entry Contents
+
+| Field | Description |
+|-------|-------------|
+| **WBS code** | Hierarchical number (e.g., 1.4.2) |
+| **Work package name** | Descriptive title |
+| **Description of work** | What must be done; deliverable description |
+| **Assumptions and constraints** | What is assumed; any limitations |
+| **Responsible organisation/person** | Who is accountable |
+| **Resources required** | Labour, equipment, materials |
+| **Duration estimate** | Planned duration |
+| **Cost estimate** | Planned cost |
+| **Quality requirements** | Standards and acceptance criteria |
+| **References** | Related documents, specifications |
+
+: WBS dictionary entry fields {.striped .hover}
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 5.4 — WBS Dictionary Entry
+
+**WBS Code:** 1.5.3  
+**Work Package Name:** User Acceptance Testing (UAT)  
+**Date:** 15 October 2026
+
+**Description of Work:**  
+Conduct formal UAT of all ERP modules with end-users from Finance, Procurement, and Operations departments. Test all critical business processes against the requirements traceability matrix. Document all defects. Obtain formal sign-off from business process owners confirming acceptance.
+
+**Assumptions:** All modules have passed integration testing before UAT begins. Users have completed training.  
+**Constraints:** Must be completed before go-live date of 1 February 2027.
+
+**Responsible Person:** Business Analyst Lead — Sarah Khouri  
+**Resources:** 2 business analysts (full-time) + 5 key users (50%)
+
+| Resource | Quantity | Duration | Hours |
+|----------|----------|---------|-------|
+| Business Analyst | 2 FTE | 15 days | 240 hrs |
+| Key Users (testers) | 5 × 50% | 15 days | 300 hrs |
+
+: UAT resource plan {.striped .hover}
+
+**Duration Estimate:** 15 working days  
+**Cost Estimate:** \$18,500
+
+**Quality Requirements:** >98% of critical path test cases pass; all High/Medium defects resolved before sign-off.  
+**Acceptance Criteria:** Signed UAT acceptance form from Finance Director, Procurement Manager, and Operations Director.
+:::
+
+---
+
+## Validating Scope [📋 Required]{.badge-req}
+
+**Scope validation** (also called scope verification) is the process of **formally accepting completed project deliverables** from the customer or sponsor.
+
+::: {.callout-note icon="false"}
+## 📖 Key Concept — Scope Validation vs. Quality Control
+
+| Aspect | Scope Validation | Quality Control |
+|--------|-----------------|-----------------|
+| **Focus** | Was the right work delivered? | Was the work done correctly? |
+| **Who performs it** | Customer / sponsor / stakeholders | Project team / QA staff |
+| **Question asked** | "Is this what we asked for?" | "Does this meet specifications?" |
+| **Output** | Accepted deliverables / change requests | Verified deliverables |
+| **Timing** | After QC has confirmed quality | During execution |
+
+Quality control is typically performed **before** scope validation. A deliverable should be verified as correct before presenting it to the customer for acceptance.
+:::
+
+### Scope Validation Process
+
+```{mermaid}
+%%| fig-cap: "Scope validation process flow"
+%%{init: {'theme': 'base'}}%%
+flowchart TD
+    QC["✅ Quality Control\nCompleted"] --> PRESENT["📤 Present Deliverable\nto Customer/Sponsor"]
+    PRESENT --> REVIEW["🔍 Stakeholder\nInspection & Review"]
+    REVIEW --> DEC{Accepted?}
+    DEC -->|"✅ Yes"| ACCEPT["📝 Formal Acceptance\nDocument Signed"]
+    DEC -->|"❌ No"| DEFECT["📋 Document Deficiencies\n& Change Requests"]
+    DEFECT --> REWORK["🔧 Rework /\nCorrective Action"]
+    REWORK --> PRESENT
+
+    style ACCEPT fill:#15803d,color:#fff
+    style DEFECT fill:#b91c1c,color:#fff
+```
+
+---
+
+## Controlling Scope [📋 Required]{.badge-req}
+
+**Scope control** involves managing changes to the project scope while keeping the project on track toward its goals.
+
+### What Is Scope Creep?
+
+**Scope creep** is the uncontrolled expansion of project scope — adding features, functions, or requirements without adjusting budget, schedule, or resources.
+
+::: {.callout-warning icon="false"}
+## ⚠️ Common Cause — Scope Creep
+
+Scope creep typically occurs because:
+
+- Requirements were not adequately defined or documented from the start
+- Stakeholders continuously request "small" additions that were never in scope
+- The project team accommodates informal requests without going through change control
+- There is no clear process for evaluating and approving changes to scope
+
+Every scope addition — no matter how small — has an impact on **cost**, **schedule**, and **resources**.
+:::
+
+### Variance Analysis for Scope Control
+
+An important tool for scope control is **variance analysis** — comparing planned vs. actual scope delivery:
+
+$$\text{Scope Variance} = \text{Planned Deliverables} - \text{Actual Deliverables Completed}$$
+
+If the variance is negative (less delivered than planned), the project manager must investigate the cause and take corrective action.
+
+### Best Practices for Scope Control
+
+::: {.panel-tabset}
+
+## Keep Scope Realistic
+- Don't make projects so large they can't be completed
+- Break large projects into a **series of smaller projects**
+- Set a firm completion date — *"May 1 was the drop-dead date, and everything else was backed into it"*
+
+## Involve Users Actively
+- Assign key users to the project team
+- Give users **ownership of requirements definition** and scope validation
+- Require users to **sign off** on key deliverables at review meetings
+- Deliver working software/hardware regularly for user feedback
+- Locate users near developers during the project
+
+## Reduce Changing Requirements
+- Use a formal **requirements management process** from the start
+- Apply **prototyping, use case modelling, and JAD** to thoroughly understand user needs
+- Put all requirements **in writing** and keep them current
+- Use a **requirements management database** (CASE tools, dedicated software)
+- Require all scope changes to include **associated cost and schedule impacts**
+
+## Use Off-the-Shelf Technology
+- Avoid new/unproven technology unless its benefits clearly outweigh the risks
+- New technology introduces **scope uncertainty** — its capabilities are often unclear at the start
+
+## Follow Good PM Processes
+- Establish formal **change control procedures** from the start (as part of integrated change control — Chapter 4)
+- Allocate **dedicated resources for handling change requests**
+- Use the **WBS and scope statement** as the authoritative definition of scope
+
+:::
+
+### IBM's Rational Unified Process (RUP) Principles for Scope Management
+
+The IBM Rational Unified Process provides these best-practice principles for software scope management:
+
+| Principle | Application |
+|-----------|-------------|
+| **Adapt the process** | Tailor scope management to project size and complexity |
+| **Balance competing stakeholder priorities** | Negotiate scope trade-offs among stakeholders systematically |
+| **Collaborate across teams** | Involve all affected parties in defining and approving scope |
+| **Demonstrate value iteratively** | Deliver scope in increments to get early feedback |
+| **Elevate the level of abstraction** | Use models and diagrams to communicate scope, not just text |
+| **Focus continuously on quality** | Define acceptance criteria for each scope element |
+
+---
+
+## Software Tools for Project Scope Management [📋 Required]{.badge-req}
+
+| Tool Category | Examples | Scope Management Use |
+|--------------|---------|---------------------|
+| **Word processing / presentation** | MS Word, PowerPoint | Scope statements, WBS documentation |
+| **Spreadsheets** | MS Excel, Google Sheets | WBS, RTM, scope change log |
+| **Project management software** | MS Project, Primavera | WBS entry, Gantt charts, resource assignment |
+| **Mind-mapping software** | MindView, XMind, MindMeister | WBS brainstorming, SWOT analysis |
+| **Requirements management tools** | IBM DOORS, Jama Connect, Accept | RTM, requirements tracking, change management |
+| **Prototyping / modelling tools** | Figma, Axure, Lucidchart | UI prototypes, use case diagrams, context diagrams |
+| **CASE tools** | IBM Rational, Enterprise Architect | System modelling, requirements repositories |
+
+---
+
+## Chapter Summary
+
+::: {.callout-note icon="false"}
+## 📋 Summary — Project Scope Management
+
+**Project scope management** ensures the project delivers **all required work — and only the required work**.
+
+**Six processes:**
+
+| Process | Process Group | Key Output |
+|---------|--------------|-----------|
+| Plan Scope Management | Planning | Scope management plan, requirements management plan |
+| Collect Requirements | Planning | Requirements documentation, RTM |
+| Define Scope | Planning | Project scope statement |
+| Create WBS | Planning | WBS, scope baseline |
+| Validate Scope | Monitoring & Controlling | Accepted deliverables |
+| Control Scope | Monitoring & Controlling | Change requests, work performance information |
+
+**Key tools:**
+- **RTM** (Requirements Traceability Matrix) — tracks each requirement from source to acceptance
+- **WBS** — hierarchical decomposition of all project work; the foundation of the schedule
+- **WBS Dictionary** — detailed description of each work package
+- **Variance analysis** — compares planned vs. actual scope delivery
+
+**Biggest risks:** Scope creep and incomplete requirements — both preventable with good processes, user involvement, and formal change control.
+:::
+
+---
+
+## Review Questions
+
+1. An IT project team has been working for three months when a senior manager requests that new functionality be added to the system. The team lead says "it's a small change — we can just add it." What is wrong with this approach, and what should happen instead?
+
+2. A project to develop a new payroll system has a WBS with the following Level 2 items: System Design, Development, Testing, Training, and Project Management. Create a sample WBS with at least Level 3 for the "Testing" branch.
+
+3. Explain the difference between **scope validation** and **quality control**. Give an example of how both would be applied to a software deliverable.
+
+4. Create a WBS dictionary entry for a work package of your choice from a network infrastructure project. Include all required fields.
+
+5. A project manager discovers that the team has been implementing features that stakeholders requested verbally but were never in the approved scope statement or WBS. What scope management failures occurred and what corrective actions should be taken?
+
+6. Compare and contrast the **top-down** and **bottom-up** approaches to developing a WBS. When is each most appropriate?

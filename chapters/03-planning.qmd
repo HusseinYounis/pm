@@ -27,7 +27,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## Scope Management Overview
+## Scope Management Overview [📋 Required]{.badge-req}
 
 **Scope management** defines **what work IS and IS NOT included** in the project. Poor scope management is one of the top causes of project failure — either through delivering too much (*gold plating*) or too little (*scope gaps*).
 
@@ -55,7 +55,7 @@ flowchart LR
 
 ---
 
-## Requirements Collection
+## Requirements Collection [📋 Required]{.badge-req}
 
 Before defining scope, the PM must understand what stakeholders **need** (requirements) vs. what they **want** (desires).
 
@@ -142,7 +142,7 @@ Now that we understand each column, here is a complete RTM example:
 
 ---
 
-## The Scope Statement
+## The Scope Statement [📋 Required]{.badge-req}
 
 The **Project Scope Statement** is the definitive document that describes what will be delivered and what will not:
 
@@ -189,7 +189,7 @@ The most common and costly scope error is failing to **explicitly state exclusio
 
 ---
 
-## Work Breakdown Structure (WBS)
+## Work Breakdown Structure (WBS) [📋 Required]{.badge-req}
 
 The **Work Breakdown Structure (WBS)** is the **most critical planning tool** in project management. It is a hierarchical decomposition of the total scope of work into manageable components called **work packages**.
 
@@ -387,7 +387,7 @@ Numbers should:
 
 ---
 
-## The Project Management Plan
+## The Project Management Plan [📋 Required]{.badge-req}
 
 The **Project Management Plan (PMP)** is the master document that describes **how the project will be planned, executed, and controlled**. It integrates all subsidiary plans:
 
@@ -428,7 +428,7 @@ A complete PMP for a large engineering project may contain 200+ pages across all
 
 ---
 
-## Scope Creep — The Silent Project Killer
+## Scope Creep — The Silent Project Killer [📋 Required]{.badge-req}
 
 **Scope creep** is the gradual, uncontrolled expansion of project scope without corresponding changes to budget, schedule, or resources.
 

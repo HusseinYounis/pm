@@ -24,8 +24,10 @@ book:
     - part: "PART II — INITIATION & INTEGRATION"
       chapters:
         - chapters/02-initiation.qmd
+        - chapters/04-integration.qmd
     - part: "PART III — PLANNING"
       chapters:
+        - chapters/05-scope.qmd
         - chapters/03-planning.qmd
         - chapters/04-scheduling.qmd
         - chapters/05-resources.qmd

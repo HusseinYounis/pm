@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EVM Worksheet — Tulkarem to Jenin Road Trip</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11pt; color: #1a1a1a; background: #fff; padding: 0; }
+    .page { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 13mm 15mm 13mm 15mm; }
+    .sheet-header { border-top: 4px solid #1d4ed8; border-bottom: 2px solid #e2e8f0; padding: 9px 0 7px; margin-bottom: 12px; }
+    .sheet-header .course { font-size: 8pt; color: #64748b; letter-spacing:.04em; text-transform:uppercase; }
+    .sheet-header h1 { font-size: 14pt; color: #1d4ed8; font-weight: 800; line-height: 1.2; margin: 3px 0 2px; }
+    .sheet-header .subtitle { font-size: 8.5pt; color: #475569; }
+    .meta-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-top: 7px; }
+    .meta-row .field { border-bottom: 1px solid #94a3b8; padding-bottom: 2px; font-size: 9pt; color: #64748b; }
+    .section-title { background:#1d4ed8; color:#fff; font-size:10pt; font-weight:700; padding:5px 10px; border-radius:4px; margin:12px 0 7px; }
+    .section-title.green  { background:#166534; }
+    .section-title.amber  { background:#92400e; }
+    .section-title.slate  { background:#334155; }
+    .section-title.teal   { background:#0f766e; }
+    .section-title.purple { background:#6d28d9; }
+    .section-title.red    { background:#991b1b; }
+    .step-label { display:inline-block; background:#dbeafe; color:#1d4ed8; font-size:7.5pt; font-weight:700; padding:1px 8px; border-radius:10px; margin-bottom:5px; text-transform:uppercase; letter-spacing:.04em; }
+    .step-label.amber  { background:#fef3c7; color:#92400e; }
+    .step-label.green  { background:#dcfce7; color:#166534; }
+    .step-label.teal   { background:#ccfbf1; color:#0f766e; }
+    .step-label.purple { background:#ede9fe; color:#6d28d9; }
+    .step-label.red    { background:#fee2e2; color:#991b1b; }
+    .scenario-box { background:linear-gradient(135deg,#eff6ff 0%,#f0fdf4 100%); border:1.5px solid #bfdbfe; border-radius:8px; padding:11px 13px; margin-bottom:9px; }
+    .scenario-box h3 { font-size:10pt; color:#1d4ed8; margin-bottom:5px; }
+    .scenario-box p  { font-size:9pt; line-height:1.6; margin-bottom:4px; }
+    .highlight-data { display:flex; gap:14px; flex-wrap:wrap; background:#1d4ed8; color:#fff; border-radius:6px; padding:8px 12px; margin-top:8px; }
+    .highlight-data .datum { text-align:center; }
+    .highlight-data .datum .val { font-size:12pt; font-weight:800; }
+    .highlight-data .datum .lbl { font-size:7pt; opacity:.85; }
+    .questions-list { counter-reset:qcounter; list-style:none; padding:0; }
+    .questions-list li { counter-increment:qcounter; display:flex; gap:8px; align-items:flex-start; margin-bottom:8px; font-size:9pt; line-height:1.5; }
+    .questions-list li::before { content:counter(qcounter); display:flex; align-items:center; justify-content:center; min-width:18px; height:18px; border-radius:50%; background:#1d4ed8; color:#fff; font-size:7.5pt; font-weight:700; margin-top:1px; flex-shrink:0; }
+    .questions-list li.green::before  { background:#166534; }
+    .questions-list li.teal::before   { background:#0f766e; }
+    .questions-list li.purple::before { background:#6d28d9; }
+    .questions-list li .q-body { flex:1; }
+    .ans-line { display:block; border-bottom:1px solid #94a3b8; min-height:17px; margin-top:4px; width:100%; }
+    .calc-block { border:1.5px solid #e2e8f0; border-radius:6px; padding:9px 11px; margin-bottom:7px; }
+    .calc-block h4 { font-size:9.5pt; color:#0f172a; margin-bottom:5px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+    .badge { display:inline-block; font-size:7.5pt; font-weight:700; padding:1px 7px; border-radius:10px; }
+    .badge-blue   { background:#dbeafe; color:#1d4ed8; }
+    .badge-green  { background:#dcfce7; color:#166534; }
+    .badge-amber  { background:#fef3c7; color:#92400e; }
+    .badge-teal   { background:#ccfbf1; color:#0f766e; }
+    .badge-purple { background:#ede9fe; color:#6d28d9; }
+    .badge-red    { background:#fee2e2; color:#991b1b; }
+    .story-reminder { background:#f0fdf4; border-left:3px solid #16a34a; border-radius:0 4px 4px 0; padding:5px 8px; font-size:8pt; margin-bottom:5px; color:#14532d; font-style:italic; }
+    .eq-box { background:#0f172a; color:#e2e8f0; border-radius:6px; padding:8px 14px; font-size:12pt; text-align:center; margin:5px 0 6px; font-family:'Georgia','Times New Roman',serif; letter-spacing:.03em; }
+    .eq-box.eq-sm { font-size:10pt; padding:6px 10px; }
+    .frac { display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; line-height:1.15; margin:0 3px; }
+    .fnum { border-bottom:1.5px solid #94a3b8; padding:0 4px; font-size:.8em; }
+    .fden { padding:0 4px; font-size:.8em; }
+    .concept-def { font-size:8.5pt; color:#334155; background:#f8fafc; border-radius:4px; padding:4px 8px; margin-bottom:5px; border-left:2px solid #cbd5e1; }
+    .ar { color:#6d28d9; font-size:8pt; }
+    .formula-template { background:#f1f5f9; border-radius:4px; padding:5px 9px; font-size:9pt; font-family:'Courier New',monospace; color:#0f172a; margin-bottom:5px; border-left:3px solid #94a3b8; }
+    .blank        { display:inline-block; border-bottom:1.5px solid #1d4ed8; min-width:42px; height:13px; vertical-align:bottom; }
+    .blank-result { display:inline-block; border:1.5px solid #1d4ed8; border-radius:3px; min-width:52px; height:17px; vertical-align:bottom; background:#eff6ff; }
+    .blank-wide   { min-width:68px; }
+    .work-area { min-height:30px; border:1px dashed #cbd5e1; border-radius:4px; margin-top:4px; padding:2px 7px; font-size:7.5pt; color:#94a3b8; }
+    .work-area::before { content:"Working space / مساحة الحل:"; }
+    .two-col   { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:7px; }
+    .obs-table { width:100%; border-collapse:collapse; font-size:8.5pt; margin:5px 0; }
+    .obs-table th { background:#1e3a5f; color:#fff; padding:5px 7px; text-align:left; font-size:8pt; }
+    .obs-table td { border:1px solid #e2e8f0; padding:5px 7px; vertical-align:middle; }
+    .obs-table tr:nth-child(even) td { background:#f8fafc; }
+    .interp-blank { display:block; border-bottom:1px solid #94a3b8; height:13px; margin-top:2px; }
+    .fill-in-blank { display:block; border-bottom:1.5px solid #1d4ed8; height:15px; background:#eff6ff; }
+    .new-scenario-box { background:#fef9c3; border:1.5px solid #eab308; border-radius:8px; padding:10px 12px; margin-bottom:9px; }
+    .new-scenario-box h4 { font-size:10pt; color:#92400e; margin-bottom:5px; }
+    .data-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; margin-top:6px; }
+    .data-item { background:#fff; border:1px solid #fde68a; border-radius:4px; padding:4px 7px; font-size:8.5pt; }
+    .data-item .dlbl { color:#92400e; font-weight:700; font-size:7.5pt; }
+    .data-item .dval { font-size:10pt; font-weight:800; color:#1a1a1a; }
+    .rule-box { background:#f0fdf4; border:1px solid #86efac; border-radius:5px; padding:5px 9px; font-size:8.5pt; margin:5px 0; }
+    .rule-box strong { color:#166534; }
+    .callout-warn { background:#fefce8; border-left:3px solid #eab308; border-radius:0 5px 5px 0; padding:6px 9px; font-size:8.5pt; margin:5px 0; }
+    .reflect-box { border:1.5px solid #e2e8f0; border-radius:6px; padding:7px 9px; margin-bottom:5px; }
+    .reflect-box label { font-size:9pt; font-weight:600; display:block; margin-bottom:3px; }
+    p { line-height:1.55; font-size:9pt; margin-bottom:3px; }
+    .sheet-footer { border-top:1px solid #e2e8f0; margin-top:14px; padding-top:5px; font-size:7.5pt; color:#94a3b8; display:flex; justify-content:space-between; }
+    @media print {
+      body { background:#fff; }
+      .page { width:100%; margin:0; padding:11mm 13mm; }
+      .no-print { display:none; }
+      .page-break { page-break-before:always; }
+      .section-title,.highlight-data,.eq-box,.new-scenario-box,
+      .obs-table th,.story-reminder { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    }
+    .print-bar { background:#1d4ed8; color:#fff; text-align:center; padding:9px; position:sticky; top:0; z-index:999; }
+    .print-bar button { background:#fff; color:#1d4ed8; border:none; border-radius:6px; padding:5px 20px; font-size:10pt; font-weight:700; cursor:pointer; margin-left:10px; }
+  </style>
+</head>
+<body>
+
+<div class="print-bar no-print">
+  <strong>EVM Worksheet — Tulkarem to Jenin Road Trip</strong>
+  <button onclick="window.print()">&#128424; Print / Save as PDF</button>
+</div>
+
+<!-- PAGE 1: SCENARIO + STORY QUESTIONS -->
+<div class="page">
+  <div class="sheet-header">
+    <div class="course">Arab American University &middot; Engineering Department &middot; Project Management</div>
+    <h1>&#128663; EVM Worksheet &mdash; The Tulkarem to Jenin Road Trip</h1>
+    <div class="subtitle">Earned Value Management <span class="ar">(&#1573;&#1583;&#1575;&#1585;&#1577; &#1575;&#1604;&#1602;&#1610;&#1605;&#1577; &#1575;&#1604;&#1605;&#1603;&#1578;&#1587;&#1576;&#1577;)</span> &middot; Chapter 7 &mdash; Cost Management</div>
+    <div class="meta-row">
+      <div class="field">Name / &#1575;&#1604;&#1575;&#1587;&#1605;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+      <div class="field">ID / &#1575;&#1604;&#1585;&#1602;&#1605;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+      <div class="field">Date / &#1575;&#1604;&#1578;&#1575;&#1585;&#1610;&#1582;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+  </div>
+
+  <!-- Part A -->
+  <div class="section-title">&#128214; Part A &mdash; Read the Scenario First <span style="font-size:8.5pt;opacity:.85;">(&#1575;&#1602;&#1585;&#1571; &#1575;&#1604;&#1602;&#1589;&#1577; &#1571;&#1608;&#1604;&#1575;&#1611;)</span></div>
+  <div class="scenario-box">
+    <h3>&#128507; The Story &mdash; A Trip on Road 60</h3>
+    <p>You are driving from <strong>Tulkarem to Jenin</strong> &mdash; two cities in the West Bank, roughly <strong>60 km apart</strong>. Before leaving home, you planned the trip carefully: you estimated that fuel, food, and checkpoint tolls would cost <strong>&#8362;10 per km</strong>, giving a total trip budget of <strong>&#8362;600</strong>. Think of yourself as the <em>project manager of this journey</em> &mdash; you set the plan, track spending, and decide what to do next.</p>
+    <p>By midday, your plan said you should have covered <strong>24 km</strong>. But checkpoints and slow traffic on Road 60 delayed you &mdash; you have only driven <strong>20 km</strong> so far. You pull over at a petrol station, check your wallet, and count everything spent: fuel fills, a snack at a roadside stand, and a small parking fee at a checkpoint &mdash; a total of <strong>&#8362;180 spent so far</strong>.</p>
+    <div class="highlight-data">
+      <div class="datum"><div class="val">60 km</div><div class="lbl">Total Trip Distance</div></div>
+      <div class="datum"><div class="val">&#8362;10/km</div><div class="lbl">Budgeted Rate</div></div>
+      <div class="datum"><div class="val">&#8362;600</div><div class="lbl">Total Budget</div></div>
+      <div class="datum"><div class="val">24 km</div><div class="lbl">Planned to Reach by Now</div></div>
+      <div class="datum"><div class="val">20 km</div><div class="lbl">Actually Driven</div></div>
+      <div class="datum"><div class="val">&#8362;180</div><div class="lbl">Money Spent So Far</div></div>
+    </div>
+  </div>
+
+  <!-- Part B1 -->
+  <div class="section-title green">&#128172; Part B &mdash; Think About the Trip First <span style="font-size:8.5pt;opacity:.85;">(&#1601;&#1603;&#1617;&#1585; &#1576;&#1575;&#1604;&#1602;&#1589;&#1617;&#1577; &#1602;&#1576;&#1604; &#1571;&#1610; &#1605;&#1593;&#1575;&#1583;&#1604;&#1577;)</span></div>
+  <p style="font-size:8.5pt;color:#475569;margin-bottom:6px;">Answer using <strong>common sense only</strong> &mdash; no formulas yet. Just think about the road trip story above.</p>
+
+  <div style="border-left:3px solid #22c55e;padding-left:10px;margin-bottom:8px;">
+    <div style="font-size:8.5pt;font-weight:700;color:#166534;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em;">B1 &mdash; Story Questions <span class="ar">(&#1571;&#1587;&#1574;&#1604;&#1577; &#1575;&#1604;&#1602;&#1589;&#1577;)</span></div>
+    <ol class="questions-list">
+      <li><div class="q-body">Before leaving Tulkarem you made a plan. <strong>How far did you plan to reach by midday?</strong> How much money did you expect that part of the trip to cost?<span class="ans-line"></span><span class="ans-line"></span></div></li>
+      <li><div class="q-body">When you stopped at midday, <strong>how far had you actually driven?</strong> If you value that distance at &#8362;10/km, what is it worth in money terms?<span class="ans-line"></span><span class="ans-line"></span></div></li>
+      <li><div class="q-body">You counted <strong>&#8362;180 spent</strong>. List two or three things from the story you likely spent it on.<span class="ans-line"></span><span class="ans-line"></span></div></li>
+      <li><div class="q-body">Without any calculation: are you <strong>ahead or behind</strong> your travel plan? How do you know just from reading the story?<span class="ans-line"></span><span class="ans-line"></span></div></li>
+      <li><div class="q-body">Without any calculation: are you spending <strong>more or less</strong> than planned for the 20 km you completed? How do you know?<span class="ans-line"></span><span class="ans-line"></span></div></li>
+    </ol>
+  </div>
+
+  <!-- Bridge insight box -->
+  <div style="background:#1d4ed8;color:#fff;border-radius:8px;padding:10px 13px;margin:7px 0 9px;">
+    <div style="font-weight:800;font-size:10pt;margin-bottom:6px;">&#128161; Key Insight &mdash; You Already Know EVM! <span style="font-size:8pt;opacity:.8;">(&#1571;&#1606;&#1578; &#1578;&#1593;&#1585;&#1601; &#1575;&#1604;&#1605;&#1601;&#1607;&#1608;&#1605; &#1576;&#1575;&#1604;&#1601;&#1593;&#1604;!)</span></div>
+    <p style="font-size:8.5pt;line-height:1.65;margin-bottom:5px;">Your common-sense answers above are <em>exactly</em> what EVM measures &mdash; just with precise names and formulas. Here is the translation:</p>
+    <table style="width:100%;border-collapse:collapse;font-size:8pt;">
+      <thead><tr style="background:rgba(255,255,255,.18);">
+        <th style="padding:4px 8px;text-align:left;">What you said in B1</th>
+        <th style="padding:4px 8px;text-align:left;">EVM Term</th>
+        <th style="padding:4px 8px;text-align:left;">&#1575;&#1604;&#1605;&#1589;&#1591;&#1604;&#1581; &#1576;&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;</th>
+        <th style="padding:4px 6px;text-align:center;">Symbol</th>
+        <th style="padding:4px 8px;">Value here</th>
+      </tr></thead>
+      <tbody>
+        <tr style="background:rgba(255,255,255,.07);"><td style="padding:4px 8px;">Total money budgeted for the whole trip</td><td style="padding:4px 8px;font-weight:700;">Budget at Completion</td><td style="padding:4px 8px;">&#1575;&#1604;&#1605;&#1610;&#1586;&#1575;&#1606;&#1610;&#1577; &#1593;&#1606;&#1583; &#1575;&#1604;&#1573;&#1578;&#1605;&#1575;&#1605;</td><td style="padding:4px 6px;text-align:center;font-weight:800;font-size:10pt;">BAC</td><td style="padding:4px 8px;">&#8362;600</td></tr>
+        <tr><td style="padding:4px 8px;">Budget value of the work you <em>planned</em> to finish by now</td><td style="padding:4px 8px;font-weight:700;">Planned Value</td><td style="padding:4px 8px;">&#1575;&#1604;&#1602;&#1610;&#1605;&#1577; &#1575;&#1604;&#1605;&#1582;&#1591;&#1591;&#1577;</td><td style="padding:4px 6px;text-align:center;font-weight:800;font-size:10pt;">PV</td><td style="padding:4px 8px;">&#8362;240 (24&#215;10)</td></tr>
+        <tr style="background:rgba(255,255,255,.07);"><td style="padding:4px 8px;">Budget value of the work you <em>actually</em> completed</td><td style="padding:4px 8px;font-weight:700;">Earned Value</td><td style="padding:4px 8px;">&#1575;&#1604;&#1602;&#1610;&#1605;&#1577; &#1575;&#1604;&#1605;&#1603;&#1578;&#1587;&#1576;&#1577;</td><td style="padding:4px 6px;text-align:center;font-weight:800;font-size:10pt;">EV</td><td style="padding:4px 8px;">&#8362;200 (20&#215;10)</td></tr>
+        <tr><td style="padding:4px 8px;">Money you <em>actually spent</em> (fuel, food, parking)</td><td style="padding:4px 8px;font-weight:700;">Actual Cost</td><td style="padding:4px 8px;">&#1575;&#1604;&#1578;&#1603;&#1604;&#1601;&#1577; &#1575;&#1604;&#1601;&#1593;&#1604;&#1610;&#1577;</td><td style="padding:4px 6px;text-align:center;font-weight:800;font-size:10pt;">AC</td><td style="padding:4px 8px;">&#8362;180 (given)</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:8pt;margin-top:6px;opacity:.9;"><strong>EVM does not invent new ideas.</strong> It gives standard names and formulas to things every project manager already thinks about &mdash; so any project team can report status consistently.</p>
+  </div>
+
+  <!-- B2 concept questions -->
+  <div style="border-left:3px solid #3b82f6;padding-left:10px;margin-bottom:7px;">
+    <div style="font-size:8.5pt;font-weight:700;color:#1d4ed8;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em;">B2 &mdash; Connect the Story to the Concept <span class="ar">(&#1585;&#1576;&#1591; &#1575;&#1604;&#1602;&#1589;&#1577; &#1576;&#1575;&#1604;&#1605;&#1601;&#1607;&#1608;&#1605;)</span></div>
+    <ol class="questions-list" start="6">
+      <li><div class="q-body">Now that you know PV, EV, AC: why is knowing <strong>only AC = &#8362;180</strong> not enough to judge if the trip is going well? What must you compare it to?<span class="ans-line"></span><span class="ans-line"></span></div></li>
+      <li><div class="q-body">You spent <strong>less</strong> than expected, but you are <strong>behind schedule</strong>. How are both true at the same time? What does this tell a project manager about relying on a single number?<span class="ans-line"></span><span class="ans-line"></span><span class="ans-line"></span></div></li>
+      <li><div class="q-body">A <strong>variance (&#1575;&#1606;&#1581;&#1585;&#1575;&#1601;)</strong> gives the gap in money terms. An <strong>index (&#1605;&#1572;&#1588;&#1585;)</strong> gives a ratio. Give one situation where the index is more useful than the variance alone.<span class="ans-line"></span><span class="ans-line"></span></div></li>
+    </ol>
+  </div>
+
+  <div class="sheet-footer">
+    <span>Arab American University &middot; Project Management Worksheet</span>
+    <span>Chapter 7 &middot; EVM Road Trip &middot; Page 1 of 5</span>
+  </div>
+</div>
+
+<!-- PAGE 2: STEP 1 (PV, EV, AC, BAC) + STEP 2 (SV, CV) + STEP 3 (SPI, CPI) -->
+<div class="page page-break">
+  <div class="section-title amber">&#128290; Part C &mdash; Step-by-Step Calculations <span style="font-size:8.5pt;opacity:.85;">(&#1575;&#1604;&#1581;&#1587;&#1575;&#1576;&#1575;&#1578; &#1582;&#1591;&#1608;&#1577; &#1576;&#1582;&#1591;&#1608;&#1577;)</span></div>
+  <p style="font-size:8.5pt;color:#475569;margin-bottom:7px;">For every metric: read the <span style="color:#166534;font-weight:700;">story reminder</span> first &#8594; understand the concept &#8594; study the equation &#8594; fill in the blanks and show your working.</p>
+
+  <!-- Step 1 -->
+  <div class="step-label">Step 1 of 5 &mdash; The Four Core Values <span class="ar">(&#1575;&#1604;&#1602;&#1610;&#1605; &#1575;&#1604;&#1571;&#1587;&#1575;&#1587;&#1610;&#1577; &#1575;&#1604;&#1571;&#1585;&#1576;&#1593;)</span></div>
+
+  <div style="background:#fef9c3;border:1px solid #fde68a;border-radius:6px;padding:6px 11px;margin:5px 0 8px;font-size:8.5pt;">
+    <strong>Given directly from the story <span class="ar">(&#1605;&#1593;&#1591;&#1610;&#1575;&#1578; &#1605;&#1606; &#1575;&#1604;&#1602;&#1589;&#1577; &#1605;&#1576;&#1575;&#1588;&#1585;&#1577;)</span>:</strong><br>
+    <strong>BAC</strong> <span class="ar">(&#1575;&#1604;&#1605;&#1610;&#1586;&#1575;&#1606;&#1610;&#1577; &#1593;&#1606;&#1583; &#1575;&#1604;&#1573;&#1578;&#1605;&#1575;&#1605;)</span> = 60 km &times; &#8362;10 = <strong>&#8362;600</strong> &nbsp;&middot;&nbsp;
+    <strong>AC</strong> <span class="ar">(&#1575;&#1604;&#1578;&#1603;&#1604;&#1601;&#1577; &#1575;&#1604;&#1601;&#1593;&#1604;&#1610;&#1577;)</span> = <strong>&#8362;180</strong> &nbsp;&middot;&nbsp; You do <em>not</em> calculate these &mdash; they are read from the scenario.
+  </div>
+
+  <div class="two-col">
+    <div class="calc-block">
+      <h4><span class="badge badge-blue">PV</span> Planned Value &nbsp;<span class="ar">(&#1575;&#1604;&#1602;&#1610;&#1605;&#1577; &#1575;&#1604;&#1605;&#1582;&#1591;&#1591;&#1577;)</span></h4>
+      <div class="story-reminder">&#128663; In the story: Your plan said reach 24 km by midday. How much should that 24 km have cost according to your budget?</div>
+      <div class="concept-def"><strong>PV</strong> = the budgeted cost of the work you <em>planned</em> to finish by this point in time. It answers: &ldquo;How much did the plan say we should have spent on the planned work?&rdquo;</div>
+      <div class="eq-box eq-sm">PV = Planned km &times; Budget Rate</div>
+      <div class="formula-template">PV = <span class="blank"></span> km &times; &#8362;<span class="blank"></span>/km = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-teal">EV</span> Earned Value &nbsp;<span class="ar">(&#1575;&#1604;&#1602;&#1610;&#1605;&#1577; &#1575;&#1604;&#1605;&#1603;&#1578;&#1587;&#1576;&#1577;)</span></h4>
+      <div class="story-reminder">&#128663; In the story: You actually drove only 20 km &mdash; not 24. EV values that actual progress in budget terms: what should those 20 km have cost?</div>
+      <div class="concept-def"><strong>EV</strong> = the budgeted cost of work <em>actually completed</em>. It answers: &ldquo;How much should the work we actually finished have cost us (at the planned rate)?&rdquo;</div>
+      <div class="eq-box eq-sm">EV = Actual km Done &times; Budget Rate</div>
+      <div class="formula-template">EV = <span class="blank"></span> km &times; &#8362;<span class="blank"></span>/km = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+    </div>
+  </div>
+
+  <div class="rule-box" style="margin-bottom:8px;">
+    <strong>Quick check &mdash; write all four core values:</strong> &nbsp;
+    BAC = &#8362;<span class="blank" style="min-width:36px;"></span> &nbsp;|&nbsp;
+    PV = &#8362;<span class="blank" style="min-width:36px;"></span> &nbsp;|&nbsp;
+    EV = &#8362;<span class="blank" style="min-width:36px;"></span> &nbsp;|&nbsp;
+    AC = &#8362;<span class="blank" style="min-width:36px;"></span><br>
+    <span style="font-size:7.5pt;color:#475569;">These four values are the foundation of every EVM formula. Verify them before continuing.</span>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="step-label amber">Step 2 of 5 &mdash; Variances: On Time? On Budget? <span class="ar">(&#1575;&#1604;&#1575;&#1606;&#1581;&#1585;&#1575;&#1601;&#1575;&#1578;)</span></div>
+  <p style="font-size:8.5pt;color:#475569;margin-bottom:6px;">Variances measure the <em>gap in money terms</em>. <strong>Negative = bad (behind / over)</strong> &middot; <strong>Positive = good (ahead / under)</strong>.</p>
+
+  <div class="two-col">
+    <div class="calc-block">
+      <h4><span class="badge badge-amber">SV</span> Schedule Variance &nbsp;<span class="ar">(&#1575;&#1606;&#1581;&#1585;&#1575;&#1601; &#1575;&#1604;&#1580;&#1583;&#1608;&#1604; &#1575;&#1604;&#1586;&#1605;&#1606;&#1610;)</span></h4>
+      <div class="story-reminder">&#128663; In the story: You planned &#8362;240 worth of progress (24 km) but only achieved &#8362;200 (20 km). The gap of &#8362;40 is the schedule variance &mdash; you are &#8362;40 behind your planned progress.</div>
+      <div class="concept-def"><strong>SV</strong> = how far ahead or behind schedule you are, expressed as money. Negative SV &#8594; behind schedule. Positive SV &#8594; ahead of schedule.</div>
+      <div class="eq-box eq-sm">SV = EV &minus; PV</div>
+      <div class="formula-template">SV = EV &minus; PV = &#8362;<span class="blank"></span> &minus; &#8362;<span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:8pt;margin-top:4px;">Result is <strong>negative / positive</strong> (circle) &#8594; I am <strong>behind / ahead</strong> of schedule (circle). In trip terms: I am <span class="blank" style="min-width:22px;"></span> km behind plan.</p>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-green">CV</span> Cost Variance &nbsp;<span class="ar">(&#1575;&#1606;&#1581;&#1585;&#1575;&#1601; &#1575;&#1604;&#1578;&#1603;&#1604;&#1601;&#1577;)</span></h4>
+      <div class="story-reminder">&#128663; In the story: For the 20 km driven, the budget says you should have spent &#8362;200. But you only spent &#8362;180. The &#8362;20 difference is the cost variance &mdash; you spent less than planned for what you completed.</div>
+      <div class="concept-def"><strong>CV</strong> = how much over or under budget you are for the completed work. Negative CV &#8594; over budget. Positive CV &#8594; under budget.</div>
+      <div class="eq-box eq-sm">CV = EV &minus; AC</div>
+      <div class="formula-template">CV = EV &minus; AC = &#8362;<span class="blank"></span> &minus; &#8362;<span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:8pt;margin-top:4px;">Result is <strong>negative / positive</strong> (circle) &#8594; I am <strong>over / under</strong> budget (circle). I saved &#8362;<span class="blank" style="min-width:22px;"></span> on the 20 km driven.</p>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="step-label teal">Step 3 of 5 &mdash; Performance Indices: How Efficient? <span class="ar">(&#1605;&#1572;&#1588;&#1585;&#1575;&#1578; &#1575;&#1604;&#1571;&#1583;&#1575;&#1569;)</span></div>
+  <p style="font-size:8.5pt;color:#475569;margin-bottom:6px;">Indices express efficiency as a ratio &mdash; no money units. They allow comparing projects of any size. <strong>= 1.0</strong> on plan &middot; <strong>&gt; 1.0</strong> better than planned &middot; <strong>&lt; 1.0</strong> worse than planned.</p>
+
+  <div class="two-col">
+    <div class="calc-block">
+      <h4><span class="badge badge-amber">SPI</span> Schedule Performance Index &nbsp;<span class="ar">(&#1605;&#1572;&#1588;&#1585; &#1571;&#1583;&#1575;&#1569; &#1575;&#1604;&#1580;&#1583;&#1608;&#1604; &#1575;&#1604;&#1586;&#1605;&#1606;&#1610;)</span></h4>
+      <div class="story-reminder">&#128663; In the story: For every 1 km you planned to drive, you actually covered only 0.83 km. SPI tells you this ratio &mdash; you are working at 83% of your planned pace.</div>
+      <div class="concept-def"><strong>SPI</strong> = work completed per unit of work planned. SPI = 0.83 means you are achieving 83% of the planned schedule pace.</div>
+      <div class="eq-box eq-sm">SPI = <span class="frac"><span class="fnum">EV</span><span class="fden">PV</span></span></div>
+      <div class="formula-template">SPI = EV &divide; PV = &#8362;<span class="blank"></span> &divide; &#8362;<span class="blank"></span> = <span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:8pt;margin-top:4px;">SPI is <strong>&gt;1 / &lt;1 / =1</strong> (circle) &#8594; schedule is <strong>ahead / behind / on track</strong> (circle). I am running at <span class="blank" style="min-width:28px;"></span>% of the planned pace.</p>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-green">CPI</span> Cost Performance Index &nbsp;<span class="ar">(&#1605;&#1572;&#1588;&#1585; &#1571;&#1583;&#1575;&#1569; &#1575;&#1604;&#1578;&#1603;&#1604;&#1601;&#1577;)</span></h4>
+      <div class="story-reminder">&#128663; In the story: For every &#8362;1 you spent, you earned &#8362;1.11 worth of distance value. CPI &gt; 1 means you are stretching your budget &mdash; spending efficiently.</div>
+      <div class="concept-def"><strong>CPI</strong> = value earned per unit of money spent. CPI = 1.11 means for every &#8362;1 spent you earn &#8362;1.11 of work value.</div>
+      <div class="eq-box eq-sm">CPI = <span class="frac"><span class="fnum">EV</span><span class="fden">AC</span></span></div>
+      <div class="formula-template">CPI = EV &divide; AC = &#8362;<span class="blank"></span> &divide; &#8362;<span class="blank"></span> = <span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:8pt;margin-top:4px;">CPI is <strong>&gt;1 / &lt;1 / =1</strong> (circle) &#8594; spending is <strong>efficient / over budget / on budget</strong> (circle). For every &#8362;1 spent I earn &#8362;<span class="blank" style="min-width:28px;"></span> of value.</p>
+    </div>
+  </div>
+
+  <div class="sheet-footer">
+    <span>Arab American University &middot; Project Management Worksheet</span>
+    <span>Chapter 7 &middot; EVM Road Trip &middot; Page 2 of 5</span>
+  </div>
+</div>
+
+<!-- PAGE 3: STEP 4 (EAC FORECASTS) + STEP 5 (ETC, VAC) -->
+<div class="page page-break">
+
+  <div class="step-label purple">Step 4 of 5 &mdash; Forecasting the Total Cost <span class="ar">(&#1575;&#1604;&#1578;&#1606;&#1576;&#1572; &#1576;&#1575;&#1604;&#1578;&#1603;&#1604;&#1601;&#1577; &#1575;&#1604;&#1573;&#1580;&#1605;&#1575;&#1604;&#1610;&#1577; &#1593;&#1606;&#1583; &#1575;&#1604;&#1573;&#1578;&#1605;&#1575;&#1605;)</span></div>
+
+  <!-- EAC scenario preamble -->
+  <div class="scenario-box" style="margin-bottom:7px;">
+    <h3>&#128302; Before You Forecast &mdash; Read This Story Moment</h3>
+    <p>You are now at km 20. You have spent &#8362;180. You have <strong>40 km left</strong> to reach Jenin. Your manager calls: <em>&ldquo;How much will this whole trip end up costing?&rdquo;</em></p>
+    <p>You cannot know for certain &mdash; but EVM offers <strong>four forecasting methods (&#1591;&#1585;&#1602; &#1575;&#1604;&#1578;&#1606;&#1576;&#1572;)</strong>, each based on a different assumption about what happens next on the road. The term is <strong>Estimate at Completion</strong> <span class="ar">(&#1575;&#1604;&#1578;&#1602;&#1583;&#1610;&#1585; &#1593;&#1606;&#1583; &#1575;&#1604;&#1573;&#1578;&#1605;&#1575;&#1605;)</span> = <strong>EAC</strong>.</p>
+    <p style="font-size:8.5pt;color:#1e3a5f;margin-top:5px;"><strong>Transfer your values from Steps 1&ndash;3:</strong> &nbsp; BAC = &#8362;600 &nbsp;&middot;&nbsp; EV = &#8362;<span class="blank" style="min-width:32px;border-color:#1d4ed8;"></span> &nbsp;&middot;&nbsp; AC = &#8362;180 &nbsp;&middot;&nbsp; CPI = <span class="blank" style="min-width:40px;border-color:#1d4ed8;"></span> &nbsp;&middot;&nbsp; SPI = <span class="blank" style="min-width:40px;border-color:#1d4ed8;"></span></p>
+  </div>
+
+  <div class="two-col">
+    <div class="calc-block">
+      <h4><span class="badge badge-purple">EAC&#x2081;</span> Same efficiency continues &nbsp;<span class="ar">(&#1606;&#1601;&#1587; &#1575;&#1604;&#1603;&#1601;&#1575;&#1569;&#1577; &#1581;&#1578;&#1609; &#1575;&#1604;&#1606;&#1607;&#1575;&#1610;&#1577;)</span></h4>
+      <div class="story-reminder">&#128663; &ldquo;I have been driving efficiently &mdash; good fuel habits, smart stops. I will keep doing exactly the same for the remaining 40 km to Jenin.&rdquo;</div>
+      <div class="concept-def"><strong>Assumption:</strong> Your cost efficiency (CPI) so far will continue unchanged for the rest of the work. <strong>Most commonly used in practice.</strong></div>
+      <div class="eq-box eq-sm">EAC&#x2081; = <span class="frac"><span class="fnum">BAC</span><span class="fden">CPI</span></span></div>
+      <div class="formula-template">EAC&#x2081; = BAC &divide; CPI = &#8362;<span class="blank"></span> &divide; <span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:8pt;margin-top:3px;">Trip will finish &#8362;<span class="blank" style="min-width:24px;"></span> <strong>under / over</strong> the &#8362;600 budget (circle).</p>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-blue">EAC&#x2082;</span> Rest at original budget rate &nbsp;<span class="ar">(&#1575;&#1604;&#1576;&#1575;&#1602;&#1610; &#1576;&#1575;&#1604;&#1587;&#1593;&#1585; &#1575;&#1604;&#1571;&#1589;&#1604;&#1610;)</span></h4>
+      <div class="story-reminder">&#128663; &ldquo;I was frugal at the start, but that luck will not hold. From this petrol station onward, I will spend at exactly the planned &#8362;10/km &mdash; no more savings.&rdquo;</div>
+      <div class="concept-def"><strong>Assumption:</strong> Past savings were a one-time event. Remaining work will be done at the original budget rate &mdash; no better, no worse.</div>
+      <div class="eq-box eq-sm">EAC&#x2082; = AC + (BAC &minus; EV)</div>
+      <div class="formula-template">EAC&#x2082; = AC + (BAC &minus; EV)<br>= &#8362;<span class="blank"></span> + (&#8362;<span class="blank"></span> &minus; &#8362;<span class="blank"></span>) = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:8pt;margin-top:3px;">Trip will finish &#8362;<span class="blank" style="min-width:24px;"></span> <strong>under / over</strong> budget (circle).</p>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-amber">EAC&#x2083;</span> Both delays continue &nbsp;<span class="ar">(&#1578;&#1571;&#1582;&#1585; &#1608;&#1578;&#1580;&#1575;&#1608;&#1586; &#1578;&#1603;&#1604;&#1601;&#1577; &#1605;&#1593;&#1575;&#1611;)</span></h4>
+      <div class="story-reminder">&#128663; &ldquo;Checkpoints will stay bad all the way. Being slow means the engine idles, more fuel burns, more snacks. Both my SPI and CPI stay exactly as they are.&rdquo;</div>
+      <div class="concept-def"><strong>Assumption:</strong> Both schedule delay (SPI) and cost efficiency (CPI) continue unchanged. The delay adds extra cost through the end.</div>
+      <div class="eq-box eq-sm" style="font-size:9.5pt;">EAC&#x2083; = AC + <span class="frac"><span class="fnum">BAC &minus; EV</span><span class="fden">CPI &times; SPI</span></span></div>
+      <div class="formula-template">= &#8362;<span class="blank"></span> + &#8362;<span class="blank"></span> &divide; (<span class="blank"></span> &times; <span class="blank"></span>)<br>= &#8362;<span class="blank"></span> + &#8362;<span class="blank"></span> &divide; <span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:8pt;margin-top:3px;">Trip will finish &#8362;<span class="blank" style="min-width:24px;"></span> <strong>under / over</strong> budget (circle).</p>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-red">EAC&#x2084;</span> Fresh re-estimate &nbsp;<span class="ar">(&#1578;&#1602;&#1583;&#1610;&#1585; &#1580;&#1583;&#1610;&#1583; &#1605;&#1606; &#1575;&#1604;&#1570;&#1606;)</span></h4>
+      <div class="story-reminder">&#128663; &ldquo;I am stopping at the Sebastia ruins &mdash; a complete detour. Forget past performance. I re-estimate the rest of the journey from scratch: &#8362;450 more to reach Jenin.&rdquo;</div>
+      <div class="concept-def"><strong>Assumption:</strong> The project has changed (new route, new scope). You estimate the remaining work from scratch using a new ETC.</div>
+      <div class="eq-box eq-sm">EAC&#x2084; = AC + ETC<sub>new</sub></div>
+      <div class="formula-template">EAC&#x2084; = AC + New ETC = &#8362;<span class="blank"></span> + &#8362;<span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:8pt;margin-top:3px;">Trip will finish &#8362;<span class="blank" style="min-width:24px;"></span> <strong>under / over</strong> budget (circle).</p>
+    </div>
+  </div>
+
+  <!-- EAC comparison table -->
+  <table style="width:100%;border-collapse:collapse;font-size:8.5pt;margin:5px 0 8px;">
+    <thead><tr style="background:#334155;color:#fff;">
+      <th style="padding:4px 8px;">Formula</th>
+      <th style="padding:4px 8px;">Assumption <span style="font-size:7pt;opacity:.8;">/ &#1575;&#1604;&#1575;&#1601;&#1578;&#1585;&#1575;&#1590;</span></th>
+      <th style="padding:4px 8px;text-align:center;">Your EAC</th>
+      <th style="padding:4px 8px;text-align:center;">vs. BAC (&#8362;600)</th>
+    </tr></thead>
+    <tbody>
+      <tr><td style="padding:4px 8px;border:1px solid #e2e8f0;"><strong>EAC&#x2081;</strong> = BAC &divide; CPI</td><td style="padding:4px 8px;border:1px solid #e2e8f0;">Same cost efficiency</td><td style="padding:4px 8px;border:1px solid #e2e8f0;background:#eff6ff;"><span class="fill-in-blank"></span></td><td style="padding:4px 8px;border:1px solid #e2e8f0;background:#eff6ff;"><span class="fill-in-blank"></span></td></tr>
+      <tr style="background:#f8fafc;"><td style="padding:4px 8px;border:1px solid #e2e8f0;"><strong>EAC&#x2082;</strong> = AC + (BAC&minus;EV)</td><td style="padding:4px 8px;border:1px solid #e2e8f0;">Rest at original rate</td><td style="padding:4px 8px;border:1px solid #e2e8f0;background:#eff6ff;"><span class="fill-in-blank"></span></td><td style="padding:4px 8px;border:1px solid #e2e8f0;background:#eff6ff;"><span class="fill-in-blank"></span></td></tr>
+      <tr><td style="padding:4px 8px;border:1px solid #e2e8f0;"><strong>EAC&#x2083;</strong> = AC+(BAC&minus;EV)&divide;(CPI&times;SPI)</td><td style="padding:4px 8px;border:1px solid #e2e8f0;">Both delays continue</td><td style="padding:4px 8px;border:1px solid #e2e8f0;background:#eff6ff;"><span class="fill-in-blank"></span></td><td style="padding:4px 8px;border:1px solid #e2e8f0;background:#eff6ff;"><span class="fill-in-blank"></span></td></tr>
+      <tr style="background:#f8fafc;"><td style="padding:4px 8px;border:1px solid #e2e8f0;"><strong>EAC&#x2084;</strong> = AC + New ETC</td><td style="padding:4px 8px;border:1px solid #e2e8f0;">Complete re-plan</td><td style="padding:4px 8px;border:1px solid #e2e8f0;background:#eff6ff;"><span class="fill-in-blank"></span></td><td style="padding:4px 8px;border:1px solid #e2e8f0;background:#eff6ff;"><span class="fill-in-blank"></span></td></tr>
+    </tbody>
+  </table>
+
+  <!-- Step 5 -->
+  <div class="step-label red">Step 5 of 5 &mdash; What Is Left and What Is the Final Verdict? <span class="ar">(&#1605;&#1575;&#1584;&#1575; &#1578;&#1576;&#1602;&#1609;&#1567; &#1608;&#1605;&#1575; &#1575;&#1604;&#1606;&#1578;&#1610;&#1580;&#1577; &#1575;&#1604;&#1606;&#1607;&#1575;&#1574;&#1610;&#1577;&#1567;)</span></div>
+  <p style="font-size:8.5pt;color:#475569;margin-bottom:5px;">Use <strong>EAC&#x2081;</strong> for both (assuming current efficiency continues &mdash; the most common choice in practice).</p>
+
+  <div class="two-col">
+    <div class="calc-block">
+      <h4><span class="badge badge-blue">ETC</span> Estimate to Complete &nbsp;<span class="ar">(&#1575;&#1604;&#1578;&#1602;&#1583;&#1610;&#1585; &#1604;&#1604;&#1573;&#1606;&#1580;&#1575;&#1586; &#1575;&#1604;&#1605;&#1578;&#1576;&#1602;&#1610;)</span></h4>
+      <div class="story-reminder">&#128663; You already spent &#8362;180 and forecast EAC&#x2081; total. The question: how much money do you still need from here to reach Jenin?</div>
+      <div class="concept-def"><strong>ETC</strong> = money still needed to finish the remaining work. Tells the manager: &ldquo;How much budget do I still need?&rdquo;</div>
+      <div class="eq-box eq-sm">ETC = EAC&#x2081; &minus; AC</div>
+      <div class="formula-template">ETC = EAC&#x2081; &minus; AC = &#8362;<span class="blank"></span> &minus; &#8362;<span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:8pt;margin-top:3px;">I still need &#8362;<span class="blank" style="min-width:32px;"></span> to finish the remaining 40 km.</p>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-green">VAC</span> Variance at Completion &nbsp;<span class="ar">(&#1575;&#1604;&#1575;&#1606;&#1581;&#1585;&#1575;&#1601; &#1593;&#1606;&#1583; &#1575;&#1604;&#1573;&#1578;&#1605;&#1575;&#1605;)</span></h4>
+      <div class="story-reminder">&#128663; Your original budget was &#8362;600. Forecast says EAC&#x2081;. Will you arrive in Jenin with money left over &mdash; or having gone over budget?</div>
+      <div class="concept-def"><strong>VAC</strong> = predicted final saving or overrun vs. original budget. <strong>Positive &#8594; under budget. Negative &#8594; over budget.</strong></div>
+      <div class="eq-box eq-sm">VAC = BAC &minus; EAC&#x2081;</div>
+      <div class="formula-template">VAC = BAC &minus; EAC&#x2081; = &#8362;<span class="blank"></span> &minus; &#8362;<span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:8pt;margin-top:3px;">I will arrive &#8362;<span class="blank" style="min-width:28px;"></span> <strong>under / over</strong> the original budget (circle).</p>
+    </div>
+  </div>
+
+  <div class="sheet-footer">
+    <span>Arab American University &middot; Project Management Worksheet</span>
+    <span>Chapter 7 &middot; EVM Road Trip &middot; Page 3 of 5</span>
+  </div>
+</div>
+
+<!-- PAGE 4: PART D (OBSERVE) + PART E (REFLECT) -->
+<div class="page page-break">
+
+  <div class="section-title teal">&#128269; Part D &mdash; Observe and Interpret Your Results <span style="font-size:8.5pt;opacity:.85;">(&#1604;&#1575;&#1581;&#1592; &#1608;&#1601;&#1587;&#1616;&#1585; &#1606;&#1578;&#1575;&#1574;&#1580;&#1603;)</span></div>
+  <p style="font-size:8.5pt;margin-bottom:6px;">Transfer your answers from Part C into the table. Then write your own interpretation &mdash; relate each result back to the road trip story.</p>
+
+  <table class="obs-table">
+    <thead><tr>
+      <th style="width:12%;">Metric<br><span style="font-size:7pt;opacity:.8;">&#1575;&#1604;&#1605;&#1602;&#1610;&#1575;&#1587;</span></th>
+      <th style="width:20%;">Equation / &#1575;&#1604;&#1605;&#1593;&#1575;&#1583;&#1604;&#1577;</th>
+      <th style="width:11%;text-align:center;">Your Answer<br><span style="font-size:7pt;opacity:.8;">&#1573;&#1580;&#1575;&#1576;&#1578;&#1603;</span></th>
+      <th style="width:9%;text-align:center;">+ / &minus;</th>
+      <th style="width:9%;text-align:center;">&gt;1 / &lt;1</th>
+      <th>What does this mean in the story? <span style="font-size:7pt;opacity:.8;">(&#1601;&#1587;&#1617;&#1585; &#1576;&#1603;&#1604;&#1605;&#1575;&#1578;&#1603;)</span></th>
+    </tr></thead>
+    <tbody>
+      <tr><td><strong>BAC</strong><br><span class="ar" style="font-size:7pt;">&#1575;&#1604;&#1605;&#1610;&#1586;&#1575;&#1606;&#1610;&#1577; &#1575;&#1604;&#1603;&#1604;&#1610;&#1577;</span></td><td>60 km &times; &#8362;10</td><td style="background:#eff6ff;text-align:center;"><span class="fill-in-blank"></span></td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td>Total money budgeted for the whole trip<span class="interp-blank"></span></td></tr>
+      <tr><td><strong>PV</strong><br><span class="ar" style="font-size:7pt;">&#1575;&#1604;&#1602;&#1610;&#1605;&#1577; &#1575;&#1604;&#1605;&#1582;&#1591;&#1591;&#1577;</span></td><td>Planned km &times; Rate</td><td style="background:#eff6ff;text-align:center;"><span class="fill-in-blank"></span></td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td><span class="interp-blank"></span><span class="interp-blank"></span></td></tr>
+      <tr><td><strong>EV</strong><br><span class="ar" style="font-size:7pt;">&#1575;&#1604;&#1602;&#1610;&#1605;&#1577; &#1575;&#1604;&#1605;&#1603;&#1578;&#1587;&#1576;&#1577;</span></td><td>Actual km &times; Rate</td><td style="background:#eff6ff;text-align:center;"><span class="fill-in-blank"></span></td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td><span class="interp-blank"></span><span class="interp-blank"></span></td></tr>
+      <tr><td><strong>AC</strong><br><span class="ar" style="font-size:7pt;">&#1575;&#1604;&#1578;&#1603;&#1604;&#1601;&#1577; &#1575;&#1604;&#1601;&#1593;&#1604;&#1610;&#1577;</span></td><td>Money actually spent</td><td style="background:#eff6ff;text-align:center;"><span class="fill-in-blank"></span></td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td>Given: fuel + food + parking<span class="interp-blank"></span></td></tr>
+      <tr><td><strong>SV</strong><br><span class="ar" style="font-size:7pt;">&#1575;&#1606;&#1581;&#1585;&#1575;&#1601; &#1575;&#1604;&#1580;&#1583;&#1608;&#1604;</span></td><td>EV &minus; PV</td><td style="background:#eff6ff;text-align:center;"><span class="fill-in-blank"></span></td><td style="text-align:center;"><span class="fill-in-blank" style="width:34px;margin:0 auto;border-bottom:1.5px solid #92400e;"></span></td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td><span class="interp-blank"></span><span class="interp-blank"></span></td></tr>
+      <tr><td><strong>CV</strong><br><span class="ar" style="font-size:7pt;">&#1575;&#1606;&#1581;&#1585;&#1575;&#1601; &#1575;&#1604;&#1578;&#1603;&#1604;&#1601;&#1577;</span></td><td>EV &minus; AC</td><td style="background:#eff6ff;text-align:center;"><span class="fill-in-blank"></span></td><td style="text-align:center;"><span class="fill-in-blank" style="width:34px;margin:0 auto;border-bottom:1.5px solid #166534;"></span></td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td><span class="interp-blank"></span><span class="interp-blank"></span></td></tr>
+      <tr><td><strong>SPI</strong><br><span class="ar" style="font-size:7pt;">&#1605;&#1572;&#1588;&#1585; &#1575;&#1604;&#1580;&#1583;&#1608;&#1604;</span></td><td>EV &divide; PV</td><td style="background:#eff6ff;text-align:center;"><span class="fill-in-blank"></span></td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td style="text-align:center;"><span class="fill-in-blank" style="width:34px;margin:0 auto;border-bottom:1.5px solid #92400e;"></span></td><td><span class="interp-blank"></span><span class="interp-blank"></span></td></tr>
+      <tr><td><strong>CPI</strong><br><span class="ar" style="font-size:7pt;">&#1605;&#1572;&#1588;&#1585; &#1575;&#1604;&#1578;&#1603;&#1604;&#1601;&#1577;</span></td><td>EV &divide; AC</td><td style="background:#eff6ff;text-align:center;"><span class="fill-in-blank"></span></td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td style="text-align:center;"><span class="fill-in-blank" style="width:34px;margin:0 auto;border-bottom:1.5px solid #166534;"></span></td><td><span class="interp-blank"></span><span class="interp-blank"></span></td></tr>
+      <tr><td><strong>EAC&#x2081;</strong><br><span class="ar" style="font-size:7pt;">&#1575;&#1604;&#1578;&#1602;&#1583;&#1610;&#1585; &#1593;&#1606;&#1583; &#1575;&#1604;&#1573;&#1578;&#1605;&#1575;&#1605;</span></td><td>BAC &divide; CPI</td><td style="background:#eff6ff;text-align:center;"><span class="fill-in-blank"></span></td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td><span class="interp-blank"></span><span class="interp-blank"></span></td></tr>
+      <tr><td><strong>ETC</strong><br><span class="ar" style="font-size:7pt;">&#1575;&#1604;&#1578;&#1602;&#1583;&#1610;&#1585; &#1604;&#1604;&#1605;&#1578;&#1576;&#1602;&#1610;</span></td><td>EAC&#x2081; &minus; AC</td><td style="background:#eff6ff;text-align:center;"><span class="fill-in-blank"></span></td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td><span class="interp-blank"></span><span class="interp-blank"></span></td></tr>
+      <tr><td><strong>VAC</strong><br><span class="ar" style="font-size:7pt;">&#1575;&#1604;&#1575;&#1606;&#1581;&#1585;&#1575;&#1601; &#1593;&#1606;&#1583; &#1575;&#1604;&#1573;&#1578;&#1605;&#1575;&#1605;</span></td><td>BAC &minus; EAC&#x2081;</td><td style="background:#eff6ff;text-align:center;"><span class="fill-in-blank"></span></td><td style="text-align:center;"><span class="fill-in-blank" style="width:34px;margin:0 auto;border-bottom:1.5px solid #166534;"></span></td><td style="text-align:center;color:#94a3b8;font-size:8pt;">&mdash;</td><td><span class="interp-blank"></span><span class="interp-blank"></span></td></tr>
+    </tbody>
+  </table>
+
+  <!-- Part E -->
+  <div class="section-title purple">&#129504; Part E &mdash; Reflection Questions <span style="font-size:8.5pt;opacity:.85;">(&#1571;&#1587;&#1574;&#1604;&#1577; &#1575;&#1604;&#1578;&#1601;&#1603;&#1610;&#1585; &#1575;&#1604;&#1606;&#1602;&#1583;&#1610;)</span></div>
+  <p style="font-size:8.5pt;color:#475569;margin-bottom:6px;">Answer in complete sentences based on your calculations above.</p>
+
+  <ol class="questions-list" start="9">
+    <li class="teal"><div class="q-body">Using your SV and CV, write a <strong>one-sentence project status update</strong> exactly as a project manager would send to a client:<span class="ans-line"></span><span class="ans-line"></span></div></li>
+    <li class="teal"><div class="q-body">Your CPI &gt; 1 (spending efficiently). Does this mean the trip is going perfectly? What <strong>problem does a high CPI hide</strong> in this situation?<span class="ans-line"></span><span class="ans-line"></span><span class="ans-line"></span></div></li>
+    <li class="teal"><div class="q-body">You calculated four EAC values &mdash; all different. Why does each formula produce a different number? <strong>Which EAC would you recommend</strong> to your manager and why?<span class="ans-line"></span><span class="ans-line"></span><span class="ans-line"></span></div></li>
+    <li class="teal"><div class="q-body">Your manager asks: <strong>&ldquo;Will we finish under budget?&rdquo;</strong> Write your answer using the VAC number you calculated. Include the actual &#8362; value.<span class="ans-line"></span><span class="ans-line"></span></div></li>
+    <li class="teal"><div class="q-body">Think of any real project (construction, IT, event). Describe a situation where <strong>CPI &gt; 1 and SPI &lt; 1 at the same time</strong>. What should the project manager do?<span class="ans-line"></span><span class="ans-line"></span><span class="ans-line"></span></div></li>
+  </ol>
+
+  <div class="sheet-footer">
+    <span>Arab American University &middot; Project Management Worksheet</span>
+    <span>Chapter 7 &middot; EVM Road Trip &middot; Page 4 of 5</span>
+  </div>
+</div>
+
+<!-- PAGE 5: PART F — NEW SCENARIO -->
+<div class="page page-break">
+
+  <div class="section-title red">&#127381; Part F &mdash; Apply It: A New Scenario <span style="font-size:8.5pt;opacity:.85;">(&#1591;&#1576;&#1617;&#1602; &#1605;&#1575; &#1578;&#1593;&#1604;&#1617;&#1605;&#1578;&#1607; &#1593;&#1604;&#1609; &#1602;&#1589;&#1617;&#1577; &#1580;&#1583;&#1610;&#1583;&#1577;)</span></div>
+  <p style="font-size:8.5pt;color:#475569;margin-bottom:6px;">Follow the same process: <strong>read the story &#8594; understand the situation &#8594; write the given values &#8594; apply each equation &#8594; interpret.</strong> Show all working. Round to 3 decimal places.</p>
+
+  <div class="new-scenario-box">
+    <h4>&#128653; The New Story &mdash; Ramallah to Nablus <span class="ar">(&#1585;&#1575;&#1605; &#1575;&#1604;&#1604;&#1607; &#8592; &#1606;&#1575;&#1576;&#1604;&#1587;)</span></h4>
+    <p style="font-size:9pt;margin-bottom:5px;">A minibus makes the trip from <strong>Ramallah to Nablus</strong> &mdash; approximately <strong>70 km</strong> by road. Before leaving, the driver estimated all costs at <strong>&#8362;8 per km</strong>, giving a total budget of &#8362;560. The original schedule said the bus should reach the <strong>35 km mark</strong> by the halfway time checkpoint. When the driver stops to check, the bus has only covered <strong>28 km</strong> &mdash; delayed by a road diversion near Bireh. Checking all receipts, the driver has spent <strong>&#8362;200</strong> so far. The driver also makes a fresh re-estimate for the rest: <strong>&#8362;310 more</strong> to reach Nablus.</p>
+    <div class="data-grid">
+      <div class="data-item"><div class="dlbl">Total Distance</div><div class="dval">70 km</div></div>
+      <div class="data-item"><div class="dlbl">Budget Rate <span class="ar">(&#1605;&#1593;&#1583;&#1604; &#1575;&#1604;&#1605;&#1610;&#1586;&#1575;&#1606;&#1610;&#1577;)</span></div><div class="dval">&#8362;8/km</div></div>
+      <div class="data-item"><div class="dlbl">BAC <span class="ar">(&#1575;&#1604;&#1605;&#1610;&#1586;&#1575;&#1606;&#1610;&#1577; &#1575;&#1604;&#1603;&#1604;&#1610;&#1577;)</span></div><div class="dval">&#8362;560</div></div>
+      <div class="data-item"><div class="dlbl">Planned km (PV basis)</div><div class="dval">35 km</div></div>
+      <div class="data-item"><div class="dlbl">Actual km driven (EV basis)</div><div class="dval">28 km</div></div>
+      <div class="data-item"><div class="dlbl">AC <span class="ar">(&#1575;&#1604;&#1578;&#1603;&#1604;&#1601;&#1577; &#1575;&#1604;&#1601;&#1593;&#1604;&#1610;&#1577;)</span></div><div class="dval">&#8362;200</div></div>
+    </div>
+  </div>
+
+  <div class="three-col">
+    <div class="calc-block">
+      <h4><span class="badge badge-blue">PV</span> <span class="ar">(&#1575;&#1604;&#1602;&#1610;&#1605;&#1577; &#1575;&#1604;&#1605;&#1582;&#1591;&#1591;&#1577;)</span></h4>
+      <div class="eq-box eq-sm">PV = km<sub>planned</sub> &times; Rate</div>
+      <div class="formula-template">PV = <span class="blank"></span> &times; &#8362;<span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-teal">EV</span> <span class="ar">(&#1575;&#1604;&#1602;&#1610;&#1605;&#1577; &#1575;&#1604;&#1605;&#1603;&#1578;&#1587;&#1576;&#1577;)</span></h4>
+      <div class="eq-box eq-sm">EV = km<sub>done</sub> &times; Rate</div>
+      <div class="formula-template">EV = <span class="blank"></span> &times; &#8362;<span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-amber">SV</span> <span class="ar">(&#1575;&#1606;&#1581;&#1585;&#1575;&#1601; &#1575;&#1604;&#1580;&#1583;&#1608;&#1604;)</span></h4>
+      <div class="eq-box eq-sm">SV = EV &minus; PV</div>
+      <div class="formula-template">SV = &#8362;<span class="blank"></span> &minus; &#8362;<span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:7.5pt;margin-top:3px;"><strong>Behind / Ahead</strong> (circle)</p>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-green">CV</span> <span class="ar">(&#1575;&#1606;&#1581;&#1585;&#1575;&#1601; &#1575;&#1604;&#1578;&#1603;&#1604;&#1601;&#1577;)</span></h4>
+      <div class="eq-box eq-sm">CV = EV &minus; AC</div>
+      <div class="formula-template">CV = &#8362;<span class="blank"></span> &minus; &#8362;<span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:7.5pt;margin-top:3px;"><strong>Over / Under</strong> budget (circle)</p>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-amber">SPI</span> <span class="ar">(&#1605;&#1572;&#1588;&#1585; &#1575;&#1604;&#1580;&#1583;&#1608;&#1604;)</span></h4>
+      <div class="eq-box eq-sm">SPI = <span class="frac"><span class="fnum">EV</span><span class="fden">PV</span></span></div>
+      <div class="formula-template">SPI = &#8362;<span class="blank"></span> &divide; &#8362;<span class="blank"></span> = <span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:7.5pt;margin-top:3px;">&gt;1 / &lt;1 / =1 (circle)</p>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-green">CPI</span> <span class="ar">(&#1605;&#1572;&#1588;&#1585; &#1575;&#1604;&#1578;&#1603;&#1604;&#1601;&#1577;)</span></h4>
+      <div class="eq-box eq-sm">CPI = <span class="frac"><span class="fnum">EV</span><span class="fden">AC</span></span></div>
+      <div class="formula-template">CPI = &#8362;<span class="blank"></span> &divide; &#8362;<span class="blank"></span> = <span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:7.5pt;margin-top:3px;">&gt;1 / &lt;1 / =1 (circle)</p>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-purple">EAC&#x2081;</span> <span class="ar">(&#1606;&#1601;&#1587; &#1575;&#1604;&#1603;&#1601;&#1575;&#1569;&#1577;)</span></h4>
+      <div class="eq-box eq-sm">EAC&#x2081; = <span class="frac"><span class="fnum">BAC</span><span class="fden">CPI</span></span></div>
+      <div class="formula-template">= &#8362;<span class="blank"></span> &divide; <span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-blue">EAC&#x2082;</span> <span class="ar">(&#1576;&#1575;&#1604;&#1587;&#1593;&#1585; &#1575;&#1604;&#1571;&#1589;&#1604;&#1610;)</span></h4>
+      <div class="eq-box eq-sm">AC + (BAC &minus; EV)</div>
+      <div class="formula-template">= &#8362;<span class="blank"></span>+(&#8362;<span class="blank"></span>&minus;&#8362;<span class="blank"></span>) = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-red">EAC&#x2084;</span> <span class="ar">(&#1578;&#1602;&#1583;&#1610;&#1585; &#1580;&#1583;&#1610;&#1583;)</span></h4>
+      <div class="eq-box eq-sm">AC + ETC<sub>new</sub></div>
+      <div class="formula-template">= &#8362;<span class="blank"></span> + &#8362;310 = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-blue">ETC</span> <span class="ar">(&#1575;&#1604;&#1578;&#1602;&#1583;&#1610;&#1585; &#1604;&#1604;&#1605;&#1578;&#1576;&#1602;&#1610;)</span></h4>
+      <div class="eq-box eq-sm">ETC = EAC&#x2081; &minus; AC</div>
+      <div class="formula-template">= &#8362;<span class="blank"></span> &minus; &#8362;<span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-green">VAC</span> <span class="ar">(&#1575;&#1604;&#1575;&#1606;&#1581;&#1585;&#1575;&#1601; &#1593;&#1606;&#1583; &#1575;&#1604;&#1573;&#1578;&#1605;&#1575;&#1605;)</span></h4>
+      <div class="eq-box eq-sm">VAC = BAC &minus; EAC&#x2081;</div>
+      <div class="formula-template">= &#8362;<span class="blank"></span> &minus; &#8362;<span class="blank"></span> = &#8362;<span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:7.5pt;margin-top:3px;"><strong>Under / Over</strong> &#8362;560 (circle)</p>
+    </div>
+    <div class="calc-block">
+      <h4><span class="badge badge-teal">TCPI</span> <span class="ar">(&#1605;&#1572;&#1588;&#1585; &#1575;&#1604;&#1571;&#1583;&#1575;&#1569; &#1575;&#1604;&#1605;&#1587;&#1578;&#1607;&#1583;&#1601;)</span></h4>
+      <div class="eq-box eq-sm" style="font-size:9pt;">TCPI = <span class="frac"><span class="fnum">BAC &minus; EV</span><span class="fden">BAC &minus; AC</span></span></div>
+      <div class="formula-template">= (&#8362;<span class="blank"></span>&minus;&#8362;<span class="blank"></span>)&divide;(&#8362;<span class="blank"></span>&minus;&#8362;<span class="blank"></span>) = <span class="blank-result"></span></div>
+      <div class="work-area"></div>
+      <p style="font-size:7.5pt;margin-top:3px;">Need efficiency of <span class="blank" style="min-width:28px;"></span>&times; for rest</p>
+    </div>
+  </div>
+
+  <div class="reflect-box" style="margin-top:6px;">
+    <label>Write a 2&ndash;3 sentence project status memo for the Ramallah&ndash;Nablus trip. Include: on schedule? on budget? forecast total cost? <span class="ar">(&#1575;&#1603;&#1578;&#1576; &#1578;&#1602;&#1585;&#1610;&#1585; &#1581;&#1575;&#1604;&#1577; &#1605;&#1582;&#1578;&#1589;&#1585;&#1575;&#1611;)</span></label>
+    <span class="ans-line"></span><span class="ans-line"></span><span class="ans-line"></span>
+  </div>
+
+  <div class="callout-warn" style="margin-top:5px;">
+    <strong>Bonus (optional) / &#1605;&#1587;&#1571;&#1604;&#1577; &#1573;&#1590;&#1575;&#1601;&#1610;&#1577; &#1575;&#1582;&#1578;&#1610;&#1575;&#1585;&#1610;&#1577;:</strong> Calculate <strong>EAC&#x2083;</strong> for the Ramallah&ndash;Nablus trip (both schedule and cost delays continue all the way). Does it put the trip over or under &#8362;560?
+    <div class="eq-box eq-sm" style="margin-top:4px;font-size:9pt;">EAC&#x2083; = AC + <span class="frac"><span class="fnum">BAC &minus; EV</span><span class="fden">CPI &times; SPI</span></span></div>
+    <div class="formula-template" style="margin-top:4px;">= &#8362;<span class="blank"></span> + &#8362;<span class="blank"></span> &divide; (<span class="blank"></span> &times; <span class="blank"></span>) = &#8362;<span class="blank-result blank-wide"></span></div>
+    <p style="margin-top:4px;font-size:8.5pt;">Result is <strong>over / under</strong> &#8362;560 (circle) by &#8362;<span class="blank" style="min-width:34px;"></span></p>
+  </div>
+
+  <div class="sheet-footer">
+    <span>Arab American University &middot; Project Management Worksheet</span>
+    <span>Chapter 7 &middot; EVM Road Trip &middot; Page 5 of 5</span>
+  </div>
+</div>
+
+</body>
+</html>

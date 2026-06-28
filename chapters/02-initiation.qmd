@@ -30,7 +30,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## Time Value of Money — The Financial Foundation
+## Time Value of Money — The Financial Foundation [➕ Extended]{.badge-ext}
 
 Before evaluating any project, engineers must understand one key principle: **a dollar today is worth more than a dollar in the future**. This is the **Time Value of Money (TVM)** — the foundation of all engineering economics and project financial analysis.
 
@@ -200,6 +200,103 @@ $$\sum_{t=0}^{n} \frac{B_t - C_t}{(1+r)^t} \equiv \sum_{t=0}^{n} \frac{CF_t}{(1+
 
 Some textbooks separate $B_t$ and $C_t$ explicitly for clarity; others combine them into a single $CF_t$ term. Both mean the same thing.
 :::
+
+### NPV with Variable Discount Rates
+
+The standard NPV formula assumes a **single constant discount rate** $r$ across all years. In practice, however, discount rates often change year by year — due to shifting interest rates, changing risk profiles, or project-specific cost-of-capital adjustments.
+
+When each year has its **own discount rate** $r_t$, the simple exponent $(1+r)^t$ no longer works. Instead, you use the **cumulative product** of all per-period rates up to year $t$.
+
+$$\boxed{NPV = \sum_{t=0}^{n} \frac{CF_t}{\displaystyle\prod_{i=1}^{t}(1+r_i)}}$$
+
+Where:
+- $CF_t$ = Net cash flow in year $t$ (benefits minus costs)
+- $r_i$ = Discount rate applicable to period $i$
+- $\prod_{i=1}^{t}(1+r_i)$ = Cumulative product of discount factors from period 1 through period $t$
+- Year 0 cash flows are **not** discounted (they are already in today's money)
+
+**Discount factor for each year:**
+
+$$DF_t = \frac{1}{(1+r_1)(1+r_2)\cdots(1+r_t)}$$
+
+Notice how each year's factor **compounds** all previous years' rates — this is the cumulative product method.
+
+::: {.callout-note icon="false"}
+## 🔍 Why Cumulative Product and Not Just $(1+r_t)^t$?
+
+With a **constant** rate, $(1+r)^t$ is simply shorthand for multiplying $(1+r)$ by itself $t$ times:
+
+$$(1+r)^t = \underbrace{(1+r)(1+r)\cdots(1+r)}_{t \text{ times}}$$
+
+With **variable** rates, you replace each identical factor with the actual rate for that period:
+
+$$\prod_{i=1}^{t}(1+r_i) = (1+r_1)(1+r_2)\cdots(1+r_t)$$
+
+The two formulas are **identical when all rates are the same**. The cumulative product is simply the general form that works in all cases.
+
+| | Constant rate | Variable rate |
+|---|---|---|
+| Year 1 DF | $\frac{1}{1+r}$ | $\frac{1}{1+r_1}$ |
+| Year 2 DF | $\frac{1}{(1+r)^2}$ | $\frac{1}{(1+r_1)(1+r_2)}$ |
+| Year 3 DF | $\frac{1}{(1+r)^3}$ | $\frac{1}{(1+r_1)(1+r_2)(1+r_3)}$ |
+
+:::
+
+::: {.callout-tip icon="false"}
+## 💡 Solved Example 2.3a — NPV with Variable Discount Rates
+
+**Scenario:** An infrastructure project requires a \$120,000 investment today and generates net cash inflows over 4 years. The organisation's finance team has provided the following **year-specific discount rates** reflecting changing economic conditions:
+
+| Year | Net Cash Flow $CF_t$ | Discount Rate $r_t$ |
+|:---:|---:|:---:|
+| 0 | −\$120,000 | — (no discounting) |
+| 1 | \$40,000 | 6% |
+| 2 | \$45,000 | 7% |
+| 3 | \$50,000 | 8% |
+| 4 | \$55,000 | 8% |
+
+**Step 1 — Build the cumulative discount factor for each year:**
+
+$$DF_1 = \frac{1}{1+r_1} = \frac{1}{1.06} = 0.9434$$
+
+$$DF_2 = \frac{1}{(1+r_1)(1+r_2)} = \frac{1}{1.06 \times 1.07} = \frac{1}{1.1342} = 0.8817$$
+
+$$DF_3 = \frac{1}{(1+r_1)(1+r_2)(1+r_3)} = \frac{1}{1.06 \times 1.07 \times 1.08} = \frac{1}{1.2249} = 0.8164$$
+
+$$DF_4 = \frac{1}{1.06 \times 1.07 \times 1.08 \times 1.08} = \frac{1}{1.3229} = 0.7559$$
+
+**Step 2 — Discount each cash flow:**
+
+| Year ($t$) | $CF_t$ | Cumulative Denominator | $DF_t$ | $PV_t = CF_t \times DF_t$ |
+|:---:|---:|:---:|:---:|---:|
+| 0 | −\$120,000 | 1.0000 | 1.0000 | −\$120,000 |
+| 1 | +\$40,000 | 1.0600 | 0.9434 | +\$37,736 |
+| 2 | +\$45,000 | 1.1342 | 0.8817 | +\$39,677 |
+| 3 | +\$50,000 | 1.2249 | 0.8164 | +\$40,820 |
+| 4 | +\$55,000 | 1.3229 | 0.7559 | +\$41,577 |
+
+**Step 3 — Sum all present values:**
+
+$$NPV = -120{,}000 + 37{,}736 + 39{,}677 + 40{,}820 + 41{,}577$$
+
+$$\boxed{NPV = +\$39{,}810}$$
+
+**Result:** NPV is positive → **Accept the project.** The project generates \$39,810 of value above and beyond the cumulative required returns across all four years.
+
+::: {.callout-warning icon="false"}
+## ⚠️ Common Mistake: Using $(1+r_t)^t$ Instead of the Cumulative Product
+
+A frequent error is to discount each year using only **that year's rate raised to the power $t$**:
+
+$$\text{❌ Wrong: } DF_3 = \frac{1}{(1+r_3)^3} = \frac{1}{(1.08)^3} = 0.7938$$
+
+$$\text{✅ Correct: } DF_3 = \frac{1}{(1+r_1)(1+r_2)(1+r_3)} = \frac{1}{1.06 \times 1.07 \times 1.08} = 0.8164$$
+
+The cumulative product accounts for **all the rates that money actually passes through** — from today up to year $t$. Using only year $t$'s rate ignores the compounding effect of earlier periods.
+:::
+:::
+
+---
 
 ::: {.callout-tip icon="false"}
 ## 💡 Solved Example 2.3 — Full NPV Calculation (Based on Real Project Data)
@@ -588,7 +685,7 @@ Both say "accept". IRR is useful when you want to **compare return rates** acros
 
 ---
 
-## The Initiation Phase
+## The Initiation Phase [📋 Required]{.badge-req}
 
 The **Initiation Phase** is where a project is formally authorised to begin. This phase answers the fundamental questions: *Should we do this project? Who is authorised to lead it? Who are the key players?*
 
@@ -640,7 +737,7 @@ A **directive** is a requirement imposed by **management, government, or an exte
 
 ---
 
-## The Business Case
+## The Business Case [📋 Required]{.badge-req}
 
 Before any project begins, the organisation must determine **whether the project is worth doing**. This is the purpose of the **Business Case**.
 
@@ -707,7 +804,7 @@ Key financial metrics:
 
 ---
 
-## Project Selection Models
+## Project Selection Models [📋 Required]{.badge-req}
 
 Before a project is formally authorised, organisations must decide **which projects to pursue** from a pool of competing proposals. Project selection is a strategic decision that balances financial return, strategic fit, risk, and resource availability.
 
@@ -841,7 +938,7 @@ The **Project Management Office (PMO)** typically governs the portfolio, ensurin
 
 ---
 
-## The Project Charter
+## The Project Charter [📋 Required]{.badge-req}
 
 The **Project Charter** is the formal document that **authorises the project** and grants the PM authority to use organisational resources.
 
@@ -973,7 +1070,7 @@ Upgrade stormwater treatment infrastructure to achieve full compliance with EPA 
 
 ---
 
-## Stakeholder Identification and Analysis
+## Stakeholder Identification and Analysis [📋 Required]{.badge-req}
 
 **Stakeholder management** is consistently identified as one of the most critical — and most underestimated — aspects of engineering project management.
 

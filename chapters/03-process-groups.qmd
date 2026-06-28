@@ -26,7 +26,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## Overview of the Process Groups
+## Overview of the Process Groups [📋 Required]{.badge-req}
 
 The PMI defines **five process groups** that organise all project management activities. These are not sequential phases — they overlap and interact throughout the project:
 
@@ -85,7 +85,7 @@ xychart-beta
 
 ---
 
-## The Initiating Process Group
+## The Initiating Process Group [📋 Required]{.badge-req}
 
 The Initiating process group **authorises the project** (or a new phase) and provides the high-level direction.
 
@@ -124,7 +124,7 @@ Key elements: project purpose, measurable objectives, high-level requirements, s
 
 ---
 
-## The Planning Process Group
+## The Planning Process Group [📋 Required]{.badge-req}
 
 Planning is the **largest process group**, encompassing 24 of the 49 PMBOK processes. It defines *what* needs to be done, *how*, *when*, and *by whom*.
 
@@ -198,7 +198,7 @@ Changes to any baseline require formal **change control** — you cannot simply 
 
 ---
 
-## The Executing Process Group
+## The Executing Process Group [📋 Required]{.badge-req}
 
 Executing is where the **actual work gets done**. The PM's focus shifts from planning to coordinating resources, managing the team, and ensuring quality.
 
@@ -227,7 +227,7 @@ The executing process group consumes **the most time and the most budget** of an
 
 ---
 
-## The Monitoring and Controlling Process Group
+## The Monitoring and Controlling Process Group [📋 Required]{.badge-req}
 
 This process group runs **continuously** throughout the project. It tracks performance against the plan and takes corrective action when deviations occur.
 
@@ -320,7 +320,7 @@ It tracks and controls the **physical and functional characteristics** of projec
 
 ---
 
-## The Closing Process Group
+## The Closing Process Group [📋 Required]{.badge-req}
 
 Closing **formalises acceptance** of the project's deliverables and brings the project (or phase) to an orderly end.
 
@@ -360,7 +360,7 @@ Many projects drift to an end without formal closure. This means:
 
 ---
 
-## Mapping Process Groups to Knowledge Areas
+## Mapping Process Groups to Knowledge Areas [📋 Required]{.badge-req}
 
 The most powerful view of project management is the **Process Group × Knowledge Area matrix**. Each cell represents a specific process:
 
@@ -393,7 +393,7 @@ Notice that:
 
 ---
 
-## Developing a PM Methodology
+## Developing a PM Methodology [📋 Required]{.badge-req}
 
 An organisation's **PM methodology** defines the standard approach to managing projects. It adapts the generic PMBOK framework to the organisation's specific context.
 

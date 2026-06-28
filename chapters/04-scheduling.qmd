@@ -17,19 +17,22 @@ title: "Project Scheduling & Critical Path Method"
 
 By the end of this chapter, you will be able to:
 
-1. **Define** activities from a WBS and estimate their durations
-2. **Sequence** activities using precedence relationships (FS, SS, FF, SF)
-3. **Draw** a network diagram (AON) for a project
-4. **Calculate** the Critical Path** using forward and backward pass
-5. **Compute** total float and free float for all activities
-6. **Develop** a Gantt chart from a network analysis
-7. **Apply** PERT three-point estimation to handle uncertainty
-8. **Explain** schedule compression techniques (crashing and fast-tracking)
+1. **Explain** why time management is the most challenging project constraint and how individual/cultural differences affect scheduling
+2. **Describe** the Schedule Management Plan and its key components
+3. **Define** activities from a WBS, document an Activity List, and distinguish effort from duration
+4. **Classify** dependencies as mandatory, discretionary, or external, and apply FS/SS/FF/SF relationships
+5. **Estimate** activity resources using a Resource Breakdown Structure; apply Brooks' Law to resource decisions
+6. **Sequence** activities and draw an Activity on Node (AON) network diagram
+7. **Calculate** the Critical Path using forward and backward pass; compute total float and free float
+8. **Develop** a Gantt chart with SMART milestones and a tracking Gantt for schedule control
+9. **Apply** PERT three-point estimation to quantify schedule uncertainty
+10. **Explain** schedule compression techniques (crashing, fast-tracking) and critical chain scheduling
+11. **Control** the schedule using variance analysis, tracking Gantts, and best-practice reality checks
 :::
 
 ---
 
-## The Scheduling Process
+## The Scheduling Process [📋 Required]{.badge-req}
 
 ```{mermaid}
 %%| fig-cap: "The project scheduling process — from WBS to baseline"
@@ -53,7 +56,56 @@ flowchart LR
 
 ---
 
-## Activity Definition and Duration Estimating
+## Why Time Management Matters [📋 Required]{.badge-req}
+
+Time management is frequently cited as the **most challenging** dimension of the triple constraint. Schedule issues are the **primary source of conflict** on IT and engineering projects — ahead of budget disputes or scope changes.
+
+::: {.callout-warning icon="false"}
+## ⚠️ The Schedule Challenge
+
+- **Time is the least flexible constraint**: You can find extra budget; you can negotiate scope — but you cannot recover lost calendar time.
+- **Schedule overruns are visible**: Clients see delays immediately; cost overruns can be hidden longer.
+- **IT projects are persistently late**: Studies show the average IT project overruns its schedule by 70%; the Standish Group CHAOS Report consistently identifies schedule as the top failure dimension.
+:::
+
+### Individual and Cultural Differences
+
+People's relationship with time varies — this affects how teams approach schedules:
+
+| Dimension | Description | Scheduling Implication |
+|-----------|-------------|------------------------|
+| **Structured (J-type)** — Myers-Briggs | Plans ahead, wants defined milestones, dislikes uncertainty | Follows schedules well; may over-engineer early planning |
+| **Flexible (P-type)** — Myers-Briggs | Adapts as they go, resists rigid timelines, works under pressure | Tends to use up float; milestone reminders are essential |
+| **Monochronic cultures** | Sequential focus; punctuality is a value; time is a resource | Will adhere to schedules; expect dates to be honoured |
+| **Polychronic cultures** | Multiple simultaneous activities; relationships over deadlines | Need clearer milestone expectations and follow-up |
+
+*Awareness of these differences helps PMs design realistic schedules and communicate deadlines effectively.*
+
+---
+
+## Planning Schedule Management [📋 Required]{.badge-req}
+
+Before defining any activities, the project team must agree on **how** scheduling will be done. This is captured in the **Schedule Management Plan** — a subsidiary plan within the overall Project Management Plan.
+
+::: {.callout-note icon="false"}
+## 📖 Schedule Management Plan — Contents
+
+| Component | What It Defines |
+|-----------|-----------------|
+| **Scheduling methodology** | CPM, critical chain, agile sprints, or a combination; which software tool |
+| **Level of accuracy** | How precise must estimates be? (±10%, nearest hour, nearest day) |
+| **Units of measure** | Hours, days, weeks, or calendar dates — consistent across all activities |
+| **Control thresholds** | Acceptable variance before action is required (e.g., ±5% schedule variance) |
+| **Performance measurement rules** | How progress is measured: % complete, milestone-based, or earned value |
+| **Reporting formats** | What schedule reports go to whom, and how often (weekly Gantt to PM; monthly S-curve to sponsor) |
+| **Process descriptions** | Who updates the schedule? Who approves changes? What is the change control process? |
+:::
+
+The schedule management plan is approved early in the project and defines the rules for all subsequent scheduling work.
+
+---
+
+## Activity Definition and Duration Estimating [📋 Required]{.badge-req}
 
 ### From Work Packages to Activities
 
@@ -63,6 +115,28 @@ Work packages from the WBS must be further broken down into **schedule activitie
 |-----------------|-------------------|
 | 1.3.1 Foundation Design | A1: Geotechnical data review; A2: Foundation type analysis; A3: Structural calculations; A4: Foundation drawings; A5: Specification writing |
 | 1.4.2 Concrete Structures | B1: Formwork fabrication; B2: Reinforcement fixing; B3: Concrete pouring; B4: Curing; B5: Formwork striking; B6: Surface finishing |
+
+### Activity List and Activity Attributes
+
+The **Activity List** is a formal project document listing every schedule activity with its key attributes. Each entry contains enough information for planning and tracking:
+
+| Attribute | Description |
+|-----------|-------------|
+| **Activity ID** | Unique identifier (links back to WBS) |
+| **Activity Name** | Short descriptive label |
+| **Activity Description** | What work is being performed |
+| **Predecessor Activities** | Which activities must finish/start before this one begins |
+| **Successor Activities** | Which activities depend on this one |
+| **Leads and Lags** | Any time offsets applied to dependencies |
+| **Resource Requirements** | People, equipment, and materials needed |
+| **Constraints** | Fixed dates, imposed deadlines, or resource restrictions |
+| **Assumptions** | What is assumed to be true (affects duration and cost) |
+
+::: {.callout-tip icon="false"}
+## 💡 Who Should Estimate?
+
+The people who will **actually do the work** should provide duration estimates — not the project manager alone. They have the most accurate knowledge of the effort involved, the risks, and the constraints. The PM's role is to integrate estimates and challenge unrealistic ones.
+:::
 
 ### Duration Estimation Methods
 
@@ -126,7 +200,79 @@ Accuracy: ±5% to ±15%
 
 ---
 
-## Activity Sequencing — Dependency Types
+## Effort, Duration, and Elapsed Time
+
+These three terms are often confused but have distinct meanings:
+
+| Term | Definition | Example |
+|------|-----------|---------|
+| **Effort** | The total amount of work required (person-hours) | A task requires 40 person-hours of work |
+| **Duration** | The calendar time from start to finish | That same task takes 5 working days (8h/day × 5 = 40h) |
+| **Elapsed time** | Calendar time including weekends, holidays, waiting | Concrete curing takes 7 elapsed days even if no one works |
+
+::: {.callout-note icon="false"}
+## 📖 Key Distinctions
+
+- A task that needs **40 hours of effort** by one person at 8h/day = **5 working days of duration**
+- The same task with **two people** = still 40 hours of effort, but ~**2.5 days of duration** (with coordination overhead)
+- A physical process like **paint drying** adds **elapsed time** (duration) with zero additional effort
+
+*Beware the common mistake of treating effort = duration. A PM who assigns two people to a 40-hour task and shows 2.5 days in the schedule must verify that the task is actually parallelisable — not all work can be divided.*
+:::
+
+---
+
+## Estimating Activity Resources [📋 Required]{.badge-req}
+
+Before finalising duration estimates, the project manager must determine **what resources** are needed for each activity. Resources include:
+
+- **Human resources** — specific people, roles, or skill sets
+- **Equipment** — machinery, vehicles, test equipment, lab facilities
+- **Materials** — hardware, raw materials, software licences
+
+### Resource Breakdown Structure (RBS)
+
+Just as the WBS breaks down the scope, the **Resource Breakdown Structure (RBS)** categorises all project resources hierarchically. It helps identify potential resource conflicts and ensures every activity has its resource needs documented.
+
+### The Resource-Duration Chicken-and-Egg Problem
+
+Resource estimation and duration estimation are **interdependent** — which makes scheduling an iterative process:
+
+- Duration depends on how many resources are assigned
+- Resource availability depends on the schedule
+
+The practical approach: estimate duration assuming a *standard* resource assignment, then level the resources (resolve over-allocations) afterwards.
+
+### Mythical Man-Month — Brooks' Law
+
+::: {.callout-warning icon="false"}
+## ⚠️ Adding People to a Late Software Project Makes It Later
+
+Frederick Brooks in *"The Mythical Man-Month"* (1975) identified a counter-intuitive truth about software projects:
+
+> "Adding manpower to a late software project makes it later."
+
+**Why?** Because:
+1. New team members need **ramp-up time** (they consume effort from existing members)
+2. **Communication overhead** increases with each additional person: $n(n-1)/2$ communication channels for $n$ people
+3. Many software tasks are **sequential, not parallel** — a woman can have one baby in 9 months; nine women cannot have one baby in one month
+
+*Implication: Do not reflexively crash a software project by adding people. Better to focus existing team, reduce scope, or extend the deadline.*
+:::
+
+### Resource Leveling
+
+When the initial schedule creates resource **over-allocations** (a person assigned to more work than available hours allow), **resource leveling** resolves conflicts by:
+
+- Delaying non-critical activities within their available float
+- Shifting resources from non-critical to critical tasks
+- Extending the schedule when float is insufficient
+
+In MS Project: **Resource tab → Level Resources** applies automatic leveling. The schedule end date will typically move later. The PM must then negotiate whether this is acceptable or whether additional resources must be sourced.
+
+---
+
+## Activity Sequencing — Dependency Types [📋 Required]{.badge-req}
 
 Activities must be sequenced based on their **logical dependencies**:
 
@@ -197,45 +343,510 @@ Activities must be sequenced based on their **logical dependencies**:
 - **Lead:** An overlap — the successor activity starts before the predecessor finishes
   - *Example:* Begin procurement drawings while detailed design is still 80% complete (FS - 2 weeks lead)
 
+### Types of Dependencies
+
+Beyond the four relationship types (FS/SS/FF/SF), dependencies are also classified by their **source**:
+
+| Type | Also Called | Definition | Example |
+|------|-------------|-----------|---------|
+| **Mandatory** | Hard logic | Inherent in the nature of the work — cannot be changed | Foundation must cure before walls are built (physics) |
+| **Discretionary** | Soft logic, preferred logic | Based on best practice or preference — *can* be changed if needed | PMs prefer to complete testing before documentation, but could overlap |
+| **External** | — | Depends on a party outside the project team | Regulatory approval must be received before construction begins |
+
+::: {.callout-warning icon="false"}
+## ⚠️ Be Careful with Discretionary Dependencies
+
+Discretionary (soft) dependencies are often added out of habit or preference. They reduce scheduling flexibility — and under schedule pressure, teams may break them anyway (creating risk). Review all soft logic before baselineing the schedule. Only keep discretionary dependencies that are genuinely important.
+:::
+
 ---
 
-## Network Diagrams — Activity on Node (AON)
+## Network Diagrams — Activity on Arrow (AOA) [📋 Required]{.badge-req}
 
-The **Activity on Node (AON)** method represents activities as boxes (nodes) and dependencies as arrows:
+The **Activity on Arrow (AOA)** method — also called the **Arrow Diagramming Method (ADM)** — places **activities on arrows** and uses **numbered circles (nodes)** to represent events (start/finish milestones):
+
+::: {.callout-note icon="false"}
+## 📖 AOA Rules
+
+| Feature | Description |
+|---------|-------------|
+| **Activities** | Represented by arrows (→); label shows the activity name and duration |
+| **Events / Nodes** | Numbered circles (①②③…) at the tail (start) and head (finish) of each arrow |
+| **Node rule** | An activity can **only start** after **all** activities arriving at its tail node are complete |
+| **Dummy Activities** | Dashed arrows (- - ▶) with zero duration; used to show logic that cannot be expressed directly |
+| **Dependency type** | **Finish-to-Start (FS) only** — AOA cannot represent SS, FF, or SF lags |
+| **Identification** | Each activity is uniquely identified by its *i-j* node pair (e.g., activity 1-2) |
+| **Usage today** | Less common than AON; still used in civil engineering, construction, and CPM/PERT exams |
+:::
+
+---
+
+### AOA Example — Software Release Project
+
+We will use this **five-activity software release** as the running example for both AOA and AON (and the conversion between them):
+
+| Activity | Description | Predecessor(s) | Duration |
+|----------|-------------|----------------|----------|
+| A | Gather Requirements | — | 3 days |
+| B | Create UI Mockups | — | 2 days |
+| C | Develop Features | **A and B** | 5 days |
+| D | Write User Manual | **B only** | 2 days |
+| E | System Testing | C | 3 days |
+
+::: {.callout-tip icon="false"}
+## 🔑 Key Logic to Represent
+- **C** needs both A *and* B before it can start
+- **D** needs **only B** — it does NOT need A
+- This split dependency is the classic situation requiring a **dummy activity** in AOA
+:::
+
+---
+
+### AOA — Simple Sequential Example
+
+Before tackling the split dependency, here is a simple **purely sequential** AOA to show the diagram conventions:
+
+| Activity | Description | Predecessor | Duration |
+|----------|-------------|-------------|----------|
+| A | Survey and set out | — | 2 days |
+| B | Excavation and subgrade | A | 5 days |
+| C | Sub-base compaction | B | 3 days |
+| D | Base course laying | C | 4 days |
+| E | Surface course and line marking | D | 2 days |
 
 ```{mermaid}
-%%| fig-cap: "Sample AON network diagram for a bridge design project"
-graph LR
+%%| fig-cap: "AOA — simple sequential project (road paving). Each activity is an arrow; circles are numbered events."
+flowchart LR
+    N1(["① Start"])
+    N2(["②"])
+    N3(["③"])
+    N4(["④"])
+    N5(["⑤"])
+    N6(["⑥ End"])
+
+    N1 -->|"A — 2d"| N2
+    N2 -->|"B — 5d"| N3
+    N3 -->|"C — 3d"| N4
+    N4 -->|"D — 4d"| N5
+    N5 -->|"E — 2d"| N6
+
+    style N1 fill:#1d4ed8,color:#fff
+    style N6 fill:#b91c1c,color:#fff
+```
+
+*Project duration = 2 + 5 + 3 + 4 + 2 = **16 days.** No dummy needed — purely serial chain.*
+
+---
+
+### AOA Dummy Activities
+
+A **dummy activity** is a dashed arrow with **zero duration** and **zero cost**. It represents a **logical dependency only** — it adds no real work.
+
+::: {.callout-warning icon="false"}
+## ⚠️ Two Reasons You Need a Dummy
+
+**Reason 1 — Uniqueness constraint:** Two real activities share the exact same start node *and* end node. In AOA every activity is identified by its i-j pair. If activity A and activity B both run from node ① to node ②, they are indistinguishable. A dummy gives one of them a unique node.
+
+**Reason 2 — Logic constraint:** You need to express that activity C depends on *both* A and B, while activity D depends *only* on B — not on A. You cannot draw this correctly in AOA without a dummy.
+:::
+
+#### Reason 1 — Uniqueness: Two Parallel Activities
+
+**Given activities:**
+
+| Activity | Description | Predecessor(s) | Duration |
+|----------|-------------|----------------|----------|
+| A | Design UI | — | 3 days |
+| B | Write Specs | — | 2 days |
+| C | Develop Module | **A and B** | 5 days |
+
+> A and B both start independently and both must finish before C can begin. Because A and B share the same start node AND would share the same end node, they cannot be uniquely identified in AOA — a dummy is required.
+
+**Wrong** (ambiguous — both are "activity 1-2"):
+
+```{mermaid}
+%%| fig-cap: "WRONG: A and B both share nodes ①→②; they cannot be uniquely identified"
+flowchart LR
+    N1(["①"])
+    N2(["②"])
+    N3(["③"])
+
+    N1 -->|"A — 3d"| N2
+    N1 -->|"B — 2d"| N2
+    N2 -->|"C — 5d"| N3
+
+    style N1 fill:#b91c1c,color:#fff
+    style N2 fill:#b91c1c,color:#fff
+```
+
+**Correct** (dummy gives B a unique i-j pair):
+
+```{mermaid}
+%%| fig-cap: "CORRECT: dummy ③→② gives activity B the unique pair 1-3; C starts after both A and B are done"
+flowchart LR
+    N1(["①"])
+    N2(["②"])
+    N3(["③"])
+    N4(["④"])
+
+    N1 -->|"A — 3d"| N2
+    N1 -->|"B — 2d"| N3
+    N3 -.->|"Dummy (0d)"| N2
+    N2 -->|"C — 5d"| N4
+
+    style N1 fill:#1d4ed8,color:#fff
+    style N4 fill:#b91c1c,color:#fff
+    style N3 fill:#f59e0b,color:#fff
+```
+
+*Node ② now receives: A (from ①→②) AND the dummy (from ③→②, carrying B's completion). So C waits for both A and B — correct logic, and every activity has a unique i-j identifier.*
+
+---
+
+#### Reason 2 — Logic: Split Dependency (Software Release Example)
+
+**Given activities:**
+
+| Activity | Description | Predecessor(s) | Duration |
+|----------|-------------|----------------|----------|
+| A | Gather Requirements | — | 3 days |
+| B | Create UI Mockups | — | 2 days |
+| C | Develop Features | **A and B** | 5 days |
+| D | Write User Manual | **B only** | 2 days |
+| E | System Testing | C | 3 days |
+
+> The critical dependency: C needs both A and B, but D needs B only. Drawing D and C both starting from the same node would force D to also wait for A — a false dependency. A dummy is required to correctly isolate the split.
+
+**Requirement**: C needs A *and* B; D needs B *only*.
+
+**Step-by-step AOA construction:**
+
+1. Since D needs **only B**, B must end at a node where **only B** arrives — that becomes D's start node.
+2. Since C needs **both A and B**, C must start from a node where both arrive.  
+3. A already ends at its own node. Add a **dummy from B's end-node to A's end-node** to carry B's completion into C's prerequisite check.
+
+```{mermaid}
+%%| fig-cap: "AOA — Software Release Project with dummy activity. D starts from ② (only B flows in); C starts from ③ (A plus dummy-from-B flow in)."
+flowchart LR
+    N1(["① Start"])
+    N2(["②<br/>B done"])
+    N3(["③<br/>A+B done"])
+    N4(["④"])
+    N5(["⑤"])
+    N6(["⑥ End"])
+
+    N1 -->|"B — 2d"| N2
+    N1 -->|"A — 3d"| N3
+    N2 -.->|"Dummy (0d)"| N3
+    N2 -->|"D — 2d"| N5
+    N3 -->|"C — 5d"| N4
+    N4 -->|"E — 3d"| N6
+    N5 --> N6
+
+    style N1 fill:#1d4ed8,color:#fff
+    style N6 fill:#b91c1c,color:#fff
+    style N2 fill:#0f766e,color:#fff
+    style N3 fill:#7c3aed,color:#fff
+    style N2 fill:#0f766e,color:#fff
+```
+
+::: {.callout-tip icon="false"}
+## ✅ Verify the Logic
+
+| Activity | Starts from | What flows into that node | Correct? |
+|----------|-------------|--------------------------|----------|
+| **D** | Node ② | **B only** (①→②) | ✅ D needs only B |
+| **C** | Node ③ | **A** (①→③) **+ Dummy** (②→③, carrying B) | ✅ C needs A and B |
+| **E** | Node ④ | C (③→④) | ✅ E needs only C |
+
+The **dummy arrow ②→③** is the key: it carries B's completion into node ③ without creating a false dependency between A and D.
+:::
+
+::: {.callout-important icon="false"}
+## ❌ Common Mistake — Wrong Dummy Direction
+
+If you draw the dummy as **②→③** where ② is *A's* end and ③ is *B's* end, then D (starting from ③) would also inherit A — giving D a false dependency on A. Always ensure D's start node has **only its required predecessors** flowing into it.
+:::
+
+---
+
+### AOA Summary Diagram (All 5 Activities)
+
+```{mermaid}
+%%| fig-cap: "Complete AOA — Software Release Project. Nodes show what is complete at each event."
+flowchart LR
+    N1(["①<br/>Project Start"])
+    N2(["②<br/>B: Mockups done"])
+    N3(["③<br/>A+B done"])
+    N4(["④<br/>C: Dev done"])
+    N5(["⑤<br/>D done"])
+    N6(["⑥<br/>Project End"])
+
+    N1 -->|"B — 2d"| N2
+    N1 -->|"A — 3d"| N3
+    N2 -.->|"Dummy (0d)"| N3
+    N2 -->|"D — 2d"| N5
+    N3 -->|"C — 5d"| N4
+    N4 -->|"E — 3d"| N6
+    N5 -->|" "| N6
+
+    style N1 fill:#1d4ed8,color:#fff
+    style N2 fill:#0f766e,color:#fff
+    style N3 fill:#7c3aed,color:#fff
+    style N4 fill:#b45309,color:#fff
+    style N5 fill:#0f766e,color:#fff
+    style N6 fill:#b91c1c,color:#fff
+```
+
+**Reading the diagram:**
+- Activity B (2d) and Activity A (3d) start simultaneously from node ①  
+- D starts as soon as B finishes (node ②), independently of A  
+- C can only start after both A finishes (reaching ③ directly) **and** B finishes (reaching ③ via the dummy)  
+- E follows C; the project ends when both E and D are complete at node ⑥
+
+---
+
+## Network Diagrams — Activity on Node (AON) [📋 Required]{.badge-req}
+
+The **Activity on Node (AON)** method — also called the **Precedence Diagramming Method (PDM)** — places **activities inside boxes (nodes)** and uses **arrows to show dependencies**:
+
+::: {.callout-note icon="false"}
+## 📖 AON Rules
+
+| Feature | Description |
+|---------|-------------|
+| **Activities** | Represented by boxes/rectangles; contain name, ID, and duration |
+| **Arrows** | Show dependencies only — the arrow means "must finish before" (for FS) |
+| **Dependency types** | **FS, SS, FF, SF** — all four types supported; lags and leads can be shown |
+| **Dummy activities** | **Never needed** — every dependency is an explicit arrow |
+| **Start / End nodes** | Optional "Start" and "End" milestone nodes used to clearly bound the network |
+| **Used by** | All modern PM software: MS Project, Primavera P6, Oracle, etc. |
+:::
+
+---
+
+### AON Example — Same Software Release Project
+
+Using **identical activities** as the AOA example above, notice how the split dependency is expressed cleanly — **no dummy required**:
+
+| Activity | Description | Predecessor(s) | Duration |
+|----------|-------------|----------------|----------|
+| A | Gather Requirements | — | 3 days |
+| B | Create UI Mockups | — | 2 days |
+| C | Develop Features | **A and B** | 5 days |
+| D | Write User Manual | **B only** | 2 days |
+| E | System Testing | C | 3 days |
+
+```{mermaid}
+%%| fig-cap: "AON — Software Release Project. Each box is an activity; arrows show 'must finish before'. No dummy activity needed."
+flowchart LR
     START(["START"])
-    A["A<br/>Site Survey<br/>5 days"]
-    B["B<br/>Geotechnical<br/>Investigation<br/>10 days"]
-    C["C<br/>Hydraulic<br/>Study<br/>7 days"]
-    D["D<br/>Conceptual<br/>Design<br/>8 days"]
-    E["E<br/>Foundation<br/>Design<br/>12 days"]
-    F["F<br/>Structural<br/>Design<br/>15 days"]
-    G["G<br/>Drainage<br/>Design<br/>6 days"]
-    H["H<br/>Drawings<br/>Production<br/>10 days"]
-    I["I<br/>Spec Writing<br/>5 days"]
+    A["A<br/>Gather Requirements<br/>3 days"]
+    B["B<br/>Create UI Mockups<br/>2 days"]
+    C["C<br/>Develop Features<br/>5 days"]
+    D["D<br/>Write User Manual<br/>2 days"]
+    E["E<br/>System Testing<br/>3 days"]
     END(["END"])
 
-    START --> A
-    A --> B & C
-    B --> D
-    C --> D & G
-    D --> E & F
-    E --> H
-    F --> H
-    G --> H
-    H --> I
-    I --> END
+    START --> A & B
+    A --> C
+    B --> C & D
+    C --> E
+    E --> END
+    D --> END
 
-    style START fill:#1d4ed8,color:#fff,stroke:#1d4ed8
-    style END fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style START fill:#1d4ed8,color:#fff
+    style END fill:#b91c1c,color:#fff
+    style A fill:#0f766e,color:#fff
+    style B fill:#0f766e,color:#fff
+    style C fill:#7c3aed,color:#fff
+    style D fill:#b45309,color:#fff
+    style E fill:#15803d,color:#fff
+```
+
+::: {.callout-tip icon="false"}
+## ✅ Verify the Logic
+
+| Activity | Incoming arrows | Correct? |
+|----------|----------------|----------|
+| **C** | from A **and** from B | ✅ C needs A and B |
+| **D** | from B **only** | ✅ D needs only B |
+| **E** | from C only | ✅ E needs only C |
+
+In AON, D simply receives one arrow from B — there is no need for a dummy to isolate the dependency.
+:::
+
+---
+
+### AON Example — Road Paving (Sequential)
+
+For comparison, the same sequential project from the AOA section:
+
+```{mermaid}
+%%| fig-cap: "AON — sequential road paving project. Straightforward chain; both AOA and AON look almost identical for purely serial networks."
+flowchart LR
+    START(["START"])
+    A["A<br/>Survey & Set Out<br/>2 days"]
+    B["B<br/>Excavation & Subgrade<br/>5 days"]
+    C["C<br/>Sub-base Compaction<br/>3 days"]
+    D["D<br/>Base Course Laying<br/>4 days"]
+    E["E<br/>Surface Course<br/>2 days"]
+    END(["END"])
+
+    START --> A --> B --> C --> D --> E --> END
+
+    style START fill:#1d4ed8,color:#fff
+    style END fill:#b91c1c,color:#fff
+```
+
+*For a purely serial chain, AOA and AON diagrams carry the same information; the difference only matters when you have **parallel branches with split dependencies**.*
+
+---
+
+### AOA vs. AON — Side-by-Side Comparison
+
+| Feature | AOA (Arrow Diagramming) | AON (Precedence Diagramming) |
+|---------|------------------------|------------------------------|
+| **Activities represented as** | Arrows | Boxes (nodes) |
+| **Nodes/circles represent** | Events / milestones | Activities themselves |
+| **Dependencies shown by** | Numbered node pairs (i-j) | Explicit arrows between boxes |
+| **Dependency types supported** | FS only | FS, SS, FF, SF (with lags) |
+| **Dummy activities needed?** | Sometimes (for logic and uniqueness) | **Never** |
+| **Reading complexity** | Harder — must trace arrows through nodes | Easier — each box is one activity |
+| **Used by PM software?** | Rarely (legacy PERT tools) | Yes — MS Project, Primavera P6 |
+| **Best for** | Sequential networks, exams, legacy systems | Any project; modern practice |
+
+> **In practice**, AON is the standard for all modern project scheduling software. AOA is still examined in PMP/CAPM certification exams and appears in older construction scheduling literature.
+
+---
+
+## Converting Between AOA and AON [📋 Required]{.badge-req}
+
+The same network can always be expressed in both notations. The Software Release example above will be used to demonstrate both directions.
+
+---
+
+### Converting AOA → AON
+
+::: {.callout-note icon="false"}
+## 📖 AOA → AON Conversion Rules
+
+1. **Each real activity arrow in AOA becomes a box (node) in AON.**
+2. **Each dummy activity is discarded** — it carries no real work.
+3. For every two activities X and Y in AOA where X's end-node is Y's start-node (directly or via a dummy chain), draw an **arrow from X's box to Y's box** in AON.
+4. If multiple activities feed into the same start node in AOA, all of them become incoming arrows to the same box in AON.
+5. Add a **START** and **END** milestone box to bound the network.
+:::
+
+**Step-by-step conversion of the Software Release AOA → AON:**
+
+| Step | Action |
+|------|--------|
+| **1** | List all real activities: A, B, C, D, E |
+| **2** | Identify the dummy: ②→③. Discard it, but **remember what it implied**: node ③ is reached by both A (directly) and B (via dummy from ②). So **B is a predecessor of C** (just like A). |
+| **3** | Read predecessors from the AOA node logic: D starts from ② (only B); C starts from ③ (A and B); E starts from ④ (only C) |
+| **4** | Draw boxes for A, B, C, D, E and connect with arrows |
+
+```{mermaid}
+%%| fig-cap: "AOA → AON conversion: dummy removed; all dependencies expressed as direct arrows."
+flowchart LR
+    subgraph AOA["AOA (before)"]
+        direction LR
+        n1(["①"]) -->|"B—2d"| n2(["②"])
+        n1 -->|"A—3d"| n3(["③"])
+        n2 -.->|"Dummy"| n3
+        n2 -->|"D—2d"| n5(["⑤"])
+        n3 -->|"C—5d"| n4(["④"])
+        n4 -->|"E—3d"| n6(["⑥"])
+        n5 --> n6
+    end
+
+    subgraph AON["AON (after)"]
+        direction LR
+        S(["START"]) --> AA["A 3d"] & BB["B 2d"]
+        AA --> CC["C 5d"]
+        BB --> CC & DD["D 2d"]
+        CC --> EE["E 3d"]
+        EE --> EN(["END"])
+        DD --> EN
+    end
+
+    style n1 fill:#1d4ed8,color:#fff
+    style n6 fill:#b91c1c,color:#fff
+    style S fill:#1d4ed8,color:#fff
+    style EN fill:#b91c1c,color:#fff
+    style CC fill:#7c3aed,color:#fff
 ```
 
 ---
 
-## Critical Path Method (CPM)
+### Converting AON → AOA
+
+::: {.callout-note icon="false"}
+## 📖 AON → AOA Conversion Rules
+
+1. **Each activity box in AON becomes an arrow in AOA.**
+2. **Assign numbered nodes** (circles) at the start and end of each arrow.
+3. If two or more activities share the same set of predecessors *and* the same set of successors, they may share start and/or end nodes — **but only if this causes no false dependencies**. If sharing a node would force an unintended dependency, add a **dummy activity**.
+4. When activity Y has predecessors X₁ and X₂ in AON: X₁ and X₂ must both end at Y's start node in AOA. If X₁ and X₂ already end at different nodes, add a **dummy** from one of those nodes to the other (or to a new merge node).
+5. **Check the uniqueness rule**: no two real activities may share both the same start node and the same end node.
+:::
+
+**Step-by-step conversion of the Software Release AON → AOA:**
+
+| Step | What we know from AON | AOA action |
+|------|----------------------|-----------|
+| **1** | A: no predecessor, successor = C | Arrow A from a new start node ① |
+| **2** | B: no predecessor, successors = C and D | Arrow B also from ①. B and A share the same start node (① — fine, different end nodes). |
+| **3** | D: predecessor = B only | D can start from B's end node. Let ② = B's end. D: ②→⑤ |
+| **4** | C: predecessors = A *and* B | C must start from a node where **both** A and B are complete. A ends at ③. B ends at ②. Add **Dummy ②→③** to carry B's completion into ③. C: ③→④ |
+| **5** | E: predecessor = C only | E: ④→⑥ |
+| **6** | End: all paths converge at ⑥ | D: ②→⑤→⑥ (add a final merge, or let ⑤ = ⑥ if D and E both end the project) |
+
+```{mermaid}
+%%| fig-cap: "AON → AOA conversion: introducing a dummy to correctly represent that C needs both A and B while D needs only B."
+flowchart LR
+    subgraph aon_side["AON (before)"]
+        direction LR
+        ST(["START"]) --> Ax["A 3d"] & Bx["B 2d"]
+        Ax --> Cx["C 5d"]
+        Bx --> Cx & Dx["D 2d"]
+        Cx --> Ex["E 3d"]
+        Ex --> EN2(["END"])
+        Dx --> EN2
+    end
+
+    subgraph aoa_side["AOA (after)"]
+        direction LR
+        p1(["①"]) -->|"B—2d"| p2(["②"])
+        p1 -->|"A—3d"| p3(["③"])
+        p2 -.->|"Dummy (0d)"| p3
+        p2 -->|"D—2d"| p5(["⑤"])
+        p3 -->|"C—5d"| p4(["④"])
+        p4 -->|"E—3d"| p6(["⑥"])
+        p5 --> p6
+    end
+
+    style ST fill:#1d4ed8,color:#fff
+    style EN2 fill:#b91c1c,color:#fff
+    style p1 fill:#1d4ed8,color:#fff
+    style p6 fill:#b91c1c,color:#fff
+    style p3 fill:#7c3aed,color:#fff
+```
+
+::: {.callout-tip icon="false"}
+## 💡 Key Insight — Why the Dummy Appears in AOA but Not AON
+
+In AON, you simply draw **two separate arrows** into C (one from A, one from B) — no special mechanism needed.
+
+In AOA, a node is a shared milestone. For C to need *both* A and B, both must arrive at the same node. But D must *not* see A — so D's start node can only have B flowing in. The dummy is the only way to "route" B's completion into the A+B merge node **without forcing D to also wait for A**.
+
+The dummy solves the structural limitation that AOA can only merge dependencies at a single shared node.
+:::
+
+---
+
+## Critical Path Method (CPM) [📋 Required]{.badge-req}
 
 The **Critical Path Method (CPM)** identifies the **longest path through the network** — the sequence of activities that determines the minimum project duration.
 
@@ -484,9 +1095,9 @@ $$LS_A = LS_B - \text{lag} = 2 - 2 = 0,\quad LF_A = LS_A + Dur_A = 0 + 5 = 5$$
 %%{init: {'flowchart': {'nodeSpacing': 25, 'rankSpacing': 55}}}%%
 flowchart LR
     S(["Start — Day 0"])
-    A["A | Dur:5\nES:0  EF:5\nLS:0  LF:5 | F:0"]
-    B["B | Dur:4\nES:2  EF:6\nLS:2  LF:6 | F:0"]
-    C["C | Dur:3\nES:6  EF:9\nLS:6  LF:9 | F:0"]
+    A["A | Dur:5<br/>ES:0  EF:5<br/>LS:0  LF:5 | F:0"]
+    B["B | Dur:4<br/>ES:2  EF:6<br/>LS:2  LF:6 | F:0"]
+    C["C | Dur:3<br/>ES:6  EF:9<br/>LS:6  LF:9 | F:0"]
     EN(["End — Day 9"])
 
     S -- CRITICAL --> A
@@ -730,7 +1341,7 @@ flowchart LR
 
 ---
 
-## Gantt Charts
+## Gantt Charts [📋 Required]{.badge-req}
 
 A **Gantt Chart** is a bar chart that visually represents the project schedule against a timeline.
 
@@ -785,7 +1396,19 @@ gantt
 - Baseline vs. Current schedule view
 
 ## Milestones
-**Milestones** are zero-duration events marking significant project achievements:
+**Milestones** are zero-duration events marking significant project achievements. On a Gantt chart, milestones appear as **diamonds** (◆).
+
+**What makes a good milestone? Use the SMART criteria:**
+
+| Criterion | Meaning | Good Example | Poor Example |
+|-----------|---------|-------------|--------------|
+| **Specific** | Clear, well-defined event | "100% design issued for construction" | "Design done" |
+| **Measurable** | Can be objectively verified | Signed acceptance email received | "Mostly approved" |
+| **Assignable** | One person is accountable | Design Manager owns it | "The team" |
+| **Realistic** | Achievable given project constraints | Reflects actual team capacity | Copied from wish list |
+| **Time-framed** | Has a fixed target date | 15 March 2027 | "Q2 sometime" |
+
+> **The pizza party test:** If you sent stakeholders an invitation saying *"We're having a pizza party because we finished [milestone]"*, would they say *"Great, I'll come!"* — or *"What is that?"* If they wouldn't understand why it matters, it probably isn't a proper milestone.
 
 Common engineering project milestones:
 - ✓ Project Kick-off
@@ -814,25 +1437,66 @@ A well-managed Gantt chart always shows:
 
 ---
 
-## PERT Analysis — Handling Schedule Uncertainty
+## PERT Analysis — Handling Schedule Uncertainty [📋 Required]{.badge-req}
 
 **PERT (Programme Evaluation and Review Technique)** extends CPM by acknowledging that activity durations are **uncertain** and modelling them probabilistically.
 
 ### PERT Three-Point Estimating
 
-For each activity, obtain three estimates:
+For each activity, obtain three estimates and apply the PERT formulas:
 
-| Activity | Optimistic (O) | Most Likely (M) | Pessimistic (P) | Expected ($t_E$) | Std Dev ($\sigma$) | Variance |
-|----------|---------|---------|----------|---------|--------|---------|
-| Foundation Design | 8 | 12 | 22 | **12.67** | **2.33** | 5.44 |
-| Structural Design | 12 | 18 | 30 | **18.67** | **3.00** | 9.00 |
-| Drawing Production | 6 | 9 | 15 | **9.17** | **1.50** | 2.25 |
-| Approvals | 14 | 21 | 56 | **23.33** | **7.00** | 49.00 |
+$$t_E = \frac{O + 4M + P}{6} \qquad \sigma = \frac{P - O}{6} \qquad \sigma^2 = \left(\frac{P-O}{6}\right)^2$$
 
-**Project Expected Duration** = Sum of expected durations on critical path
+Where:
+- **O (Optimistic)** — best-case duration if everything goes perfectly
+- **M (Most Likely)** — the most realistic, expected duration under normal conditions
+- **P (Pessimistic)** — worst-case duration if most things go wrong
+- **$t_E$ (Expected Duration)** — the weighted average; M is weighted 4× because it is the most likely outcome
+- **$\sigma$ (Standard Deviation)** — how spread out the estimate is; large σ means high uncertainty
+- **$\sigma^2$ (Variance)** — used when combining uncertainty across multiple activities on the critical path (variances add, standard deviations do not)
 
-**Project Standard Deviation**: 
-$$\sigma_{project} = \sqrt{\sum \sigma^2_{critical\ activities}}$$
+**Worked calculations:**
+
+| Activity | O | M | P | $O + 4M + P$ | $t_E = \div 6$ | $P - O$ | $\sigma = \div 6$ | $\sigma^2$ |
+|----------|---|---|---|-------------|---------------|---------|-------------------|----------|
+| Foundation Design | 8 | 12 | 22 | $8+48+22=78$ | **13.00** | $22-8=14$ | **2.33** | **5.44** |
+| Structural Design | 12 | 18 | 30 | $12+72+30=114$ | **19.00** | $30-12=18$ | **3.00** | **9.00** |
+| Drawing Production | 6 | 9 | 15 | $6+36+15=57$ | **9.50** | $15-6=9$ | **1.50** | **2.25** |
+| Approvals | 14 | 21 | 56 | $14+84+56=154$ | **25.67** | $56-14=42$ | **7.00** | **49.00** |
+
+: PERT three-point estimates with full calculation steps {.striped .hover}
+
+::: {.callout-tip icon="false"}
+## 💡 Reading the Table
+
+- **Large gap between O and P** (e.g., Approvals: 14 vs 56) → high uncertainty → large σ (7.00) → this activity dominates the project's schedule risk
+- **Small gap** (e.g., Drawing Production: 6 vs 15) → lower uncertainty → σ = 1.50 → more predictable
+- **$t_E$ is always pulled toward P** when P is far from M — the pessimistic tail has real weight
+- **Add variances** (not σ) when computing the overall project standard deviation: $\sigma_{project} = \sqrt{\sum \sigma^2}$
+:::
+
+::: {.callout-note icon="false"}
+## 💡 ملاحظة
+
+نشاط **"الموافقات"** له أكبر فجوة بين O و P (14 مقابل 56)، مما يعني **عدم يقين عالٍ**. هذا النشاط هو المصدر الرئيسي لمخاطر الجدول الزمني.
+:::
+
+**Project Expected Duration** — sum all $t_E$ values on the critical path:
+
+$$T_E = 13.00 + 19.00 + 9.50 + 25.67 = \mathbf{67.17 \text{ days}}$$
+
+**Project Standard Deviation** — sum the **variances** (not σ), then take the square root:
+
+$$\sigma_{project} = \sqrt{\sigma^2_1 + \sigma^2_2 + \sigma^2_3 + \sigma^2_4} = \sqrt{5.44 + 9.00 + 2.25 + 49.00} = \sqrt{65.69} = \mathbf{8.11 \text{ days}}$$
+
+::: {.callout-warning icon="false"}
+## ⚠️ Why Add Variances, Not Standard Deviations?
+
+You **cannot** add σ values directly: $2.33 + 3.00 + 1.50 + 7.00 = 13.83$ — this overstates uncertainty.
+
+Variances add correctly because they measure independent squared spread. You take the square root **after** summing to get back to days:
+$$\sigma_{project} = \sqrt{\sum \sigma^2} <br/>eq \sum \sigma$$
+:::
 
 ### Probability of Completion by Target Date
 
@@ -842,68 +1506,304 @@ $$Z = \frac{T_{target} - T_{expected}}{\sigma_{project}}$$
 
 Where $T_{target}$ is the desired completion date and $T_{expected}$ is the calculated expected completion.
 
+The Z-score tells you **how many standard deviations** the target date is above the expected duration. You then look up that Z-score in the **Standard Normal Distribution Table** below to find the probability:
+
+::: {.callout-note icon="false"}
+## 📖 Standard Normal Distribution (Z-Table) — Selected Values
+
+| Z | Probability P(Z ≤ z) | Meaning |
+|------|----------------------|---------|
+| 0.00 | 50% | Target = expected duration — 50/50 chance |
+| 0.50 | 69% | Half a standard deviation above expected |
+| 0.84 | 80% | |
+| 1.00 | 84% | One standard deviation above expected |
+| 1.28 | 90% | |
+| 1.45 | 93% | |
+| 1.58 | **94%** | ← used in our example below |
+| 1.645 | **95%** | ← common project management target |
+| 2.00 | 97.7% | Two standard deviations above expected |
+| 2.326 | **99%** | |
+| 2.576 | 99.5% | |
+| 3.00 | 99.9% | |
+
+: Z-table reference for PERT probability calculations {.striped .hover}
+
+**How to read:** A Z-score of 1.645 means the target date is 1.645 standard deviations above the expected finish — and there is a 95% probability the project finishes by that date.
+:::
+
 ::: {.callout-note icon="false"}
 ## 📖 Example PERT Probability Calculation
 
-**Critical path expected duration:** 65 days  
-**Project standard deviation:** 8.5 days  
-**Client deadline:** 75 days  
+Using the values calculated above from our four activities:
 
-$$Z = \frac{75 - 65}{8.5} = 1.18$$
+**Critical path expected duration:** $T_E = 67.17$ days  
+**Project standard deviation:** $\sigma_{project} = 8.11$ days  
+**Client deadline:** 80 days  
 
-From Z-table: P(Z ≤ 1.18) ≈ **88%**
+$$Z = \frac{80 - 67.17}{8.11} = \frac{12.83}{8.11} = 1.58$$
 
-There is an **88% probability** of completing the project within 75 days.
+From Z-table: P(Z ≤ 1.58) ≈ **94%**
 
-To achieve 95% probability: Need Z = 1.645 → $T = 65 + (1.645 × 8.5) = 79$ days
+There is a **94% probability** of completing the project within 80 days.
+
+To achieve 95% probability: Need Z = 1.645 → $T = 67.17 + (1.645 \times 8.11) = 67.17 + 13.34 \approx \mathbf{80.5 \text{ days}}$
+
+To achieve 99% probability: Need Z = 2.326 → $T = 67.17 + (2.326 \times 8.11) \approx \mathbf{86.1 \text{ days}}$
 :::
 
 ---
 
-## Schedule Compression Techniques
+## Schedule Compression Techniques [📋 Required]{.badge-req}
 
 When the calculated schedule exceeds the target date, two primary compression techniques are available:
 
-```{mermaid}
-%%| fig-cap: "Schedule compression strategies — crashing vs. fast-tracking"
-graph LR
-    SC["📅 Schedule<br/>Needs<br/>Compression"] --> CR & FT
-    
-    subgraph CR["💰 CRASHING"]
-        direction TB
-        CR1["Add more resources to<br/>critical path activities"] --> CR2
-        CR2["Increases cost,<br/>may increase risk<br/>but maintains quality"] --> CR3
-        CR3["Cost-slope analysis:<br/>Which activity gives<br/>most time per $?"]
-    end
-    
-    subgraph FT["⚠️ FAST-TRACKING"]
-        direction TB
-        FT1["Run activities in<br/>parallel that were<br/>previously sequential"] --> FT2
-        FT2["Increases risk<br/>(rework if earlier<br/>work changes)"] --> FT3
-        FT3["No additional cost<br/>but needs careful<br/>coordination"]
-    end
-
-    style SC fill:#b91c1c,color:#fff
-    style CR fill:#fef9c3,stroke:#eab308
-    style FT fill:#fee2e2,stroke:#ef4444
+```{=html}
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0;">
+  <div style="background:#fef9c3;border:2px solid #eab308;border-radius:10px;padding:16px;">
+    <div style="font-weight:700;color:#a16207;font-size:0.95em;margin-bottom:10px;">💰 CRASHING</div>
+    <ul style="margin:0;padding-left:18px;font-size:0.88em;color:#1e293b;line-height:1.7;">
+      <li>Add more resources to critical path activities</li>
+      <li>Increases <strong>cost</strong>; may increase risk</li>
+      <li>Use cost-slope to find cheapest compression per day</li>
+      <li>Always crash the lowest cost-slope activity first</li>
+    </ul>
+  </div>
+  <div style="background:#fee2e2;border:2px solid #ef4444;border-radius:10px;padding:16px;">
+    <div style="font-weight:700;color:#b91c1c;font-size:0.95em;margin-bottom:10px;">⚡ FAST-TRACKING</div>
+    <ul style="margin:0;padding-left:18px;font-size:0.88em;color:#1e293b;line-height:1.7;">
+      <li>Run sequential activities in parallel (using lead times)</li>
+      <li>Increases <strong>risk</strong> of rework if earlier work changes</li>
+      <li>No direct additional cost</li>
+      <li>Requires close coordination and clear interfaces</li>
+    </ul>
+  </div>
+</div>
 ```
 
 ### Cost-Slope for Crashing
 
-The **cost-slope** tells you how much it costs to shorten an activity by one unit of time:
+The **cost-slope** measures how much it costs to shorten an activity by **one unit of time** (one day). It lets you compare activities and always crash the cheapest one first.
 
-$$Cost\ Slope = \frac{Crash\ Cost - Normal\ Cost}{Normal\ Duration - Crash\ Duration}$$
+$$\text{Cost Slope} = \frac{C_c - C_n}{T_n - T_c}$$
 
-**Crashing priority:** Always crash the critical path activity with the **lowest cost-slope** first, then re-analyse.
+| Symbol | Meaning |
+|--------|---------|
+| $C_n$ | Normal Cost — cost under the original schedule |
+| $C_c$ | Crash Cost — cost when the activity is accelerated |
+| $T_n$ | Normal Duration — original planned duration |
+| $T_c$ | Crash Duration — shortest achievable duration |
 
-| Activity | Normal Duration | Crash Duration | Normal Cost | Crash Cost | Cost Slope |
-|----------|----------------|----------------|-------------|------------|------------|
-| A | 10 days | 7 days | $10,000 | $16,000 | **$2,000/day** |
-| B | 8 days | 6 days | $8,000 | $12,000 | **$2,000/day** |
-| C | 15 days | 11 days | $20,000 | $32,000 | **$3,000/day** |
-| D | 12 days | 9 days | $15,000 | $24,000 | **$3,000/day** |
+**Worked calculations for each activity:**
 
-*To save 2 days: Crash Activity A or B first ($4,000 total), not C or D ($6,000 total)*
+| Activity | $T_n$ | $T_c$ | $C_n$ | $C_c$ | $C_c - C_n$ | $T_n - T_c$ | Cost Slope | Priority |
+|----------|-------|-------|-------|-------|------------|------------|------------|----------|
+| A | 10d | 7d | $10,000 | $16,000 | $6,000 | 3 days | **$2,000/day** | 🥇 1st |
+| B | 8d | 6d | $8,000 | $12,000 | $4,000 | 2 days | **$2,000/day** | 🥇 1st |
+| C | 15d | 11d | $20,000 | $32,000 | $12,000 | 4 days | **$3,000/day** | 🥈 2nd |
+| D | 12d | 9d | $15,000 | $24,000 | $9,000 | 3 days | **$3,000/day** | 🥈 2nd |
+
+: Cost-slope calculations with priority ranking {.striped .hover}
+
+::: {.callout-tip icon="false"}
+## 💡 The Golden Rule of Crashing
+
+**Always crash the critical path activity with the lowest cost-slope first, then re-analyse.**
+
+Only critical path activities matter — crashing a non-critical activity saves zero project time.
+
+| Goal | Best choice |
+|------|------------|
+| Save cost | Crash A or B ($2,000/day) |
+| Save maximum time | Crash C (4 days available) |
+| Balanced — save 2 days cheapest | Crash A or B: 2 × $2,000 = **$4,000** vs C or D: 2 × $3,000 = $6,000 |
+:::
+
+**Step-by-step crashing process:**
+
+1. Identify activities on the critical path only
+2. Calculate cost-slope for each critical activity
+3. Sort ascending by cost-slope (cheapest first)
+4. Crash the cheapest activity — but do not exceed its maximum crash limit ($T_n - T_c$)
+5. **Re-analyse the critical path** — it may shift after crashing
+6. Repeat until the target duration is reached
+
+::: {.callout-warning icon="false"}
+## ⚠️ Crashing Cautions
+
+| Warning | Reason |
+|---------|--------|
+| Never crash non-critical activities | They don't affect project end date |
+| Always re-check the critical path after each crash | A new critical path may emerge |
+| Respect each activity's crash limit | Every activity has a minimum achievable duration |
+| Watch for quality impact | Excessive acceleration increases error rates |
+| Get budget approval first | Crash cost must be formally authorised |
+:::
+
+**Quick example — save 3 days at minimum cost:**
+
+Activity A has a crash limit of 3 days (10 → 7) at $2,000/day:
+
+$$\text{Additional cost} = 3 \times \$2{,}000 = \mathbf{\$6{,}000}$$
+
+Alternatively, use Activity B (limit: 2 days) + Activity C (1 day):
+
+$$2 \times \$2{,}000 + 1 \times \$3{,}000 = \$4{,}000 + \$3{,}000 = \mathbf{\$7{,}000}$$
+
+✅ **Optimal: Crash Activity A by 3 days for $6,000**
+
+
+
+## Critical Chain Scheduling [📋 Required]{.badge-req}
+
+**Critical Chain Scheduling** is an alternative to CPM developed by Eliyahu Goldratt based on his **Theory of Constraints** (from the novel *"The Goal"*, 1984). It focuses on managing **buffers** rather than individual activity floats.
+
+### The Problem with Traditional Scheduling
+
+When PMs ask team members to estimate task durations, team members build in **individual safety buffers** — often doubling the realistic estimate. This leads to two dysfunctions:
+
+::: {.callout-warning icon="false"}
+## ⚠️ Parkinson's Law + Murphy's Law = Schedule Disaster
+
+- **Parkinson's Law**: *"Work expands to fill the time available."* If an activity has 10 days in the schedule, it will take 10 days — even if it could be done in 6. People do not finish early; they use the buffer for other work or polishing.
+- **Murphy's Law**: *"Anything that can go wrong, will go wrong."* Problems arise anyway, consuming the individual buffers — and the project still runs late.
+
+The result: **individual padding doesn't protect the project end date**, but it does inflate the schedule and slow down the team.
+:::
+
+### The Multitasking Problem
+
+Critical chain scheduling addresses the harm caused by **excessive multitasking**. Consider a team member assigned to three parallel tasks (A, B, C), each requiring 10 working days:
+
+| Approach | Task A finishes | Task B finishes | Task C finishes |
+|----------|----------------|-----------------|-----------------|
+| **Serial** (one at a time) | Day 10 | Day 20 | Day 30 |
+| **Parallel multitasking** (one third each day) | Day 30 | Day 30 | Day 30 |
+
+Parallel multitasking delays every task and adds context-switching overhead. The solution: **focus** — finish one task, then start the next.
+
+### How Critical Chain Scheduling Works
+
+```{mermaid}
+%%| fig-cap: "Critical chain scheduling: buffers are consolidated, not distributed"
+%%{init: {'flowchart': {'nodeSpacing': 20, 'rankSpacing': 45}}}%%
+flowchart LR
+    A["Task A<br/>(realistic)"] --> B["Task B<br/>(realistic)"] --> C["Task C<br/>(realistic)"] --> PB["PROJECT<br/>BUFFER<br/>🛡️"]
+    
+    F1["Feeding<br/>Chain 1"] --> FB1["Feeding<br/>Buffer 🛡️"] --> B
+    F2["Feeding<br/>Chain 2"] --> FB2["Feeding<br/>Buffer 🛡️"] --> C
+
+    style PB fill:#b91c1c,color:#fff,stroke:#b91c1c
+    style FB1 fill:#b45309,color:#fff
+    style FB2 fill:#b45309,color:#fff
+    style A fill:#1d4ed8,color:#fff
+    style B fill:#1d4ed8,color:#fff
+    style C fill:#1d4ed8,color:#fff
+```
+
+**Steps in critical chain scheduling:**
+
+1. **Remove individual safety buffers** from activity estimates — use the 50% likely duration (not the padded estimate)
+2. **Identify the critical chain** — the longest chain of dependent activities *considering resource constraints* (not just logic links)
+3. **Add a Project Buffer** at the end of the critical chain before the project due date — this is where the removed padding goes
+4. **Add Feeding Buffers** where non-critical chains feed into the critical chain — to protect the critical chain from delays on feeder paths
+5. **Manage the buffer** — track what percentage of the buffer has been consumed vs. how much of the project is complete
+
+### Three Organisational Approaches to Buffers
+
+| Organisation Type | Behaviour | Outcome |
+|-------------------|-----------|---------|
+| **Hard-nose** | No buffers allowed; pressures people to commit to minimum durations | Team members hide buffers in their own work; no visibility |
+| **Lenient** | Allows individual buffers in each task | Parkinson's Law applies; project still runs late |
+| **Critical chain** | Removes individual buffers; PM controls an aggregate project buffer | Buffer is visible; PM can see when project is truly at risk |
+
+::: {.callout-tip icon="false"}
+## 💡 Why Not Show the Buffer to the Team?
+
+The project buffer should be managed by the **PM**, not consumed by the team. If team members know there is a 15-day buffer, they will use it. The buffer is a management reserve — not extra time for individual tasks.
+:::
+
+---
+
+## Agile Time Management [➕ Extended]{.badge-ext}
+
+Traditional CPM scheduling assumes all work is **defined upfront** — you know every activity before the project starts. Agile projects take a fundamentally different approach.
+
+::: {.callout-note icon="false"}
+## 📖 Agile Scheduling Principles
+
+- **Don't define all work before scheduling**: Only plan in detail what will be done in the next sprint (1–4 weeks)
+- **Product Backlog**: A prioritised list of all desired features and work — managed by the **Product Owner**
+- **Sprint Backlog**: The subset of backlog items the team commits to completing in the current sprint
+- **Velocity**: The team's average output per sprint (in story points or hours), used to predict future delivery
+- **Responding to change over following a plan**: The schedule adapts sprint-by-sprint based on what has been learned and what stakeholders now want
+:::
+
+### Agile vs. Traditional Scheduling
+
+| Dimension | Traditional (CPM) | Agile |
+|-----------|------------------|-------|
+| Plan horizon | Full project upfront | Sprint-by-sprint (rolling wave) |
+| Schedule document | Gantt chart + network diagram | Sprint board (Kanban/Scrum) |
+| Change handling | Formal change control | Expected; backlog is re-prioritised |
+| Progress measure | % of activities complete | Working product per sprint |
+| Schedule owner | Project Manager | Team + Product Owner together |
+
+*For engineering and construction projects, full CPM scheduling remains essential. For IT software development, agile or hybrid approaches are increasingly standard.*
+
+---
+
+## Controlling the Schedule [📋 Required]{.badge-req}
+
+Once the project is underway, the schedule must be **monitored and controlled**. The goals of schedule control are:
+
+1. **Know the current status** of the schedule — what is on time, what is behind
+2. **Identify the factors** causing schedule changes before they become delays
+3. **Determine whether the schedule has changed** and by how much
+4. **Manage the actual changes** when they occur
+
+### Tools and Techniques for Schedule Control
+
+| Tool | How It Helps |
+|------|-------------|
+| **Progress reports** | Team members report actual start, finish, and % complete for their activities |
+| **Schedule change control system** | Defines the process for requesting, reviewing, and approving changes to the baseline |
+| **Tracking Gantt chart** | Compares planned (grey bars) vs. actual (solid bars) progress visually |
+| **Variance analysis** | Calculates schedule variance = $SV = EV - PV$ (see Chapter 7 — Earned Value) |
+| **Float/slack monitoring** | Activities with decreasing float are at risk; zero float means the critical path has shifted |
+| **PM software** (MS Project, Primavera) | Recalculates CPM automatically when actuals are entered |
+| **Resource leveling** | Resolves over-allocations that cause delays |
+
+### Reality Checks and Best Practices
+
+::: {.callout-tip icon="false"}
+## 💡 Schedule Control — Reality Checks
+
+1. **Do not plan everyone at 100% capacity.** Real work includes email, meetings, administrative tasks, and unexpected interruptions. Planning at 80–85% capacity is more realistic.
+
+2. **Hold regular progress meetings with the team and stakeholders.** Not to report blame, but to surface problems early when there is still time to respond.
+
+3. **Be honest with your sponsor when the schedule is slipping.** Hiding a delay is worse than surfacing it early — sponsors can help (more resources, scope reduction, deadline extension) only if they know about the problem.
+
+4. **Use the buffer budgeting approach with senior management.** Some PMs tell sponsors: *"We have a 15-day buffer built in. I'll report to you when we've consumed 25%, 50%, and 75% of the buffer — each level triggers a different response."* This gives management visibility without micromanagement.
+
+5. **Manage your own time.** Project managers who are disorganised cannot manage their team's schedule. Researcher Shawn Achor (Harvard) found that people who reduce the *activation energy* for productive habits are far more likely to sustain them — for example, keeping your schedule and tasks visible so the next step requires zero effort to identify.
+
+6. **Don't just write lower numbers because someone pressured you.** An unrealistic schedule does not make the project faster; it destroys credibility when the dates are missed. Use data and reasoning to defend your estimates — or formally document that the deadline was imposed.
+:::
+
+### Words of Caution on PM Software
+
+::: {.callout-warning icon="false"}
+## ⚠️ PM Software Can Be Misused
+
+Project scheduling software (MS Project, Primavera) is a powerful tool — but it is frequently misused:
+
+- **You MUST enter dependencies** for the software to calculate dates automatically. If you enter dates manually (manually scheduled tasks), the software cannot recalculate when things change. The whole benefit of CPM is lost.
+- **You MUST enter actual data** (actual start, actual finish, % complete) to compare planned vs. actual. A schedule that is never updated is just a picture of the original plan — not a management tool.
+- **Many users don't understand the CPM engine.** They override the software's logic and wonder why the dates don't update. Proper scheduling software training is essential before relying on the output.
+
+*Treat the scheduling software as a CPM calculator and change-impact analyser — not just a Gantt drawing tool.*
+:::
 
 ---
 

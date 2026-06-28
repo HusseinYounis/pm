@@ -10,6 +10,12 @@ title: "Risk Management & Project Audit"
 </div>
 ```
 
+::: {.callout-note icon="false"}
+## 🔖 Chapter Status
+
+All sections in this chapter are [➕ Extended]{.badge-ext} content — topics beyond the required source materials (Schwalbe ITPM Ch.1–8), included to provide a complete engineering project management curriculum.
+:::
+
 ## Learning Outcomes {.unnumbered}
 
 ::: {.callout-tip icon="false"}

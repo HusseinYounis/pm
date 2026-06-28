@@ -27,7 +27,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## What Is a Project?
+## What Is a Project? [📋 Required]{.badge-req}
 
 A **project** is a temporary endeavour undertaken to create a unique product, service, or result [@pmbok2021].
 
@@ -81,7 +81,7 @@ One of the most important distinctions in management is between **projects** and
 
 ---
 
-## The Project Lifecycle
+## The Project Lifecycle [📋 Required]{.badge-req}
 
 Every project passes through a series of **phases** from inception to completion. The PMI recognises five **Process Groups**:
 
@@ -132,7 +132,7 @@ xychart-beta
 
 ---
 
-## The Triple Constraint
+## The Triple Constraint [📋 Required]{.badge-req}
 
 The **Triple Constraint** (also known as the *Iron Triangle*) is the foundation of project management. Every project must be managed within three interrelated constraints:
 
@@ -225,7 +225,7 @@ Modern project management recognises additional constraints beyond the original 
 
 ---
 
-## The PMBOK Knowledge Areas
+## The PMBOK Knowledge Areas [📋 Required]{.badge-req}
 
 The PMI defines **ten Knowledge Areas** that encompass all aspects of project management:
 
@@ -246,7 +246,7 @@ The PMI defines **ten Knowledge Areas** that encompass all aspects of project ma
 
 ---
 
-## Why Projects Fail
+## Why Projects Fail [📋 Required]{.badge-req}
 
 Research consistently shows that a large proportion of engineering projects experience cost overruns, schedule delays, or scope issues.
 
@@ -302,7 +302,7 @@ Studies show that technical problems account for fewer than **20%** of project f
 
 ---
 
-## How IT Projects Differ from Other Projects
+## How IT Projects Differ from Other Projects [➕ Extended]{.badge-ext}
 
 This book is based on **Schwalbe's IT Project Management** framework, which recognises that IT projects have unique characteristics that make them fundamentally different from construction, manufacturing, or infrastructure projects. Understanding these differences explains why IT projects fail more often — and why Agile methods emerged specifically for them.
 
@@ -353,7 +353,7 @@ These differences explain three important things:
 
 ---
 
-## The Role of the Project Manager
+## The Role of the Project Manager [📋 Required]{.badge-req}
 
 A project manager is more than a technical expert — they are an **integrator, communicator, and leader**.
 
@@ -410,7 +410,7 @@ quadrantChart
 
 ---
 
-## Organisational Structures for Projects
+## Organisational Structures for Projects [📋 Required]{.badge-req}
 
 The way an organisation is structured determines **who holds authority over the project manager and team**. The structure shapes communication paths, resource availability, and ultimately, the project manager's power to deliver. PMBOK recognises five main types:
 
